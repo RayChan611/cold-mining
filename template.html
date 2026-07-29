@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 模板</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  /* 图文并茂扩展 */
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .emoji { font-size: 16px; margin-right: 6px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 40px; text-align: center; font-size: 26px; line-height: 1.2; }
+  .pcard .ptxt { flex: 1; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 示例领域</div>
+  <h1>【标题】这个冷门领域到底是什么</h1>
+  <div class="sub">一句话副标题：用大白话讲清楚它为什么有人玩、怎么入门</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。投资/收藏有风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：这个领域是干什么的、谁在玩、值不值得普通人关注。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：（一句话白话定义）</li>
+        <li><b>谁在玩</b>：（专业玩家 / 散户 / 机构）</li>
+        <li><b>市场多大</b>：（规模或价格区间，附来源）</li>
+        <li><b>小白能玩吗</b>：（门槛、风险一句话）</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <!-- 替换为主题相关的内联 SVG 插画（不要外链图片） -->
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <rect x="14" y="34" width="132" height="78" rx="10" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <circle cx="30" cy="50" r="4" fill="#e05050"/><circle cx="44" cy="50" r="4" fill="#c8a866"/><circle cx="58" cy="50" r="4" fill="#50b070"/>
+        <rect x="28" y="66" width="104" height="14" rx="4" fill="#1f1f1f" stroke="#2a2a2a"/>
+        <text x="34" y="77" fill="#c8a866" font-size="11" font-family="monospace">example.com</text>
+        <path d="M14 112 H146" stroke="#2a2a2a" stroke-width="2"/>
+        <text x="80" y="132" fill="#8a8a8a" font-size="10" text-anchor="middle">示意插画 · 请替换为领域相关图形</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">（用类比解释核心概念。例如：「它有点像 XXX，区别在于……」）</p>
+  </div>
+  <div class="illus">
+    <!-- 价值链 / 流程 内联 SVG 图 -->
+    <svg viewBox="0 0 720 120" width="720" height="120" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="40" width="180" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="100" y="67" fill="#e8e8e8" font-size="12" text-anchor="middle">环节 A</text>
+      <path d="M195 62 H235" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="245" y="40" width="180" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="335" y="67" fill="#e8e8e8" font-size="12" text-anchor="middle">环节 B</text>
+      <path d="M430 62 H470" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="480" y="40" width="180" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="570" y="67" fill="#e8e8e8" font-size="12" text-anchor="middle">环节 C</text>
+      <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">示意图：该领域的价值链 / 流转路径（请替换为真实环节）</div>
+  </div>
+</section>
+
+<!-- 02 市场有多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 价格带</h2>
+  <div class="sec-note">用真实数字说明蛋糕有多大、钱集中在哪。来源内联标注。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>档位</th><th>典型价格</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>入门档</td><td class="up">¥XX – XXX</td><td>（例子）</td></tr>
+        <tr><td>进阶档</td><td>¥X,XXX – XX,XXX</td><td>（例子）</td></tr>
+        <tr><td>极品档</td><td class="down">¥XXX,XXX+</td><td>（例子，附来源）</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="illus">
+    <!-- 价格带 / 规模 内联柱状图 SVG -->
+    <svg viewBox="0 0 720 220" width="720" height="220" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <rect x="110" y="120" width="90" height="60" fill="#c8a866"/>
+      <rect x="280" y="80" width="90" height="100" fill="#c8a866"/>
+      <rect x="450" y="40" width="90" height="140" fill="#e05050"/>
+      <text x="155" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">入门</text>
+      <text x="325" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">进阶</text>
+      <text x="495" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">极品</text>
+      <text x="380" y="215" fill="#8a8a8a" font-size="11" text-anchor="middle">示意柱状图 · 数值请替换为真实数据并标注来源</text>
+    </svg>
+    <div class="cap">价格带示意（请替换为真实数字 + 来源）</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台 -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在制定规则、谁在赚钱、小白该去哪个平台。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic">🏛️</div>
+      <div class="ptxt">
+        <span class="tag tag-root">ROOT</span>
+        <h3>玩家 / 平台 A</h3>
+        <ul><li>（角色、地位、对小白的意义）</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic">💡</div>
+      <div class="ptxt">
+        <span class="tag tag-direct">平台 B</span>
+        <h3>玩家 / 平台 B</h3>
+        <ul><li>（角色、门槛、费用）</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic">🔥</div>
+      <div class="ptxt">
+        <span class="tag tag-hot">HOT</span>
+        <h3>玩家 / 平台 C</h3>
+        <ul><li>（最活跃 / 最有话题）</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic">🌐</div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>小白友好入口</h3>
+        <ul><li>（新手最该先去的 1-2 个地方）</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就梭哈。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">（做什么、花多少、去哪）</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">（学习 / 围观 / 小额试水）</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">（建立判断框架）</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">（何时考虑加注 / 退出）</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>（坑的描述）</h3><ul><li>（为什么坑、怎么避）</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>（坑的描述）</h3><ul><li>（为什么坑、怎么避）</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>（坑的描述）</h3><ul><li>（为什么坑、怎么避）</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>（外行最该记住的一句话）</li></ul></div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>术语 A</b></td><td>（一句话人话）</td></tr>
+        <tr><td><b>术语 B</b></td><td>（一句话人话）</td></tr>
+        <tr><td><b>术语 C</b></td><td>（一句话人话）</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">💡 （一条反常识 / 有画面感的小知识，附来源）</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">（一句话：什么人适合 / 不适合）</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">（用一句金句总结这个领域）</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：（列出本次使用的公开来源，如官网 / 行业报告 / 新闻）。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html>
