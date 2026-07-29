@@ -54,16 +54,17 @@
   .vcell .vb .cool { color: #50b070; font-weight: 600; }
   footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
   .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
-  /* 图文并茂扩展 */
+  /* 图文并茂：插图与线稿图标 */
   .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
   .hero .hero-txt { flex: 1 1 320px; }
   .hero .hero-art { flex: 0 0 200px; text-align: center; }
   .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
   .illus svg { max-width: 100%; height: auto; }
   .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
-  .emoji { font-size: 16px; margin-right: 6px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
   .pcard { display: flex; gap: 12px; align-items: flex-start; }
-  .pcard .pic { flex: 0 0 40px; text-align: center; font-size: 26px; line-height: 1.2; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
   .pcard .ptxt { flex: 1; }
 </style>
 </head>
@@ -90,7 +91,7 @@
       </ul>
     </div>
     <div class="hero-art">
-      <!-- 替换为主题相关的内联 SVG 插画（不要外链图片） -->
+      <!-- 替换为主题相关的内联 SVG 概念插画（不要外链图片） -->
       <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
         <rect x="14" y="34" width="132" height="78" rx="10" fill="#141414" stroke="#c8a866" stroke-width="2"/>
         <circle cx="30" cy="50" r="4" fill="#e05050"/><circle cx="44" cy="50" r="4" fill="#c8a866"/><circle cx="58" cy="50" r="4" fill="#50b070"/>
@@ -111,7 +112,7 @@
     <p style="color:#c4c4c4;font-size:13.5px;">（用类比解释核心概念。例如：「它有点像 XXX，区别在于……」）</p>
   </div>
   <div class="illus">
-    <!-- 价值链 / 流程 内联 SVG 图 -->
+    <!-- 价值链 / 结构 内联 SVG 图（示例：三环节流程） -->
     <svg viewBox="0 0 720 120" width="720" height="120" xmlns="http://www.w3.org/2000/svg">
       <rect x="10" y="40" width="180" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
       <text x="100" y="67" fill="#e8e8e8" font-size="12" text-anchor="middle">环节 A</text>
@@ -127,7 +128,7 @@
   </div>
 </section>
 
-<!-- 02 市场有多大 / 价格带 -->
+<!-- 02 市场多大 / 价格带 -->
 <section>
   <h2><span class="num">02</span>市场多大 · 价格带</h2>
   <div class="sec-note">用真实数字说明蛋糕有多大、钱集中在哪。来源内联标注。</div>
@@ -158,13 +159,13 @@
   </div>
 </section>
 
-<!-- 03 关键玩家 / 平台 -->
+<!-- 03 关键玩家 / 平台（玩家卡片用线稿 SVG 小图标，不用 emoji） -->
 <section>
   <h2><span class="num">03</span>关键玩家 / 平台</h2>
   <div class="sec-note">谁在制定规则、谁在赚钱、小白该去哪个平台。</div>
   <div class="grid2">
     <div class="card pcard">
-      <div class="pic">🏛️</div>
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/></svg></div>
       <div class="ptxt">
         <span class="tag tag-root">ROOT</span>
         <h3>玩家 / 平台 A</h3>
@@ -172,7 +173,7 @@
       </div>
     </div>
     <div class="card pcard">
-      <div class="pic">💡</div>
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
       <div class="ptxt">
         <span class="tag tag-direct">平台 B</span>
         <h3>玩家 / 平台 B</h3>
@@ -180,7 +181,7 @@
       </div>
     </div>
     <div class="card pcard">
-      <div class="pic">🔥</div>
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
       <div class="ptxt">
         <span class="tag tag-hot">HOT</span>
         <h3>玩家 / 平台 C</h3>
@@ -188,7 +189,7 @@
       </div>
     </div>
     <div class="card pcard">
-      <div class="pic">🌐</div>
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
       <div class="ptxt">
         <span class="tag tag-step">入门</span>
         <h3>小白友好入口</h3>
@@ -210,7 +211,7 @@
   </div>
 </section>
 
-<!-- 05 常见坑 -->
+<!-- 05 常见坑（可加一张「误区 vs 真相」插图） -->
 <section>
   <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
   <div class="sec-note">外行最容易交学费的地方。</div>
@@ -219,6 +220,20 @@
     <div class="card"><span class="tag tag-warn">坑 2</span><h3>（坑的描述）</h3><ul><li>（为什么坑、怎么避）</li></ul></div>
     <div class="card"><span class="tag tag-warn">坑 3</span><h3>（坑的描述）</h3><ul><li>（为什么坑、怎么避）</li></ul></div>
     <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>（外行最该记住的一句话）</li></ul></div>
+  </div>
+  <div class="illus">
+    <!-- 可选：误区 vs 真相 对比图 -->
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="58" fill="#e05050" font-size="13" text-anchor="middle">误区</text>
+      <text x="180" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">（常见错误认知）</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="400" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="58" fill="#50b070" font-size="13" text-anchor="middle">真相</text>
+      <text x="550" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">（正确做法）</text>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相（请替换为真实例子）</div>
   </div>
 </section>
 
@@ -243,7 +258,7 @@
   <h2><span class="num">07</span>趣味小知识</h2>
   <div class="sec-note">聊天永远有料的包袱。</div>
   <div class="card">
-    <p class="quote">💡 （一条反常识 / 有画面感的小知识，附来源）</p>
+    <p class="quote">（一条反常识 / 有画面感的小知识，附来源；不要用 emoji）</p>
   </div>
   <div class="verdict">
     <div class="vcell"><div class="vt">适不适合你</div><div class="vb">（一句话：什么人适合 / 不适合）</div></div>
