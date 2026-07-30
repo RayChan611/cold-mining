@@ -13,11 +13,12 @@
      —— 严格沿用 template.html 的暗金样式，4-6 张内联 SVG 线稿，无 emoji，离线可开；
         有检索资料时优先采用并内联标注来源链接
   4. 落盘 reports/<日期>-<slug>.html；更新 index.html 与 topics_log.md
-  5. 本地 git 提交（仅版本留痕，报告由本机直接托管）
-  6. 飞书推「主题 + 链接」
+  5. git 提交并推送 GitHub Pages（https://raychan611.github.io/cold-mining/）
+  6. 飞书推「主题 + 链接」（webhook 失效时仅记录，不阻断流程）
 
 注意：配置了 TAVILY_API_KEY 时报告基于实时联网检索、可标真实来源；
 未配置时回退到模型训练知识，prompt 强制「不确定具体数字就写范围/定性或 [UNSOURCED]」。
+服务器经 SSH 部署密钥推送 GitHub（github.com Host 已在 ~/.ssh/config 绑定 cold_mining_deploy 私钥）。
 """
 import os
 import re
@@ -53,7 +54,7 @@ if LINE == "cold":
     REPORTS = os.path.join(BASE, "reports")
     WEBHOOK = os.environ.get("COLD_FEISHU_WEBHOOK", "")
     PREFIX = "【冷门信息挖掘机】"
-    SHARE = os.environ.get("COLD_SHARE_BASE", "http://82.157.131.241/reports/")
+    SHARE = os.environ.get("COLD_SHARE_BASE", "https://raychan611.github.io/cold-mining/reports/")
     CANDIDATES = [
         ("auction-bargain", "拍卖行捡漏"),
         ("old-camera", "老相机行情"),
@@ -88,7 +89,7 @@ else:
     REPORTS = os.path.join(BASE, "finance", "reports")
     WEBHOOK = os.environ.get("FINANCE_FEISHU_WEBHOOK", "")
     PREFIX = "【金融入门挖掘机】"
-    SHARE = os.environ.get("FINANCE_SHARE_BASE", "http://82.157.131.241/finance/reports/")
+    SHARE = os.environ.get("FINANCE_SHARE_BASE", "https://raychan611.github.io/cold-mining/finance/reports/")
     CANDIDATES = [
         ("rule-of-72", "复利与 72 法则"),
         ("inflation", "通货膨胀"),
@@ -322,14 +323,8 @@ def main():
     append_log(t, slug_file)
     print(f"[cold_mining] index+log updated")
 
-    if os.environ.get("GITHUB_PUSH") == "1":
-        ok, info = git_push(f"add: {LINE} {topic} {TODAY}")
-        print(f"[cold_mining] git push ok={ok} info={info}")
-    else:
-        subprocess.run(["git", "-C", BASE, "add", "-A"], capture_output=True, timeout=60)
-        subprocess.run(["git", "-C", BASE, "commit", "-m", f"add: {LINE} {topic} {TODAY}"],
-                       capture_output=True, text=True, timeout=60)
-        print("[cold_mining] git: 仅本地提交（GitHub 推送已关闭，报告由本机直接托管）")
+    ok, info = git_push(f"add: {LINE} {topic} {TODAY}")
+    print(f"[cold_mining] git push ok={ok} info={info}")
 
     link = SHARE + slug_file
     card_title = PREFIX + t
