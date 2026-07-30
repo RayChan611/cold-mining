@@ -50,7 +50,7 @@ if LINE == "cold":
     REPORTS = os.path.join(BASE, "reports")
     WEBHOOK = os.environ.get("COLD_FEISHU_WEBHOOK", "")
     PREFIX = "【冷门信息挖掘机】"
-    SHARE = "https://raychan611.github.io/cold-mining/reports/"
+    SHARE = os.environ.get("COLD_SHARE_BASE", "http://82.157.131.241/reports/")
     CANDIDATES = [
         ("auction-bargain", "拍卖行捡漏"),
         ("old-camera", "老相机行情"),
@@ -85,7 +85,7 @@ else:
     REPORTS = os.path.join(BASE, "finance", "reports")
     WEBHOOK = os.environ.get("FINANCE_FEISHU_WEBHOOK", "")
     PREFIX = "【金融入门挖掘机】"
-    SHARE = "https://raychan611.github.io/cold-mining/finance/reports/"
+    SHARE = os.environ.get("FINANCE_SHARE_BASE", "http://82.157.131.241/finance/reports/")
     CANDIDATES = [
         ("rule-of-72", "复利与 72 法则"),
         ("inflation", "通货膨胀"),
@@ -274,8 +274,14 @@ def main():
     append_log(t, slug_file)
     print(f"[cold_mining] index+log updated")
 
-    ok, info = git_push(f"add: {LINE} {topic} {TODAY}")
-    print(f"[cold_mining] git push ok={ok} info={info}")
+    if os.environ.get("GITHUB_PUSH") == "1":
+        ok, info = git_push(f"add: {LINE} {topic} {TODAY}")
+        print(f"[cold_mining] git push ok={ok} info={info}")
+    else:
+        subprocess.run(["git", "-C", BASE, "add", "-A"], capture_output=True, timeout=60)
+        subprocess.run(["git", "-C", BASE, "commit", "-m", f"add: {LINE} {topic} {TODAY}"],
+                       capture_output=True, text=True, timeout=60)
+        print("[cold_mining] git: 仅本地提交（GitHub 推送已关闭，报告由本机直接托管）")
 
     link = SHARE + slug_file
     card_title = PREFIX + t

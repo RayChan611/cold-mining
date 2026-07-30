@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 通货膨胀</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  /* 图文并茂：插图与线稿图标 */
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 宏观经济</div>
+  <h1>通货膨胀：你的钱是怎么悄悄变“毛”的</h1>
+  <div class="sub">一句话副标题：用大白话讲清楚物价飞涨的底层逻辑，以及普通人该怎么办</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。投资/理财有风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：通货膨胀到底是什么、谁在管、普通人该不该慌。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：市面上的钱变多了，但商品没增加，导致“钱不值钱”，物价普遍持续上涨。</li>
+        <li><b>谁在管</b>：各国的中央银行（如美联储、中国人民银行），他们负责印钱和调利率。</li>
+        <li><b>市场多大</b>：全球主流经济体通胀率常在 0%-5% 波动，极端时期（如土耳其、阿根廷近年）可超 50% 甚至 100%（据公开资料）。</li>
+        <li><b>小白能玩吗</b>：不用“玩”，你已经在局里了。懂它的意义在于保护你的存款购买力。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <!-- 钱包与缩水的购买力 -->
+        <path d="M25 50 H130 V130 H25 Z" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <path d="M25 50 V40 H120 V50" fill="none" stroke="#c8a866" stroke-width="2"/>
+        <circle cx="120" cy="90" r="14" fill="none" stroke="#e8e8e8" stroke-width="2"/>
+        <text x="120" y="95" fill="#e8e8e8" font-size="14" text-anchor="middle" font-weight="bold">¥</text>
+        <!-- 向下缩水的箭头 -->
+        <path d="M55 85 L55 115 M48 108 L55 115 L62 108" fill="none" stroke="#e05050" stroke-width="2" marker-end="url(#ar-d)"/>
+        <text x="42" y="75" fill="#e05050" font-size="10">购买力</text>
+        <defs><marker id="ar-d" markerWidth="8" markerHeight="8" refX="4" refY="7" orient="auto"><path d="M0 0 L8 0 L4 8 Z" fill="#e05050"/></marker></defs>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把一个外行完全不懂的宏观概念，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">想象一下：你和一个果园老板做生意。果园每年固定产出 100 个苹果。第一年，社会上流通着 100 块钱，那么 1 个苹果 = 1 块钱。第二年，老板还是只能产出 100 个苹果，但央行多印了 100 块钱，社会上有了 200 块钱。这时候大家手里钱多了，都去买苹果，苹果就会涨价到 2 块钱一个。<br><br>这就是通货膨胀的本质：<b>钱的数量增长速度，超过了商品的增长速度</b>。你的 1 块钱还在你口袋里，但它只能买到半个苹果了。钱本身没变少，但它的“购买力”被稀释了。</p>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 140" width="720" height="140" xmlns="http://www.w3.org/2000/svg">
+      <!-- 通胀传导链 -->
+      <rect x="10" y="48" width="140" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="80" y="75" fill="#e8e8e8" font-size="12" text-anchor="middle">央行印钞/放水</text>
+      <path d="M155 70 H195" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      
+      <rect x="200" y="48" width="140" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="270" y="75" fill="#e8e8e8" font-size="12" text-anchor="middle">市面钱变多</text>
+      <path d="M345 70 H385" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      
+      <rect x="390" y="48" width="140" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="460" y="75" fill="#e8e8e8" font-size="12" text-anchor="middle">竞相购买商品</text>
+      <path d="M535 70 H575" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      
+      <rect x="580" y="48" width="130" height="44" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="645" y="75" fill="#e05050" font-size="12" text-anchor="middle">物价全面上涨</text>
+      
+      <text x="360" y="125" fill="#8a8a8a" font-size="11" text-anchor="middle">通货膨胀的传导链条：钱比货多，购买力被稀释</text>
+      <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">示意图：通胀的形成并非一蹴而就，而是一个传导过程</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 通胀的杀伤力</h2>
+  <div class="sec-note">用真实数字说明通胀有多猛，不同国家的人都在经历什么。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>通胀档位</th><th>典型年化率</th><th>说明与体感</th></tr></thead>
+      <tbody>
+        <tr><td>温和通胀</td><td class="up">1% – 3%</td><td>经济学家眼里的“健康状态”，刺激消费，不觉得痛（如近年的中国、日本部分时期）。</td></tr>
+        <tr><td>高通胀</td><td>5% – 10%</td><td>明显感觉菜价肉价涨了，存款开始焦虑（如2022年美国一度突破 9%，据美国劳工统计局）。</td></tr>
+        <tr><td>恶性通胀</td><td class="down">50%+ / 月</td><td>钱变废纸，早上能买头牛，晚上只能买只鸡（如津巴布韦、近年阿根廷，据公开资料）。</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 220" width="720" height="220" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <text x="20" y="100" fill="#9a9a9a" font-size="11" text-anchor="middle" transform="rotate(-90 20 100)">通胀率高低</text>
+      
+      <rect x="110" y="140" width="90" height="40" fill="#50b070"/>
+      <text x="155" y="135" fill="#50b070" font-size="12" text-anchor="middle">~2%</text>
+      <text x="155" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">温和通胀</text>
+      
+      <rect x="280" y="80" width="90" height="100" fill="#c8a866"/>
+      <text x="325" y="75" fill="#c8a866" font-size="12" text-anchor="middle">~8%</text>
+      <text x="325" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">高通胀</text>
+      
+      <rect x="450" y="30" width="90" height="150" fill="#e05050"/>
+      <text x="495" y="25" fill="#e05050" font-size="12" text-anchor="middle">100%+</text>
+      <text x="495" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">恶性通胀</text>
+      
+      <text x="380" y="215" fill="#8a8a8a" font-size="11" text-anchor="middle">不同通胀档位对购买力的侵蚀速度对比（示意）</text>
+    </svg>
+    <div class="cap">数据来源：综合公开资料与各国统计局口径</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台 -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 机构</h2>
+  <div class="sec-note">谁在印钱、谁在测钱、谁在替你对抗通胀。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">ROOT</span>
+        <h3>中央银行（如美联储、人民银行）</h3>
+        <ul><li>通胀的“总开关”。通过印钞、调整利率来控制市面上的钱量。加息是给通胀“踩刹车”，降息是“踩油门”。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">裁判</span>
+        <h3>统计局（CPI 测量员）</h3>
+        <ul><li>负责统计“菜篮子”价格，发布 CPI（居民消费价格指数）。官方说通胀多少，就靠他们算。但每个人的“体感通胀”可能不同。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">HOT</span>
+        <h3>普通打工人（你）</h3>
+        <ul><li>通胀的“被动承受者”。工资涨幅通常滞后于物价涨幅。如果不理财，现金存款会随时间被通胀持续“剪羊毛”。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">对抗</span>
+        <h3>硬资产持有者</h3>
+        <ul><li>买房、买金、买股的人。在通胀时代，钱变毛了，但“实物资产”的数量没变，因此价格会水涨船高，起到保值作用。</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何应对 · 起步指南</h2>
+  <div class="sec-note">按步骤走，别一听到通胀就去梭哈高风险资产。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步 · 算算你的“体感通胀”</div><div class="tl-body">别光看新闻上的 CPI。算算你每个月的刚需开销（房租、吃饭、交通）相比去年涨了多少。这决定了你需要多激进的理财策略。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步 · 留足“保命钱”</div><div class="tl-body">留出 3-6 个月的生活费在活期或货币基金（如余额宝）里。这部分钱哪怕被通胀稀释，也要换取随时能取的流动性。不要为了抗通胀把救命钱锁死。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步 · 把闲钱换成“生息资产”</div><div class="tl-body">通胀喜欢吃死钱。让钱去干活：买一点宽基指数基金、定投黄金、或者购买能提供稳定分红的资产。收益率只要跑赢 CPI，你就赢了。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步 · 投资自己</div><div class="tl-body">巴菲特说过，最好的抗通胀是投资自己。提升技能，让你的工资涨幅跑赢物价涨幅。人力资本是唯一不会被印钞机稀释的资产。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行一慌张，最容易交学费的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>盲目囤积消费品</h3><ul><li>听说要通胀，买一屋子米面粮油。结果不仅过期变质，还占地方。消费品囤半年的量够了，囤多了是智商税。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>怕贬值去借高利贷投资</h3><ul><li>觉得借钱买房能抗通胀，结果加了过高杠杆。一旦现金流断裂，资产被法拍，通胀还没来人先破产了。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>全仓杀入单一资产</h3><ul><li>听人说黄金抗通胀，就把存款全买金条。黄金短期波动也很大，高位接盘可能套好几年。资产配置比单一押注更重要。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>普通人抗通胀的核心不是“暴富”，而是“不缩水”。跑赢无风险利率 + CPI 的组合拳，比寻找下一个百倍币靠谱得多。</li></ul></div>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="58" fill="#e05050" font-size="13" text-anchor="middle">误区：通胀来了必须立刻全仓买房买金</text>
+      <text x="180" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">（恐慌驱动，忽视流动性与短期波动风险）</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="400" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="58" fill="#50b070" font-size="13" text-anchor="middle">真相：留足应急金，闲钱分批配置生息资产</text>
+      <text x="550" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">（用时间换空间，让收益率追赶通胀率）</text>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相：应对通胀的正确姿势</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">看财经新闻时用得上的词，一秒变内行。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>CPI</b></td><td>居民消费价格指数。统计局盯着几百种日常商品算出来的“物价体温计”。</td></tr>
+        <tr><td><b>放水</b></td><td>央行往市场里大量投钱，降低利率。市面上的钱多了，容易引发通胀。</td></tr>
+        <tr><td><b>加息</b></td><td>央行提高利息。鼓励大家把钱存银行，少花钱少贷款，给通胀“降温”。</td></tr>
+        <tr><td><b>缩表</b></td><td>央行把以前买进来的债券卖掉，把市面上的钱收回来，算是“抽水机”。</td></tr>
+        <tr><td><b>核心通胀</b></td><td>剔除价格波动大的食品和能源后的通胀率。能看出更真实的“底火”。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">“通胀是一种无需立法的税收。”——经济学家米尔顿·弗里德曼。政府印钱相当于偷偷从每个人的口袋里抽走了一点点购买力，用来偿还债务或搞建设，而你甚至不需要填报税单。</p>
+  </div>
+  <div class="card">
+    <p class="quote">在 2008 年津巴布韦恶性通胀时期，一块面包卖到了几千亿津巴布韦元。人们去超市买东西得推着整整一推车的钞票，钱的面值甚至不如印这张钞票的纸值钱（据公开资料）。</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">适合每一个<span class="cool">有存款或固定收入</span>的人关注。不管你理不理财，通胀都在理你。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">通胀不是钱变多了，而是钱<span class="hot">变毛了</span>。别让努力攒下的购买力，在岁月里悄悄蒸发。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：综合各国央行公开声明、美国劳工统计局（BLS）、中国国家统计局等公开资料整理。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html

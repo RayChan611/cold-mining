@@ -6,3 +6,4 @@
 | 日期 | 主题 | 文件路径 |
 |------|------|----------|
 | 2026-07-30 | 复利与 72 法则 | finance/reports/2026-07-30-compound-interest-rule-of-72.html |
+| 2026-07-30 | 通货膨胀：你的钱是怎么悄悄变“毛”的 | reports/2026-07-30-tong-huo-peng-zhang.html |
