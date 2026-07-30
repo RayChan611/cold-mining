@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>复利与 72 法则 · 金融入门挖掘机</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  /* 图文并茂：插图与线稿图标 */
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="kicker">金融入门挖掘机 · 基础概念 第 001 期</div>
+  <h1>复利与 72 法则：钱生钱的「滚雪球」说明书</h1>
+  <div class="sub">爱因斯坦其实没说过那句名言，但 72 法则确实是理财界流传 500 多年的心算神器</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。投资/收藏有风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：复利是什么、72 法则怎么用、为什么它同时是你的朋友和敌人。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>复利是什么</b>：利息也开始生利息。本金赚了钱，赚到的钱下一轮继续跟着赚——像滚雪球，越滚越大。</li>
+        <li><b>72 法则是什么</b>：用 72 除以年化收益率（%），就能心算出资金翻倍所需的年数。年化 6%，72÷6=12 年翻一倍。</li>
+        <li><b>有多老</b>：最早白纸黑字出现在 1494 年意大利数学家帕乔利的《算术大全》里（来源：Wikipedia/HandWiki, Rule of 72 词条），比爱因斯坦出生早了近 400 年。</li>
+        <li><b>小白要注意</b>：复利是双向的——存钱时帮你，欠债时坑你。信用卡日息万五，年化约 18.25%，用 72 法则算：欠款不到 4 年翻倍。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="38" cy="122" r="10" fill="none" stroke="#c8a866" stroke-width="2"/>
+        <circle cx="66" cy="108" r="16" fill="none" stroke="#c8a866" stroke-width="2"/>
+        <circle cx="106" cy="84" r="24" fill="none" stroke="#c8a866" stroke-width="2.5"/>
+        <text x="38" y="126" fill="#c8a866" font-size="9" text-anchor="middle">1x</text>
+        <text x="66" y="112" fill="#c8a866" font-size="10" text-anchor="middle">2x</text>
+        <text x="106" y="88" fill="#e8e8e8" font-size="12" text-anchor="middle">4x</text>
+        <path d="M20 140 Q 70 130 140 40" fill="none" stroke="#2a2a2a" stroke-width="1.5" stroke-dasharray="4 4"/>
+        <path d="M132 52 L140 40 L142 54" fill="none" stroke="#c8a866" stroke-width="1.5"/>
+        <text x="80" y="152" fill="#8a8a8a" font-size="10" text-anchor="middle">雪球越滚越大</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">单利 vs 复利：一字之差，几十年后差出一辆车。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">
+      想象你种了一棵苹果树。<b style="color:#e8e8e8;">单利</b>是：每年摘的苹果全吃掉，树永远只有一棵，每年产量不变。<b style="color:#e8e8e8;">复利</b>是：每年摘的苹果不吃，拿去种新树——第二年你有 1 棵老树加几棵小树苗，第十年你有一片果园。前期看起来慢得让人怀疑人生，但后期会突然「起飞」，因为新树也在结果、结的果又变成更新的树。
+    </p>
+    <p style="color:#c4c4c4;font-size:13.5px;margin-top:10px;">
+      数学上：本金 10 万、年化 6%，单利 24 年后是 10 + 10×6%×24 = 24.4 万；复利 24 年后是 10×(1.06)²⁴ ≈ 40.5 万（按复利公式计算）。同样的利率，差了 16 万——这就是「利滚利」三个字的分量。
+    </p>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 240" width="720" height="240" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="195" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="195" x2="690" y2="195" stroke="#2a2a2a" stroke-width="1.5"/>
+      <text x="52" y="30" fill="#9a9a9a" font-size="11" text-anchor="end">40万</text>
+      <text x="52" y="110" fill="#9a9a9a" font-size="11" text-anchor="end">25万</text>
+      <text x="52" y="188" fill="#9a9a9a" font-size="11" text-anchor="end">10万</text>
+      <text x="60" y="212" fill="#9a9a9a" font-size="11" text-anchor="middle">0年</text>
+      <text x="370" y="212" fill="#9a9a9a" font-size="11" text-anchor="middle">12年</text>
+      <text x="680" y="212" fill="#9a9a9a" font-size="11" text-anchor="middle">24年</text>
+      <path d="M60 185 L680 108" stroke="#8a8a8a" stroke-width="2"/>
+      <path d="M60 185 C 250 170, 480 130, 680 28" fill="none" stroke="#c8a866" stroke-width="2.5"/>
+      <text x="600" y="130" fill="#8a8a8a" font-size="12">单利 24.4万</text>
+      <text x="580" y="40" fill="#c8a866" font-size="12" font-weight="600">复利 40.5万</text>
+      <text x="370" y="235" fill="#8a8a8a" font-size="11" text-anchor="middle">10 万本金 · 年化 6% · 单利 vs 复利（按公式计算）</text>
+    </svg>
+    <div class="cap">复利曲线前平后陡：前 12 年不显山露水，后 12 年拉开差距</div>
+  </div>
+</section>
+
+<!-- 02 关键数字 -->
+<section>
+  <h2><span class="num">02</span>72 法则 · 翻倍时间速查</h2>
+  <div class="sec-note">72 除以年化收益率 = 翻倍年数。数学原理：ln2≈0.693，取 72 是因为它能被 2、3、4、6、8、9、12 整除，心算友好（来源：HandWiki, Rule of 72）。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>钱放在哪</th><th>年化收益（参考）</th><th>翻倍需要</th></tr></thead>
+      <tbody>
+        <tr><td>活期/货币基金</td><td>约 1.5% [UNSOURCED，随行情浮动]</td><td class="down">约 48 年</td></tr>
+        <tr><td>银行定期/国债</td><td>约 2%–3% [UNSOURCED，随行情浮动]</td><td>约 24–36 年</td></tr>
+        <tr><td>沪深300 全收益指数</td><td class="up">2005–2025 年化约 9.9%（来源：海通证券荀玉根，via 华盛通 2026-06）</td><td class="up">约 7.3 年</td></tr>
+        <tr><td>标普500 含股息</td><td class="up">1957–2025 年化约 10.3%（来源：雪球用户整理，2026-04）</td><td class="up">约 7 年</td></tr>
+        <tr><td>信用卡欠款（反向）</td><td class="down">日息万五 ≈ 年化 18.25%（按 0.05%×365 计算）</td><td class="down">欠款约 3.9 年翻倍</td></tr>
+      </tbody>
+    </table>
+    <p class="src" style="margin-top:8px;">注：指数历史收益不代表未来；标普500 当前估值处于历史偏高分位（来源：雪球，2026-04）。</p>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 230" width="720" height="230" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <rect x="100" y="36" width="80" height="144" fill="none" stroke="#8a8a8a" stroke-width="1.5"/>
+      <rect x="240" y="108" width="80" height="72" fill="#c8a866" opacity="0.55"/>
+      <rect x="380" y="158" width="80" height="22" fill="#c8a866"/>
+      <rect x="520" y="168" width="80" height="12" fill="#e05050"/>
+      <text x="140" y="28" fill="#9a9a9a" font-size="11" text-anchor="middle">48 年</text>
+      <text x="280" y="100" fill="#c8a866" font-size="11" text-anchor="middle">24 年</text>
+      <text x="420" y="150" fill="#c8a866" font-size="11" text-anchor="middle">7.2 年</text>
+      <text x="560" y="160" fill="#e05050" font-size="11" text-anchor="middle">3.9 年</text>
+      <text x="140" y="198" fill="#9a9a9a" font-size="11" text-anchor="middle">1.5% 货基</text>
+      <text x="280" y="198" fill="#9a9a9a" font-size="11" text-anchor="middle">3% 定存</text>
+      <text x="420" y="198" fill="#9a9a9a" font-size="11" text-anchor="middle">10% 宽基指数</text>
+      <text x="560" y="198" fill="#9a9a9a" font-size="11" text-anchor="middle">18.25% 卡债</text>
+      <text x="375" y="222" fill="#8a8a8a" font-size="11" text-anchor="middle">不同年化利率下的资金翻倍年数（72 ÷ 利率）</text>
+    </svg>
+    <div class="cap">利率差几个点，翻倍时间差几十年。最右边那根红柱是欠债翻倍——复利站在债主那边</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 -->
+<section>
+  <h2><span class="num">03</span>复利在谁手里 · 它出现在哪</h2>
+  <div class="sec-note">复利不是产品，是机制。这些地方它每天都在悄悄运转。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M3 17l4-6 4 3 5-8 5 5"/><path d="M3 21h18"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">ROOT</span>
+        <h3>指数基金 / 长期定投</h3>
+        <ul><li>股息再投资是复利的主引擎：标普500 长期收益里，分红再投资贡献了大头（来源：约翰·博格《长赢投资》收益分解，via 华盛通 2026-06）。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/><path d="M7 15h4"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">反向复利</span>
+        <h3>信用卡 / 网贷</h3>
+        <ul><li>循环利息按日计收、利滚利。日息万五年化约 18.25%，只还最低还款额时，剩余欠款持续复利膨胀。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">时间玩家</span>
+        <h3>养老金 / 社保基金</h3>
+        <ul><li>动辄 20–40 年的投资周期，是复利最好的朋友。年轻时多缴一年，退休时的差距远超一年缴费额。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M12 3v18"/><path d="M17 8a4 4 0 0 0-5-2 4 4 0 0 0 0 6h2a4 4 0 0 1 0 6 4 4 0 0 1-5-2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>普通人的第一步</h3>
+        <ul><li>任何支持红利再投资的宽基指数基金 + 自动定投，就是普通人最省事的复利机器。先跑起来，再谈优化。</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">复利只认三个变量：本金、收益率、时间。普通人最能控制的是时间。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步 · 先掐灭反向复利</div><div class="tl-body">任何年化超过 10% 的债务（信用卡分期、网贷）优先还清。还债的「收益率」是确定的，投资的收益率是不确定的。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步 · 学会用 72 心算</div><div class="tl-body">看到任何理财产品，先算翻倍年数：72 ÷ 年化。有人吹「年化 36%、两年翻倍」？72÷36=2，数学没错，但可持续年化 36% 基本等于骗局警报。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步 · 小额定投宽基</div><div class="tl-body">选一只低费率宽基指数基金，设置每月自动定投 + 红利再投资，金额以「亏 30% 也不心疼」为上限。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步 · 然后就是熬</div><div class="tl-body">标普500 历史上持有 20 年从未出现亏损区间（1928 年以来数据，来源：historyofmarket.com）。复利的最后一步是活得久、拿得住、别打断它。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">复利最大的敌人不是市场，是你自己的手。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>「平均 10%」当成「每年 10%」</h3><ul><li>1928 年以来，标普500 单年回报落在均值正负 2% 内的只有 7 个年份；最惨的 1931 年跌 43.8%（来源：historyofmarket.com）。复利是长期均值，不是年度承诺。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>频繁打断复利</h3><ul><li>涨了落袋为安、跌了割肉离场，每次进出都把雪球推回起点，还搭上手续费。复利公式里的指数是「连续持有年数」，不是「开户年数」。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>忽视费率的反向复利</h3><ul><li>1.5% 的年管理费看着小，但它也在复利：30 年下来能吃掉最终收益的三分之一以上（按复利公式计算）。选低费率产品不是抠门，是数学。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>本金、收益率、时间三个变量里，别为了拉高收益率赌上本金——本金归零，任何复利都从零开始。</li></ul></div>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="58" fill="#e05050" font-size="13" text-anchor="middle">误区</text>
+      <text x="180" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">复利 = 稳稳地每年赚 10%</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="400" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="58" fill="#50b070" font-size="13" text-anchor="middle">真相</text>
+      <text x="550" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">复利 = 大涨大跌熬过去后的长期均值</text>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">把「长期均值」误解成「每年保底」，是新手对复利最大的误会</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>复利（Compound Interest）</b></td><td>利息生利息，钱以指数方式增长（或膨胀，如果你是欠钱的一方）。</td></tr>
+        <tr><td><b>单利（Simple Interest）</b></td><td>只有本金生息，利息躺平不干活。</td></tr>
+        <tr><td><b>72 法则</b></td><td>72 ÷ 年化收益率 ≈ 翻倍年数。心算神器，6%–10% 区间最准。</td></tr>
+        <tr><td><b>114 / 144 法则</b></td><td>同款兄弟：114 ÷ 利率 ≈ 变 3 倍的年数，144 ÷ 利率 ≈ 变 4 倍的年数（来源：中央日报专栏，2009）。</td></tr>
+        <tr><td><b>CAGR（复合年化增长率）</b></td><td>把多年的总收益折算成「相当于每年稳定赚多少」，比算术平均更诚实。</td></tr>
+        <tr><td><b>红利再投资</b></td><td>分红不取现，自动买回基金份额——手动挡复利变自动挡。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">「复利是世界第八大奇迹」——这句被印在无数理财广告上的「爱因斯坦名言」，其实查无实据：引用考证网站 Quote Investigator 追溯发现，最早的类似说法出现在 1970 年代美国报纸上，爱因斯坦的任何著作、书信、访谈里都找不到这句话（来源：Quote Investigator，via nehori.com 事实核查，2025-01）。真正该领功的是 1494 年的意大利修士帕乔利——他还是达·芬奇的数学老师、复式记账法之父。一句话在 500 年里从威尼斯商人的口诀，变成了物理学家的「名言」。</p>
+  </div>
+  <div class="card">
+    <p class="quote">传奇基金经理彼得·林奇算过一笔账：1626 年原住民以约 24 美元把曼哈顿岛卖给殖民者，人人都说卖亏了——但如果这 24 美元按年化 8% 复利存到 1988 年，会变成约 30 万亿美元，是当年曼哈顿全岛地价（562 亿美元）的 530 倍（来源：彼得·林奇的计算，via 韩国中央日报专栏，2009）。复利没有立场，它只忠于时间。</p>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 150" width="720" height="150" xmlns="http://www.w3.org/2000/svg">
+      <line x1="50" y1="90" x2="690" y2="90" stroke="#2a2a2a" stroke-width="2"/>
+      <circle cx="110" cy="90" r="6" fill="#c8a866"/>
+      <text x="110" y="70" fill="#c8a866" font-size="12" text-anchor="middle" font-weight="600">1494</text>
+      <text x="110" y="115" fill="#c4c4c4" font-size="11" text-anchor="middle">帕乔利《算术大全》</text>
+      <text x="110" y="131" fill="#8a8a8a" font-size="10" text-anchor="middle">72 法则首次成文</text>
+      <circle cx="310" cy="90" r="6" fill="none" stroke="#c8a866" stroke-width="2"/>
+      <text x="310" y="70" fill="#c8a866" font-size="12" text-anchor="middle" font-weight="600">1626</text>
+      <text x="310" y="115" fill="#c4c4c4" font-size="11" text-anchor="middle">曼哈顿 24 美元成交</text>
+      <text x="310" y="131" fill="#8a8a8a" font-size="10" text-anchor="middle">复利段子的起点</text>
+      <circle cx="500" cy="90" r="6" fill="none" stroke="#e05050" stroke-width="2"/>
+      <text x="500" y="70" fill="#e05050" font-size="12" text-anchor="middle" font-weight="600">1970s</text>
+      <text x="500" y="115" fill="#c4c4c4" font-size="11" text-anchor="middle">「爱因斯坦名言」出现</text>
+      <text x="500" y="131" fill="#8a8a8a" font-size="10" text-anchor="middle">查无实据的误传</text>
+      <circle cx="650" cy="90" r="6" fill="#50b070"/>
+      <text x="650" y="70" fill="#50b070" font-size="12" text-anchor="middle" font-weight="600">今天</text>
+      <text x="650" y="115" fill="#c4c4c4" font-size="11" text-anchor="middle">你开始定投</text>
+      <text x="650" y="131" fill="#8a8a8a" font-size="10" text-anchor="middle">复利的下一站</text>
+      <text x="370" y="30" fill="#8a8a8a" font-size="11" text-anchor="middle">72 法则与复利的 500 年小史</text>
+    </svg>
+    <div class="cap">从威尼斯商人的心算口诀，到你手机里的定投按钮</div>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">适合<span class="cool">所有会花钱和存钱的人</span>——复利不挑人，只挑<span class="hot">是否有耐心</span>。想三个月翻倍的，它帮不上忙。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">复利的前半场无聊到想放弃，后半场精彩到不敢相信——���多数人输在中场休息就离场了。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：Wikipedia/HandWiki（Rule of 72 词条，帕乔利 1494 年《算术大全》原文）、Quote Investigator（爱因斯坦名言考证，via nehori.com 2025-01）、historyofmarket.com（标普500 1928–2025 年化 10.1%、单年分布、20 年持有零亏损区间）、雪球（标普500 1957–2025 含股息年化约 10.3%、估值分位）、海通证券荀玉根 via 华盛通（沪深300 全收益 2005–2025 年化约 9.9%）、韩国中央日报（彼得·林奇曼哈顿复利计算、114/144 法则）。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：金融入门挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html>
