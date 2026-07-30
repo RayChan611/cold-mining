@@ -6,3 +6,4 @@
 | 日期 | 主题 | 文件路径 |
 |------|------|----------|
 | 2026-07-29 | 球鞋碳板科技（超级跑鞋） | reports/2026-07-29-running-shoe-carbon-plate.html |
+| 2026-07-30 | 拍卖行捡漏：在灰尘里翻找金子的冷门手艺 | reports/2026-07-30-auction-house-bargain-hunting.html |
