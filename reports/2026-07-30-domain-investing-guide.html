@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 域名投资</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  /* 图文并茂：插图与线稿图标 */
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 域名投资</div>
+  <h1>域名投资：互联网的"虚拟房地产"入门指南</h1>
+  <div class="sub">从几百块到上千万，那些在地址栏里倒卖"门牌号"的人是怎么赚钱的</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。投资有风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：这个领域是干什么的、谁在玩、值不值得普通人关注。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：抢注或买入有商业潜力的网址域名，再高价转让给需要的人，类似"虚拟房地产炒卖"（来源：https://www.west.cn/docs/188675.html）</li>
+        <li><b>谁在玩</b>：个人兼职炒家、专业域名投资人、企业品牌方，国内交易网站注册的专职/兼职炒家达10多万人（来源：https://baike.baidu.com/item/%E5%9F%9F%E5%90%8D%E6%8A%95%E8%B5%84/34952）</li>
+        <li><b>市场多大</b>：全球最大注册商 GoDaddy 管理超 8200 万个域名，极品域名成交价可达数百万美元（来源：https://www.godaddy.com/zh-sg/domains/domain-investing）</li>
+        <li><b>小白能玩吗</b>：门槛低（几十块就能注册），但"一夜暴富"是凤毛麟角，绝大多数域名砸在手里卖不掉（来源：https://baike.baidu.com/item/%E5%9F%9F%E5%90%8D%E6%8A%95%E8%B5%84/34952）</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <!-- 地图指针代表"地址" -->
+        <path d="M80 20 C60 20 45 35 45 55 C45 80 80 120 80 120 C80 120 115 80 115 55 C115 35 100 20 80 20 Z" fill="none" stroke="#c8a866" stroke-width="2"/>
+        <circle cx="80" cy="55" r="12" fill="none" stroke="#e8e8e8" stroke-width="2"/>
+        <!-- 底部地球网格代表互联网 -->
+        <ellipse cx="80" cy="135" rx="45" ry="12" fill="none" stroke="#2a2a2a" stroke-width="1.5"/>
+        <path d="M40 135 Q80 145 120 135" fill="none" stroke="#2a2a2a" stroke-width="1.5"/>
+        <path d="M55 128 Q80 135 105 128" fill="none" stroke="#2a2a2a" stroke-width="1"/>
+        <text x="80" y="155" fill="#8a8a8a" font-size="9" text-anchor="middle">DOMAIN</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">域名投资有点像<b>城市里的"炒门牌号"</b>。互联网是一条虚拟大街，每个网站都需要一个门牌号（比如 google.com），这号得向注册局交点年费"租"下来。如果你租到了一个好记、有商业价值的号（比如 che.com 对应"车"，mi.com 对应"米"），等别人急需这个号开公司做生意时，就能高价转让给他。区别于房地产的是：域名不能永买，每年要交几十块"租金"（续费）保住使用权，一旦断供，号就被收回重新放盘了。</p>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 140" width="720" height="140" xmlns="http://www.w3.org/2000/svg">
+      <!-- 环节 A：注册局/注册商 -->
+      <rect x="10" y="40" width="180" height="60" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="100" y="65" fill="#e8e8e8" font-size="13" text-anchor="middle" font-weight="600">注册局 / 注册商</text>
+      <text x="100" y="85" fill="#9a9a9a" font-size="11" text-anchor="middle">放出"生域名" ¥50/年</text>
+      <path d="M195 70 H235" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <!-- 环节 B：投资者 -->
+      <rect x="245" y="40" width="180" height="60" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="335" y="65" fill="#e8e8e8" font-size="13" text-anchor="middle" font-weight="600">域名投资者</text>
+      <text x="335" y="85" fill="#9a9a9a" font-size="11" text-anchor="middle">囤货 / 持有 / 续费 / 挂售</text>
+      <path d="M430 70 H470" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <!-- 环节 C：终端买家 -->
+      <rect x="480" y="40" width="180" height="60" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="570" y="65" fill="#e8e8e8" font-size="13" text-anchor="middle" font-weight="600">终端买家（企业）</text>
+      <text x="570" y="85" fill="#9a9a9a" font-size="11" text-anchor="middle">急需好域名做品牌 ¥X万</text>
+      <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">示意图：域名价值链 —— 域名从注册局流出，经投资者囤积增值，最终卖给有需求的企业（来源：https://medium.com/vincent-chen/域名二級市場與域名投資的觀念釐清-4d8fb41fde8f）</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 价格带</h2>
+  <div class="sec-note">用真实数字说明蛋糕有多大、钱集中在哪。来源内联标注。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>档位</th><th>典型价格</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>入门档</td><td class="up">¥50 – ¥500</td><td>自己注册的新域名或捡漏过期域名，多为长字母组合、非主流后缀</td></tr>
+        <tr><td>进阶档</td><td>¥5,000 – ¥50,000</td><td>双拼词、短数字、有商业含义的 .com，二级市场常见成交价</td></tr>
+        <tr><td>极品档</td><td class="down">¥500,000+</td><td>单字母/单数字/超级双拼，如小米 360 万美元买 mi.com（据公开资料）</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 240" width="720" height="240" xmlns="http://www.w3.org/2000/svg">
+      <!-- Y轴 -->
+      <line x1="70" y1="20" x2="70" y2="190" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="70" y1="190" x2="690" y2="190" stroke="#2a2a2a" stroke-width="1.5"/>
+      <!-- Y轴刻度 -->
+      <text x="60" y="195" fill="#6a6a6a" font-size="10" text-anchor="end">¥0</text>
+      <text x="60" y="155" fill="#6a6a6a" font-size="10" text-anchor="end">¥10万</text>
+      <text x="60" y="110" fill="#6a6a6a" font-size="10" text-anchor="end">¥100万</text>
+      <text x="60" y="60" fill="#6a6a6a" font-size="10" text-anchor="end">¥1000万</text>
+      <!-- 柱子1：入门档 -->
+      <rect x="120" y="185" width="100" height="5" fill="#50b070"/>
+      <text x="170" y="178" fill="#50b070" font-size="11" text-anchor="middle">¥50-500</text>
+      <text x="170" y="208" fill="#9a9a9a" font-size="11" text-anchor="middle">入门档（手注册）</text>
+      <!-- 柱子2：进阶档 -->
+      <rect x="280" y="140" width="100" height="50" fill="#c8a866"/>
+      <text x="330" y="133" fill="#c8a866" font-size="11" text-anchor="middle">¥5k-5万</text>
+      <text x="330" y="208" fill="#9a9a9a" font-size="11" text-anchor="middle">进阶档（二级市场）</text>
+      <!-- 柱子3：极品档 -->
+      <rect x="440" y="40" width="100" height="150" fill="#e05050"/>
+      <text x="490" y="33" fill="#e05050" font-size="11" text-anchor="middle">¥50万+</text>
+      <text x="490" y="208" fill="#9a9a9a" font-size="11" text-anchor="middle">极品档（极品域名）</text>
+      <!-- 注释 -->
+      <text x="380" y="230" fill="#8a8a8a" font-size="11" text-anchor="middle">价格呈金字塔分布，极品域名天价但成交量极少（来源：https://www.godaddy.com/zh-sg/domains/domain-investing）</text>
+    </svg>
+    <div class="cap">域名价格带柱状图：绝大多数域名处于低价区，天价成交属凤毛麟角（来源：https://baike.baidu.com/item/域名投资/34952）</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台 -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在制定规则、谁在赚钱、小白该去哪个平台。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M12 3l9 4.5v9L12 21l-9-4.5v-9L12 3z"/><path d="M12 12l9-4.5M12 12v9M12 12L3 7.5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">ROOT</span>
+        <h3>ICANN / 注册局</h3>
+        <ul><li>全球域名的"总房东"，管理 .com/.net 等顶级后缀，不放租给个人，只对接注册商</li><li>早期好的 2-3 字符 .com 几乎已被注册殆尽（来源：https://medium.com/vincent-chen/域名二級市場與域名投資的觀念釐清-4d8fb41fde8f）</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">平台 B</span>
+        <h3>GoDaddy / Sedo</h3>
+        <ul><li>全球最大注册商及域名交易平台，GoDaddy 管理 8200 万+ 域名（来源：https://www.godaddy.com/zh-sg/domains/domain-investing）</li><li>Sedo 是国际知名域名二级市场，适合挂售国际化域名</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M4 4h16v6H4zM4 14h16v6H4z"/><circle cx="8" cy="7" r="1" fill="#d4d4d4"/><circle cx="8" cy="17" r="1" fill="#d4d4d4"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">HOT</span>
+        <h3>国内交易平台</h3>
+        <ul><li>阿里云、西部数码、聚名网等，是国内炒家最活跃的阵地</li><li>提供一口价、拍卖、竞价等多种交易模式，适合拼音域名流通</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M4 19h16M6 19V8l6-4 6 4v11"/><path d="M10 19v-5h4v5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>Dynadot / Namecheap</h3>
+        <ul><li>对新手友好的海外注册商，费用低、管理面板清晰</li><li>Dynadot 提供完整的域名投资指南与工具，适合学习实操（来源：https://www.dynadot.com/zh/domain-investing-guide）</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就梭哈。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步 · 设定预算与时间</div><div class="tl-body">新手入门应设定有限预算（比如几千元），想好在这个预算内拿几个域名。同时固定每天/每周的学习时间，看工具指南、参与社区讨论（来源：https://www.dynadot.com/zh/domain-investing-guide）</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步 · 学习与围观</div><div class="tl-body">浏览二级市场列表（如 Sedo、聚名网），盯拍卖行情，搞懂什么样的域名能卖掉。先看 100 个成交案例，别急着出手</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步 · 建立判断框架</div><div class="tl-body">核心三问：好不好记？有没有商业含义？有没有人搜？优先关注 .com、短字母、双拼词，避开商标侵权雷区</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步 · 小额试水与退出</div><div class="tl-body">手注册 1-2 个域名试水，挂一口价测试市场反应。每年要交续费，卖不掉的烂域名果断放弃，别越陷越深</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>"一夜暴富"幻觉</h3><ul><li>媒体总报道天价成交案例，给人"一本万利"的错觉。实际上能成功卖出的域名是少数，卖给大公司收美元的更是凤毛麟角（来源：https://baike.baidu.com/item/域名投资/34952）</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>商标侵权雷区</h3><ul><li>抢注别人商标对应的域名（如 taobao123.com），可能被投诉仲裁收回，钱打水漂。注册前查一查是否撞商标</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>续费黑洞</h3><ul><li>域名不是买断，每年要续费（约 ¥50-100/个）。囤 50 个域名一年光续费就 ¥3000+，卖不掉就是纯亏损</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>别把域名当彩票买。只买你有信心能解释"为什么它值钱"的域名，说不出来就别买</li></ul></div>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 150" width="720" height="150" xmlns="http://www.w3.org/2000/svg">
+      <!-- 误区框 -->
+      <rect x="20" y="25" width="310" height="100" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="175" y="50" fill="#e05050" font-size="14" text-anchor="middle" font-weight="600">误区</text>
+      <text x="175" y="75" fill="#c4c4c4" font-size="12" text-anchor="middle">"注册个域名就能赚百倍"</text>
+      <text x="175" y="95" fill="#c4c4c4" font-size="12" text-anchor="middle">"坐在家里就能生钱"</text>
+      <text x="175" y="115" fill="#9a9a9a" font-size="10" text-anchor="middle">（媒体渲染的暴富神话）</text>
+      <!-- 箭头 -->
+      <path d="M340 75 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <!-- 真相框 -->
+      <rect x="400" y="25" width="310" height="100" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="555" y="50" fill="#50b070" font-size="14" text-anchor="middle" font-weight="600">真相</text>
+      <text x="555" y="75" fill="#c4c4c4" font-size="12" text-anchor="middle">多数域名卖不掉，续费持续烧钱</text>
+      <text x="555" y="95" fill="#c4c4c4" font-size="12" text-anchor="middle">赚钱靠眼光+耐心+执行力</text>
+      <text x="555" y="115" fill="#9a9a9a" font-size="10" text-anchor="middle">（理性投资才是正道）</text>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相：域名投资不是买彩票，而是需要专业眼光的长期生意（来源：https://baike.baidu.com/item/域名投资/34952）</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>米农</b></td><td>国内域名圈黑话，"米"谐音 domain 的 main，指炒域名的人</td></tr>
+        <tr><td><b>终端</b></td><td>最终买域名去建站做生意的公司，区别于倒来倒去的投资者</td></tr>
+        <tr><td><b>双拼</b></td><td>两个拼音组合的域名，如 taobao（淘宝），国内最爱交易的品种</td></tr>
+        <tr><td><b>抢注 / Drop</b></td><td>别人域名过期没续费被收回，你第一时间抢下来，也叫"捡漏"</td></tr>
+        <tr><td><b>一口价</b></td><td>不议价、标多少卖多少，最常见的挂售方式</td></tr>
+        <tr><td><b>TLD</b></td><td>顶级域名后缀，如 .com / .cn / .net，.com 是硬通货（来源：https://medium.com/vincent-chen/域名二級市場與域名投資的觀念釐清-4d8fb41fde8f）</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">史上最贵域名之一是 Voice.com，2019 年以 3000 万美元现金成交。卖家是一家科技公司，买家是区块链项目方——一个"门牌号"的价格，够买一栋摩天大楼了（据公开资料）。国内最经典的案例是小米花 360 万美元买下 mi.com，雷军说"这个域名省了 1 个亿的广告费"（据公开报道）。</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">适合：对互联网有感觉、愿意花时间研究、能承受"年费打水漂"的人。不适合：想快速暴富、不愿学习的人</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">域名投资是互联网最古老的生意之一——<span class="cool">买的是地址，赌的是趋势，拼的是耐心</span>。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：百度百科-域名投资（https://baike.baidu.com/item/域名投资/34952）｜Dynadot 域名投资指南（https://www.dynadot.com/zh/domain-investing-guide）｜西部数码（https://www.west.cn/docs/188675.html）｜Medium-域名二级市场观念厘清（https://medium.com/vincent-chen/域名二級市場與域名投資的觀念釐清-4d8fb41fde8f）｜GoDaddy CN（https://www.godaddy.com/zh-sg/domains/domain-investing）｜李文宝博客（http://www.liwenbao.com/1837）。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html

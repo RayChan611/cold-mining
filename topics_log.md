@@ -11,3 +11,4 @@
 | 2026-07-30 | 邮票与钱币收藏：把历史揣进口袋的冷门手艺 | reports/2026-07-30-stamps-and-coins-collecting.html |
 | 2026-07-30 | 古董表入门：一块旧表凭什么比新车还贵 | reports/2026-07-30-vintage-watches-101.html |
 | 2026-07-30 | 紫砂壶入门：一块泥巴凭什么卖到几十万？ | reports/2026-07-30-zisha-hu-intro.html |
+| 2026-07-30 | 域名投资：互联网的"虚拟房地产"入门指南 | reports/2026-07-30-domain-investing-guide.html |
