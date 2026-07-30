@@ -8,14 +8,16 @@
 
 流程：
   1. 从候选池挑一个尚未写过的主题（依据 topics_log.md 去重）
-  2. 调服务器 AI（Ark glm-5.2, thinking=False）生成完整单文件离线 HTML
-     —— 严格沿用 template.html 的暗金样式，4-6 张内联 SVG 线稿，无 emoji，离线可开
-  3. 落盘 reports/<日期>-<slug>.html；更新 index.html 与 topics_log.md
-  4. git 提交并推送 GitHub Pages
-  5. 飞书推「主题 + 链接」
+  2. 若配置了 TAVILY_API_KEY，先调 Tavily 联网搜索该主题的真实资料
+  3. 调服务器 AI（Ark glm-5.2, thinking=False）生成完整单文件离线 HTML
+     —— 严格沿用 template.html 的暗金样式，4-6 张内联 SVG 线稿，无 emoji，离线可开；
+        有检索资料时优先采用并内联标注来源链接
+  4. 落盘 reports/<日期>-<slug>.html；更新 index.html 与 topics_log.md
+  5. 本地 git 提交（仅版本留痕，报告由本机直接托管）
+  6. 飞书推「主题 + 链接」
 
-注意：服务器 AI 无联网搜索能力，事实来自模型训练知识。
-prompt 已强制「不确定具体数字就写范围/定性或 [UNSOURCED]，不得编造精确值」。
+注意：配置了 TAVILY_API_KEY 时报告基于实时联网检索、可标真实来源；
+未配置时回退到模型训练知识，prompt 强制「不确定具体数字就写范围/定性或 [UNSOURCED]」。
 """
 import os
 import re
@@ -23,6 +25,7 @@ import sys
 import time
 import datetime
 import subprocess
+import requests
 
 BASE = "/home/ubuntu/cold-mining"
 
@@ -155,7 +158,44 @@ def parse_output(text):
     return slug, title, html
 
 
-def build_prompt(topic, template_text, used_topics):
+def web_search(query, api_key, max_results=6):
+    """调用 Tavily 搜索，返回拼接的「标题（URL）：摘要」上下文；失败返回空串。"""
+    try:
+        r = requests.post("https://api.tavily.com/search",
+                          json={"api_key": api_key, "query": query,
+                                "max_results": max_results, "search_depth": "basic"},
+                          timeout=30)
+        r.raise_for_status()
+        data = r.json()
+    except Exception as e:
+        print(f"[cold_mining] tavily error: {e!r}")
+        return ""
+    items = []
+    for it in data.get("results", [])[:max_results]:
+        title = it.get("title", "")
+        url = it.get("url", "")
+        content = (it.get("content") or "")[:280]
+        items.append(f"- {title}（{url}）：{content}")
+    return "\n".join(items)
+
+
+def build_prompt(topic, template_text, used_topics, search_context=""):
+    if search_context:
+        search_block = f"""
+## 联网检索到的参考资料（请优先采用，并在正文用「(来源：URL)」内联标注）
+{search_context}
+
+要求：上方资料来自实时联网搜索。报告中的具体数字、事实、玩家/平台名称尽量引用这些资料，
+并在相关句末标注来源链接，形如 (来源：https://...)。若资料与你的知识冲突，以资料为准；
+资料未覆盖之处可用你的知识补充，并标注「据公开资料」或 [UNSOURCED]。
+"""
+        fact_rule = ("事实优先采用上方检索资料并内联标注来源；检索未覆盖处可用你的知识，"
+                     "不确定具体数字写范围/定性或 [UNSOURCED]，不得编造精确值。")
+    else:
+        search_block = ""
+        fact_rule = ("事实来自你的训练知识。对你能确认的数据可给出并标注大致来源"
+                     "（如「据行业普遍认知」「公开资料」）；**对不确定的具体数字不要编造精确值**，"
+                     "用范围/定性描述，或标注 [UNSOURCED]。")
     return f"""你是一位擅长把冷门/专业领域讲给外行听的研究作者。请基于你已有的知识，撰写一份「{topic}」的入门研究报告（中文）。
 
 ## 铁律（必须遵守）
@@ -164,14 +204,14 @@ def build_prompt(topic, template_text, used_topics):
 - 玩家卡片（section 03）必须用简洁线稿 SVG 小图标（参考模板已有的 4 个图标），严禁用 emoji。
 - 全文 emoji 不超过 1-2 个；严禁外链图片或依赖任何网络——必须单文件离线可打开。
 - 风格：好奇、白话、带一点幽默但不居高临下；外行读了能懂。
-- 事实来自你的训练知识。对你能确认的数据可给出并标注大致来源（如「据行业普遍认知」「公开资料」）；**对不确定的具体数字不要编造精确值**，用范围/定性描述，或标注 [UNSOURCED]。
+- {fact_rule}
 - 各 section 都要填真实、具体的内容，不要保留「（示例）」「请替换」之类的占位文字。
 
 ## 输出格式（严格）
 第一行：SLUG: <英文短横连字符 slug，用于文件名，如 {topic}>
 第二行：TITLE: <中文报告标题>
 第三行起：完整 HTML 文档（以 <!DOCTYPE html> 开头，</html> 结尾）。
-
+{search_block}
 ## 模板（请沿用其样式与骨架）
 {template_text}
 
@@ -239,8 +279,16 @@ def main():
         with open(LOG, encoding="utf-8") as f:
             used_topics = f.read()
 
-    prompt = build_prompt(topic, template_text, used_topics)
-    system = "你是研究作者，产出面向外行的中文入门报告，严格遵循用户给出的模板与格式。"
+    # 联网检索（可选）：配置 TAVILY_API_KEY 时先搜真实资料，注入 prompt
+    tavily_key = os.environ.get("TAVILY_API_KEY")
+    search_context = ""
+    if tavily_key:
+        q = f"{topic} 是什么 市场规模 价格区间 关键玩家 平台 怎么入门 案例"
+        search_context = web_search(q, tavily_key)
+        print(f"[cold_mining] tavily hits={len(search_context)}")
+
+    prompt = build_prompt(topic, template_text, used_topics, search_context)
+    system = "你是研究作者，产出面向外行的中文入门报告，严格遵循用户给出的模板与格式；有检索资料时优先采用并内联标注来源。"
 
     text = ""
     for attempt in range(2):
