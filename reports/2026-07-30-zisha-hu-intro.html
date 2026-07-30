@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 紫砂壶</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  /* 图文并茂：插图与线稿图标 */
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 传统手工艺</div>
+  <h1>紫砂壶入门：一块泥巴凭什么卖到几十万？</h1>
+  <div class="sub">用大白话讲清楚：为什么喝茶的杯子能变收藏品，新手买壶怎么不被坑</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。投资/收藏有风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：紫砂壶是干什么的、谁在玩、值不值得普通人关注。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：用江苏宜兴特有的紫砂矿土烧制而成的茶壶，因泥料有透气性、泡茶不易馊而闻名。</li>
+        <li><b>谁在玩</b>：日常泡茶的普通茶友（实用派）、把玩收藏的资深壶友（进阶派）、参与拍卖的藏家（顶配派）。</li>
+        <li><b>市场多大</b>：价格跨度极大，入门壶 100-500 元，中端 500-3000 元，大师作品拍卖可达几十万至百万以上。(来源：https://www.zisha.com/knowledge/35579.shtml)</li>
+        <li><b>小白能玩吗</b>：能。但门槛在于水太深、假货多，新手切忌一上来就追求名家和高价壶，先买一把基础半手工练手最稳妥。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <!-- 替换为主题相关的内联 SVG 概念插画（紫砂壶线稿） -->
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <!-- 壶盖 -->
+        <ellipse cx="80" cy="40" rx="28" ry="6" fill="none" stroke="#c8a866" stroke-width="2"/>
+        <line x1="80" y1="40" x2="80" y2="28" stroke="#c8a866" stroke-width="2"/>
+        <ellipse cx="80" cy="28" rx="6" ry="3" fill="#c8a866" stroke="#c8a866" stroke-width="1"/>
+        <!-- 壶身 -->
+        <path d="M55 40 C45 55, 45 90, 60 105 L100 105 C115 90, 115 55, 105 40 Z" fill="none" stroke="#e8e8e8" stroke-width="2"/>
+        <!-- 壶嘴 -->
+        <path d="M105 55 C125 55, 135 65, 140 80 C135 78, 125 75, 115 70" fill="none" stroke="#c8a866" stroke-width="2"/>
+        <!-- 壶把 -->
+        <path d="M55 55 C40 60, 40 85, 55 95" fill="none" stroke="#c8a866" stroke-width="2"/>
+        <text x="80" y="138" fill="#8a8a8a" font-size="10" text-anchor="middle">紫砂壶结构概念图</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">紫砂壶有点像茶具界的“不粘锅”。普通瓷壶是玻璃釉封死，不透气；而紫砂泥烧制后有独特的“双重气孔结构”，就像自带微循环。用它泡茶，香气留得住，哪怕是隔夜的热水倒进去也不会闷熟。更妙的是，它和紫砂锅一样会“吃味”，长期用同一把壶泡同一种茶，壶壁吸满茶汤，据说后来倒白开水都有茶香。真正的宜兴紫砂矿泥被称为“富贵土”，是决定一把壶价值的根基。(来源：https://nsteaset.com/...)</p>
+  </div>
+  <div class="illus">
+    <!-- 价值链 / 结构 内联 SVG 图（紫砂壶价值链：泥料 -> 成型 -> 烧成 -> 玩家） -->
+    <svg viewBox="0 0 720 120" width="720" height="120" xmlns="http://www.w3.org/2000/svg">
+      <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+      <rect x="10" y="40" width="160" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="90" y="60" fill="#e8e8e8" font-size="12" text-anchor="middle">原矿泥料</text>
+      <text x="90" y="76" fill="#8a8a8a" font-size="10" text-anchor="middle">宜兴黄龙山等</text>
+      <path d="M175 62 H215" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="220" y="40" width="160" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="300" y="60" fill="#e8e8e8" font-size="12" text-anchor="middle">手工成型</text>
+      <text x="300" y="76" fill="#8a8a8a" font-size="10" text-anchor="middle">全手工 / 半手工</text>
+      <path d="M385 62 H425" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="430" y="40" width="160" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="510" y="60" fill="#e8e8e8" font-size="12" text-anchor="middle">窑火烧制</text>
+      <text x="510" y="76" fill="#8a8a8a" font-size="10" text-anchor="middle">温度约1150℃+</text>
+      <path d="M595 62 H635" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="640" y="40" width="70" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="675" y="67" fill="#e8e8e8" font-size="12" text-anchor="middle">壶友</text>
+    </svg>
+    <div class="cap">示意图：紫砂壶从一块泥巴到玩家手中的核心价值链</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 价格带</h2>
+  <div class="sec-note">用真实数字说明蛋糕有多大、钱集中在哪。来源内联标注。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>档位</th><th>典型价格</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>入门级</td><td class="up">¥100 – 500</td><td>多为机器辅助成型或半手工壶，泥料普通（如外山料或添加化工料）。(来源：https://www.zisha.com/knowledge/35579.shtml)</td></tr>
+        <tr><td>中端级</td><td>¥500 – 3,000</td><td>以半手工壶为主，部分全手工，泥料相对靠谱，适合日常把玩品茶。(来源：https://www.zisha.com/knowledge/35579.shtml)</td></tr>
+        <tr><td>古玩/名家级</td><td class="down">¥几万 – 百万+</td><td>明清普通老壶几千到几万，当代工艺美术大师作品动辄几十上百万。(来源：https://www.qvip.net/viewnews-13906)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="illus">
+    <!-- 价格带 / 规模 内联柱状图 SVG -->
+    <svg viewBox="0 0 720 220" width="720" height="220" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <rect x="110" y="130" width="90" height="50" fill="#c8a866"/>
+      <text x="155" y="124" fill="#c8a866" font-size="11" text-anchor="middle">100-500元</text>
+      <rect x="280" y="90" width="90" height="90" fill="#c8a866"/>
+      <text x="325" y="84" fill="#c8a866" font-size="11" text-anchor="middle">500-3000元</text>
+      <rect x="450" y="30" width="90" height="150" fill="#e05050"/>
+      <text x="495" y="24" fill="#e05050" font-size="11" text-anchor="middle">万元-百万+</text>
+      <text x="155" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">入门级</text>
+      <text x="325" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">中端级</text>
+      <text x="495" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">名家/古董级</text>
+      <text x="375" y="215" fill="#8a8a8a" font-size="10" text-anchor="middle">数据来源：zisha.com / qvip.net 行情解析</text>
+    </svg>
+    <div class="cap">紫砂壶各档位价格跨度示意图（Y轴代表价格量级跨度）</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台（玩家卡片用线稿 SVG 小图标，不用 emoji） -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在制定规则、谁在赚钱、小白该去哪个平台。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">ROOT</span>
+        <h3>宜兴黄龙山与制壶匠人</h3>
+        <ul><li>宜兴特定矿区（如黄龙山）的天然原矿泥料是价值根基，被称为“富贵土”。从矿到壶，全靠匠人手工拍打泥片成型，这是整个行业的源头与核心。(来源：https://nsteaset.com/...)</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">平台 B</span>
+        <h3>拍卖行与电商平台</h3>
+        <ul><li>高端壶看拍卖市场趋势与风险；日常流通则通过互联网电商平台。互联网发展提升了产品可见度，彻底改变了原本只靠线下熟人交易的格局。(来源：https://www.cssn.cn/.../t20250926_5917306.shtml)</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">HOT</span>
+        <h3>紫砂江湖论坛</h3>
+        <ul><li>如中国陶都网、紫砂江湖、紫砂爱好者联盟等。由资深玩家创办，设主题版块和版主，聚集了手艺人和消费者，是壶友交流避坑的最活跃阵地。(来源：https://www.cssn.cn/.../t20250926_5917306.shtml)</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>小白友好入口</h3>
+        <ul><li>新手应先去紫砂论坛潜水看帖，了解“泥料、做工、壶型”基础，再去电商平台寻找销量稳定、评价真实的店铺，拿基础半手工壶试水。(来源：https://zhuanlan.zhihu.com/p/705729840)</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就梭哈。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步：确定预算与预期</div><div class="tl-body">推荐 500 元以内拿一个半手工壶练手，有时 300 元以内也可收一把。明确这个阶段是为了泡茶实用，不要指望升值。(来源：https://zhuanlan.zhihu.com/p/705729840)</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步：选定泥料与壶型</div><div class="tl-body">新手首选紫泥或段泥等常见原矿，避开色彩艳丽的“化工泥”。壶型选传统的“石瓢”或“仿古”，经典器型最考验基本功，也最不容易出错。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步：学会基础验收</div><div class="tl-body">检查壶嘴出水是否顺畅，壶盖与壶口贴合是否严密（倒扣不掉），把玩时是否硌手。央视曾对市售紫砂壶做过析出试验，要注意低价壶的重金属风险。(来源：https://zhuanlan.zhihu.com/p/705729840)</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步：开壶与日常养壶</div><div class="tl-body">用净水煮沸开壶，之后一壶事一茶（泡普洱的别泡绿茶）。耐心用茶汤滋润，日久壶面会生出温润的“包浆”，这才体会把玩乐趣。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑（可加一张「误区 vs 真相」插图） -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>迷信“全手工”与“名家证书”</h3><ul><li>新手往往追求全手工，但半手工（模具辅助）同样实用且性价比高。更别信几十块还带“大师证书”的壶，证书造假成本极低。(来源：https://taohuren.com/article/195829.html)</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>低价捡漏“老壶”或“绝版泥”</h3><ul><li>明清老壶在市场动辄几千上万，普通收藏者难辨真伪，地摊上的多是化工做旧。号称稀奇泥料（如大红袍、本山绿）的超低价壶基本都是外山料加色。(来源：https://www.qvip.net/viewnews-13906)</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>化工泥料重金属超标</h3><ul><li>百元以下色彩鲜艳的壶要警惕。央视09年析出试验显示部分壶钡等元素超标。买壶优先选原矿紫砂，泥色应自然质朴。(来源：https://zhuanlan.zhihu.com/p/705729840)</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>新手买壶标准是：实用顺眼、泥料安全。凡是讲着玄乎故事、让你觉得在“捡漏投资”的，一概捂紧钱包。(来源：https://taohuren.com/article/195829.html)</li></ul></div>
+  </div>
+  <div class="illus">
+    <!-- 可选：误区 vs 真相 对比图 -->
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="58" fill="#e05050" font-size="13" text-anchor="middle">误区：越老越花哨越值钱</text>
+      <text x="180" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">买带证书的老壶/艳丽绝版泥壶当投资</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="400" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="58" fill="#50b070" font-size="13" text-anchor="middle">真相：泥料安全+实用顺眼</text>
+      <text x="550" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">原矿、传统器型、半手工足矣</text>
+    </svg>
+    <div class="cap">紫砂壶新手常见认知误区 vs 正确购买思路</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>原矿</b></td><td>没经过化学添加的天然宜兴紫砂矿石，破碎成粉后直接炼泥用，是高端壶的标配。</td></tr>
+        <tr><td><b>全手工 / 半手工</b></td><td>全手工靠拍打泥片成型，不借助模具；半手工是把泥片放进模具搪出形状再修。全手工贵在人工，半手工性价比高。</td></tr>
+        <tr><td><b>包浆</b></td><td>壶经长年茶汤滋润和手摩挲后，表面形成的一层温润光泽。就是壶“养”出来的岁月感。</td></tr>
+        <tr><td><b>一壶事一茶</b></td><td>紫砂会吸味，为了防止串味，一把壶最好只泡一种茶（比如这把泡红茶，那把泡乌龙）。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">紫砂壶界有个没有商业动机、纯免费的交流平台“紫砂江湖论坛”，宗旨是“包容、大气、争鸣却不失和谐”。大佬们为了争论一把壶泥料真假和做工细节，能在论坛里盖起几百楼的“长帖”，这也成了外行看热闹、学知识的好地方。(来源：https://www.cssn.cn/.../t20250926_5917306.shtml)</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">爱喝茶、有耐心养壶、享受器物变化的人适合；想买来立刻转手暴富的<span class="hot">千万别碰</span>。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb"><span class="cool">泥料是根，做工是骨，实用为王，捡漏必死。</span></div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：<br>
+  1. 紫砂壶价格一般多少钱？市场行情全解析 (https://www.zisha.com/knowledge/35579.shtml)<br>
+  2. 紫砂壶收藏入门指南：历史价值与市场行情 (https://www.qvip.net/viewnews-13906)<br>
+  3. 从宜兴紫砂看产业中间市场的崛起-中国社会科学网 (https://www.cssn.cn/skgz/bwyc/202509/t20250926_5917306.shtml)<br>
+  4. 想靠紫砂壺投資？新手入門必知的5大拍賣市場趨勢與風險 (https://nsteaset.com/...)<br>
+  5. 小白入门如何选购一把可以泡茶的紫砂壶 (https://zhuanlan.zhihu.com/p/705729840)<br>
+  6. 紫砂壶老玩家教你，作为新手如何买壶 (https://taohuren.com/article/195829.html)<br>
+  本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
