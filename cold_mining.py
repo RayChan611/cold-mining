@@ -20,6 +20,7 @@ prompt 已强制「不确定具体数字就写范围/定性或 [UNSOURCED]，不
 import os
 import re
 import sys
+import time
 import datetime
 import subprocess
 
@@ -207,14 +208,23 @@ def append_log(title, slug_file):
         f.write(line)
 
 
-def git_push(commit_msg):
-    try:
-        subprocess.run(["git", "-C", BASE, "add", "-A"], check=True, capture_output=True, timeout=60)
-        subprocess.run(["git", "-C", BASE, "commit", "-m", commit_msg], check=True, capture_output=True, timeout=60)
-        r = subprocess.run(["git", "-C", BASE, "push", "origin", "main"], capture_output=True, text=True, timeout=120)
-        return r.returncode == 0, (r.stdout + r.stderr).strip()[-300:]
-    except Exception as e:
-        return False, str(e)
+def git_push(commit_msg, max_retry=6):
+    """提交并推送；GitHub 偶发 TLS 中断时自动重试（必要时先 rebase）。"""
+    subprocess.run(["git", "-C", BASE, "add", "-A"], capture_output=True, timeout=60)
+    c = subprocess.run(["git", "-C", BASE, "commit", "-m", commit_msg],
+                       capture_output=True, text=True, timeout=60)
+    if c.returncode != 0:
+        print(f"[cold_mining] commit: {(c.stderr.strip() or 'nothing new')[-150:]}")
+    for i in range(max_retry):
+        r = subprocess.run(["git", "-C", BASE, "push", "origin", "main"],
+                           capture_output=True, text=True, timeout=120)
+        if r.returncode == 0:
+            return True, (r.stdout + r.stderr).strip()[-200:]
+        print(f"[cold_mining] push attempt {i+1} failed: {(r.stdout + r.stderr).strip()[-150:]}")
+        subprocess.run(["git", "-C", BASE, "pull", "--rebase", "origin", "main"],
+                       capture_output=True, text=True, timeout=120)
+        time.sleep(8)
+    return False, "push failed after retries"
 
 
 def main():
