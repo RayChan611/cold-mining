@@ -54,6 +54,8 @@ if LINE == "cold":
     REPORTS = os.path.join(BASE, "reports")
     WEBHOOK = os.environ.get("COLD_FEISHU_WEBHOOK", "")
     PREFIX = "【冷门信息挖掘机】"
+    LIST_ID = "cold-list"
+    REPORT_PREFIX = "reports/"
     SHARE = os.environ.get("COLD_SHARE_BASE", "https://raychan611.github.io/cold-mining/reports/")
     CANDIDATES = [
         ("auction-bargain", "拍卖行捡漏"),
@@ -85,8 +87,11 @@ if LINE == "cold":
 else:
     TEMPLATE = os.path.join(BASE, "finance", "template.html")
     LOG = os.path.join(BASE, "finance", "topics_log.md")
-    INDEX = os.path.join(BASE, "finance", "index.html")
+    INDEX = os.path.join(BASE, "index.html")
     REPORTS = os.path.join(BASE, "finance", "reports")
+    INDEX = os.path.join(BASE, "index.html")
+    LIST_ID = "finance-list"
+    REPORT_PREFIX = "finance/reports/"
     WEBHOOK = os.environ.get("FINANCE_FEISHU_WEBHOOK", "")
     PREFIX = "【金融入门挖掘机】"
     SHARE = os.environ.get("FINANCE_SHARE_BASE", "https://raychan611.github.io/cold-mining/finance/reports/")
@@ -225,7 +230,7 @@ def update_index(title, slug_file):
         return
     with open(INDEX, encoding="utf-8") as f:
         html = f.read()
-    ul_open = '<ul class="list" id="report-list">'
+    ul_open = f'<ul class="list" id="{LIST_ID}">'
     if ul_open not in html:
         return
     # 复用已有 <li> 的图标 span class，保持样式一致
@@ -236,7 +241,7 @@ def update_index(title, slug_file):
             '<circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>')
     new_li = (f'<li><span class="{cls}">{icon}</span>'
               f'<span class="date">{TODAY}</span>'
-              f'<a href="reports/{slug_file}">{title}</a></li>\n')
+              f'<a href="{REPORT_PREFIX}{slug_file}">{title}</a></li>\n')
     html = html.replace(ul_open, ul_open + "\n    " + new_li, 1)
     # 金融线：插入首条后删除空提示
     html = re.sub(r'<p class="empty" id="empty-hint">.*?</p>\n?', "", html, flags=re.S)

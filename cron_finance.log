@@ -1,0 +1,8 @@
+[cold_mining] line=finance topic=利率 slug=interest-rate
+[cold_mining] tavily hits=2368
+[cold_mining] attempt=0 html_len=18651 svg=8
+[cold_mining] wrote /home/ubuntu/cold-mining/finance/reports/2026-07-31-interest-rate.html
+[cold_mining] index+log updated
+[cold_mining] git push ok=True info=To github.com:RayChan611/cold-mining.git
+   d19b76c..670715c  main -> main
+[cold_mining] feishu StatusCode=0 link=https://raychan611.github.io/cold-mining/finance/reports/2026-07-31-interest-rate.html
