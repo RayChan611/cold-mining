@@ -335,8 +335,10 @@ def main():
     link = SHARE + slug_file
     card_title = PREFIX + t
     resp = feishu_notify.send_markdown(card_title, link, webhook=WEBHOOK)
-    sc = resp.get("StatusCode") if isinstance(resp, dict) else resp
-    print(f"[cold_mining] feishu StatusCode={sc} link={link}")
+    sc = resp.get("code", resp.get("StatusCode")) if isinstance(resp, dict) else resp
+    print(f"[cold_mining] feishu code={sc} link={link}")
+    if sc != 0 and sc is not None:
+        print(f"[cold_mining] WARN push failed resp={resp}")
 
 
 if __name__ == "__main__":
