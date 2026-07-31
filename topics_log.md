@@ -12,3 +12,4 @@
 | 2026-07-30 | 古董表入门：一块旧表凭什么比新车还贵 | reports/2026-07-30-vintage-watches-101.html |
 | 2026-07-30 | 紫砂壶入门：一块泥巴凭什么卖到几十万？ | reports/2026-07-30-zisha-hu-intro.html |
 | 2026-07-30 | 域名投资：互联网的"虚拟房地产"入门指南 | reports/2026-07-30-domain-investing-guide.html |
+| 2026-07-31 | 威士忌投资入门：液体黄金还是昂贵的爱好？ | reports/2026-07-31-whisky-investment-101.html |

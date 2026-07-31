@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 威士忌投资</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  /* 图文并茂：插图与线稿图标 */
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 另类投资</div>
+  <h1>威士忌投资：液体黄金还是昂贵的爱好？</h1>
+  <div class="sub">从「买来喝」到「买来藏」：大白话讲清楚威士忌凭什么能拿来投资</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。投资/收藏有风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：这个领域是干什么的、谁在玩、值不值得普通人关注。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：购买威士忌（单瓶或整桶），期待未来增值获利。它被归类为「实体另类资产」，就像艺术品、名表或黄金一样 (来源：https://www.pressplay.cc/project/2667A183130728C4AE30928EF3CFF4DD/articles/3B5FD6CF723E54320EE080966B197954)。</li>
+        <li><b>谁在玩</b>：国际烈酒集团、专业藏家、拍卖行，以及越来越多试图分散投资风险的散户。</li>
+        <li><b>市场多大</b>：2025年全球苏格兰威士忌市场规模约386.7亿美元，预计到2034年增至696.2亿美元 (来源：https://www.fortunebusinessinsights.com/zh/scotch-whisky-market-104171)。</li>
+        <li><b>小白能玩吗</b>：门槛较高。不仅需要本金，还需要极高的专业知识储备。且目前市场正经历价格回调，追高容易被套牢。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 160 200" width="140" height="175" xmlns="http://www.w3.org/2000/svg">
+        <!-- 酒瓶 -->
+        <path d="M65 20 L65 40 L55 55 L55 180 Q55 190 65 190 L95 190 Q105 190 105 180 L105 55 L95 40 L95 20 Z" fill="none" stroke="#c8a866" stroke-width="2"/>
+        <rect x="62" y="10" width="36" height="10" rx="2" fill="none" stroke="#c8a866" stroke-width="2"/>
+        <!-- 酒标 -->
+        <rect x="60" y="100" width="40" height="50" fill="#141414" stroke="#e8e8e8" stroke-width="1.5"/>
+        <line x1="68" y1="115" x2="92" y2="115" stroke="#e8e8e8" stroke-width="1"/>
+        <line x1="68" y1="125" x2="88" y2="125" stroke="#e8e8e8" stroke-width="1"/>
+        <line x1="68" y1="135" x2="92" y2="135" stroke="#e8e8e8" stroke-width="1"/>
+        <!-- 液面线 -->
+        <line x1="55" y1="80" x2="105" y2="80" stroke="#c8a866" stroke-width="1" stroke-dasharray="2 2"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">简单来说，威士忌投资有点像<b>投资「会挥发的时间」</b>。股票买的是公司的未来，而威士忌买的是酒液在木桶里多沉睡几年后产生的风味变化。玩家通常有两种参与方式：<b>单瓶投资</b>（买装瓶好的限量版，放家里等升值）和<b>整桶投资</b>（直接向酒厂买一整桶还没装瓶的原酒，付仓储费，等酒厂帮忙装瓶卖出）。它属于另类资产，和名表、艺术品类似，不产生利息，全靠供需关系涨价 (来源：https://www.pressplay.cc/project/2667A183130728C4AE30928EF3CFF4DD/articles/3B5FD6CF723E54320EE080966B197954)。</p>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="20" y="40" width="160" height="50" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="100" y="70" fill="#e8e8e8" font-size="13" text-anchor="middle">酒厂蒸馏</text>
+      <path d="M185 65 H225" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="235" y="40" width="160" height="50" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="315" y="70" fill="#e8e8e8" font-size="13" text-anchor="middle">橡木桶陈年</text>
+      <path d="M400 65 H440" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="450" y="40" width="120" height="50" rx="8" fill="#141414" stroke="#e8e8e8" stroke-width="1.5"/>
+      <text x="510" y="70" fill="#e8e8e8" font-size="13" text-anchor="middle">装瓶上市</text>
+      <path d="M575 65 H615" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="625" y="40" width="80" height="50" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="665" y="70" fill="#50b070" font-size="13" text-anchor="middle">拍卖变现</text>
+      <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">示意图：威士忌从原酒到投资品的价值链流转路径</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 价格带</h2>
+  <div class="sec-note">用真实数字说明蛋糕有多大、钱集中在哪。来源内联标注。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>档位</th><th>典型价格（每瓶）</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>日常饮用档</td><td class="up">¥200 – 1,000</td><td>超市常见，无投资价值，买来就喝。</td></tr>
+        <tr><td>限量收藏档</td><td>¥3,000 – 30,000</td><td>知名酒厂停产款、特别版，散户投资主战场。</td></tr>
+        <tr><td>拍卖极品档</td><td class="down">¥100,000+</td><td>如麦卡伦极老酒、轻井泽等，单价记录屡破百万 (来源：[UNSOURCED])。</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 220" width="720" height="220" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <text x="50" y="185" fill="#8a8a8a" font-size="10" text-anchor="end">0</text>
+      <text x="50" y="115" fill="#8a8a8a" font-size="10" text-anchor="end">500亿</text>
+      <text x="50" y="45" fill="#8a8a8a" font-size="10" text-anchor="end">700亿$</text>
+      <!-- 2025 -->
+      <rect x="130" y="122" width="90" height="58" fill="#c8a866"/>
+      <text x="175" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">2025年</text>
+      <text x="175" y="115" fill="#e8e8e8" font-size="10" text-anchor="middle">386.7亿$</text>
+      <!-- 2026 -->
+      <rect x="310" y="116" width="90" height="64" fill="#c8a866"/>
+      <text x="355" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">2026年</text>
+      <text x="355" y="109" fill="#e8e8e8" font-size="10" text-anchor="middle">411.3亿$</text>
+      <!-- 2034 -->
+      <rect x="490" y="48" width="90" height="132" fill="#e05050"/>
+      <text x="535" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">2034年(预计)</text>
+      <text x="535" y="41" fill="#e8e8e8" font-size="10" text-anchor="middle">696.2亿$</text>
+      
+      <text x="375" y="215" fill="#8a8a8a" font-size="11" text-anchor="middle">全球苏格兰威士忌市场规模预测 (来源：Fortune Business Insights)</text>
+    </svg>
+    <div class="cap">全球苏格兰威士忌市场规模变化与预测（复合年增长率约6.80%）</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台 -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在制定规则、谁在赚钱、小白该去哪个平台。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M12 2L2 7v10l10 5 10-5V7L12 2z"/><path d="M2 7l10 5 10-5"/><path d="M12 22V12"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">ROOT</span>
+        <h3>国际烈酒集团</h3>
+        <ul><li>如帝亚吉欧(Diageo)、保乐力加等。它们凭借品牌底蕴和多品牌策略主导中国市场，中国调和威士忌市场前五大品牌份额高达85% (来源：https://www.occstrategy.com/cn/article/...)。它们控制着什么酒停产、什么酒限量，是价格的源头操盘手。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">平台 B</span>
+        <h3>专业拍卖行</h3>
+        <ul><li>如苏富比、邦瀚斯及线上威士忌拍卖平台。这是单瓶威士忌变现的最核心渠道。拍卖行赚取佣金（买卖双方通常各收10%-15%），行情冷暖他们最清楚。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l6-6 4 4 8-9"/><path d="M21 6v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">HOT</span>
+        <h3>指数与交易平台</h3>
+        <ul><li>如Apex Animal Whisky Index（稀有威士忌指数）。它们追踪几百款热门威士忌的拍卖成交价，是判断市场是「牛市」还是「熊市」的温度计 [UNSOURCED]。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>威士忌投资基金</h3>
+        <ul><li>对于资金量大但不想自己囤酒的小白，有专业的威士忌基金。门槛通常几万英镑起步，基金替你买桶或买瓶，你拿分红。但流动性极差，钱一锁就是好几年 [UNSOURCED]。</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就梭哈。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步：先喝懂，再谈买</div><div class="tl-body">花几百块钱去酒吧试饮，搞清楚什么是单一麦芽、什么是调和、雪莉桶和波本桶的风味区别。投资自己不懂的东西是最大的风险。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步：盯紧停产与限量款</div><div class="tl-body">投资价值高的往往是酒厂宣布停产的系列（如轻井泽、波摩彩虹系列），或是每年发行量极小的特别版。关注各大烈酒集团的新闻。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步：确保保存条件万无一失</div><div class="tl-body">威士忌怕光怕热怕干涸。必须直立存放（别像葡萄酒那样平放，软木塞会被高酒精度腐蚀），保持恒温恒湿。封口破损，价值清零。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步：预设退出渠道</div><div class="tl-body">买入前先想好卖给谁。注册一两个线上拍卖平台账号，了解他们的手续费和起拍价规则。别等急用钱时才发现卖不出去。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>迷信「随便买都会涨」</h3><ul><li>过去几年单一麦芽威士忌因供应短缺和收藏热潮被推高，随后因需求理性和经济降温而回落 (来源：https://www.occstrategy.com/cn/article/...)。目前市场存在供需失衡和价格波动，追高风险极大。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>普通款当宝贝藏</h3><ul><li>超市里几十上百块的普通威士忌没有投资价值。其他种类的威士忌并非没有价值，只是依过去案例显示，可能涨得非常慢，涨价空间有限，目标买家相对较少，比较不容易脱手 (来源：https://ch-9.net/article/0osPngwqIH)。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>整桶投资的隐藏费用</h3><ul><li>买整桶听起来很酷，但你要持续付仓储费、保险费，最后装瓶还要付装瓶费、酒标设计费。如果酒桶「天使分享」（自然挥发）太严重，最后可能连本都收不回 [UNSOURCED]。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>只买你就算卖不出去、也愿意自己开瓶喝掉的威士忌。这样你永远不会血本无归。</li></ul></div>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="20" y="30" width="320" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="58" fill="#e05050" font-size="13" text-anchor="middle">误区：买一桶酒放着就能暴富</text>
+      <text x="180" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">无视仓储费、挥发损耗与流动性危机</text>
+      <path d="M345 65 H385" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="395" y="30" width="305" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="547" y="58" fill="#50b070" font-size="13" text-anchor="middle">真相：另类资产流动性极差</text>
+      <text x="547" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">需专业鉴定、拍卖渠道与长时间持有</text>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">威士忌投资的核心误区与真相对比</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>单一麦芽 (Single Malt)</b></td><td>同一家酒厂只用大麦芽和纯净水酿的威士忌。投资圈的绝对主流，比调和威士忌更受藏家待见。</td></tr>
+        <tr><td><b>天使分享 (Angel's Share)</b></td><td>威士忌在木桶里陈年时，每年自然挥发掉的那部分酒液。每年大约掉2%，久了这也是一笔大成本。</td></tr>
+        <tr><td><b>独立装瓶 (IB)</b></td><td>酒厂把原酒卖给其他公司，由他们装瓶贴标。IB经常出怪奇口味或单桶限量，是老饕捡漏的乐园。</td></tr>
+        <tr><td><b>官方装瓶 (OB)</b></td><td>酒厂自己装瓶出品。品牌形象统一，限量版最容易在拍卖行拍出天价的就是OB。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">中国威士忌市场正处于发展早期，且高度集中。有趣的是，在调和苏格兰威士忌品类中，中国市场前五大品牌（CR5）的份额高达85%，远超法国（54%）、英国（66%）和日本（58%）。这意味着中国人喝威士忌时，选择其实相当集中 (来源：https://www.occstrategy.com/cn/article/...)。另外，随着年轻群体崛起，威士忌消费正从传统商务宴请，延伸至日常自饮和轻社交 (来源：https://www.chyxx.com/industry/1254927.html)。</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">适合：有钱、有闲、爱喝酒、能承受长线套牢的人。不适合：想短期暴富、连威士忌什么味都不知道的理财小白。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">投资威士忌，最好把它当成一个<span class="cool">能保值的昂贵爱好</span>，而不是发家致富的跳板。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：<br>
+  - 新手入門必讀｜威士忌投資教戰守則 (https://ch-9.net/article/0osPngwqIH)<br>
+  - OC&C Strategy Consultants: 探索中国威士忌市场的增长与未来 (https://www.occstrategy.com/cn/article/...)<br>
+  - 2026 威士忌投資新手全攻略 (https://www.pressplay.cc/project/2667A183130728C4AE30928EF3CFF4DD/articles/3B5FD6CF723E54320EE080966B197954)<br>
+  - Fortune Business Insights: 苏格兰威士忌市场规模报告 (https://www.fortunebusinessinsights.com/zh/scotch-whisky-market-104171)<br>
+  - 智研咨询: 中国威士忌行业发展背景及趋势分析 (https://www.chyxx.com/industry/1254927.html)<br>
+  本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
