@@ -1,0 +1,8 @@
+[cold_mining] line=cold topic=威士忌投资 slug=whisky-invest
+[cold_mining] tavily hits=1868
+[cold_mining] attempt=0 html_len=17522 svg=8
+[cold_mining] wrote /home/ubuntu/cold-mining/reports/2026-07-31-whisky-investment-101.html
+[cold_mining] index+log updated
+[cold_mining] git push ok=True info=To github.com:RayChan611/cold-mining.git
+   b8ccc1c..d444f11  main -> main
+[cold_mining] feishu StatusCode=0 link=https://raychan611.github.io/cold-mining/reports/2026-07-31-whisky-investment-101.html

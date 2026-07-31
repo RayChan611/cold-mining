@@ -205,6 +205,7 @@ def build_prompt(topic, template_text, used_topics, search_context=""):
 - 玩家卡片（section 03）必须用简洁线稿 SVG 小图标（参考模板已有的 4 个图标），严禁用 emoji。
 - 全文 emoji 不超过 1-2 个；严禁外链图片或依赖任何网络——必须单文件离线可打开。
 - 风格：好奇、白话、带一点幽默但不居高临下；外行读了能懂。
+- 保留 <body> 顶部左上角的「返回汇总」悬浮链接（class=to-index，指向 ../index.html），禁止删除或改动它。
 - {fact_rule}
 - 各 section 都要填真实、具体的内容，不要保留「（示例）」「请替换」之类的占位文字。
 

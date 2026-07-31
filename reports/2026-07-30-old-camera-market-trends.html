@@ -65,9 +65,22 @@
   .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
   .pcard .pic svg { width: 30px; height: 30px; }
   .pcard .ptxt { flex: 1; }
+
+  /* 汇总入口：左上角悬浮返回总库 */
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
 </style>
 </head>
 <body>
+<a class="to-index" href="../index.html">← 全部报告</a>
 <div class="wrap">
 <header>
   <div class="kicker">冷门信息挖掘机 · 老相机行情</div>
