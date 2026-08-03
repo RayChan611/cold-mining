@@ -8,3 +8,4 @@
 | 2026-07-30 | 复利与 72 法则 | finance/reports/2026-07-30-compound-interest-rule-of-72.html |
 | 2026-07-30 | 通货膨胀：你的钱是怎么悄悄变“毛”的 | reports/2026-07-30-tong-huo-peng-zhang.html |
 | 2026-07-31 | 利率：经济世界的"万有引力"——一份给外行的入门报告 | reports/2026-07-31-interest-rate.html |
+| 2026-08-03 | 汇率：为什么你的钱出国后就不值钱了？ | reports/2026-08-03-hui-lv.html |

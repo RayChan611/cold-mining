@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 汇率</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 金融基础</div>
+  <h1>汇率：为什么你的钱出国后就不值钱了？</h1>
+  <div class="sub">用买菜和打车的逻辑，讲清楚全球货币的定价游戏</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。投资有风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：汇率到底是什么、谁在玩、普通人能碰吗。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：一种货币兑换另一种货币的比率，本质上是“货币的价格”。比如 1 美元能换 7 块人民币，那汇率就是 7.0 (来源：https://zh.wikipedia.org/zh-hans/%E5%A4%96%E6%B1%87%E5%B8%82%E5%9C%BA)。</li>
+        <li><b>谁在玩</b>：各国央行、跨国企业、对冲基金、银行，以及你——只要你去国外旅游、海淘、或者用外币买过东西，就已经参与了。</li>
+        <li><b>市场多大</b>：外汇市场是全球最大、流动性最强的金融市场，日均交易量约 9.6 万亿美元 (来源：https://stripe.com/cn/resources/more/exchange-rates)。</li>
+        <li><b>小白能玩吗</b>：能，但门槛很低，风险极高。不推荐直接炒汇，但了解汇率能帮你省钱（比如海淘时机、出境换汇）。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="80" cy="80" r="60" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <text x="80" y="65" fill="#e8e8e8" font-size="14" text-anchor="middle" font-weight="bold">1 USD</text>
+        <text x="80" y="85" fill="#c8a866" font-size="16" text-anchor="middle" font-weight="bold">=</text>
+        <text x="80" y="105" fill="#e8e8e8" font-size="14" text-anchor="middle" font-weight="bold">7.0 CNY</text>
+        <path d="M20 80 Q50 50 80 50" stroke="#e05050" stroke-width="1.2" fill="none" stroke-dasharray="3 3"/>
+        <path d="M140 80 Q110 110 80 110" stroke="#50b070" stroke-width="1.2" fill="none" stroke-dasharray="3 3"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把“汇率”这个抽象概念，用买菜和打车讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">想象你去菜市场，不同摊位的白菜价格不同。汇率就是“货币的菜价”。每个国家有自己的货币，就像不同的摊位。美元、欧元、日元、人民币……它们之间的兑换比例，就是汇率。这个价格不是固定的，而是由全球的“买家”和“卖家”（也就是外汇市场）24小时动态竞价决定的 (来源：https://www.cmcmarkets.com/zh-nz/cfd/learn/cfd-asset-classes/forex-what-is-forex)。简单说，如果很多人想买美元，美元就会变“贵”，用人民币换美元就需要更多钱；反之亦然。所以汇率波动，反映的是全球对一种货币的“需求热度”。</p>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 120" width="720" height="120" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="40" width="180" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="100" y="67" fill="#e8e8e8" font-size="12" text-anchor="middle">出口商赚美元</text>
+      <path d="M195 62 H235" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="245" y="40" width="180" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="335" y="67" fill="#e8e8e8" font-size="12" text-anchor="middle">银行换汇</text>
+      <path d="M430 62 H470" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="480" y="40" width="180" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="570" y="67" fill="#e8e8e8" font-size="12" text-anchor="middle">进口商付人民币</text>
+      <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">示意图：汇率在贸易中的流转路径——出口商赚回外币，通过银行换成人民币，最终支付给国内供应商。</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 价格带</h2>
+  <div class="sec-note">用真实数字说明这个市场有多大、钱集中在哪。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>档位</th><th>典型汇率（对人民币）</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>硬货币</td><td class="up">1 USD ≈ 7.0 CNY</td><td>美元、欧元、日元、英镑等，在国际金融市场上汇价坚挺、自由兑换、币值稳定 (来源：https://www.boc.cn/custserv/cs7/cs75/200808/t20080814_1278.html)。</td></tr>
+        <tr><td>软货币</td><td>1 INR ≈ 0.08 CNY</td><td>印度卢比、越南盾等，不能自由兑换，信用程度较低，币值相对不稳定 (来源：同上)。</td></tr>
+        <tr><td>交易量之王</td><td class="down">EUR/USD 交易量最大</td><td>欧元兑美元是外汇市场交易量最大的货币对，占全球交易量的约 23% (来源：https://www.cmcmarkets.com/zh-nz/cfd/learn/cfd-asset-classes/forex-what-is-forex)。</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 220" width="720" height="220" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <rect x="110" y="80" width="90" height="100" fill="#c8a866"/>
+      <rect x="280" y="40" width="90" height="140" fill="#c8a866"/>
+      <rect x="450" y="120" width="90" height="60" fill="#e05050"/>
+      <text x="155" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">美元/人民币</text>
+      <text x="325" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">欧元/美元</text>
+      <text x="495" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">英镑/日元</text>
+      <text x="380" y="215" fill="#8a8a8a" font-size="11" text-anchor="middle">示意柱状图：主要货币对日均交易量（单位：万亿美元）(来源：BIS 2022 Triennial Survey, 数值为示意，实际数据请参考官方报告)</text>
+    </svg>
+    <div class="cap">主要货币对日均交易量示意（数据来源：国际清算银行 BIS 2022 三年一度调查，数值为示意，真实数据请参考官方报告）</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台 -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在制定规则、谁在赚钱、小白该去哪换汇。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">ROOT</span>
+        <h3>各国央行</h3>
+        <ul><li>制定利率、发行货币、干预汇率。例如美联储加息会吸引全球资本流入，推高美元汇率 (来源：https://www.boc.cn/custserv/cs7/cs75/200808/t20080814_1278.html)。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">平台 B</span>
+        <h3>银行与外汇经纪商</h3>
+        <ul><li>提供换汇服务，赚取买卖差价（点差）。小白换汇主要找银行或正规外汇平台，如 FXTM、CMC Markets 等 (来源：https://www.fxtm.com/zh-TW/learn/beginner/courses)。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">HOT</span>
+        <h3>对冲基金 & 跨国公司</h3>
+        <ul><li>利用汇率波动套利或对冲风险。例如苹果公司用复杂的金融工具锁定未来汇率，避免利润缩水。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>小白友好入口</h3>
+        <ul><li>中国银行、工商银行等国有大行提供个人外汇买卖服务，也可通过支付宝、微信小额换汇 (来源：https://www.boc.cn/custserv/cs7/cs75/200808/t20080814_1278.html)。</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就梭哈。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body"><b>理解汇率报价</b>：打开银行 App，看“买入价”和“卖出价”。买入价是银行买你的外币，卖出价是银行卖给你外币。两者之差就是银行的利润 (来源：https://stripe.com/cn/resources/more/exchange-rates)。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body"><b>小额试水</b>：出国旅游前，先换 100 美元或等值外币，观察汇率波动。用手机截屏记录当天汇率，过几天再看，感受“跌涨”。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body"><b>建立判断框架</b>：关注几个关键指标——美联储利率决议、中国央行货币政策、国际油价（影响资源国货币）等。这些是汇率波动的主要驱动力 (来源：https://www.khanacademy.org/economics-finance-domain/macroeconomics/forex-trade-topic/macro-the-foreign-exchange-market/v/currency-exchange-introduction)。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body"><b>何时考虑加注 / 退出</b>：如果你有真实的海外支出需求（如留学、旅游），可以在汇率相对低位时提前换汇。不建议为了投机而借钱炒汇——外汇杠杆很高，一天亏 20% 不是梦。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>盲目追涨杀跌</h3><ul><li>看到新闻“美元大涨”就立刻换汇，结果买在最高点。汇率波动很大，短期预测几乎不可能。避坑：只换汇不炒汇，用“定投”思路分批次换。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>忽略手续费和点差</h3><ul><li>银行换汇有买卖差价，部分平台还收手续费。常在机场、酒店换汇，汇率极差。避坑：提前在银行 App 换，比柜台便宜 (来源：https://www.boc.cn/custserv/cs7/cs75/200808/t20080814_1278.html)。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>高杠杆外汇交易</h3><ul><li>一些平台提供 50 倍甚至 100 倍杠杆，小额本金就能开大单。但市场波动 1% 就可能爆仓。避坑：新手绝对不要碰杠杆，除非你愿意把钱当学费。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>汇率是你出国的成本，不是你赚钱的工具。除非你以交易为生，否则别把汇率当彩票买。</li></ul></div>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="58" fill="#e05050" font-size="13" text-anchor="middle">误区</text>
+      <text x="180" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">汇率涨了，我买的外币就赚了</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="400" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="58" fill="#50b070" font-size="13" text-anchor="middle">真相</text>
+      <text x="550" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">你换汇时银行已经赚了差价，汇率涨 1% 你还亏手续费</text>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相：汇率上涨 ≠ 你赚钱，手续费和点差才是隐形杀手。</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>点差</b></td><td>银行买入价和卖出价的差额，就是它赚你的钱。比如美元买入价 6.95，卖出价 7.05，点差就是 0.1 元。</td></tr>
+        <tr><td><b>硬货币 / 软货币</b></td><td>硬货币：币值稳定、能自由兑换的货币（美元、欧元）。软货币：不稳定、难兑换的货币（印度卢比）(来源：https://www.boc.cn/custserv/cs7/cs75/200808/t20080814_1278.html)。</td></tr>
+        <tr><td><b>浮动汇率</b></td><td>汇率由市场供需自由决定，政府不干预。大多数发达国家采用。中国实行的是“管理浮动汇率制”，央行会适度干预 (来源：https://zh.wikipedia.org/zh-hans/%E5%A4%96%E6%B1%87%E5%B8%82%E5%9C%BA)。</td></tr>
+        <tr><td><b>对冲</b></td><td>通过金融工具锁定未来汇率，避免波动风险。比如一家中国公司三个月后要收 100 万美元，现在通过远期合约锁定汇率，确保利润不缩水。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">你知道吗？全球外汇市场是 24 小时交易的，从悉尼开盘，到东京、伦敦、纽约，无缝衔接。这意味着你半夜起来上厕所，汇率可能已经波动了好几个点。 而且，外汇市场的日均交易量（9.6 万亿美元）比全球所有股票交易所加起来还多 (来源：https://stripe.com/cn/resources/more/exchange-rates)。</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">适合：有出国、海淘、留学需求的人，想省钱而非赚钱。不适合：想靠炒汇一夜暴富的新手。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">汇率是世界的价签，读懂它，你就能看懂全球经济的脉搏。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：维基百科外汇市场词条、CMC Markets 外汇解释、中国银行外汇知识页、Stripe 汇率指南、可汗学院货币兑换视频、FXTM 富拓官网。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
