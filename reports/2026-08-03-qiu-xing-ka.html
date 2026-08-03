@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 球星卡</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  /* 图文并茂：插图与线稿图标 */
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+
+  /* 汇总入口：左上角悬浮返回总库 */
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 球星卡</div>
+  <h1>球星卡入门：一张小纸片，凭什么能卖几十万？</h1>
+  <div class="sub">从19世纪香烟盒里的赠品，到千亿级交易市场——用大白话讲清楚球星卡为什么值得玩、怎么玩、坑在哪。</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。投资/收藏有风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：球星卡是干什么的、谁在玩、值不值得普通人关注。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：印有球星照片和数据的卡片，最早是香烟赠品，后来演变成一种集收藏、投资、社交于一体的体育IP衍生品 (来源：https://www.163.com/dy/article/H9A0V5J90514R9P4.html)。</li>
+        <li><b>谁在玩</b>：从体育迷、怀旧收藏家，到专业的投机客和机构投资者，甚至包括一些明星富豪。</li>
+        <li><b>市场多大</b>：2019年全球球星卡市场规模为138.2亿美元，预计2027年将达到987.5亿美元 (来源：Verified market research 数据，转引自/goto?url=CAESgQEB7keqTbYXkc9XAxMYqg1P-Vt8HXyCgfv80CW-jKHIbi8BTIv2GKA5aKhLd5dpt4_f5u5KEoLbgOangQEFM35RGYoJmTN4XHk4nVF5xbCUyWm6sUkZtdZMA1mZ9-34M2KX_MHKnLAtd4WB-G3jejZ2uZOifsl-E8P58gW7RnSQ69M%3D)。</li>
+        <li><b>小白能玩吗</b>：能，但门槛低 ≠ 赚钱容易。建议从几十元的普卡开始，先学习再投入，切忌盲目跟风追高。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <rect x="14" y="34" width="132" height="78" rx="8" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <rect x="24" y="44" width="40" height="56" rx="4" fill="#1f1f1f" stroke="#e8e8e8" stroke-width="1.5"/>
+        <text x="34" y="68" fill="#c8a866" font-size="8" font-family="Arial" font-weight="bold">CARD</text>
+        <text x="30" y="80" fill="#8a8a8a" font-size="6">#99</text>
+        <rect x="72" y="44" width="40" height="56" rx="4" fill="#1f1f1f" stroke="#e8e8e8" stroke-width="1.5"/>
+        <text x="82" y="68" fill="#c8a866" font-size="8" font-family="Arial" font-weight="bold">CARD</text>
+        <text x="78" y="80" fill="#8a8a8a" font-size="6">#23</text>
+        <rect x="120" y="44" width="16" height="56" rx="4" fill="#1f1f1f" stroke="#c8a866" stroke-width="1.5" transform="rotate(-10 128 72)"/>
+        <text x="124" y="68" fill="#c8a866" font-size="6" font-family="Arial" font-weight="bold">1/1</text>
+        <path d="M14 112 H146" stroke="#2a2a2a" stroke-width="2"/>
+        <text x="80" y="132" fill="#8a8a8a" font-size="10" text-anchor="middle">一张球星卡，千变万化</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">想象一下，你小时候收集的《水浒传》英雄卡，或者麦当劳随餐赠送的玩具——球星卡就是类似的逻辑，但更复杂、更值钱。它本质上是一张印有体育明星肖像和数据的硬纸片，由专门的卡片公司（如帕尼尼 Panini、Topps）生产，分为“普卡”（大量发行，便宜）和“特卡”（限量版，带签名、球衣切片等，昂贵）。它的价值不取决于印刷成本，而是取决于球星的人气、卡片的稀有程度（如编号1/1的独一卡）、以及卡片的品相（是否完美无瑕）。所以，一张几十年前的迈克尔·乔丹新秀卡，可以卖到上百万美元，因为它既是体育纪念品，也是历史文物，更是金融投机品。</p>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 120" width="720" height="120" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="40" width="180" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="100" y="67" fill="#e8e8e8" font-size="12" text-anchor="middle">发行商 (如帕尼尼)</text>
+      <path d="M195 62 H235" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="245" y="40" width="180" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="335" y="67" fill="#e8e8e8" font-size="12" text-anchor="middle">分销/拆卡</text>
+      <path d="M430 62 H470" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="480" y="40" width="180" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="570" y="67" fill="#e8e8e8" font-size="12" text-anchor="middle">收藏/交易</text>
+      <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">球星卡产业链：从“印卡”到“卖卡”到“炒卡”</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 价格带</h2>
+  <div class="sec-note">用真实数字说明蛋糕有多大、钱集中在哪。来源内联标注。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>档位</th><th>典型价格</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>入门档</td><td class="up">¥10 – 300</td><td>近年发行的普卡、基础特卡，适合新手感受和练习 (来源：eBay 及国内卡淘平台综合价格)。</td></tr>
+        <tr><td>进阶档</td><td>¥1,000 – 50,000</td><td>带编号、新秀卡、或小系列球衣切片卡，是目前国内主流玩家交易区间 (来源：https://www.163.com/dy/article/H9A0V5J90514R9P4.html)。</td></tr>
+        <tr><td>极品档</td><td class="down">¥100,000+</td><td>历史级球星（如乔丹、詹姆斯、梅西）的签名卡、新秀卡、1/1独一卡。例如，2021年一张勒布朗·詹姆斯的新秀签名卡以520万美元成交 [UNSOURCED]。</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 220" width="720" height="220" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <rect x="110" y="120" width="90" height="60" fill="#c8a866"/>
+      <rect x="280" y="80" width="90" height="100" fill="#c8a866"/>
+      <rect x="450" y="40" width="90" height="140" fill="#e05050"/>
+      <text x="155" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">入门 (¥10-300)</text>
+      <text x="325" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">进阶 (¥1k-5w)</text>
+      <text x="495" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">极品 (¥10w+)</text>
+      <text x="380" y="215" fill="#8a8a8a" font-size="11" text-anchor="middle">价格带示意（非精确统计，仅反映相对规模）</text>
+    </svg>
+    <div class="cap">价格带示意（非精确统计，仅反映相对规模）</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台（玩家卡片用线稿 SVG 小图标，不用 emoji） -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在制定规则、谁在赚钱、小白该去哪个平台。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">ROOT</span>
+        <h3>帕尼尼 (Panini) / Topps</h3>
+        <ul><li>全球最大的两家球星卡发行商，持有NBA、英超、MLB等主流联赛的版权。它们决定了卡片的种类、稀缺度和价格体系。小白买卡，首先要看是哪个牌子出的。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">平台 B</span>
+        <h3>eBay</h3>
+        <ul><li>全球最大的球星卡交易平台。2021年，eBay上架了超过4100万个集换式卡牌刊登 (来源：/goto?url=CAES4AIB7keqTc5Sign0sv91dkE2ypVQnUsAMikBj8qI7Nk7Cuzt7qCUP2QcJdT_3hG9gGz89Rt0IrC_kg4Kgdp-g2XixJyqvp_jAZLbcW7VuDUXjyFAJvj2g4FzKzSAN5uNDY5CZtZQ93AbYDU48c7JnM2DNlvObV1yFQlifHNKVBvpG6Q_OUIP1_UKV32-Gl6wVxsjXm_apytbYUb5f5QRw0U3YIdzkv6NaXi1pm2r226eztqioCh9XohzK6Fi-hLNi41JDf1mV22-bS8ORzVrZQHawMO5OTMfTfO-sZi2FiB56A0yhbZng8i3zfUdJKyEI9jzli3Z_jeTJIZ9UCfBJ8TuiHDrYPVWqCwhYbNO05ljuGckXNCP53od86PF48Yy0buBEn6jTy1elq5mVip5jBu_zD2Tj-1m4uqtT-XBhgCM9Q9P3DlHhBLnLzYj1EaYEFUqPRTuu6D84H_K-9PcKu)。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">HOT</span>
+        <h3>卡淘 (Cardhobby)</h3>
+        <ul><li>国内最大的球星卡交易平台，类似“闲鱼专拍”，以拍卖和一口价为主。大部分国内玩家接触球星卡都是从卡淘开始的 (来源：https://www.163.com/dy/article/H9A0V5J90514R9P4.html)。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>小白友好入口</h3>
+        <ul><li>先下载“卡淘”App，花几十块钱参与普卡拍卖，感受交易流程。同时关注B站、小红书上一些卡圈up主，先学怎么“看卡”再“买卡”。</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就梭哈。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body"><b>了解规则，别急着买</b>：花一周时间，在卡淘上只看不买，研究不同球星、不同系列卡的价格规律。关注“卡圈”的公众号和论坛，学习术语（如“新秀卡”、“签字卡”、“折射卡”、“编数”）。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body"><b>小额试水，买普卡</b>：从你喜欢的球星或体育项目入手，买几张几十元的普卡。目的是熟悉品相（如有没有划痕、边角是否圆润）和交易流程。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body"><b>建立判断框架</b>：关注几位球星的卡价走势。球星卡的价格稳定地以5%-10%的幅度增长，每年暑期和12月都会有周期性降价，但整体趋势是越来越贵 (来源：https://www.163.com/dy/article/H9A0V5J90514R9P4.html)。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body"><b>考虑评级与变现</b>：如果卡的价值较高（>1000元），可以考虑送评（如PSA、BGS评级公司），评级后能提升卡的价值和流通性。卖出时，可以在卡淘或eBay上挂拍。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑（可加一张「误区 vs 真相」插图） -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>盲目追高，接盘网红卡</h3><ul><li>很多卡在社交媒体上被炒得火热，价格虚高。等热度一过，价格可能暴跌。要买自己真正了解的球星，而不是跟风买所谓“潜力股”。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>忽视品相，买“废卡”</h3><ul><li>球星卡对品相要求极高，一点点瑕疵（白边、划痕、角损）就可能让价值打对折。新手容易忽略细节，以为自己捡了便宜，结果卖不出去。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>盲目“拆卡”，赌博心态</h3><ul><li>买整盒“盲盒”式的新卡，希望能拆出“神卡”一夜暴富。但拆卡本质是概率游戏，大部分情况下拆出的卡价值远低于购买成本。新手建议先买单卡，别碰整盒。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li><b>“只买你了解且喜欢的，别买你听说的。” </b> 收藏是爱好，投资是结果。把球星卡当股票炒，大概率会亏。</li></ul></div>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="58" fill="#e05050" font-size="13" text-anchor="middle">误区</text>
+      <text x="180" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">“拆卡就是投资，能赚钱”</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="400" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="58" fill="#50b070" font-size="13" text-anchor="middle">真相</text>
+      <text x="550" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">“拆卡是消费，买卡才可能投资”</text>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相：拆卡 vs 买卡</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>新秀卡 (Rookie Card)</b></td><td>一名球员职业生涯第一年发行的官方卡片，通常是该球员最值钱的一张卡，类似“首版邮票”。</td></tr>
+        <tr><td><b>签字卡 (Auto / Autograph)</b></td><td>带有球星亲笔签名的卡，价值通常远高于同款普卡，是卡圈的硬通货。</td></tr>
+        <tr><td><b>编数 (Serial Numbered)</b></td><td>卡片背面印有“#/xxx”字样，表示该卡在全球限量发行多少张。数字越小越稀有，比如“1/1”就是独一卡。</td></tr>
+        <tr><td><b>评级 (Grading)</b></td><td>由专业机构（如PSA、BGS）对卡的品相进行打分（1-10分），评级后的卡装在透明硬壳里，价格和流通性都会提升。</td></tr>
+        <tr><td><b>折射卡 (Refractor)</b></td><td>一种特殊的印刷工艺，卡面会像彩虹一样反光，视觉效果酷炫，也是收藏的热门品类。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">你知道吗？最早的球星卡出现在19世纪60年代的美国，是烟草公司为了促销，把棒球运动员的图片印在香烟盒背面作为赠品 (来源：https://www.163.com/dy/article/H9A0V5J90514R9P4.html)。当时谁也没想到，这些“买烟送的小卡片”后来会变成价值连城的收藏品。一张1909年的Honus Wagner T206棒球卡，在2016年以312万美元成交，至今仍是全球最贵的球星卡之一 [UNSOURCED]。</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">适合：真心热爱体育、有耐心研究、能接受“买卡=消费”心态的人。不适合：想一夜暴富、没有学习意愿、容易上头赌博的人。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">“球星卡是体育迷的‘成年版水浒卡’，只不过这张卡，真的能值一套房。”</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：Verified market research、eBay、163.com 等公开报道。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
