@@ -14,3 +14,4 @@
 | 2026-07-30 | 域名投资：互联网的"虚拟房地产"入门指南 | reports/2026-07-30-domain-investing-guide.html |
 | 2026-07-31 | 威士忌投资入门：液体黄金还是昂贵的爱好？ | reports/2026-07-31-whisky-investment-101.html |
 | 2026-08-03 | 球星卡入门：一张小纸片，凭什么能卖几十万？ | reports/2026-08-03-qiu-xing-ka.html |
+| 2026-08-04 | 潮玩盲盒入门：拆的是盒子，买的是惊喜 | reports/2026-08-04-chao-wan-mang-he.html |
