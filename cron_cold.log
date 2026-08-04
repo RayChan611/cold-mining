@@ -15,3 +15,11 @@
 [cold_mining] git push ok=True info=To github.com:RayChan611/cold-mining.git
    9e6e4be..14a7a24  main -> main
 [cold_mining] feishu code=0 link=https://raychan611.github.io/cold-mining/reports/2026-08-03-qiu-xing-ka.html
+[cold_mining] line=cold topic=潮玩盲盒 slug=blind-box
+[cold_mining] tavily hits=2351
+[cold_mining] attempt=0 html_len=18220 svg=8
+[cold_mining] wrote /home/ubuntu/cold-mining/reports/2026-08-04-chao-wan-mang-he.html
+[cold_mining] index+log updated
+[cold_mining] git push ok=True info=To github.com:RayChan611/cold-mining.git
+   5b67380..f66a2f9  main -> main
+[cold_mining] feishu code=0 link=https://raychan611.github.io/cold-mining/reports/2026-08-04-chao-wan-mang-he.html
