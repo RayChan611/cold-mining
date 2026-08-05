@@ -23,3 +23,11 @@
 [cold_mining] git push ok=True info=To github.com:RayChan611/cold-mining.git
    5b67380..f66a2f9  main -> main
 [cold_mining] feishu code=0 link=https://raychan611.github.io/cold-mining/reports/2026-08-04-chao-wan-mang-he.html
+[cold_mining] line=cold topic=葡萄酒期酒 slug=wine-futures
+[cold_mining] tavily hits=2227
+[cold_mining] attempt=0 html_len=17826 svg=8
+[cold_mining] wrote /home/ubuntu/cold-mining/reports/2026-08-05-葡萄酒期酒.html
+[cold_mining] index+log updated
+[cold_mining] git push ok=True info=To github.com:RayChan611/cold-mining.git
+   0352d67..a37eb5b  main -> main
+[cold_mining] feishu code=0 link=https://raychan611.github.io/cold-mining/reports/2026-08-05-葡萄酒期酒.html
