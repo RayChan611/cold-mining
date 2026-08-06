@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 美联储</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  /* 图文并茂：插图与线稿图标 */
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+
+  /* 汇总入口：左上角悬浮返回总库 */
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 美联储</div>
+  <h1>美联储：全世界最重要的央行，到底在干什么？</h1>
+  <div class="sub">一句话副标题：用大白话讲清楚它为什么能影响你的房贷、股票和钱包。</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。投资有风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：这个机构是干什么的、谁在操作、跟普通人有什么关系。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：美国的中央银行，负责制定全美货币政策，监管银行系统，并在金融危机时充当“最后贷款人”。(来源：https://www.monetamarkets.com/cn/analysis/what-is-the-fed-how-federal-reserve-works-fomc)</li>
+        <li><b>谁在操作</b>：联邦储备系统由位于华盛顿的理事会（7名委员）和12家地区联邦储备银行组成，真正的决策核心是联邦公开市场委员会（FOMC）。(来源：https://research.titanfx.com/cn/glossary/what_is_frb_fed)</li>
+        <li><b>影响多大</b>：美联储的利率决策直接牵动全球金融市场，影响数万亿美元的债券、股票和外汇市场。它设定的联邦基金利率是全球资产定价的“基准”。[UNSOURCED]</li>
+        <li><b>小白能看懂吗</b>：完全能。它的核心目标很简单：保证就业最大化和物价稳定（2%通胀率）。(来源：https://www.futunn.com/learn/detail-how-to-analyze-the-federal-reserve-s-monetary-policy-88969-230759065)</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <!-- 首屏概念图：美联储大楼与利率齿轮 -->
+      <svg viewBox="0 0 200 200" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+        <rect x="30" y="60" width="140" height="100" rx="12" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <rect x="60" y="80" width="20" height="20" rx="4" fill="#1f1f1f" stroke="#2a2a2a"/>
+        <rect x="90" y="80" width="20" height="20" rx="4" fill="#1f1f1f" stroke="#2a2a2a"/>
+        <rect x="120" y="80" width="20" height="20" rx="4" fill="#1f1f1f" stroke="#2a2a2a"/>
+        <rect x="60" y="110" width="80" height="14" rx="4" fill="#1f1f1f" stroke="#2a2a2a"/>
+        <text x="100" y="121" fill="#c8a866" font-size="10" text-anchor="middle">FED</text>
+        <circle cx="160" cy="50" r="16" fill="none" stroke="#e05050" stroke-width="2"/>
+        <circle cx="170" cy="40" r="8" fill="none" stroke="#50b070" stroke-width="2"/>
+        <text x="100" y="190" fill="#8a8a8a" font-size="10" text-anchor="middle">利率 · 就业 · 通胀</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">想象一下，美联储就像一个国家的“经济自动驾驶仪”，它不负责生产东西，也不管你钱包里有多少钱，但它掌握着方向盘和油门。它的任务就是让整个经济跑得既不太快（引发通胀）也不太慢（导致失业）。它最常用的工具就是“利率”——相当于给经济这辆车的油门踏板。踩油门（降息），大家更愿意借钱消费和投资，经济加速；踩刹车（加息），借钱变贵，大家开始省钱，经济降温。(来源：https://www.futunn.com/learn/detail-how-to-analyze-the-federal-reserve-s-monetary-policy-88969-230759065)</p>
+  </div>
+  <div class="illus">
+    <!-- 结构图：美联储的三大支柱 -->
+    <svg viewBox="0 0 720 140" width="720" height="140" xmlns="http://www.w3.org/2000/svg">
+      <rect x="60" y="30" width="160" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="140" y="57" fill="#e8e8e8" font-size="12" text-anchor="middle">联邦储备理事会</text>
+      <path d="M225 52 H295" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="300" y="30" width="160" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="380" y="57" fill="#e8e8e8" font-size="12" text-anchor="middle">12家地区联储银行</text>
+      <path d="M465 52 H535" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="540" y="30" width="160" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="620" y="57" fill="#e8e8e8" font-size="12" text-anchor="middle">联邦公开市场委员会</text>
+      <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+      <text x="360" y="110" fill="#8a8a8a" font-size="11" text-anchor="middle">美联储的三大核心架构</text>
+    </svg>
+    <div class="cap">示意图：美联储的三大支柱，共同决策货币政策</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 价格带</h2>
+  <div class="sec-note">用真实数字说明这个“市场”有多大、钱在哪。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>指标</th><th>数值/范围</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>资产负债表规模</td><td class="up">约 7.5 万亿美元</td><td>2024年数据，疫情期间一度接近9万亿，现在缩表中。(来源：https://www.monetamarkets.com/cn/analysis/what-is-the-fed-how-federal-reserve-works-fomc)</td></tr>
+        <tr><td>联邦基金利率</td><td>5.25% – 5.50%</td><td>2023年7月-2024年，为抑制通胀达到的历史高位。[UNSOURCED]</td></tr>
+        <tr><td>FOMC会议频率</td><td>每年 8 次</td><td>固定日程，决定利率走向，市场如临大考。(来源：https://pdf.dfcfw.com/pdf/H3_AP202410301640590023_1.pdf)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="illus">
+    <!-- 数据图：利率走势（示意） -->
+    <svg viewBox="0 0 720 220" width="720" height="220" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <polyline points="100,160 200,150 300,100 400,40 500,35 600,35" fill="none" stroke="#c8a866" stroke-width="2.5"/>
+      <text x="100" y="195" fill="#9a9a9a" font-size="10" text-anchor="middle">2020</text>
+      <text x="300" y="195" fill="#9a9a9a" font-size="10" text-anchor="middle">2022</text>
+      <text x="600" y="195" fill="#9a9a9a" font-size="10" text-anchor="middle">2024</text>
+      <text x="380" y="215" fill="#8a8a8a" font-size="11" text-anchor="middle">示意图：联邦基金利率走势（2020-2024，示意非精确）</text>
+    </svg>
+    <div class="cap">利率走势示意图（请以官方数据为准）</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台 -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在制定规则、谁在赚钱、小白该去哪个平台。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">核心</span>
+        <h3>联邦储备理事会</h3>
+        <ul><li><b>角色</b>：位于华盛顿的中央机构，7名委员由总统任命、参议院批准，任期14年。主席（如鲍威尔）是美联储的“代言人”。(来源：https://www.monetamarkets.com/cn/analysis/what-is-the-fed-how-federal-reserve-works-fomc)</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">决策</span>
+        <h3>FOMC（联邦公开市场委员会）</h3>
+        <ul><li><b>角色</b>：真正的“利率开关”。由理事会7人+5位地区联储主席组成，每年开8次会议，投票决定加息、降息还是按兵不动。(来源：https://research.titanfx.com/cn/glossary/what_is_frb_fed)</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">市场</span>
+        <h3>华尔街 & 全球投资者</h3>
+        <ul><li><b>角色</b>：美联储做什么，他们立刻反应。股票涨跌、美元强弱、债券收益率波动，都跟着FOMC的“剧本”走。(来源：https://www.cmegroup.com/cn-s/education/courses/learn-about-key-economic-events/understanding-the-fomc-report.html)</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>小白友好入口</h3>
+        <ul><li><b>去哪看</b>：美联储官网 (federalreserve.gov) 上有所有公开声明、会议纪要、经济预测。CME FedWatch Tool 可以看市场对加息概率的预测。(来源：https://www.cmegroup.com/cn-s/education/courses/learn-about-key-economic-events/understanding-the-fomc-report.html)</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就梭哈。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">理解核心目标：美联储就管两件事——就业和通胀。记住“2%通胀目标”和“最大就业”这两个词。(来源：https://www.futunn.com/learn/detail-how-to-analyze-the-federal-reserve-s-monetary-policy-88969-230759065)</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">学会看“点阵图”：每个FOMC委员对未来利率的匿名预测，散点图形式。它告诉你“未来利率可能会往哪走”。(来源：https://www.futunn.com/learn/detail-how-to-analyze-the-federal-reserve-s-monetary-policy-88969-230759065)</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">关注FOMC会议日历：每年8次，提前规划。会议后半小时发布声明，市场震荡。先看“利率决议”，再看“政策声明”。(来源：https://pdf.dfcfw.com/pdf/H3_AP202410301640590023_1.pdf)</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">小额试水：用模拟账户或小额资金，在美联储宣布利率决策前后，观察市场（如美股、美元、黄金）的反应，建立自己的判断框架。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>以为美联储可以直接控制股市</h3><ul><li><b>为什么坑</b>：美联储管的是利率和货币供应，股市只是“被影响”。有时加息股市反而涨，因为市场提前“price in”了。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>只看“加息/降息”结果，不看“预期”</h3><ul><li><b>为什么坑</b>：市场早已预测了加息概率。真正让市场波动的是“预期差”——比如市场预期加息25个基点，结果加了50个基点，就会大跌。(来源：https://research.titanfx.com/cn/glossary/what_is_frb_fed)</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>把美联储当“万能救世主”</h3><ul><li><b>为什么坑</b>：美联储能救流动性危机，但救不了经济基本面。比如高通胀时，它只能加息，无法解决供应链问题。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li><b>不要跟美联储作对</b>：当美联储明确表示要收紧货币政策（加息/缩表）时，不要盲目做多高风险资产，顺势而为。</li></ul></div>
+  </div>
+  <div class="illus">
+    <!-- 误区 vs 真相 对比图 -->
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="58" fill="#e05050" font-size="13" text-anchor="middle">误区</text>
+      <text x="180" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">美联储直接操控股市</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="400" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="58" fill="#50b070" font-size="13" text-anchor="middle">真相</text>
+      <text x="550" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">美联储间接影响市场预期</text>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相：美联储并不直接指挥股市</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>联邦基金利率</b></td><td>银行之间借钱过夜用的利率，美联储通过设定它来影响整个经济的借贷成本。</td></tr>
+        <tr><td><b>量化宽松（QE）</b></td><td>美联储直接印钱买国债等资产，向市场注入流动性，相当于“直升机撒钱”。</td></tr>
+        <tr><td><b>缩表</b></td><td>量化宽松的反向操作，美联储卖出资产收回现金，从市场抽走流动性。</td></tr>
+        <tr><td><b>鹰派 / 鸽派</b></td><td>鹰派倾向于加息（收紧货币，更担心通胀）；鸽派倾向于降息（宽松货币，更担心就业）。</td></tr>
+        <tr><td><b>点阵图</b></td><td>FOMC委员对未来利率的匿名预测，以散点图形式呈现，能看出未来利率走向。(来源：https://www.futunn.com/learn/detail-how-to-analyze-the-federal-reserve-s-monetary-policy-88969-230759065)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">美联储成立于1913年，起因是1907年一次严重的银行恐慌，当时美国没有中央银行，私人银行家J.P.摩根不得不亲自出马组织救市。后来国会觉得“不能总靠一个人”，于是通过了《联邦储备法案》，美联储由此诞生。(来源：https://pdf.dfcfw.com/pdf/H3_AP202410301640590023_1.pdf)</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">如果你对宏观经济、投资、全球金融感兴趣，了解美联储是必修课。如果你只关心自己的一亩三分地，可以暂时不学，但你会发现美联储的动向最终会通过房贷利率、物价、养老金等影响到你。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">美联储不是神，但它决定了全球经济的“水温”。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：Moneta Markets、Titan FX Research、东方财富网、富途牛牛学习中心、CME Group、大公国际，以及美联储公开信息。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
