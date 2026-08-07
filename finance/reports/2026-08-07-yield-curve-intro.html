@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 收益率曲线</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05080; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 债券市场</div>
+  <h1>收益率曲线：债券市场的“天气预报”怎么看？</h1>
+  <div class="sub">一张图告诉你借钱时间长短跟利息有什么关系，以及为什么经济学家都盯着它</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。投资有风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：收益率曲线是什么、谁在用它、小白能看懂吗？</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：把不同期限（比如3个月、1年、10年）的国债收益率连成一条线，展示“借钱时间越长，利息越高还是越低” (来源：https://cn.tradingview.com/support/solutions/43000758123)</li>
+        <li><b>谁在玩</b>：央行、银行、大型基金、债券交易员，以及所有关注经济走势的人</li>
+        <li><b>市场多大</b>：中国国债规模超30万亿元（2023年末），收益率曲线是每日定价基准 (来源：https://www.chinamoney.com.cn/chinese/bkcurvclosedy)</li>
+        <li><b>小白能玩吗</b>：不需要买债券，免费看曲线就能判断市场情绪；但直接买债券需要一定资金门槛</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <!-- 首屏概念图：三种形态的收益率曲线 -->
+      <svg viewBox="0 0 200 160" width="200" height="160" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0" y="0" width="200" height="160" fill="none"/>
+        <text x="100" y="18" fill="#c8a866" font-size="10" text-anchor="middle" font-weight="600">收益率曲线三种形态</text>
+        <!-- 坐标轴 -->
+        <line x1="20" y1="130" x2="190" y2="130" stroke="#2a2a2a" stroke-width="1.5"/>
+        <line x1="20" y1="130" x2="20" y2="20" stroke="#2a2a2a" stroke-width="1.5"/>
+        <text x="195" y="134" fill="#777" font-size="8" text-anchor="end">期限</text>
+        <text x="14" y="16" fill="#777" font-size="8" text-anchor="end">收益率</text>
+        <!-- 正常曲线（向上倾斜） -->
+        <path d="M30 110 Q80 80 170 40" fill="none" stroke="#50b070" stroke-width="2"/>
+        <text x="50" y="140" fill="#50b070" font-size="8">正常</text>
+        <!-- 平坦曲线 -->
+        <path d="M30 75 Q100 70 170 65" fill="none" stroke="#c8a866" stroke-width="2"/>
+        <text x="100" y="142" fill="#c8a866" font-size="8" text-anchor="middle">平坦</text>
+        <!-- 倒挂曲线 -->
+        <path d="M30 40 Q80 55 170 100" fill="none" stroke="#e05050" stroke-width="2"/>
+        <text x="150" y="140" fill="#e05050" font-size="8">倒挂</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">用“借钱的年龄歧视”来类比：越年轻的人借钱，利息通常越高？</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">想象你借钱给别人：借1个月，你只承担短期风险，利息要求低；借10年，你要承担通货膨胀、对方违约等长期风险，自然要求更高的利息。所以正常情况下，期限越长，收益率越高——曲线向右上方倾斜，叫“正常曲线”。但如果市场预期经济要变差，投资者会争相买入长期国债避险，把长期收益率压低，甚至低于短期，曲线就“倒挂”了——这在历史上往往是经济衰退的前兆 (来源：https://zh.khanacademy.org/economics-finance-domain/core-finance/stock-and-bonds/bonds-tutorial/v/introduction-to-the-yield-curve)。</p>
+  </div>
+  <div class="illus">
+    <!-- 价值链/结构图：从债券发行到收益率曲线 -->
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="40" width="180" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="100" y="67" fill="#e8e8e8" font-size="12" text-anchor="middle">债券发行</text>
+      <path d="M195 62 H235" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="245" y="40" width="180" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="335" y="67" fill="#e8e8e8" font-size="12" text-anchor="middle">二级市场交易</text>
+      <path d="M430 62 H470" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="480" y="40" width="180" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="570" y="67" fill="#e8e8e8" font-size="12" text-anchor="middle">收益率曲线</text>
+      <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">示意图：债券发行→二级市场交易→汇总形成收益率曲线 (来源：TradingView)</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 收益率水平</h2>
+  <div class="sec-note">用真实数据看看中国国债收益率曲线的样子。数据来自中国货币网 (2025年4月示例)。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>期限</th><th>到期收益率 (%)</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>0.083 年 (1个月)</td><td class="up">2.6551</td><td>短期利率，受央行政策影响大</td></tr>
+        <tr><td>1 年</td><td>3.5756</td><td>略高于短期</td></tr>
+        <tr><td>5 年</td><td>3.7445</td><td>中等期限</td></tr>
+        <tr><td>10 年</td><td>4.1812</td><td>基准利率，全球关注</td></tr>
+        <tr><td>30 年</td><td>4.3407</td><td>长期，风险溢价最高</td></tr>
+      </tbody>
+    </table>
+    <p class="src">数据来源：中国货币网 2025年4月2日国债收盘收益率曲线 (https://www.chinamoney.com.cn/chinese/bkcurvclosedy)</p>
+  </div>
+  <div class="illus">
+    <!-- 柱状图：展示不同期限收益率 -->
+    <svg viewBox="0 0 720 220" width="720" height="220" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <!-- 柱状条 -->
+      <rect x="90" y="140" width="70" height="40" fill="#c8a866"/>
+      <rect x="200" y="110" width="70" height="70" fill="#c8a866"/>
+      <rect x="310" y="100" width="70" height="80" fill="#c8a866"/>
+      <rect x="420" y="80" width="70" height="100" fill="#c8a866"/>
+      <rect x="530" y="70" width="70" height="110" fill="#c8a866"/>
+      <text x="125" y="195" fill="#9a9a9a" font-size="11" text-anchor="middle">1个月</text>
+      <text x="235" y="195" fill="#9a9a9a" font-size="11" text-anchor="middle">1年</text>
+      <text x="345" y="195" fill="#9a9a9a" font-size="11" text-anchor="middle">5年</text>
+      <text x="455" y="195" fill="#9a9a9a" font-size="11" text-anchor="middle">10年</text>
+      <text x="565" y="195" fill="#9a9a9a" font-size="11" text-anchor="middle">30年</text>
+      <text x="380" y="215" fill="#8a8a8a" font-size="11" text-anchor="middle">数据源自中国货币网 (2025-04-02)</text>
+    </svg>
+    <div class="cap">中国国债收益率柱状图：期限越长收益率越高（正常曲线形态）</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台 -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在制定利率、谁在交易、普通人去哪里看曲线？</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">ROOT</span>
+        <h3>央行 (中国人民银行)</h3>
+        <ul><li>通过调整政策利率（如MLF、逆回购）影响短期端，是收益率曲线的“发令枪”</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">平台 B</span>
+        <h3>中国货币网</h3>
+        <ul><li>官方发布国债收益率曲线的平台，每日收盘后更新关键期限点数据 (来源：https://www.chinamoney.com.cn/chinese/bkcurvclosedy)</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">HOT</span>
+        <h3>TradingView</h3>
+        <ul><li>全球热门图表平台，提供收益率曲线可视化工具，可自由切换期限坐标和线性坐标 (来源：https://cn.tradingview.com/support/solutions/43000758123)</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>小白友好入口</h3>
+        <ul><li>MacroMicro 财经M平方：免费动态图表，直观展示美国、中国等主要经济体收益率曲线 (来源：https://sc.macromicro.me/dynamic_chart?id=4)</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就买债券。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">打开 MacroMicro 或 TradingView 的收益率曲线图，先看曲线斜率是向上还是向下。向上=正常，向下=倒挂。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">学习概念：期限利差（10年期收益率减2年期收益率）。如果为负，就是倒挂，历史上常预示衰退 (来源：https://zh.khanacademy.org/economics-finance-domain/core-finance/stock-and-bonds/bonds-tutorial/v/introduction-to-the-yield-curve)。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">关注央行政策声明，理解短期利率为何变动。比如美联储加息，短期收益率会快速上升。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">小额尝试：可以通过国债ETF间接投资债券，观察收益率变化对净值的影响。但注意债券价格与收益率反向。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易误解的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>倒挂 = 马上衰退？</h3><ul><li>倒挂是领先指标，但平均提前12-18个月才衰退，期间可能反复。不要看到倒挂就恐慌抛售股票 (来源：据公开资料)。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>只看长端，忽略短端</h3><ul><li>收益率曲线形态由短端和长端共同决定。短端受央行政策影响大，长端反映经济预期。只看10年期收益率的绝对值没有意义。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>把公司债曲线当国债曲线</h3><ul><li>公司债有信用风险，收益率更高，但曲线形态受信用评级影响，不能直接类比国债曲线。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>收益率曲线是市场情绪的镜子，不是水晶球。用它做参考，但别把它当唯一决策依据。</li></ul></div>
+  </div>
+  <div class="illus">
+    <!-- 误区 vs 真相 对比图 -->
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="58" fill="#e05050" font-size="13" text-anchor="middle">误区</text>
+      <text x="180" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">倒挂 → 经济马上崩溃</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="400" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="58" fill="#50b070" font-size="13" text-anchor="middle">真相</text>
+      <text x="550" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">倒挂是迟到的警报，平均提前1-2年</text>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相：倒挂≠即刻衰退</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>收益率</b></td><td>你借出去的钱每年能赚多少利息，用百分比表示</td></tr>
+        <tr><td><b>期限</b></td><td>债券到期的时间，比如1年、10年</td></tr>
+        <tr><td><b>倒挂</b></td><td>短期收益率高于长期收益率，曲线向下倾斜，通常预示经济衰退</td></tr>
+        <tr><td><b>陡峭化</b></td><td>长端收益率上升快于短端，曲线变陡，经济可能扩张</td></tr>
+        <tr><td><b>平坦化</b></td><td>长端收益率下降或短端上升，曲线变平，市场预期模糊</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">美国国债收益率曲线自1970年代以来，每次倒挂后都出现了经济衰退，唯一的例外是2022-2023年的倒挂至今尚未引发衰退（截至2025年）——但历史从不承诺重复。</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">如果你对宏观经济感兴趣，喜欢看“信号灯”，收益率曲线是个免费有趣的工具；如果你只想短期赚钱，它可能太慢。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">收益率曲线是债券市场写给所有人的“天气预报”——它不保证明天会下雨，但告诉你云层正在变厚。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：中国货币网 (https://www.chinamoney.com.cn/chinese/bkcurvclosedy)、TradingView (https://cn.tradingview.com/support/solutions/43000758123)、可汗学院 (https://zh.khanacademy.org/economics-finance-domain/core-finance/stock-and-bonds/bonds-tutorial/v/introduction-to-the-yield-curve)、MacroMicro (https://sc.macromicro.me/dynamic_chart?id=4) 等。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
