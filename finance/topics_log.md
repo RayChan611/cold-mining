@@ -13,3 +13,4 @@
 | 2026-08-05 | 货币政策：央行是怎么调控经济的“遥控器”？ | reports/2026-08-05-huo-bi-zheng-ce.html |
 | 2026-08-06 | 美联储：全世界最重要的央行，到底在干什么？ | reports/2026-08-06-federal-reserve.html |
 | 2026-08-07 | 收益率曲线：债券市场的“天气预报”怎么看？ | reports/2026-08-07-yield-curve-intro.html |
+| 2026-08-10 | 信用利差：藏在债券价格里的「风险体温计」 | reports/2026-08-10-credit-spread.html |
