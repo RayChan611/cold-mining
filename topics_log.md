@@ -18,3 +18,4 @@
 | 2026-08-05 | 葡萄酒期酒：还没装瓶就已经被买走的酒，到底怎么玩？ | reports/2026-08-05-葡萄酒期酒.html |
 | 2026-08-06 | 电子墨水屏：为什么它能省电护眼，还能在阳光下看书？ | reports/2026-08-06-dian-zi-mo-shui-ping.html |
 | 2026-08-07 | 机械键盘轴体入门：从“哒哒哒”到“咔哒咔哒”，你的手指到底在按什么？ | reports/2026-08-07-mechanical-keyboard-switches.html |
+| 2026-08-10 | 模块合成器：把声音拆成积木，再亲手拼出宇宙 | reports/2026-08-10-modular-synth-beginners.html |
