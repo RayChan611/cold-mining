@@ -14,3 +14,4 @@
 | 2026-08-06 | 美联储：全世界最重要的央行，到底在干什么？ | reports/2026-08-06-federal-reserve.html |
 | 2026-08-07 | 收益率曲线：债券市场的“天气预报”怎么看？ | reports/2026-08-07-yield-curve-intro.html |
 | 2026-08-10 | 信用利差：藏在债券价格里的「风险体温计」 | reports/2026-08-10-credit-spread.html |
+| 2026-08-11 | 量化宽松（QE）到底是什么：一台央行的「直升机撒钱机」 | reports/2026-08-11-quantitative-easing-guide.html |

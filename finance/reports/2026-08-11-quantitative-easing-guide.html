@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 量化宽松</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  /* 图文并茂：插图与线稿图标 */
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+
+  /* 汇总入口：左上角悬浮返回总库 */
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 宏观经济</div>
+  <h1>量化宽松（QE）到底是什么：一台央行的「直升机撒钱机」</h1>
+  <div class="sub">用大白话讲清楚：当利率降到零还不够，央行怎么靠「印钱买债券」把经济从坑里拉出来。</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。投资/收藏有风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：这个领域是干什么的、谁在玩、值不值得普通人关注。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：央行在利率已降到接近零、传统降息失效时，通过大规模购买国债等资产向市场注入资金的非常规货币政策，目的是压低长期利率、提升流动性并刺激经济 (来源：https://research.titanfx.com/cn/glossary/what-is-quantitative-easing)</li>
+        <li><b>谁在玩</b>：各国中央银行（美联储、欧洲央行、日本央行等）主导，商业银行、金融机构是被动参与者，普通民众通过房贷利率、通胀、股市间接感受到它的存在 (来源：https://www.monetamarkets.com/cn/risk/qe-quantitative-easing)</li>
+        <li><b>规模多大</b>：美联储资产负债表从危机前不足约 1 万亿美元扩张至 2014 年左右的约 4.5 万亿美元（来源：https://longbridge.com/zh-CN/learn/quantitative-easing-100728）</li>
+        <li><b>小白能玩吗</b>：不能直接「玩」，但你的房贷利率、存款收益、养老金和房租都受它影响，值得看懂</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <!-- 概念插画：央行印钱买债券，钱流向市场 -->
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <!-- 央行大楼 -->
+        <rect x="15" y="45" width="50" height="60" rx="4" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <path d="M25 45 L40 30 L55 45" fill="none" stroke="#c8a866" stroke-width="2"/>
+        <text x="40" y="78" fill="#c8a866" font-size="11" text-anchor="middle" font-family="monospace">央行</text>
+        <!-- 债券图标 -->
+        <rect x="95" y="55" width="45" height="30" rx="3" fill="none" stroke="#e8e8e8" stroke-width="1.5"/>
+        <text x="117" y="76" fill="#e8e8e8" font-size="10" text-anchor="middle">债券</text>
+        <!-- 箭头：央行买债券 -->
+        <path d="M70 70 H90" stroke="#c8a866" stroke-width="2" marker-end="url(#qearrow)"/>
+        <!-- 钱流向市场 -->
+        <path d="M117 90 V110" stroke="#c8a866" stroke-width="2" marker-end="url(#qearrow)"/>
+        <circle cx="117" cy="120" r="12" fill="none" stroke="#50b070" stroke-width="1.5"/>
+        <text x="117" y="124" fill="#50b070" font-size="9" text-anchor="middle">市场</text>
+        <defs><marker id="qearrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+        <text x="80" y="145" fill="#8a8a8a" font-size="9" text-anchor="middle">央行印钱买债券</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">想象你家小区突然停电，物业的常规办法是「调电压」（降息）。可电压已经调到最低了，灯还是不亮。这时物业主任决定直接挨家挨户塞钱，说「拿去花，别存着」——这就是量化宽松。<br><br>
+    央行的「塞钱」方式不是真的印钞票，而是<b>从商业银行手里买走国债、房贷债券等资产</b>，把钱打进银行在央行开的账户里。银行拿到钱后，就有更多资金去放贷给企业和个人，市场里的钱变多了，借贷变便宜，消费和投资就被拉起来了 (来源：https://zh.wikipedia.org/zh-hans/%E9%87%8F%E5%8C%96%E5%AF%AC%E9%86%AC)。<br><br>
+    注意一个关键区别：<b>「量化」指的是央行明确要创造指定金额的钱，「宽松」指的是通过增加银行准备金来缓解流动性压力、压低长期贷款利率</b> (来源：https://www.monetamarkets.com/cn/risk/qe-quantitative-easing)。简单说，就是央行给整个经济打了一针「肾上腺素」。</p>
+  </div>
+  <div class="illus">
+    <!-- 结构图：QE 的传导链条 -->
+    <svg viewBox="0 0 720 140" width="720" height="140" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="48" width="150" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="85" y="66" fill="#e8e8e8" font-size="11" text-anchor="middle">央行印钱</text>
+      <text x="85" y="82" fill="#8a8a8a" font-size="10" text-anchor="middle">(购买资产)</text>
+      <path d="M165 70 H205" stroke="#c8a866" stroke-width="2" marker-end="url(#qear2)"/>
+      <rect x="215" y="48" width="150" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="290" y="66" fill="#e8e8e8" font-size="11" text-anchor="middle">银行准备金增加</text>
+      <text x="290" y="82" fill="#8a8a8a" font-size="10" text-anchor="middle">(可放贷资金变多)</text>
+      <path d="M370 70 H410" stroke="#c8a866" stroke-width="2" marker-end="url(#qear2)"/>
+      <rect x="420" y="48" width="150" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="495" y="66" fill="#e8e8e8" font-size="11" text-anchor="middle">贷款利率下降</text>
+      <text x="495" y="82" fill="#8a8a8a" font-size="10" text-anchor="middle">(企业/个人借贷变便宜)</text>
+      <path d="M575 70 H615" stroke="#c8a866" stroke-width="2" marker-end="url(#qear2)"/>
+      <rect x="625" y="48" width="90" height="44" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="670" y="66" fill="#50b070" font-size="11" text-anchor="middle">消费↑</text>
+      <text x="670" y="82" fill="#50b070" font-size="11" text-anchor="middle">投资↑</text>
+      <defs><marker id="qear2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">QE 的传导链条：央行 → 银行 → 贷款利率 → 消费与投资</div>
+  </div>
+</section>
+
+<!-- 02 规模多大 / 数据对比 -->
+<section>
+  <h2><span class="num">02</span>规模多大 · 美联储资产负债表扩张史</h2>
+  <div class="sec-note">用真实数字说明央行到底「印」了多少钱。来源内联标注。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>时期</th><th>资产负债表规模</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>2008 金融危机前</td><td class="up">不足约 1 万亿美元</td><td>正常时期，央行资产规模较小</td></tr>
+        <tr><td>2014 年左右（QE 三轮后）</td><td>约 4.5 万亿美元</td><td>多轮 QE 后大幅扩张 (来源：https://longbridge.com/zh-CN/learn/quantitative-easing-100728)</td></tr>
+        <tr><td>2020 年疫情后</td><td class="down">一度逼近 9 万亿美元</td><td>紧急 QE 再加码，规模再翻倍 [UNSOURCED]</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="illus">
+    <!-- 柱状图：美联储资产负债表扩张 -->
+    <svg viewBox="0 0 720 220" width="720" height="220" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <!-- 2008 前：1万亿 -->
+      <rect x="110" y="150" width="90" height="30" fill="#c8a866"/>
+      <text x="155" y="143" fill="#c8a866" font-size="12" text-anchor="middle">~1万亿</text>
+      <!-- 2014：4.5万亿 -->
+      <rect x="280" y="105" width="90" height="75" fill="#c8a866"/>
+      <text x="325" y="98" fill="#c8a866" font-size="12" text-anchor="middle">~4.5万亿</text>
+      <!-- 2020：~9万亿 -->
+      <rect x="450" y="45" width="90" height="135" fill="#e05050"/>
+      <text x="495" y="38" fill="#e05050" font-size="12" text-anchor="middle">~9万亿</text>
+      <text x="155" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">2008 前</text>
+      <text x="325" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">2014 (三轮QE)</text>
+      <text x="495" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">2020 疫情后</text>
+      <text x="380" y="215" fill="#8a8a8a" font-size="11" text-anchor="middle">美联储资产负债表规模（美元）· 数据来源：长桥证券、据公开资料</text>
+    </svg>
+    <div class="cap">美联储资产负债表从不足 1 万亿扩张至约 4.5 万亿（2014），疫情后再度翻倍 (来源：https://longbridge.com/zh-CN/learn/quantitative-easing-100728)</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 机构（玩家卡片用线稿 SVG 小图标，不用 emoji） -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 机构</h2>
+  <div class="sec-note">谁在制定规则、谁在被影响、小白该关注谁。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">ROOT</span>
+        <h3>美联储（Fed）</h3>
+        <ul><li>全球 QE 的「总导演」，2008 年后率先大规模购债，三轮 QE 将资产负债表推至约 4.5 万亿美元 (来源：https://longbridge.com/zh-CN/learn/quantitative-easing-100728)</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">欧洲央行</span>
+        <h3>欧洲央行（ECB）</h3>
+        <ul><li>欧元区的 QE 执行者，购债规模同样庞大，但受欧元区多国财政约束，操作更复杂 (来源：https://www.monetamarkets.com/cn/risk/qe-quantitative-easing)</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">HOT</span>
+        <h3>日本央行（BOJ）</h3>
+        <ul><li>QE 的「鼻祖」，2001 年首次尝试，2013 年后更是疯狂购债，长期利率被压在零附近 (来源：http://intl.ce.cn/zhuanti/data/lhks/index.shtml)</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>小白友好入口</h3>
+        <ul><li>关注美联储官网的 FOMC 声明与新闻发布会，比任何财经博主都权威；也可看中国人民银行货政司报告作为国内参照</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就梭哈。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">先搞懂「利率」和「债券」这两个基础概念。QE 买的是国债，不理解债券就理解不了 QE。推荐读央行官网的公开市场操作栏目，免费且权威。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">跟踪一次真实的 QE 事件。比如回看 2020 年 3 月美联储宣布无限量 QE 时的新闻，看当时市场怎么反应（股市先跌后涨、美债收益率创新低）。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">建立判断框架：QE 不是单次事件，而是一个「预期管理」游戏。市场不关心你买了多少，关心你<b>接下来会不会买得更多或更少</b>。学会看 FOMC 声明里「必要时将采取行动」这类措辞的变化。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">把 QE 和自己的生活挂钩：房贷利率（影响月供）、房租（资产价格传导）、存款利息（影响收益）。当央行开始「缩表」（卖出资产），意味着流动性收紧，这时就该谨慎了。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑（含「误区 vs 真相」插图） -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>以为 QE = 疯狂印钞导致恶性通胀</h3><ul><li>实际上：QE 的钱先流入银行和金融市场，未必直接进入商品市场。2008 年后美国 QE 三轮，通胀长期低于 2% 目标。真正的通胀要等经济复苏、信贷扩张后才可能出现 (来源：https://zh.wikipedia.org/zh-hans/%E9%87%8F%E5%8C%96%E5%AF%AC%E9%86%AC)</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>以为 QE 对所有人都是好事</h3><ul><li>实际上：QE 压低利率，<b>储蓄者</b>的存款利息变薄；同时推高资产价格（股市、楼市），<b>有资产的人受益更多</b>，贫富差距可能被拉大 [UNSOURCED]</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>以为 QE 一停 / 一缩表经济就完蛋</h3><ul><li>实际上：央行会「渐进式」操作，提前和市场沟通。2013 年美联储说「要缩表」引发「紧缩恐慌」，但实际执行时非常缓慢，市场很快适应</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>QE 是宏观背景，不是操作信号。别因为它就冲进股市或楼市，先看自己的现金流和风险承受能力。</li></ul></div>
+  </div>
+  <div class="illus">
+    <!-- 误区 vs 真相 对比图 -->
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="58" fill="#e05050" font-size="13" text-anchor="middle">误区</text>
+      <text x="180" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">「QE = 印钞机狂转，物价马上暴涨」</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="400" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="58" fill="#50b070" font-size="13" text-anchor="middle">真相</text>
+      <text x="550" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">「钱先进金融市场，通胀要等信贷扩张」</text>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相：QE 与通胀的关系没那么直接</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>公开市场操作</b></td><td>央行在市场上买卖债券，是最常规的货币政策工具；QE 是它的「加量加价」版 (来源：https://zh.wikipedia.org/zh-hans/%E9%87%8F%E5%8C%96%E5%AF%AC%E9%86%AC)</td></tr>
+        <tr><td><b>零利率下限</b></td><td>利率降到 0% 附近后没法再降了，传统降息手段失效，这时才轮到 QE 上场 (来源：https://research.titanfx.com/cn/glossary/what-is-quantitative-easing)</td></tr>
+        <tr><td><b>流动性陷阱</b></td><td>利率再低大家也不愿借钱消费，钱都趴在账上；QE 的目的就是打破这种僵局 (来源：http://cj.sina.cn/articles/view/7343580196/1b5b6242400101caag)</td></tr>
+        <tr><td><b>缩表</b></td><td>QE 的反向操作，央行卖出资产收回市场上的钱，流动性收紧</td></tr>
+        <tr><td><b>MBS</b></td><td>房贷抵押支持证券，央行购买它可以压低按揭贷款利率，直接利好房地产市场 (来源：https://longbridge.com/zh-CN/learn/quantitative-easing-100728)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">日本是 QE 的「实验室小白鼠」：2001 年首次尝试 QE 时，全球央行都当它是异端。十几年后，日本央行持有的国债比例超过 50%，几乎买下了半个国家的债。而 2008 年金融危机后，当初嘲笑日本的欧美央行，一个个排队抄起了日本的作业 (来源：http://intl.ce.cn/zhuanti/data/lhks/index.shtml)</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">如果你有房贷、存款或投资股票基金，<b>必须</b>懂 QE 的大方向；如果你是纯吃瓜群众，看懂它也能在新闻里少被忽悠。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">QE 不是印钞机，是央行的「心脏起搏器」——只在病人快不行的时候才用，用多了也有副作用。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：TitanFX 研究 (https://research.titanfx.com/cn/glossary/what-is-quantitative-easing)、长桥证券 (https://longbridge.com/zh-CN/learn/quantitative-easing-100728)、新浪财经 (http://cj.sina.cn/articles/view/7343580196/1b5b6242400101caag)、维基百科 (https://zh.wikipedia.org/zh-hans/%E9%87%8F%E5%8C%96%E5%AF%AC%E9%86%AC)、Moneta Markets (https://www.monetamarkets.com/cn/risk/qe-quantitative-easing)、中国经济网 (http://intl.ce.cn/zhuanti/data/lhks/index.shtml)。<br>
+  本内容为 AI 整理的研究草稿，非投资建议。
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
