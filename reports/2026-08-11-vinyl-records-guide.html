@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 黑胶唱片</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  /* 图文并茂：插图与线稿图标 */
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+
+  /* 汇总入口：左上角悬浮返回总库 */
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 黑胶唱片</div>
+  <h1>黑胶唱片入门指南：为什么一块黑色塑料能在流媒体时代逆势翻红</h1>
+  <div class="sub">在 Spotify 上点一下就能听歌的时代，为什么越来越多人愿意花几百块买一张转着圈的黑胶？</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。投资/收藏有风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：这个领域是干什么的、谁在玩、值不值得普通人关注。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：黑胶唱片是一种模拟音频载体，把声音的波形直接刻在一圈圈塑料纹路里，唱针沿着纹路振动就能「还原」出声音。</li>
+        <li><b>谁在玩</b>：出乎意料，主力是年轻人——大约 55% 的黑胶买家年龄在 35 岁以下 (来源：https://www.360researchreports.com/zh/market-reports/vinyl-records-market-211485)。</li>
+        <li><b>市场多大</b>：2024 年全球黑胶唱片收入增长 4.6%，且 2023 年全球实体音乐购买中约 60% 是黑胶 (来源：https://www.21jingji.com/article/20250910/herald/bcc5c84d70a02ffb6aac33aee25c36d9.html；来源：https://www.360researchreports.com/zh/market-reports/vinyl-records-market-211485)。</li>
+        <li><b>小白能玩吗</b>：能。入门级唱机约 2000 元，单张唱片百元左右，消费门槛已进入普通人可接受区间 (来源：https://www.chinaventure.com.cn/news/116-20250909-387930.html)。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="80" cy="80" r="62" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <circle cx="80" cy="80" r="48" fill="none" stroke="#2a2a2a" stroke-width="1"/>
+        <circle cx="80" cy="80" r="34" fill="none" stroke="#2a2a2a" stroke-width="1"/>
+        <circle cx="80" cy="80" r="20" fill="none" stroke="#2a2a2a" stroke-width="1"/>
+        <circle cx="80" cy="80" r="5" fill="#c8a866"/>
+        <path d="M80 80 L110 52" stroke="#e05050" stroke-width="2" stroke-linecap="round"/>
+        <path d="M110 52 L122 44" stroke="#c8a866" stroke-width="2" stroke-linecap="round"/>
+        <text x="80" y="150" fill="#8a8a8a" font-size="10" text-anchor="middle">黑胶 + 唱针</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">想象你在沙地上用手指画了一条波浪线。声音进入麦克风时产生的电信号，会驱动刻纹刀在塑料盘片上刻出对应的波浪纹路——这就是黑胶唱片。播放时，唱针像「读盲文」一样沿着纹路滑动，把物理振动变回电信号，再经功放放大、喇叭出声。整个过程没有数字采样，所以叫「模拟音频」。</p>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <!-- 录音环节 -->
+      <rect x="10" y="40" width="180" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="100" y="58" fill="#e8e8e8" font-size="12" text-anchor="middle">录音 · 刻纹</text>
+      <text x="100" y="75" fill="#8a8a8a" font-size="10" text-anchor="middle">声波 → 电信号 → 刻纹刀</text>
+      <path d="M195 62 H235" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <!-- 压片环节 -->
+      <rect x="245" y="40" width="180" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="335" y="58" fill="#e8e8e8" font-size="12" text-anchor="middle">压片 · 生产</text>
+      <text x="335" y="75" fill="#8a8a8a" font-size="10" text-anchor="middle">母盘 → 压出 PVC 唱片</text>
+      <path d="M430 62 H470" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <!-- 播放环节 -->
+      <rect x="480" y="40" width="180" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="570" y="58" fill="#e8e8e8" font-size="12" text-anchor="middle">播放 · 还原</text>
+      <text x="570" y="75" fill="#8a8a8a" font-size="10" text-anchor="middle">唱针振动 → 放大 → 出声</text>
+      <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">黑胶唱片的价值链：从声音到塑料盘再到你的耳朵</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 价格带</h2>
+  <div class="sec-note">用真实数字说明蛋糕有多大、钱集中在哪。来源内联标注。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>档位</th><th>典型价格</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>入门档（唱机）</td><td class="up">约 ¥2,000</td><td>入门级唱机价格，约占城镇居民月均收入三分之一 (来源：https://www.chinaventure.com.cn/news/116-20250909-387930.html)</td></tr>
+        <tr><td>单张唱片</td><td>约 ¥100</td><td>普通黑胶唱片售价一般在百元左右 (来源：https://www.chinaventure.com.cn/news/116-20250909-387930.html)</td></tr>
+        <tr><td>欧洲市场价</td><td class="down">€32 – €40</td><td>欧洲黑胶价格从过去的 €16–22 上涨到 €32–40，被指「奢侈品化」(来源：http://www.news.cn/20251211/a0aff1c6f4a84c308288865dbc35d910/c.html)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 220" width="720" height="220" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <!-- 入门唱机 ~2000元 -->
+      <rect x="110" y="150" width="90" height="30" fill="#c8a866"/>
+      <text x="155" y="143" fill="#c4c4c4" font-size="10" text-anchor="middle">¥2,000</text>
+      <!-- 普通唱片 ~100元 -->
+      <rect x="280" y="168" width="90" height="12" fill="#c8a866"/>
+      <text x="325" y="161" fill="#c4c4c4" font-size="10" text-anchor="middle">¥100</text>
+      <!-- 欧洲唱片 €32-40 (~¥250-310) -->
+      <rect x="450" y="155" width="90" height="25" fill="#e05050"/>
+      <text x="495" y="148" fill="#c4c4c4" font-size="10" text-anchor="middle">€32–40</text>
+      <text x="155" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">入门唱机</text>
+      <text x="325" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">单张唱片</text>
+      <text x="495" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">欧洲唱片价</text>
+      <text x="380" y="215" fill="#8a8a8a" font-size="11" text-anchor="middle">价格带示意（人民币，欧洲价换算约 ¥250–310）· 来源见正文</text>
+    </svg>
+    <div class="cap">价格带示意：入门门槛不高，但欧洲市场正走向「奢侈品化」(来源：http://www.news.cn/20251211/a0aff1c6f4a84c308288865dbc35d910/c.html)</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台 -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在制定规则、谁在赚钱、小白该去哪个平台。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="#c8a866"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">ROOT</span>
+        <h3>国际唱片业协会（IFPI）</h3>
+        <ul><li>全球音乐产业的「统计局」，每年发布《全球音乐报告》，黑胶复兴的数据基本都出自这里 (来源：https://www.21jingji.com/article/20250910/herald/bcc5c84d70a02ffb6aac33aee25c36d9.html)。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">渠道</span>
+        <h3>独立唱片店</h3>
+        <ul><li>约 45% 的黑胶销售发生在独立唱片店，是黑胶生态的「毛细血管」 (来源：https://www.360researchreports.com/zh/market-reports/vinyl-records-market-211485)。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/><circle cx="12" cy="10" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">HOT</span>
+        <h3>K-pop 经纪公司</h3>
+        <ul><li>BTS 等团体开始把黑胶作为「必须」而非「选择」，美国实体专辑中黑胶占比已达 75.5%，韩国黑胶市场从 2019 年 2700 万美元增长到 2022 年 8500 万美元 (来源：https://www.threads.com/@kynsyte_curation/post/DWqX3zWD0MQ/k-pop-%E6%96%B0%E8%88%88%E8%B2%A1%E6%BA%90%E5%B4%9B%E8%B5%B7%E9%BB%91%E8%86%A0%E5%94%B1%E7%89%87%E5%B8%82%E5%A0%B4%E5%B0%88%E6%AC%84%E7%B7%A8%E8%AD%AF-the-fact-tf%E7%84%A6%E9%BB%9Ek-pop-%E5%9C%98%E9%AB%94%E7%99%BC%E8%A1%8C%E9%BB%91%E8%86%A0%E5%94%B1%E7%89%87%E6%AD%A3%E6%BC%B8%E6%BC%B8%E5%9C%B0%E5%BE%9E%E9%81%B8%E6%93%87%E8%AE%8A%E7%82%BA%E5%BF%85%E9%A0%88%E7%BE%8E%E5%9C%8B%E5%AF%A6%E9%AB%94%E5%B0%88%E8%BC%AF%E4%B8%AD%E9%BB%91%E8%86%A0%E5%94%B1%E7%89%87%E5%8D%A0%E6%AF%94%E9%81%94-755%E9%A0%90)。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>小白友好入口</h3>
+        <ul><li>从家门口的独立唱片店逛起，或参加「Record Lounge」这类黑胶市集，先看先摸再决定买什么 (来源：https://www.threads.com/@kynsyte_curation/post/DWqX3zWD0MQ)。</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就梭哈。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">先别买机器。去一趟独立唱片店或黑胶市集，花几十块买一张你真正喜欢的专辑，感受「拥有实体唱片」这件事本身 (来源：https://www.cls.cn/detail/768709)。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">确定自己真的喜欢这种「仪式感」之后，再入手入门级唱机（约 2000 元）+ 功放 + 喇叭。注意：黑胶播放需要唱头放大器，别漏了 (来源：https://www.threads.com/@kynsyte_curation/post/DWqX3zWD0MQ)。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">学会保养：黑胶怕灰、怕潮、怕划痕，需要专用清洁工具定期除尘。唱针状态、转盘水平、转速（33 1/3 或 45 RPM）都要留意 (来源：https://www.threads.com/@kynsyte_curation/post/DWqX3zWD0MQ)。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">建立自己的收藏方向：是收喜欢的音乐人，还是追特定版本（首版、彩色盘、限量盘）？量力而行，别把爱好变成负担。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>以为黑胶「音质更好」</h3><ul><li>黑胶的「好」在于温暖的模拟质感和仪式感，不是技术上的保真度。数字音频在信噪比和动态范围上其实更「准确」。别为了玄学掏钱。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>忽略唱头放大器</h3><ul><li>黑胶唱片的输出信号很弱，必须经过唱头放大器（Phono 放大）才能接功放。很多人买了唱机回家发现「声音小得听不见」，就是这个环节漏了 (来源：https://www.threads.com/@kynsyte_curation/post/DWqX3zWD0MQ)。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>把黑胶当投资品</h3><ul><li>虽然市场在涨，但黑胶本质上是个消费品。欧洲市场已出现「奢侈品化」趋势，价格从 €16–22 涨到 €32–40，但二手流动性并不好 (来源：http://www.news.cn/20251211/a0aff1c6f4a84c308288865dbc35d910/c.html)。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>买你真心喜欢的音乐，而不是「可能升值」的塑料。喜欢，就不会亏。</li></ul></div>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="58" fill="#e05050" font-size="13" text-anchor="middle">误区</text>
+      <text x="180" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">「黑胶音质吊打数字音乐」</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="400" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="58" fill="#50b070" font-size="13" text-anchor="middle">真相</text>
+      <text x="550" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">是「模拟质感」不是「技术保真」</text>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相：黑胶的「好」在质感，不在保真</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>33 1/3 RPM</b></td><td>黑胶的标准转速，每分钟转 33 又 1/3 圈，一张 LP（Long Play，长时唱片）大约能放 20-30 分钟一面。</td></tr>
+        <tr><td><b>45 RPM</b></td><td>更快转速，音质略好但每面容量小，常见于单曲唱片。</td></tr>
+        <tr><td><b>唱头放大器（Phono Stage）</b></td><td>把黑胶微弱信号放大到正常音量的设备，很多人漏买它 (来源：https://www.threads.com/@kynsyte_curation/post/DWqX3zWD0MQ)。</td></tr>
+        <tr><td><b>LP / EP / 单曲</b></td><td>LP 是全长专辑；EP 是迷你专辑；单曲就是一两首歌的小盘。</td></tr>
+        <tr><td><b>模拟 vs 数字</b></td><td>模拟是把声音波形直接刻在盘上；数字是把声音变成 0 和 1 存起来。黑胶属于前者。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">在旧中国，一台进口留声机要价高达 350 银元，相当于北方两座大院的价格；即便在 1970 年代，一台留声机也要花掉普通人一个月到半年的工资。而今天，一台入门唱机只要 2000 元左右——黑胶从未如此「亲民」过 (来源：https://www.chinaventure.com.cn/news/116-20250909-387930.html)。</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">适合喜欢仪式感、愿意为「实体」和「过程」买单的人；不适合追求极致便携和绝对音质的人。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">黑胶不是「过去的遗物」，而是「慢下来的选择」——在点一下就能听歌的时代，它让你不得不坐下来，听完一整面。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：360 Research Reports（https://www.360researchreports.com/zh/market-reports/vinyl-records-market-211485）、投中网（https://www.chinaventure.com.cn/news/116-20250909-387930.html）、21经济网（https://www.21jingji.com/article/20250910/herald/bcc5c84d70a02ffb6aac33aee25c36d9.html）、财联社（https://www.cls.cn/detail/768709）、THE FACT 专栏编译（https://www.threads.com/@kynsyte_curation/post/DWqX3zWD0MQ）、新华网（http://www.news.cn/20251211/a0aff1c6f4a84c308288865dbc35d910/c.html）。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
