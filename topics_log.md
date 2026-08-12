@@ -20,3 +20,4 @@
 | 2026-08-07 | 机械键盘轴体入门：从“哒哒哒”到“咔哒咔哒”，你的手指到底在按什么？ | reports/2026-08-07-mechanical-keyboard-switches.html |
 | 2026-08-10 | 模块合成器：把声音拆成积木，再亲手拼出宇宙 | reports/2026-08-10-modular-synth-beginners.html |
 | 2026-08-11 | 黑胶唱片入门指南：为什么一块黑色塑料能在流媒体时代逆势翻红 | reports/2026-08-11-vinyl-records-guide.html |
+| 2026-08-12 | 盆栽与文人树：把一棵树养成一首山水诗 | reports/2026-08-12-penjing-and-bunjin-tree.html |
