@@ -16,3 +16,4 @@
 | 2026-08-10 | 信用利差：藏在债券价格里的「风险体温计」 | reports/2026-08-10-credit-spread.html |
 | 2026-08-11 | 量化宽松（QE）到底是什么：一台央行的「直升机撒钱机」 | reports/2026-08-11-quantitative-easing-guide.html |
 | 2026-08-12 | 债券入门：把钱借给国家或公司，躺着收利息的生意 | reports/2026-08-12-bond-basics-for-beginners.html |
+| 2026-08-13 | ETF 入门：一篮子股票的「自助餐」，普通人也能当半个基金经理 | reports/2026-08-13-etf-beginners-guide.html |

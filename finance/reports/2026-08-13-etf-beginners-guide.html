@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · ETF 入门</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 投资入门</div>
+  <h1>ETF 入门：一篮子股票的「自助餐」，普通人也能当半个基金经理</h1>
+  <div class="sub">用买一份套餐的钱，同时拥有几十家公司的股份——这大概是普通人离「分散投资」最近的一次。</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。投资/收藏有风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：这个领域是干什么的、谁在玩、值不值得普通人关注。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：ETF（Exchange Traded Fund，交易所买卖基金）是一种可以在股票市场像买卖股票一样交易的「一篮子资产」——买一份 ETF，相当于同时持有一揽子公司的股份 (来源：https://www.invesco.com/hk/zh/etf/investing-basics.html)</li>
+        <li><b>谁在玩</b>：从大型机构、退休基金到刚开户的上班族都在玩。它既是机构配置资产的核心工具，也是普通人入门指数投资的最常见入口。</li>
+        <li><b>市场多大</b>：全球 ETF 市场规模以万亿美元计 [UNSOURCED]；仅单只追踪纳斯达克 100 或标普 500 的头部 ETF 规模就常达千亿美元级 [UNSOURCED]。台湾半导体主题 ETF 因行业集中，波幅可能比分散基金更高 (来源：https://www.fubonfund.com.hk/Insights20250123)</li>
+        <li><b>小白能玩吗</b>：能。门槛很低（有的几十美元甚至更低就能买一份），但它不是保本储蓄——市场跌它跟着跌，还有跟踪误差和流动性风险 (来源：https://www.etoro.com/zh/investing/what-is-etf)</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <!-- 首屏概念图：一篮子股票 -->
+      <svg viewBox="0 0 180 180" width="180" height="180" xmlns="http://www.w3.org/2000/svg">
+        <!-- 篮子轮廓 -->
+        <path d="M30 70 Q30 50 50 50 L130 50 Q150 50 150 70 L145 120 Q140 145 115 145 L65 145 Q40 145 35 120 Z" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <!-- 篮子里的小股票卡片 -->
+        <rect x="45" y="35" width="30" height="22" rx="3" fill="#1f1f1f" stroke="#c8a866" stroke-width="1"/>
+        <rect x="80" y="30" width="30" height="22" rx="3" fill="#1f1f1f" stroke="#c8a866" stroke-width="1"/>
+        <rect x="115" y="35" width="30" height="22" rx="3" fill="#1f1f1f" stroke="#c8a866" stroke-width="1"/>
+        <rect x="60" y="58" width="30" height="22" rx="3" fill="#1f1f1f" stroke="#e05050" stroke-width="1"/>
+        <rect x="95" y="60" width="30" height="22" rx="3" fill="#1f1f1f" stroke="#50b070" stroke-width="1"/>
+        <path d="M50 95 L75 78 L95 88 L125 70" fill="none" stroke="#c8a866" stroke-width="1.5"/>
+        <circle cx="50" cy="95" r="3" fill="#c8a866"/><circle cx="75" cy="78" r="3" fill="#c8a866"/><circle cx="95" cy="88" r="3" fill="#c8a866"/><circle cx="125" cy="70" r="3" fill="#c8a866"/>
+        <text x="90" y="158" fill="#8a8a8a" font-size="10" text-anchor="middle">ETF = 一篮子资产</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">把 ETF 想成一顿「公司股票自助餐」。你花一份套餐的钱，餐盘里自动装好了几十甚至几百家公司的「小份额股份」。比如追踪标普 500 的 ETF，你买一份，就等于同时拥有苹果、微软、亚马逊等 500 家大公司的一丁点股份 (来源：https://www.invesco.com/hk/zh/etf/investing-basics.html)。<br><br>
+    它和「主动型基金」最大的区别是：大多数主动基金靠基金经理选股，又贵又不保证赢；而 ETF 大多「被动」追踪指数，管理费低，规则透明。根据 S&amp;P Global 统计，美国 85% 以上的主动型基金在 10 年期间跑输被动型指数基金 (来源：https://academy.fbs.com.tw/academy/columndetails/c000580)。<br><br>
+    另一个好处是交易方式：普通基金一天只能按收盘净值买卖一次，ETF 却像股票一样在交易所全天实时交易，灵活度高 (来源：https://bookdown.org/ngo9527/etf10items/_book/etf-etf-basics.html)。</p>
+  </div>
+  <div class="illus">
+    <!-- 结构图：从指数到 ETF 到投资人 -->
+    <svg viewBox="0 0 720 120" width="720" height="120" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="40" width="180" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="100" y="58" fill="#e8e8e8" font-size="12" text-anchor="middle">指数公司</text>
+      <text x="100" y="74" fill="#8a8a8a" font-size="10" text-anchor="middle">（制定规则，如标普 500）</text>
+      <path d="M195 62 H235" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="245" y="40" width="180" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="335" y="58" fill="#e8e8e8" font-size="12" text-anchor="middle">基金公司</text>
+      <text x="335" y="74" fill="#8a8a8a" font-size="10" text-anchor="middle">（发行 ETF，复制指数）</text>
+      <path d="M430 62 H470" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="480" y="40" width="180" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="570" y="58" fill="#e8e8e8" font-size="12" text-anchor="middle">你（投资人）</text>
+      <text x="570" y="74" fill="#8a8a8a" font-size="10" text-anchor="middle">（在交易所买卖 ETF 份额）</text>
+      <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">ETF 的流转路径：指数定规则 → 基金公司发行产品 → 投资人像买股票一样买卖</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 价格带</h2>
+  <div class="sec-note">用真实数字说明蛋糕有多大、钱集中在哪。来源内联标注。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>档位</th><th>典型价格</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>入门档</td><td class="up">$10 – $100 / 份</td><td>很多美股 ETF 单价在几十到一百美元出头，适合小额试水 [UNSOURCED]</td></tr>
+        <tr><td>进阶档</td><td>$100 – $500 / 份</td><td>追踪标普 500、纳指 100 等主流指数的大规模 ETF，单价通常落在这个区间 [UNSOURCED]</td></tr>
+        <tr><td>极品档</td><td class="down">$500+ / 份</td><td>少数老牌 ETF 单价较高，但许多券商已支持「碎股」购买，门槛被大幅降低 [UNSOURCED]</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="illus">
+    <!-- 数据图：ETF 规模与数量增长示意（柱状对比） -->
+    <svg viewBox="0 0 720 220" width="720" height="220" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <!-- 年份分组柱状 -->
+      <rect x="100" y="150" width="70" height="30" fill="#c8a866"/>
+      <text x="135" y="172" fill="#9a9a9a" font-size="10" text-anchor="middle">2010</text>
+      <rect x="230" y="110" width="70" height="70" fill="#c8a866"/>
+      <text x="265" y="132" fill="#9a9a9a" font-size="10" text-anchor="middle">2015</text>
+      <rect x="360" y="70" width="70" height="110" fill="#c8a866"/>
+      <text x="395" y="92" fill="#9a9a9a" font-size="10" text-anchor="middle">2020</text>
+      <rect x="490" y="30" width="70" height="150" fill="#e05050"/>
+      <text x="525" y="52" fill="#9a9a9a" font-size="10" text-anchor="middle">2024</text>
+      <!-- 趋势线 -->
+      <polyline points="135,165 265,125 395,85 525,45" fill="none" stroke="#e8e8e8" stroke-width="1.5" stroke-dasharray="4,3"/>
+      <text x="380" y="210" fill="#8a8a8a" font-size="11" text-anchor="middle">全球 ETF 资产管理规模逐年攀升（示意，单位：万亿美元 [UNSOURCED]）</text>
+    </svg>
+    <div class="cap">全球 ETF 规模趋势示意（具体数值请以官方统计为准 [UNSOURCED]）</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台（玩家卡片用线稿 SVG 小图标，不用 emoji） -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在制定规则、谁在赚钱、小白该去哪个平台。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">ROOT</span>
+        <h3>指数公司</h3>
+        <ul><li>标普、纳斯达克、富时等机构负责制定指数规则，是 ETF 的「上游图纸」 (来源：https://www.invesco.com/hk/zh/etf/investing-basics.html)</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">发行商</span>
+        <h3>基金公司 / 投信</h3>
+        <ul><li>贝莱德（iShares）、先锋领航（Vanguard）、国泰投信、富邦投信等，负责「照着图纸」发行和运作 ETF (来源：https://academy.fbs.com.tw/academy/columndetails/c000580)</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">HOT</span>
+        <h3>交易平台 / 券商</h3>
+        <ul><li>散户通过券商账户买卖 ETF。海外如 eToro 等平台提供新手友好的界面 (来源：https://www.etoro.com/zh/investing/what-is-etf)</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>小白友好入口</h3>
+        <ul><li>先看投信官网的「每日净值」和 ETF 说明书，再开一个支持碎股交易的券商账户，小额开始 (来源：https://www.youtube.com/watch?v=L2r_bWEoQsY)</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就梭哈。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">开一个券商账户（或支持 ETF 交易的投资 App），完成入金。先别买，先看。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">选一档「宽基」ETF（比如追踪标普 500 或纳指 100 的），观察它一个月的走势和成交量，感受波动 (来源：https://www.invesco.com/hk/zh/etf/investing-basics.html)</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">用一笔「亏了也不心疼」的钱买入第一笔。注意看费用率（expense ratio）和跟踪误差，越低越好 (来源：https://www.etoro.com/zh/investing/what-is-etf)</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">长期持有、定期定额投入。根据 S&amp;P Global，85% 以上的主动基金十年跑输被动指数基金——时间是 ETF 最好的朋友 (来源：https://academy.fbs.com.tw/academy/columndetails/c000580)</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>把 ETF 当股票炒</h3><ul><li>有人把 ETF 当短线股票天天进出，结果手续费和情绪损耗吃掉了收益。ETF 的设计初衷是长期参与市场成长 (来源：https://academy.fbs.com.tw/academy/columndetails/c000580)</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>忽略「跟踪误差」</h3><ul><li>ETF 表现可能和基准指数不一致，这就是跟踪误差。误差太大，你买的就不是「指数」 (来源：https://www.etoro.com/zh/investing/what-is-etf)</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>迷信「热门主题」</h3><ul><li>像半导体这类热门主题 ETF，行业集中、波动剧烈，可能比分散基金风险高得多，不适合当第一只 ETF (来源：https://www.fubonfund.com.hk/Insights20250123)</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>别碰「规模长期偏低」的 ETF——它可能面临清算下市风险；选择规模持续增长、资金充裕的产品更稳 (来源：https://www.youtube.com/watch?v=L2r_bWEoQsY)</li></ul></div>
+  </div>
+  <div class="illus">
+    <!-- 误区 vs 真相 对比图 -->
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="58" fill="#e05050" font-size="13" text-anchor="middle">误区</text>
+      <text x="180" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">「ETF 稳赚不赔」</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="400" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="58" fill="#50b070" font-size="13" text-anchor="middle">真相</text>
+      <text x="550" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">市场下跌时 ETF 一样会跌 (来源：eToro)</text>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相：ETF 是工具，不是印钞机 (来源：https://www.etoro.com/zh/investing/what-is-etf)</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>NAV（资产净值）</b></td><td>基金真实的价值，每天更新。你可以在投信官网查到 (来源：https://www.youtube.com/watch?v=L2r_bWEoQsY)</td></tr>
+        <tr><td><b>跟踪误差</b></td><td>ETF 表现和它追踪的指数之间的「跑偏程度」，越小越好 (来源：https://www.etoro.com/zh/investing/what-is-etf)</td></tr>
+        <tr><td><b>费用率</b></td><td>基金每年收的管理费，被动 ETF 通常比主动基金便宜很多 (来源：https://bookdown.org/ngo9527/etf10items/_book/etf-etf-basics.html)</td></tr>
+        <tr><td><b>折溢价</b></td><td>ETF 市价和净值之间的差价；市场波动大时可能出现明显偏离 [UNSOURCED]</td></tr>
+        <tr><td><b>清算 / 下市</b></td><td>基金规模长期太小，可能被清盘返还净值——这就是为什么别碰太小的 ETF (来源：https://www.youtube.com/watch?v=L2r_bWEoQsY)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">世界上第一只 ETF 诞生于 1993 年的美国，追踪标普 500 指数，代号 SPDR（发音像「蜘蛛」），至今仍是全球最具标志性的 ETF 之一 [UNSOURCED]。</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">适合：想省心参与股市、不想研究个股、愿意长期持有的人。不适合：追求一夜暴富、无法承受短期波动的人 (来源：https://www.etoro.com/zh/investing/what-is-etf)</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">ETF 不是让你「赢过市场」，而是让你用最低的成本「搭上市场的车」——时间是最好的朋友 (来源：https://academy.fbs.com.tw/academy/columndetails/c000580)</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：富邦基金 (https://www.fubonfund.com.hk/Insights20250123)、eToro (https://www.etoro.com/zh/investing/what-is-etf)、富投学苑 (https://academy.fbs.com.tw/academy/columndetails/c000580)、景顺 (https://www.invesco.com/hk/zh/etf/investing-basics.html)、ETF 10 件你要知道的事 (https://bookdown.org/ngo9527/etf10items/_book/etf-etf-basics.html)、国泰投信 ETF 教学视频 (https://www.youtube.com/watch?v=L2r_bWEoQsY)。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
