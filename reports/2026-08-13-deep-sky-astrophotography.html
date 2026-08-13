@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 深空摄影</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 深空摄影</div>
+  <h1>深空摄影：用相机捕捉一百万光年外的星光</h1>
+  <div class="sub">一句话副标题：把肉眼看不见的星云、星系拍成照片，这个爱好到底怎么入门？</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。投资/收藏有风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：这个领域是干什么的、谁在玩、值不值得普通人关注。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：用长曝光 + 望远镜/长焦镜头，拍摄银河系外星云、星系、星团等暗淡天体的摄影门类。和日常拍照最大的区别是：目标非常暗，需要「积少成多」地收集光子。</li>
+        <li><b>谁在玩</b>：天文爱好者、摄影发烧友、程序员/工程师（因为后期要处理大量数据），以及少数专职科普摄影师。国内有巡星客、ZWO天文社区，国外有Astrobin等社区（来源：https://grapeot.me/astrophoto-tutorial-1.html）。</li>
+        <li><b>市场多大</b>：一套入门级全新设备大约需要15万新台币（约合人民币3.4万元）左右（来源：https://www.youtube.com/watch?v=eUIYeD-jMrU）；高阶发烧配置可达数万美元。据预测，到2040年，全球深空经济市场规模有望达到万亿美元级别，但那是深空探测产业，不是摄影器材（来源：https://m.spacechina.com/n2014789/n2014809/c4429496/content.html）。</li>
+        <li><b>小白能玩吗</b>：能。门槛没有想象中高——如今星野赤道仪精度足够且价格便宜，配大口径中长焦镜头甚至标准镜头也能拍明亮天体（来源：https://kepu.gmw.cn/astro/2019-05/31/content_32882905.htm）。真正的门槛是耐心和折腾精神。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <!-- 首屏概念图：望远镜对准星空，星光落入相机 -->
+      <svg viewBox="0 0 200 180" width="200" height="180" xmlns="http://www.w3.org/2000/svg">
+        <rect x="20" y="20" width="160" height="140" rx="12" fill="#0d0d0d" stroke="#c8a866" stroke-width="1.5"/>
+        <!-- 星星 -->
+        <circle cx="45" cy="45" r="2" fill="#e8e8e8"/><circle cx="90" cy="35" r="1.5" fill="#e8e8e8"/><circle cx="140" cy="50" r="2" fill="#e8e8e8"/><circle cx="160" cy="30" r="1.2" fill="#e8e8e8"/><circle cx="60" cy="70" r="1" fill="#e8e8e8"/>
+        <!-- 星云团 -->
+        <ellipse cx="100" cy="60" rx="28" ry="14" fill="none" stroke="#c8a866" stroke-width="0.8" stroke-dasharray="3,3"/>
+        <!-- 望远镜 -->
+        <polygon points="70,110 130,110 118,90 82,90" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+        <rect x="74" y="110" width="52" height="6" rx="3" fill="#1f1f1f" stroke="#c8a866" stroke-width="1"/>
+        <line x1="100" y1="116" x2="100" y2="130" stroke="#c8a866" stroke-width="2"/>
+        <line x1="85" y1="130" x2="115" y2="130" stroke="#c8a866" stroke-width="2"/>
+        <!-- 三脚架 -->
+        <line x1="100" y1="130" x2="75" y2="152" stroke="#c8a866" stroke-width="1.5"/>
+        <line x1="100" y1="130" x2="125" y2="152" stroke="#c8a866" stroke-width="1.5"/>
+        <!-- 光路 -->
+        <path d="M100 60 L100 90" stroke="#c8a866" stroke-width="1" stroke-dasharray="4,3"/>
+        <!-- 相机 -->
+        <rect x="92" y="86" width="16" height="12" rx="2" fill="#141414" stroke="#e8e8e8" stroke-width="1"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">想象你在一个漆黑的房间里，要拍清一只远处蜡烛上的小字。手机一拍——糊的。但如果把手机放在三脚架上，快门一直开着，让光线在传感器上积累 10 分钟、1 小时甚至一整夜，烛光就能在照片上「显形」。深空摄影就是这个原理：那些星云、星系离我们太远、太暗，肉眼只能看到一小团模糊的光斑（甚至什么都看不到），但相机长时间曝光后，就能把那些微弱的光子一点点收集起来，拼出一张壮丽的照片。<br><br>它和普通摄影最大的区别在于：<b>普通摄影是「捕捉瞬间」，深空摄影是「积攒光线」</b>。单张曝光往往不够，需要拍几十张、上百张，再用软件「叠加」起来提升信噪比——就像把几十张模糊的底片叠在一起，噪点互相抵消，信号越来越清晰。入门者拍完一张单张照片后，大约 1-2 分钟就能在液晶屏上看到成果，虽然存在不足，但已经算入门了（来源：https://kepu.gmw.cn/astro/2019-05/31/content_32882905.htm）。</p>
+  </div>
+  <div class="illus">
+    <!-- 深空摄影核心流程：拍摄 → 校准 → 叠加 → 后期 -->
+    <svg viewBox="0 0 720 120" width="720" height="120" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="40" width="150" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="85" y="58" fill="#e8e8e8" font-size="11" text-anchor="middle">拍摄（长曝光）</text>
+      <text x="85" y="74" fill="#9a9a9a" font-size="9" text-anchor="middle">赤道仪跟踪</text>
+      <path d="M165 62 H200" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="210" y="40" width="150" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="285" y="58" fill="#e8e8e8" font-size="11" text-anchor="middle">校准帧</text>
+      <text x="285" y="74" fill="#9a9a9a" font-size="9" text-anchor="middle">暗场/平场/偏置</text>
+      <path d="M365 62 H400" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="410" y="40" width="150" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="485" y="58" fill="#e8e8e8" font-size="11" text-anchor="middle">叠加</text>
+      <text x="485" y="74" fill="#9a9a9a" font-size="9" text-anchor="middle">提升信噪比</text>
+      <path d="M565 62 H600" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="610" y="40" width="100" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="660" y="58" fill="#e8e8e8" font-size="11" text-anchor="middle">后期处理</text>
+      <text x="660" y="74" fill="#9a9a9a" font-size="9" text-anchor="middle">拉伸/调色</text>
+      <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">深空摄影核心流程：拍摄 → 校准 → 叠加 → 后期（后期还包括线性拉伸、数字冲印等，来源：https://kepu.gmw.cn/astro/2019-05/31/content_32882905.htm）</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 价格带</h2>
+  <div class="sec-note">用真实数字说明蛋糕有多大、钱集中在哪。来源内联标注。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>档位</th><th>典型价格（人民币）</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>入门档</td><td class="up">¥3,000 – 8,000</td><td>星野赤道仪（如信达大星野）+ 现有单反/微单 + 中长焦镜头，可拍银河、明亮星云（来源：https://kepu.gmw.cn/astro/2019-05/31/content_32882905.htm）</td></tr>
+        <tr><td>进阶档</td><td>¥15,000 – 40,000</td><td>入门级全套（赤道仪+望远镜+冷冻相机+导星），约15万新台币≈3.4万人民币（来源：https://www.youtube.com/watch?v=eUIYeD-jMrU）</td></tr>
+        <tr><td>发烧档</td><td class="down">¥50,000 – 200,000+</td><td>高精度赤道仪、大口径APO折射镜/牛反、专业冷冻CMOS、滤镜轮、电调焦等，上不封顶 [UNSOURCED]</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="illus">
+    <!-- 价格带柱状图 -->
+    <svg viewBox="0 0 720 220" width="720" height="220" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <!-- 网格线 -->
+      <line x1="60" y1="80" x2="690" y2="80" stroke="#1a1a1a" stroke-width="0.8" stroke-dasharray="3,3"/>
+      <line x1="60" y1="130" x2="690" y2="130" stroke="#1a1a1a" stroke-width="0.8" stroke-dasharray="3,3"/>
+      <!-- 入门：3-8k → 画到 165 高度 -->
+      <rect x="110" y="150" width="90" height="30" fill="#c8a866"/>
+      <text x="155" y="145" fill="#c8a866" font-size="10" text-anchor="middle">3-8k</text>
+      <!-- 进阶：15-40k -->
+      <rect x="280" y="100" width="90" height="80" fill="#c8a866"/>
+      <text x="325" y="95" fill="#c8a866" font-size="10" text-anchor="middle">15-40k</text>
+      <!-- 发烧：50k+ -->
+      <rect x="450" y="30" width="90" height="150" fill="#e05050"/>
+      <text x="495" y="25" fill="#e05050" font-size="10" text-anchor="middle">50k+</text>
+      <text x="155" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">入门档</text>
+      <text x="325" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">进阶档</text>
+      <text x="495" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">发烧档</text>
+      <text x="380" y="215" fill="#8a8a8a" font-size="10" text-anchor="middle">价格带（人民币，对数感示意）· 据公开资料整理</text>
+    </svg>
+    <div class="cap">价格带示意：入门一套约3-8k，进阶全套约3.4万人民币起（来源：https://www.youtube.com/watch?v=eUIYeD-jMrU）</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台 -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在制定规则、谁在赚钱、小白该去哪个平台。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M19.1 4.9l-2.8 2.8M7.7 16.3l-2.8 2.8"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">设备商</span>
+        <h3>ZWO（振旺）</h3>
+        <ul><li>国产天文相机/赤道仪头部品牌，其社区（ZWO天文社区）是国内主要中文交流地之一（来源：https://grapeot.me/astrophoto-tutorial-1.html）。</li><li>以冷冻相机（ASI系列）出名，几乎成了深空摄影的「标配」之一。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18M8 4v16"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">社区</span>
+        <h3>巡星客 / Astrobin</h3>
+        <ul><li>国内巡星客、国外Astrobin等天文社区，通常有精选和每日一图，大佬会列出拍摄参数和器材，适合找灵感和参考（来源：https://grapeot.me/astrophoto-tutorial-1.html）。</li><li>Astrobin参加每日一图评选需付费，服务质量口碑一般（来源：https://grapeot.me/astrophoto-tutorial-1.html）。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M12 3l7 4v5c0 4-3 7-7 8-4-1-7-4-7-8V7l7-4z"/><path d="M9 12l2 2 4-4"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">教程</span>
+        <h3>个人博客 / YouTube</h3>
+        <ul><li>如「Computing Life」（grapeot.me）有系列入门教程，从社区选择到器材配置都讲得很细（来源：https://grapeot.me/astrophoto-tutorial-1.html）。</li><li>国家地理摄影论坛也有新手入坑指南，涵盖电源、预算等实操细节（来源：https://www.youtube.com/watch?v=eUIYeD-jMrU）。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M4 19V5h12v14"/><path d="M16 9h4M16 9l3-3M16 9l3 3"/><path d="M8 9h4M8 13h4"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>先别买！先看</h3>
+        <ul><li>去巡星客/Astrobin看每日一图，找到让你觉得「牛逼」的图片和喜欢的方向（来源：https://grapeot.me/astrophoto-tutorial-1.html）。</li><li>搜索特定目标，看大佬的参数和器材配置，再决定买什么。</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就梭哈。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">不花钱：逛社区、看大片。巡星客、Astrobin、ZWO社区刷一周，找到你真正想拍的目标（比如猎户座大星云M42、仙女座星系M31）。记住：大佬都会列拍摄参数，这就是最好的免费教材（来源：https://grapeot.me/astrophoto-tutorial-1.html）。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">小成本试水：用现有单反/微单 + 三脚架，先拍银河（不需要赤道仪，短曝光多张叠加也行）。或者买一台入门星野赤道仪（约2-4k），配50mm/135mm镜头，就能拍出不错的广域深空（来源：https://kepu.gmw.cn/astro/2019-05/31/content_32882905.htm）。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">建立判断框架：学会看「单张曝光时长 × 张数 × 增益」这些参数，理解为什么别人拍得比你清晰——往往是累计曝光时间更长、校准帧更规范。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">再决定是否加注：如果三个月后你还在拍，再考虑上冷冻相机、导星、滤镜轮。入门级全套约3.4万人民币（来源：https://www.youtube.com/watch?v=eUIYeD-jMrU），但很多人用几千块的配置也能出好片。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>一上来就买全套顶级装备</h3><ul><li>花了大几万，结果发现没时间、没耐心、不会后期，器材吃灰。建议先用现有相机+镜头拍银河，确认热爱再升级（来源：https://grapeot.me/astrophoto-tutorial-1.html）。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>忽略「电」的问题</h3><ul><li>拍到一半没电很常见。资深玩家建议专门为深空摄影配电源（来源：https://www.youtube.com/watch?v=eUIYeD-jMrU）。野外拍摄还要注意低温对电池的影响。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>以为望远镜越大越好</h3><ul><li>不同目标需要不同焦段：广域星云用小望远镜+短焦，行星状星云/星系需要长焦大镜子。小望远镜一样能出好片，「并不会因为望远镜看起来没有那么威武就拍不出好照片」（来源：https://www.youtube.com/watch?v=eUIYeD-jMrU）。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>「先拍起来，再升级」——哪怕用标准镜头拍单张，1-2分钟就能看到成果，先享受过程（来源：https://kepu.gmw.cn/astro/2019-05/31/content_32882905.htm）。</li></ul></div>
+  </div>
+  <div class="illus">
+    <!-- 误区 vs 真相 对比图 -->
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="58" fill="#e05050" font-size="13" text-anchor="middle">误区</text>
+      <text x="180" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">「必须买大望远镜才能拍深空」</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="400" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="58" fill="#50b070" font-size="13" text-anchor="middle">真相</text>
+      <text x="550" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">小望远镜+短焦也能拍广域深空</text>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相：不同目标需要不同焦段，小镜子也有用武之地（来源：https://www.youtube.com/watch?v=eUIYeD-jMrU）</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>赤道仪</b></td><td>一种能跟着星星转的支架，抵消地球自转，让目标在长曝光中保持不动。深空摄影的「地基」。</td></tr>
+        <tr><td><b>导星</b></td><td>用一个小相机盯着某颗星，实时修正赤道仪的跟踪误差，让曝光几十分钟星点都不拖线。</td></tr>
+        <tr><td><b>暗场 / 平场 / 偏置</b></td><td>「校准帧」三兄弟：暗场拍镜头盖盖上的噪点，平场拍均匀白墙的光学瑕疵，偏置拍传感器本底噪声。叠加时用来消除相机自身缺陷（来源：https://kepu.gmw.cn/astro/2019-05/31/content_32882905.htm）。</td></tr>
+        <tr><td><b>叠加</b></td><td>把几十上百张照片对齐叠起来，信号增强、噪点被平均掉，信噪比大幅提升。</td></tr>
+        <tr><td><b>线性拉伸</b></td><td>深空原片通常是「线性」的（很暗），后期把亮度曲线拉开来，才能看到星云细节（来源：https://kepu.gmw.cn/astro/2019-05/31/content_32882905.htm）。</td></tr>
+        <tr><td><b>信噪比（SNR）</b></td><td>信号和噪点的比值。深空摄影的本质就是靠长曝光+叠加把信噪比堆上去。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">你看到的那张绚丽的星云照片，颜色其实不是「拍」出来的，而是后期「染」上去的——很多深空天体发出的是极窄波段的氢α、氧III等谱线光，人眼根本看不到颜色，摄影师会把不同滤镜通道的灰度图映射成红绿蓝，合成「哈勃色」。也就是说，那些粉红、蓝绿，是一种科学的「翻译」，而不是肉眼所见。</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">适合：有耐心、喜欢折腾设备、享受孤独露营、对宇宙有好奇的人。不适合：追求即时满足、不想学后期、怕冷怕黑怕蚊子的人。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">深空摄影是「用今晚的黑暗，换一百万年前的星光」——它教你的不是拍照，而是等待。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：光明网科普（https://kepu.gmw.cn/astro/2019-05/31/content_32882905.htm）、Computing Life 博客（https://grapeot.me/astrophoto-tutorial-1.html）、2025国家地理摄影论坛视频（https://www.youtube.com/watch?v=eUIYeD-jMrU）、中国航天科技集团（https://m.spacechina.com/n2014789/n2014809/c4429496/content.html）等。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
