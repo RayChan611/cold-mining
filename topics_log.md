@@ -22,3 +22,4 @@
 | 2026-08-11 | 黑胶唱片入门指南：为什么一块黑色塑料能在流媒体时代逆势翻红 | reports/2026-08-11-vinyl-records-guide.html |
 | 2026-08-12 | 盆栽与文人树：把一棵树养成一首山水诗 | reports/2026-08-12-penjing-and-bunjin-tree.html |
 | 2026-08-13 | 深空摄影：用相机捕捉一百万光年外的星光 | reports/2026-08-13-deep-sky-astrophotography.html |
+| 2026-08-14 | 钢笔：一根金属管里的慢科技，为什么 2025 年还在被疯狂买单？ | reports/2026-08-14-fountain-pen.html |
