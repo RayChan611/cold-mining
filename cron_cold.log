@@ -79,3 +79,11 @@
 [cold_mining] git push ok=True info=To github.com:RayChan611/cold-mining.git
    f5b9b4d..cbdaa23  main -> main
 [cold_mining] feishu code=0 link=https://raychan611.github.io/cold-mining/reports/2026-08-13-deep-sky-astrophotography.html
+[cold_mining] line=cold topic=钢笔 slug=fountain-pen
+[cold_mining] tavily hits=1709
+[cold_mining] attempt=0 html_len=18547 svg=8
+[cold_mining] wrote /home/ubuntu/cold-mining/reports/2026-08-14-fountain-pen.html
+[cold_mining] index+log updated
+[cold_mining] git push ok=True info=To github.com:RayChan611/cold-mining.git
+   08a3bc6..9c62bc8  main -> main
+[cold_mining] feishu code=0 link=https://raychan611.github.io/cold-mining/reports/2026-08-14-fountain-pen.html

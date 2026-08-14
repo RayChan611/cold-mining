@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · REITs 入门</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · REITs 入门</div>
+  <h1>REITs 入门：用100块当“包租婆”，是馅饼还是陷阱？</h1>
+  <div class="sub">一句话副标题：不买房、不当房东，普通人也能分一杯不动产的租金和升值，怎么玩？</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。投资/收藏有风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：REITs 是干什么的、谁在玩、值不值得普通人关注。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：REITs（房地产投资信托基金）就是“集资当房东”——大家凑钱买下商场、写字楼、高速公路等不动产，然后按份额分租金和升值收益，而且能像股票一样随时买卖。(来源：https://www.gsm.pku.edu.cn/exed/info/1015/2260.htm)</li>
+        <li><b>谁在玩</b>：普通散户（在交易所像买股票一样买）、机构投资者（保险、养老金）、以及基金管理人（如华夏基金、博时基金等）(来源：https://www.stcn.com/article/detail/3901673.html)</li>
+        <li><b>市场多大</b>：截至2021年底，全球上市REITs市值约2.9万亿美元，其中美国约2万亿美元，占全球68.4%；未来中国REITs市场规模有望达到十万亿级别。(来源：https://pdf.dfcfw.com/pdf/H3_AP202202151547124524_1.pdf)</li>
+        <li><b>小白能玩吗</b>：能。中国公募REITs最低门槛通常只要几百元（场内一手约100份，单价从几元到十几元不等）[UNSOURCED]，但波动比债券大、比股票小，适合想“收租”又不想买房的人。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <!-- 首屏概念图：一群小人凑钱买楼，然后分租金 -->
+      <svg viewBox="0 0 200 200" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+        <!-- 左侧：几个人凑钱 -->
+        <circle cx="40" cy="40" r="6" fill="none" stroke="#c8a866" stroke-width="1.5"/>
+        <circle cx="25" cy="55" r="6" fill="none" stroke="#c8a866" stroke-width="1.5"/>
+        <circle cx="55" cy="55" r="6" fill="none" stroke="#c8a866" stroke-width="1.5"/>
+        <text x="40" y="80" fill="#8a8a8a" font-size="9" text-anchor="middle">普通人</text>
+        <!-- 中间：资金汇入 -->
+        <path d="M40 60 L100 95" stroke="#c8a866" stroke-width="1.5" stroke-dasharray="4 3"/>
+        <text x="65" y="80" fill="#8a8a8a" font-size="9" text-anchor="middle">资金</text>
+        <!-- 右侧：大楼 -->
+        <rect x="100" y="80" width="55" height="70" rx="3" fill="#141414" stroke="#c8a866" stroke-width="1.8"/>
+        <rect x="108" y="90" width="10" height="10" rx="1" fill="#1f1f1f" stroke="#c8a866" stroke-width="0.8"/>
+        <rect x="124" y="90" width="10" height="10" rx="1" fill="#1f1f1f" stroke="#c8a866" stroke-width="0.8"/>
+        <rect x="140" y="90" width="10" height="10" rx="1" fill="#1f1f1f" stroke="#c8a866" stroke-width="0.8"/>
+        <rect x="108" y="106" width="10" height="10" rx="1" fill="#1f1f1f" stroke="#c8a866" stroke-width="0.8"/>
+        <rect x="124" y="106" width="10" height="10" rx="1" fill="#1f1f1f" stroke="#c8a866" stroke-width="0.8"/>
+        <rect x="140" y="106" width="10" height="10" rx="1" fill="#1f1f1f" stroke="#c8a866" stroke-width="0.8"/>
+        <!-- 租金回流 -->
+        <path d="M127 150 C 127 170, 90 170, 60 140" fill="none" stroke="#50b070" stroke-width="1.5" stroke-dasharray="4 3"/>
+        <text x="70" y="175" fill="#8a8a8a" font-size="9" text-anchor="middle">分红</text>
+        <text x="127" y="175" fill="#8a8a8a" font-size="9" text-anchor="middle">租金收入</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">
+      想象一下，你和 999 个朋友凑钱买下一栋写字楼。你们不自己管理，而是雇了一个专业团队负责招租、维修、收租金。每个月扣除管理费后，剩下的租金按人头分给大家——这就是 REITs 的简化版。
+      <br><br>
+      它有点像“买楼收租”和“买股票”的混血儿：<b>像股票</b>，因为它在交易所上市交易，价格实时波动，想卖就卖；<b>像收租</b>，因为它规定必须把大部分收益（中国要求至少 90% 的分配比例）分给投资者，让你定期拿到现金分红。(来源：https://www.gsm.pku.edu.cn/exed/info/1015/2260.htm)
+      <br><br>
+      和直接买房最大的区别是：<b>门槛极低</b>——买一套房要几十万首付，而买 REITs 可能几百块就能上车；<b>流动性极好</b>——房子挂牌半年卖不掉，REITs 在交易时间内随时能卖出。
+    </p>
+  </div>
+  <div class="illus">
+    <!-- 结构图：投资人 -> REITs基金 -> 底层资产 -> 租金 -> 分红 -->
+    <svg viewBox="0 0 720 140" width="720" height="140" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="50" width="130" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="75" y="77" fill="#e8e8e8" font-size="11" text-anchor="middle">投资者</text>
+      <path d="M145 72 H185" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="190" y="50" width="150" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="265" y="70" fill="#e8e8e8" font-size="11" text-anchor="middle">REITs 基金</text>
+      <text x="265" y="86" fill="#8a8a8a" font-size="9" text-anchor="middle">（管理团队运营）</text>
+      <path d="M345 72 H385" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="390" y="50" width="150" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="465" y="70" fill="#e8e8e8" font-size="11" text-anchor="middle">底层资产</text>
+      <text x="465" y="86" fill="#8a8a8a" font-size="9" text-anchor="middle">（商场/写字楼/高速）</text>
+      <path d="M545 72 H585" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="590" y="50" width="120" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="650" y="77" fill="#e8e8e8" font-size="11" text-anchor="middle">租金/分红</text>
+      <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+      <!-- 底部：分红回流箭头 -->
+      <path d="M650 100 C 650 120, 75 120, 75 98" fill="none" stroke="#50b070" stroke-width="1.5" stroke-dasharray="5 3"/>
+      <text x="360" y="128" fill="#8a8a8a" font-size="10" text-anchor="middle">收益分配（中国规定至少 90% 分给投资者）</text>
+    </svg>
+    <div class="cap">REITs 结构图：钱从投资者流向基金，基金买入并运营资产，租金再以分红形式回流</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 价格带</h2>
+  <div class="sec-note">用真实数字说明蛋糕有多大、钱集中在哪。来源内联标注。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>档位</th><th>典型价格</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>入门档</td><td class="up">约 ¥500 – 2,000</td><td>场内买 100 份（1 手）起步，以单价 5–20 元计，几百到几千元即可上车 [UNSOURCED]</td></tr>
+        <tr><td>进阶档</td><td>¥5,000 – 50,000</td><td>买多手、做组合配置，覆盖不同资产类型（产业园、保障房、高速等）</td></tr>
+        <tr><td>机构档</td><td class="down">¥百万级以上</td><td>战略配售、Pre-REITs 基金等，面向机构投资者（来源：https://www.stcn.com/article/detail/3901673.html）</td></tr>
+      </tbody>
+    </table>
+    <p class="src">注：中国公募 REITs 单价因产品而异，无统一价格，具体以交易所行情为准 [UNSOURCED]。</p>
+  </div>
+  <div class="illus">
+    <!-- 全球 REITs 市值对比柱状图：全球 vs 美国 -->
+    <svg viewBox="0 0 720 220" width="720" height="220" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <!-- 全球 2.9万亿 -->
+      <rect x="140" y="55" width="130" height="125" fill="#c8a866"/>
+      <text x="205" y="45" fill="#c8a866" font-size="13" text-anchor="middle">2.9万亿美元</text>
+      <!-- 美国 2万亿 -->
+      <rect x="400" y="92" width="130" height="88" fill="#e05050"/>
+      <text x="465" y="82" fill="#e05050" font-size="13" text-anchor="middle">2万亿美元</text>
+      <text x="205" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">全球上市REITs</text>
+      <text x="465" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">美国REITs</text>
+      <text x="380" y="215" fill="#8a8a8a" font-size="11" text-anchor="middle">截至2021年12月31日（来源：东方财富研报）</text>
+    </svg>
+    <div class="cap">全球 REITs 市值对比：美国占全球近七成（来源：https://pdf.dfcfw.com/pdf/H3_AP202202151547124524_1.pdf）</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台 -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在制定规则、谁在赚钱、小白该去哪个平台。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M3 21V8l9-5 9 5v13"/><path d="M3 21h18M9 21v-6h6v6M8 11h.01M12 11h.01M16 11h.01"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">规则制定者</span>
+        <h3>监管机构</h3>
+        <ul><li>证监会、交易所负责审批和监管公募REITs发行；北大光华等学术机构持续推动制度建设 (来源：https://www.gsm.pku.edu.cn/exed/info/1015/2260.htm)</li><li>2025年商业不动产REITs试点启动，监管明确“严把发行上市” (来源：https://www.news.cn/fortune/20260105/61f9b29fe78b43309feda2745d9f62b8/c.html)</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M8 10h8M8 14h5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">基金管理人</span>
+        <h3>基金公司</h3>
+        <ul><li>华夏基金、博时基金等头部机构布局REITs业务 (来源：https://www.stcn.com/article/detail/3901673.html)</li><li>招商基金联合深担集团发行Pre-REITs产品，构建“Pre-REITs→私募REITs→公募REITs”全链条 (来源：https://www.stcn.com/article/detail/3901673.html)</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M4 21V9l8-5 8 5v12"/><path d="M4 21h16M9 21v-6h6v6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">底层资产方</span>
+        <h3>不动产持有者</h3>
+        <ul><li>商业不动产（零售物业、办公楼）是REITs核心资产，进入“运营为王”时代 (来源：https://www.joneslanglasalle.com.cn/zh-cn/insights/operations-take-center-stage-in-chinas-commercial-reits)</li><li>保障房、新能源、算力等新资产类型不断纳入 (来源：https://www.stcn.com/article/detail/3901673.html)</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M12 3v18M3 12h18M12 12l8-8"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">小白入口</span>
+        <h3>散户交易渠道</h3>
+        <ul><li>开通证券账户（股票账户），在沪深交易所直接买卖公募REITs，像买股票一样输入代码即可</li><li>关注基金公司官网/APP，可参与认购或二级市场买入 [UNSOURCED]</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就梭哈。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body"><b>开个证券账户</b>（约 10 分钟线上搞定），存入几百到几千元即可开始。不需要专门开新户，现有股票账户就能交易 [UNSOURCED]。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body"><b>花 1 周“围观”</b>：在交易所官网或基金公司页面看 REITs 的季报、分红记录、底层资产类型。重点关注“区位优势”和“资产质量”——这是投资REITs的核心 (来源：https://www.bloombergchina.com/blog/bioutlook-reits)。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body"><b>小额试水</b>：用 500–1000 元买入 1–2 手，感受价格波动和分红节奏。注意 REITs 波动比债券大，别用生活费。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body"><b>建立判断框架</b>：学会看三个维度——底层资产类型（商业/基建/保障房）、杠杆率（中国管控较严）、分红收益率（来源：https://www.bloombergchina.com/blog/bioutlook-reits）。当你发现某只 REITs 的底层资产出租率下滑或租金下降，再考虑退出。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>把 REITs 当股票炒</h3><ul><li>REITs 的收益大头来自分红而非价差，频繁买卖不仅赚不到钱，还白白交手续费。正确姿势是长期持有吃分红。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>只看分红率，不看底层资产</h3><ul><li>某只 REITs 分红率高达 8%，可能是因为底层资产在走下坡路（比如老旧商场空置率飙升）。要像买房子一样考察资产位置和质量 (来源：https://www.bloombergchina.com/blog/bioutlook-reits)。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>盲目追高“热门”REITs</h3><ul><li>上市初期可能被爆炒，溢价率过高时买入等于给别人的“接盘侠”。关注“折价/溢价率”，尽量在折价或平价的时点入手 [UNSOURCED]。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li><b>“不懂底层资产，就不碰。”</b> 你买的不是一串代码，而是一栋楼、一条高速、一个产业园的租金收入。看不懂它靠什么赚钱，就别投。</li></ul></div>
+  </div>
+  <div class="illus">
+    <!-- 误区 vs 真相 对比图 -->
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="58" fill="#e05050" font-size="13" text-anchor="middle">误区：REITs = 炒房</text>
+      <text x="180" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">“买REITs就是变相炒房，房价涨我就赚”</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="400" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="58" fill="#50b070" font-size="13" text-anchor="middle">真相：REITs 赚的是运营的钱</text>
+      <text x="550" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">核心是租金分红，房价涨跌不是主要收益来源</text>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相：REITs 的本质是“收租”，不是“炒房”</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>底层资产</b></td><td>REITs 实际持有的不动产，比如一座商场、一条高速路。它是收益的“源头活水”。</td></tr>
+        <tr><td><b>分红 / 分配率</b></td><td>REITs 每年把至少 90% 的可分配收益分给投资者，类似“房租分红”。(来源：https://www.gsm.pku.edu.cn/exed/info/1015/2260.htm)</td></tr>
+        <tr><td><b>Pre-REITs</b></td><td>在公募上市前，先通过私募基金收购和培育资产，等成熟后再装入公募REITs——相当于“孵化器” (来源：https://www.stcn.com/article/detail/3901673.html)。</td></tr>
+        <tr><td><b>溢价 / 折价</b></td><td>场内交易价格高于/低于基金净值。溢价买入不划算，折价买入相对便宜 [UNSOURCED]。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">REITs 最早诞生于 1960 年的美国，最初是为了让普通老百姓也能投资大型商业地产。如今全球已有 44 个国家和地区推出 REITs 制度，而中国直到 2021 年才正式起步——晚了整整 60 年，但市场潜力巨大，未来有望达到十万亿级别。(来源：https://pdf.dfcfw.com/pdf/H3_AP202202151547124524_1.pdf)</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">适合：想收租但买不起房、能承受比债券稍大波动、愿意长期持有的 <b>耐心型</b>投资者。不适合：想短期暴富、每天盯盘、不能忍受账面浮亏的 <b>刺激型</b>玩家。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">REITs 让你用一杯咖啡的钱，当上写字楼的“隐形房东”——但记住，你是收租的，不是炒房的。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：北京大学光华管理学院、新华网、东方财富研报、仲量联行、彭博、证券时报网等公开资料。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
