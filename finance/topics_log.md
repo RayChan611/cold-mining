@@ -18,3 +18,4 @@
 | 2026-08-12 | 债券入门：把钱借给国家或公司，躺着收利息的生意 | reports/2026-08-12-bond-basics-for-beginners.html |
 | 2026-08-13 | ETF 入门：一篮子股票的「自助餐」，普通人也能当半个基金经理 | reports/2026-08-13-etf-beginners-guide.html |
 | 2026-08-14 | REITs 入门：用100块当“包租婆”，是馅饼还是陷阱？ | reports/2026-08-14-reits-beginners-guide.html |
+| 2026-08-17 | 黄金投资：为什么全世界都在囤这块黄色金属 | reports/2026-08-17-gold-investing.html |

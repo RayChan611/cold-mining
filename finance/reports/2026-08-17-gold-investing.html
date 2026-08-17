@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 黄金投资入门</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  /* 图文并茂：插图与线稿图标 */
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+
+  /* 汇总入口：左上角悬浮返回总库 */
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 黄金投资</div>
+  <h1>黄金投资：为什么全世界都在囤这块黄色金属</h1>
+  <div class="sub">从金店柜台到交易所屏幕，用大白话讲清楚黄金这盘「大棋」怎么下</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。投资/收藏有风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：黄金是什么、谁在玩、普通人能不能碰。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：一种几乎「不灭」的金属。从古埃及法老的面具到今天的金条 ETF，它既是首饰原材料，也是全球央行和普通人都在配置的「避险资产」。</li>
+        <li><b>谁在玩</b>：全球央行、对冲基金、伦敦/纽约的巨型交易所、金矿公司，以及像你我一样的普通投资者（来源：https://china.gold.org/goldhub/research/market-primer/gold-market-primer-market-size-and-structure）。</li>
+        <li><b>市场多大</b>：有史以来人类已开采近 22 万吨黄金，价值约 31 万亿美元——这个数字超过美国股市总市值的一半（来源：同上）。</li>
+        <li><b>小白能玩吗</b>：能。门槛低至几十块（黄金 ETF），但坑也不少：杠杆、假金条、追涨杀跌。建议从「看得见摸得着」的实物金或 ETF 起步（来源：https://qhweb.eastmoney.com/help/1960945.html）。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <!-- 首屏概念图：金锭 + 曲线 -->
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <!-- 金锭 -->
+        <polygon points="40,50 120,50 110,100 50,100" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <text x="80" y="82" fill="#c8a866" font-size="14" text-anchor="middle" font-family="monospace">Au</text>
+        <!-- 上升曲线 -->
+        <path d="M20 120 Q50 110 60 95 T90 80 T120 60" fill="none" stroke="#c8a866" stroke-width="1.5" stroke-dasharray="4 3"/>
+        <circle cx="120" cy="60" r="3" fill="#e05050"/>
+        <!-- 星星点缀 -->
+        <circle cx="35" cy="25" r="2" fill="#e8e8e8" opacity="0.6"/>
+        <circle cx="130" cy="30" r="1.5" fill="#e8e8e8" opacity="0.4"/>
+        <circle cx="145" cy="70" r="1.5" fill="#e8e8e8" opacity="0.5"/>
+        <text x="80" y="145" fill="#8a8a8a" font-size="9" text-anchor="middle">黄金 · 永不熄灭的价值</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把「黄金」从珠宝柜台里拿出来，放到全球金融大棋盘上看。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">黄金有点像「全世界的硬通货备用电池」。平时它静静地躺在金库里，不怎么发光发热；可一旦股市暴跌、通货膨胀、打仗或恐慌，大家就疯狂地把它掏出来「充电」。它的价值主要来自「大家相信它值钱」——几千年来，从埃及法老到现代央行，这种信任从未中断（来源：https://www.etoro.com/zh/investing/investing-in-gold）。</p>
+  </div>
+  <div class="illus">
+    <!-- 黄金的流转结构图：从矿山到金库到投资品 -->
+    <svg viewBox="0 0 720 160" width="720" height="160" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="50" width="150" height="50" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="85" y="73" fill="#e8e8e8" font-size="12" text-anchor="middle">金矿开采</text>
+      <text x="85" y="90" fill="#8a8a8a" font-size="10" text-anchor="middle">每年约 3500 吨</text>
+      <path d="M165 75 H205" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="215" y="50" width="150" height="50" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="290" y="73" fill="#e8e8e8" font-size="12" text-anchor="middle">精炼 / 交割</text>
+      <text x="290" y="90" fill="#8a8a8a" font-size="10" text-anchor="middle">伦敦金银市场协会</text>
+      <path d="M370 75 H410" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="420" y="50" width="150" height="50" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="495" y="73" fill="#e8e8e8" font-size="12" text-anchor="middle">投资品 / 首饰</text>
+      <text x="495" y="90" fill="#8a8a8a" font-size="10" text-anchor="middle">ETF / 金条 / 金饰</text>
+      <!-- 下方分支 -->
+      <path d="M495 100 V130" stroke="#c8a866" stroke-width="1.5"/>
+      <path d="M495 130 H180 V130" stroke="#c8a866" stroke-width="1.5"/>
+      <path d="M180 130 V100" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="330" y="145" fill="#8a8a8a" font-size="11" text-anchor="middle">回收再循环 → 进入新一轮流转</text>
+      <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">黄金的「一生」：开采 → 精炼 → 变成投资品与首饰，最终还能回收再流转</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 价格带</h2>
+  <div class="sec-note">用真实数字说明蛋糕有多大、钱在哪儿流动。来源内联标注。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>投资方式</th><th>典型门槛</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>黄金 ETF</td><td class="up">几十元起</td><td>像买股票一样买卖，门槛最低，流动性好（来源：https://qhweb.eastmoney.com/help/1960945.html）</td></tr>
+        <tr><td>实物金条</td><td>约 ¥2,000 – 50,000+</td><td>银行/金店购买，适合长期持有；注意保管和回购渠道 [UNSOURCED]</td></tr>
+        <tr><td>黄金期货</td><td class="down">保证金数千至数万</td><td>杠杆高、风险大，标准合约 100 金衡盎司（约 3.11 公斤），新手慎入（来源：https://www.cmcmarkets.com/zh-nz/cfd/learn/cfd-asset-classes/commodities-introduction-to-gold-trading）</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="illus">
+    <!-- 市场规模柱状图：地上存量 vs 年产量 vs 日交易量 -->
+    <svg viewBox="0 0 720 220" width="720" height="220" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <!-- 地上存量：22万吨（最大） -->
+      <rect x="90" y="30" width="100" height="150" fill="#c8a866"/>
+      <text x="140" y="25" fill="#c8a866" font-size="11" text-anchor="middle">~22 万吨</text>
+      <text x="140" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">地上存量</text>
+      <!-- 年产量：3500吨 -->
+      <rect x="290" y="130" width="100" height="50" fill="#c8a866" opacity="0.8"/>
+      <text x="340" y="125" fill="#c8a866" font-size="11" text-anchor="middle">~3500 吨/年</text>
+      <text x="340" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">年产量</text>
+      <!-- 日交易量（约 1500 亿美元，折算吨位约 4000+吨当量） -->
+      <rect x="490" y="105" width="100" height="75" fill="#e05050"/>
+      <text x="540" y="100" fill="#e05050" font-size="11" text-anchor="middle">日均交易额</text>
+      <text x="540" y="195" fill="#9a9a9a" font-size="11" text-anchor="middle">~1500 亿美元</text>
+      <text x="380" y="215" fill="#8a8a8a" font-size="11" text-anchor="middle">数据来源：World Gold Council（2025）</text>
+    </svg>
+    <div class="cap">黄金市场规模对比：地上存量 22 万吨 vs 年产量 3500 吨 vs 日均交易额（来源：https://china.gold.org/goldhub/research/market-primer/gold-market-primer-market-size-and-structure）</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台 -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在制定规则、谁在赚钱、小白该去哪儿。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M12 8v6M9.5 10.5h5"/><circle cx="12" cy="16" r="1"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">央行</span>
+        <h3>全球中央银行</h3>
+        <ul><li>全球央行持有约 3.6 万吨黄金作为外汇储备（据公开资料），是市场最大「庄家」，它们的买卖直接影响金价。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16"/><path d="M12 8v6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">交易所</span>
+        <h3>LBMA + COMEX</h3>
+        <ul><li>约 70% 的全球黄金现货交易通过伦敦金银市场协会（LBMA）完成；期货最大市场是芝加哥 COMEX（代码 GC）。它们就是黄金的「定价中心」（来源：https://www.cmcmarkets.com/zh-nz/cfd/learn/cfd-asset-classes/commodities-introduction-to-gold-trading）。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">零售</span>
+        <h3>金饰与金条零售市场</h3>
+        <ul><li>全球个人投资者中，黄金是最主流投资产品之一，金饰消费在中国和印度尤其旺盛（来源：https://retailinsights.gold/cn/state-of-the-market.html）。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M12 3v18M12 3L7 8M12 3l5 5M12 21l-5-5M12 21l5-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>小白友好入口</h3>
+        <ul><li>黄金 ETF（如国内华安黄金 ETF）和银行金条是最低门槛的起步方式；股票账户直接搜「黄金ETF」即可（来源：https://qhweb.eastmoney.com/help/1960945.html）。</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就梭哈。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">先搞懂「你买黄金是为了什么」：抗通胀？避险？还是纯粹喜欢金饰？目的不同，选择完全不同（来源：https://www.etoro.com/zh/investing/investing-in-gold）。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">从黄金 ETF 或银行金条开始，投入金额控制在总资产的 5%–10% 以内，别上来就 all in [UNSOURCED]。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">关注美联储利率、美元指数、地缘冲突这三个「金价开关」。利率降、美元弱、世界乱，黄金就容易涨（据公开资料整理）。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">设定止盈/止损线，比如涨 20% 考虑分批卖出，跌 15% 重新审视持有逻辑。别把「避险资产」玩成「投机工具」[UNSOURCED]。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>杠杆爆仓</h3><ul><li>黄金期货保证金交易看似「赚得快」，但方向反了可能血本无归。新手远离杠杆（来源：https://www.usmart.sg/cn/news/7193165990061048562）。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>买金饰当投资</h3><ul><li>金饰含工费和品牌溢价，买入价远高于金价，卖出时只能按金料回收，一来一回可能亏 20%+ [UNSOURCED]。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>误以为「黄金只涨不跌」</h3><ul><li>黄金价格同样会大幅下跌。如果市场情绪转变，黄金可能失去避险地位，价格可能大幅下跌（来源：https://www.etoro.com/zh/investing/investing-in-gold）。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>黄金是「压舱石」不是「发动机」。它在正常经济环境下很难产生高于市场的回报，配置它的意义在于对冲风险，而非赚快钱（来源：https://www.etoro.com/zh/investing/investing-in-gold）。</li></ul></div>
+  </div>
+  <div class="illus">
+    <!-- 误区 vs 真相 -->
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="58" fill="#e05050" font-size="13" text-anchor="middle">误区</text>
+      <text x="180" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">「黄金永远保值，闭眼买」</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="400" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="58" fill="#50b070" font-size="13" text-anchor="middle">真相</text>
+      <text x="550" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">黄金也会跌，它是「避险」不是「保险」</text>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相：黄金不是「稳赚不赔」的代名词</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>金衡盎司</b></td><td>黄金的「标准重量单位」，1 金衡盎司 ≈ 31.1 克。期货合约就是以它计量的（来源：https://www.cmcmarkets.com/zh-nz/cfd/learn/cfd-asset-classes/commodities-introduction-to-gold-trading）</td></tr>
+        <tr><td><b>LBMA</b></td><td>伦敦金银市场协会，全球黄金现货交易的中枢，约 70% 的现货交易在这里完成（来源：同上）</td></tr>
+        <tr><td><b>黄金 ETF</b></td><td>交易所交易基金，像买股票一样买黄金份额，不用去金店扛金条（来源：https://qhweb.eastmoney.com/help/1960945.html）</td></tr>
+        <tr><td><b>避险资产</b></td><td>市场恐慌时资金「逃往」的资产。黄金是其中最古老的一种（来源：https://www.etoro.com/zh/investing/investing-in-gold）</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">如果把人类有史以来开采的所有黄金——约 22 万吨——熔成一个立方体，边长大约只有 22 米，刚好能放进一个标准游泳池。然而它的价值高达约 31 万亿美元，比全球多数国家的 GDP 加起来还多（来源：https://china.gold.org/goldhub/research/market-primer/gold-market-primer-market-size-and-structure）。</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">适合：求稳、想对冲风险、能拿住 3–5 年的人。<span class="hot">不适合</span>：想短期暴富、追涨杀跌、扛不住 20% 回撤的人。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">黄金不会让你一夜暴富，但它是你财富「防弹衣」里最古老的那块 <span class="cool">凯夫拉</span>。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：World Gold Council（https://china.gold.org）、CMC Markets（https://www.cmcmarkets.com）、eToro（https://www.etoro.com）、东方财富（https://qhweb.eastmoney.com）、uSMART（https://www.usmart.sg）、Gold Retail Insights（https://retailinsights.gold）。<br>
+  本内容为 AI 整理的研究草稿，非投资建议。标注 [UNSOURCED] 的内容基于公开知识，未找到精确数字来源。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
