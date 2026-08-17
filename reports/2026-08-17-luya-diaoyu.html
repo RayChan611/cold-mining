@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 路亚钓鱼</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  /* 图文并茂：插图与线稿图标 */
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+
+  /* 汇总入口：左上角悬浮返回总库 */
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 户外运动</div>
+  <h1>路亚钓鱼：一竿一线，年轻人为什么迷上“水上高尔夫”</h1>
+  <div class="sub">它不用打窝、不坐等，而是像猎人一样主动出击。这项被称为“水上高尔夫”的运动，正在中国钓出一个数百亿的大市场。</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。投资/收藏有风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：路亚是干什么的、谁在玩、值不值得普通人关注。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：一种用“假饵”模仿小鱼小虾，骗大鱼攻击的钓鱼方式，全程主动搜寻鱼群，不需要打窝守株待兔 (来源：https://www.news.cn/fortune/20260409/76ea9f9fdb4c40938d394fa6b7107907/c.html)。</li>
+        <li><b>谁在玩</b>：以 80 后、90 后甚至 Z 世代为主力，被称作“钓系青年”，社交媒体上热度极高 (来源：https://m.36kr.com/p/1528289091301761)。</li>
+        <li><b>市场多大</b>：国内路亚相关市场已达数百亿规模；以日本为参照，仅渔具上市公司就支撑起约 2000 亿日元（约 113 亿人民币）的市场 (来源：https://m.36kr.com/p/1528289091301761)。</li>
+        <li><b>小白能玩吗</b>：门槛极低，迪卡侬 200 出头就能买齐一套入门装备；但“烧装备”上限极高，拟饵收藏堪比盲盒 (来源：https://www.huxiu.com/article/1652027.html)。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <!-- 首屏概念插画：一竿一线一鱼 -->
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <!-- 水面 -->
+        <path d="M20 110 Q 45 100, 70 110 T 120 110 T 150 110" stroke="#2a2a2a" stroke-width="2" fill="none"/>
+        <path d="M20 120 Q 50 110, 80 120 T 140 120" stroke="#1f1f1f" stroke-width="2" fill="none"/>
+        <!-- 鱼竿（斜线） -->
+        <path d="M30 140 L 90 60 L 130 30" stroke="#c8a866" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <!-- 鱼线（从竿尖垂入水） -->
+        <path d="M130 30 Q 135 70, 120 105" stroke="#e8e8e8" stroke-width="1" fill="none" stroke-dasharray="3,3"/>
+        <!-- 拟饵 -->
+        <path d="M118 108 L 128 112 L 118 116 Z" fill="#e05050"/>
+        <!-- 鱼 -->
+        <path d="M95 112 Q 110 102, 125 112 Q 110 122, 95 112 Z" fill="none" stroke="#50b070" stroke-width="1.5"/>
+        <path d="M95 112 L 84 105 L 84 119 Z" fill="none" stroke="#50b070" stroke-width="1.5"/>
+        <circle cx="113" cy="109" r="1.5" fill="#e8e8e8"/>
+        <!-- 涟漪 -->
+        <ellipse cx="123" cy="112" rx="8" ry="2" fill="none" stroke="#2a2a2a" stroke-width="1"/>
+        <text x="80" y="148" fill="#8a8a8a" font-size="10" text-anchor="middle">抛投 · 收线 · 刺鱼</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">路亚（Lure）源自英文“诱惑”一词，核心玩法是：你手里拿一根竿，反复把一个塑料或金属做的“假鱼”（拟饵）抛进水里，再通过收线、抖动竿尖，让假饵在水里游出小鱼逃窜的姿态，潜伏的大鱼看到后以为是小鱼，冲上来一口咬住，然后你顺势扬竿刺鱼。它有点像<span style="color:#c8a866;">用假猎物诱骗猛禽</span>——你不是在等鱼，而是在“骗”鱼。传统钓鱼像守株待兔，路亚则更像拿着弹弓去森林里打猎，全程站着走动，全身都在动，因此被称为“水上高尔夫” (来源：https://www.news.cn/fortune/20260409/76ea9f9fdb4c40938d394fa6b7107907/c.html)。</p>
+  </div>
+  <div class="illus">
+    <!-- 路亚装备价值链 -->
+    <svg viewBox="0 0 720 120" width="720" height="120" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="40" width="180" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="100" y="58" fill="#e8e8e8" font-size="11" text-anchor="middle">装备（竿+轮+线）</text>
+      <text x="100" y="74" fill="#8a8a8a" font-size="9" text-anchor="middle">迪卡侬200元入门</text>
+      <path d="M195 62 H235" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="245" y="40" width="180" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="335" y="58" fill="#e8e8e8" font-size="11" text-anchor="middle">拟饵（假饵）</text>
+      <text x="335" y="74" fill="#8a8a8a" font-size="9" text-anchor="middle">像盲盒一样收藏</text>
+      <path d="M430 62 H470" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="480" y="40" width="180" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="570" y="58" fill="#e8e8e8" font-size="11" text-anchor="middle">钓场/赛事/社交</text>
+      <text x="570" y="74" fill="#8a8a8a" font-size="9" text-anchor="middle">一场比赛带动全产业链</text>
+      <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">路亚产业链：从基础装备到拟饵潮玩，再到赛事与文旅消费</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 价格带</h2>
+  <div class="sec-note">用真实数字说明蛋糕有多大、钱集中在哪。来源内联标注。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>档位</th><th>典型价格</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>入门档</td><td class="up">¥200 – 500</td><td>迪卡侬最低 200 出头可买全套路亚竿、轮、饵，适合周末公园试水 (来源：https://www.huxiu.com/article/1652027.html)。</td></tr>
+        <tr><td>进阶档</td><td>¥1,000 – 5,000</td><td>DAIWA（达亿瓦）、SHIMANO（禧玛诺）等日系品牌的入门级轮竿组合，轻量化、手感好，是多数爱好者的主力装备 (来源：https://www.huxiu.com/article/1652027.html)。</td></tr>
+        <tr><td>发烧档</td><td class="down">¥10,000 – 30,000+</td><td>旗舰级渔轮、碳纤维竿、限量拟饵。拟饵如潮玩，品牌隔三差五出新款，诱惑力不亚于盲盒 (来源：https://www.huxiu.com/article/1652027.html)。</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="illus">
+    <!-- 价格带柱状图 -->
+    <svg viewBox="0 0 720 220" width="720" height="220" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <rect x="110" y="140" width="90" height="40" fill="#c8a866"/>
+      <rect x="280" y="90" width="90" height="90" fill="#c8a866"/>
+      <rect x="450" y="30" width="90" height="150" fill="#e05050"/>
+      <text x="155" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">入门 (¥200-500)</text>
+      <text x="325" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">进阶 (¥1k-5k)</text>
+      <text x="495" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">发烧 (¥1w+)</text>
+      <text x="380" y="215" fill="#8a8a8a" font-size="11" text-anchor="middle">装备价格带示意（相对高度，非市场规模）</text>
+    </svg>
+    <div class="cap">价格带分布：入门门槛低，但“烧装备”空间极大</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台 -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在制定规则、谁在赚钱、小白该去哪个平台。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">ROOT</span>
+        <h3>日本钓具巨头</h3>
+        <ul><li>SHIMANO（禧玛诺）、DAIWA（达亿瓦）是路亚圈的“劳力士”，渔钓具是 SHIMANO 第二大业务，2021 年疫情中也保持增长 (来源：https://m.36kr.com/p/1528289091301761)。</li><li>日本整个渔具市场规模约 2000 亿日元（约 113 亿人民币），相关上市公司至少三家 (来源：https://m.36kr.com/p/1528289091301761)。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">平台 B</span>
+        <h3>迪卡侬（Decathlon）</h3>
+        <ul><li>小白入门第一站：200 出头就能买齐竿、轮、饵，主打性价比 (来源：https://www.huxiu.com/article/1652027.html)。</li><li>线下门店可摸到实物，适合第一次体验。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">HOT</span>
+        <h3>社交媒体 + 路亚展</h3>
+        <ul><li>上海国际路亚展人气火爆，95 后专程来挑选“短节折叠路亚竿”，感叹装备“很潮，完全符合年轻人审美” (来源：https://www.news.cn/fortune/20260409/76ea9f9fdb4c40938d394fa6b7107907/c.html)。</li><li>社交媒体精准捕捉并放大了路亚的“生活方式”属性，桥墩上画条鱼都能成打卡点 (来源：https://fjnews.fjsen.com/wap/2026-03/19/content_32153018_0.htm)。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>路亚基地 / 俱乐部</h3>
+        <ul><li>像福建琅岐的林斯同基地，在桥墩下搞了海鲈拟人化涂鸦，吸引非钓友打卡，把路亚变成“生活方式”入口 (来源：https://fjnews.fjsen.com/wap/2026-03/19/content_32153018_0.htm)。</li><li>新手去基地比野钓更容易上手，有教练、有鱼情。</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就梭哈。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">先别买装备：去迪卡侬或路亚基地体验一次，租竿或买一套 200-300 元的入门套装，感受抛投和刺鱼的手感 (来源：https://www.huxiu.com/article/1652027.html)。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">看视频学基本功：搜《野人谈路亚》这类入门教程，重点学抛投姿势和收线节奏，避免“炒粉”（炸线） (来源：https://www.youtube.com/watch?v=tYC7PouzQ7E)。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">加入本地社群：在社交媒体搜“城市名+路亚”，找到俱乐部或基地，跟着老手去一次，比看 100 个视频都有用 (来源：https://fjnews.fjsen.com/wap/2026-03/19/content_32153018_0.htm)。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">建立环保观：路亚圈共识是“钓获—拍照—放流”，不乱扔拟饵、不带走鱼获，这是圈内基本礼仪 (来源：https://www.huxiu.com/article/1652027.html)。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>一上来就买高端装备</h3><ul><li>很多人看博主用 5000 块的轮子就心动，结果抛投 10 分钟炸线 8 次，直接劝退。迪卡侬 200 元套装足够新手玩半年 (来源：https://www.huxiu.com/article/1652027.html)。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>以为路亚是“坐着钓鱼”</h3><ul><li>路亚要全程走动、抛投、收线，体力消耗不小。高水平的比赛对体能和临场策略要求极高，不是“老头乐” (来源：https://fjnews.fjsen.com/wap/2026-03/19/content_32153018_0.htm)。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>买一堆“盲盒拟饵”</h3><ul><li>拟饵像潮玩，品牌隔三差五出新款，诱惑力堪比盲盒。新手容易囤几十个饵，结果常用的就两三个 (来源：https://www.huxiu.com/article/1652027.html)。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>先体验，再消费；先学会放流，再想着爆护。装备是其次，找到鱼在哪才是路亚的核心乐趣。</li></ul></div>
+  </div>
+  <div class="illus">
+    <!-- 误区 vs 真相 对比图 -->
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="58" fill="#e05050" font-size="13" text-anchor="middle">误区</text>
+      <text x="180" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">“路亚就是坐着等鱼上钩”</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="400" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="58" fill="#50b070" font-size="13" text-anchor="middle">真相</text>
+      <text x="550" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">“全程主动找鱼，像打猎一样”</text>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相：路亚是主动出击，不是守株待兔</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>拟饵</b></td><td>塑料/金属做的假鱼、假虾，路亚的“子弹”，靠模仿猎物骗鱼攻击 (来源：https://www.news.cn/fortune/20260409/76ea9f9fdb4c40938d394fa6b7107907/c.html)。</td></tr>
+        <tr><td><b>打窝</b></td><td>传统钓法往水里撒鱼食诱鱼；路亚不打窝，更环保 (来源：https://www.news.cn/fortune/20260409/76ea9f9fdb4c40938d394fa6b7107907/c.html)。</td></tr>
+        <tr><td><b>炸线 / 炒粉</b></td><td>抛投时线轮上的线缠成一团，新手高频事故。</td></tr>
+        <tr><td><b>放流</b></td><td>钓到鱼拍完照就放回水里，路亚圈的主流价值观 (来源：https://www.huxiu.com/article/1652027.html)。</td></tr>
+        <tr><td><b>水上高尔夫</b></td><td>路亚的别称，强调它时尚、主动、全身协调的运动属性 (来源：https://www.news.cn/fortune/20260409/76ea9f9fdb4c40938d394fa6b7107907/c.html)。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">在福建琅岐，一个路亚基地的桥墩上画了一条海鲈的拟人化形象，结果成了网红打卡点——哪怕不钓鱼的人也会去拍照。社交媒体把路亚从“钓鱼”变成了“生活方式”，一条涂鸦就能带动一个基地的知名度 (来源：https://fjnews.fjsen.com/wap/2026-03/19/content_32153018_0.htm)。</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">如果你喜欢户外、想运动又不想太激烈，路亚很合适；如果你追求“坐着不动钓大鱼”或想轻松爆护，路亚会让你失望——它真的需要走动和动脑。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">路亚不是钓鱼，是用假饵和耐心跟鱼玩一场心理战——赢了拍照放流，输了就当散步。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：新华网财经观察（https://www.news.cn/fortune/20260409/76ea9f9fdb4c40938d394fa6b7107907/c.html）、虎嗅网（https://www.huxiu.com/article/1652027.html）、36氪（https://m.36kr.com/p/1528289091301761）、东南网（https://fjnews.fjsen.com/wap/2026-03/19/content_32153018_0.htm）、智研咨询 PDF 报告（https://m.chyxx.com/pdf/28/54/1122854.pdf）、YouTube《野人谈路亚》（https://www.youtube.com/watch?v=tYC7PouzQ7E）。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html

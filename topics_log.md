@@ -23,3 +23,4 @@
 | 2026-08-12 | 盆栽与文人树：把一棵树养成一首山水诗 | reports/2026-08-12-penjing-and-bunjin-tree.html |
 | 2026-08-13 | 深空摄影：用相机捕捉一百万光年外的星光 | reports/2026-08-13-deep-sky-astrophotography.html |
 | 2026-08-14 | 钢笔：一根金属管里的慢科技，为什么 2025 年还在被疯狂买单？ | reports/2026-08-14-fountain-pen.html |
+| 2026-08-17 | 路亚钓鱼：一竿一线，年轻人为什么迷上“水上高尔夫” | reports/2026-08-17-luya-diaoyu.html |
