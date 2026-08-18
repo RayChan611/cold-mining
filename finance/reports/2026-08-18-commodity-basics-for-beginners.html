@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 大宗商品</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  /* 图文并茂：插图与线稿图标 */
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+
+  /* 汇总入口：左上角悬浮返回总库 */
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 大宗商品</div>
+  <h1>大宗商品：藏在面包、汽油和手机里的全球脉搏</h1>
+  <div class="sub">从原油、黄金到咖啡豆，一条看懂支撑现代生活的「超级原料库」</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。投资/收藏有风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：这个领域是干什么的、谁在玩、值不值得普通人关注。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：大宗商品就是「没有经过太多加工、大家都要用的基础原料」——原油、铁矿石、大豆、黄金，都是。它们是全球经济运转的「水和电」。</li>
+        <li><b>谁在玩</b>：开采商、冶炼厂、食品巨头等产业链企业在套期保值；对冲基金、投行在投机；近年也有不少散户通过 ETF 或 CFD 参与。</li>
+        <li><b>市场多大</b>：全球大宗商品市场总交易量超过数万亿美元，覆盖钢铁、石油、黄金、农产品等多个品种，其中原油是最大的市场（来源：http://www.21jingji.com/article/20231219/herald/0c506cd2265d55591b8acaa6cf813826.html）。</li>
+        <li><b>小白能玩吗</b>：能，但门槛主要在「认知」而非「资金」。商品价格波动剧烈，杠杆产品（如 CFD）风险极高，新手应先从学习供需逻辑开始，而非直接上杠杆。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 200 200" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+        <!-- 地球 + 物流船/油井 概念图 -->
+        <circle cx="100" cy="100" r="62" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <ellipse cx="100" cy="100" rx="30" ry="12" fill="none" stroke="#c8a866" stroke-width="1" opacity="0.6"/>
+        <ellipse cx="100" cy="100" rx="55" ry="20" fill="none" stroke="#c8a866" stroke-width="1" opacity="0.4"/>
+        <path d="M40 85 Q70 70 100 85 T160 85" fill="none" stroke="#c8a866" stroke-width="1.5" opacity="0.5"/>
+        <path d="M40 115 Q70 130 100 115 T160 115" fill="none" stroke="#c8a866" stroke-width="1.5" opacity="0.5"/>
+        <!-- 船 -->
+        <path d="M60 150 h80 l8 12 H52 Z" fill="#141414" stroke="#e8e8e8" stroke-width="1.5"/>
+        <path d="M100 150 V135" stroke="#e8e8e8" stroke-width="2"/>
+        <path d="M78 135 h44 l-6 15 h-32 Z" fill="none" stroke="#e8e8e8" stroke-width="1.5"/>
+        <circle cx="60" cy="132" r="4" fill="#e8e8e8"/>
+        <circle cx="72" cy="132" r="4" fill="#e8e8e8"/>
+        <circle cx="84" cy="132" r="4" fill="#e8e8e8"/>
+        <text x="100" y="182" fill="#8a8a8a" font-size="11" text-anchor="middle">全球原料流通</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">想象你开了一家「超级奶茶店」。你需要的不是一杯杯做好的奶茶，而是<b>珍珠、茶叶、牛奶、糖、塑料杯和吸管</b>——这些原料就是「大宗商品」。不管哪家奶茶店，都绕不开这些基础物料；它们的价格一涨，所有奶茶店都得跟着调价。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;margin-top:10px;">大宗商品分两大类：<b>硬商品</b>是从地里挖出来的——能源（原油、天然气、煤炭）和金属（黄金、铜、铁矿石）；<b>软商品</b>是种出来的——咖啡、可可、小麦、大豆等（来源：https://www.tradingkey.com/zh-hant/learn/beginner/commodities/diving-into-commodity-trading-understanding-market-operations）。硬商品物理性质稳定、方便长期储存，是「工业的骨架」；软商品靠天吃饭，天气一变价格就跳。</p>
+  </div>
+  <div class="illus">
+    <!-- 价值链：开采→定价→消费 -->
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="40" width="180" height="50" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="100" y="62" fill="#e8e8e8" font-size="12" text-anchor="middle">开采 / 种植</text>
+      <text x="100" y="80" fill="#9a9a9a" font-size="10" text-anchor="middle">矿山、油田、农场</text>
+      <path d="M195 65 H235" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="245" y="40" width="180" height="50" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="335" y="62" fill="#e8e8e8" font-size="12" text-anchor="middle">定价 / 交易</text>
+      <text x="335" y="80" fill="#9a9a9a" font-size="10" text-anchor="middle">期货交易所、贸易商</text>
+      <path d="M430 65 H470" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="480" y="40" width="200" height="50" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="580" y="62" fill="#e8e8e8" font-size="12" text-anchor="middle">加工 / 消费</text>
+      <text x="580" y="80" fill="#9a9a9a" font-size="10" text-anchor="middle">炼油厂、面包房、你的手机</text>
+      <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">大宗商品的流转路径：从矿山/农田到你的生活，中间隔着定价与交易</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 价格带</h2>
+  <div class="sec-note">用真实数字说明蛋糕有多大、钱集中在哪。来源内联标注。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>品种</th><th>典型价格（近年区间）</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>原油（布伦特）</td><td class="up">约 60 – 120 美元/桶</td><td>全球最大商品市场，价格受产油国减产、经济预期影响剧烈（据公开资料）</td></tr>
+        <tr><td>黄金</td><td>约 1,800 – 2,400 美元/盎司</td><td>「避险之王」，地缘冲突、通胀预期升温时资金涌入（据公开资料）</td></tr>
+        <tr><td>可可豆</td><td class="down">2024 年一度突破 10,000 美元/吨</td><td>因厄尔尼诺干扰南美生产而飙升，全球巧克力产业链承压（来源：https://endowus.com/zh-hk/insights/commodity-investing-guide-hong-kong）</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="illus">
+    <!-- 2024年代表性品种价格涨幅对比（示意柱状图） -->
+    <svg viewBox="0 0 720 230" width="720" height="230" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <rect x="100" y="40" width="90" height="140" fill="#e05050"/>
+      <rect x="270" y="120" width="90" height="60" fill="#c8a866"/>
+      <rect x="440" y="100" width="90" height="80" fill="#50b070"/>
+      <text x="145" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">可可豆</text>
+      <text x="315" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">黄金</text>
+      <text x="485" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">原油</text>
+      <text x="145" y="32" fill="#e05050" font-size="11" text-anchor="middle">2024 年翻倍以上</text>
+      <text x="315" y="112" fill="#c8a866" font-size="11" text-anchor="middle">稳中有升</text>
+      <text x="485" y="92" fill="#50b070" font-size="11" text-anchor="middle">宽幅震荡</text>
+      <text x="380" y="222" fill="#8a8a8a" font-size="11" text-anchor="middle">各品种价格波动示意（非精确比例，据公开资料绘制）</text>
+    </svg>
+    <div class="cap">不同大宗商品的价格波动风格差异很大：农产品可能暴涨暴跌，黄金偏稳，原油大起大落</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台 -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在制定规则、谁在赚钱、小白该去哪个平台。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">ROOT</span>
+        <h3>产业链巨头</h3>
+        <ul><li>嘉吉、托克、中石油等，掌控开采、贸易和运输，是价格的「第一手玩家」</li><li>对小白意义：他们的减产/增产决定直接影响你加油和买巧克力的价格</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">交易所</span>
+        <h3>芝加哥商品交易所、上期所</h3>
+        <ul><li>制定合约标准、撮合交易的「裁判」，期货价格在这里诞生</li><li>对小白意义：你看到的「原油报价」「金价」基本都来自这些交易所</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">HOT</span>
+        <h3>对冲基金与投行</h3>
+        <ul><li>高盛、桥水等，靠预测价格波动赚大钱，也常发布「看多/看空」报告影响市场情绪</li><li>对小白意义：他们的研报可以读，但别当圣旨</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>小白友好入口</h3>
+        <ul><li>先看免费的行情 App（如 TradingView）和科普平台（如 IG 课堂、CMC Markets 学习中心）</li><li>想动手，先从追踪商品价格的 ETF 开始，别直接碰 CFD 杠杆产品（来源：https://www.ig.com/cn/commodities/what-are-commodities-how-do-you-trade-them）</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就梭哈。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">打开行情软件，每天花 10 分钟看原油、黄金、铜的报价，坚持两周——先「混个脸熟」，感受价格波动节奏，一分钱不花。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">挑一个你最熟悉的品种（比如你天天喝咖啡，就研究咖啡豆）。去 IG 课堂或 CMC Markets 学习中心看这个品种的科普文章，搞清楚「谁在供给、谁在需求」。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">建立判断框架：关注 OPEC 减产新闻（影响原油）、美联储利率决议（影响黄金）、厄尔尼诺天气（影响农产品）。全球政治事件、货币政策、技术创新、环境因素都会影响商品价格（来源：http://www.21jingji.com/article/20231219/herald/0c506cd2265d55591b8acaa6cf813826.html）。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">模拟盘或小额试水。用不亏了也不心疼的钱，买一手追踪原油或黄金的 ETF，持有 1-3 个月，体验真实的涨跌与心态波动，再决定要不要继续。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>一上来就碰 CFD 杠杆</h3><ul><li>CFD 可以「做空」「做多」，听起来很灵活，但杠杆会放大亏损——价格反向波动 5%，你的本金可能就没了（来源：https://www.dukascopy.com/swiss/chinese/cfd/range-of-markets/cfd-commodities）</li><li>怎么避：先玩现货 ETF，不碰杠杆</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>把「新闻」当「交易信号」</h3><ul><li>「黄金需求跌至十年新低」这类消息一出，很多人恐慌抛售，但专业机构早就在更早的阶段布局了——等你看到新闻，行情往往已走完一半（来源：https://www.cmcmarkets.com/zh-au/cfd/learn/cfds-explained/what-is-a-commodity）</li><li>怎么避：新闻用来理解逻辑，不要用来追涨杀跌</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>忽视「地缘政治」这个隐形开关</h3><ul><li>俄乌战争爆发时，能源和农产品价格瞬间跳涨；制裁、关税、战争都会直接冲击供需平衡（来源：https://endowus.com/zh-hk/insights/commodity-investing-guide-hong-kong）</li><li>怎么避：下单前先问一句「最近有没有大选、战争、贸易摩擦」</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>大宗商品是「高波动、低容错」的领域——永远只用「亏光了也不影响生活」的钱参与，并且永远留一半现金。</li></ul></div>
+  </div>
+  <div class="illus">
+    <!-- 误区 vs 真相 对比图 -->
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="55" fill="#e05050" font-size="13" text-anchor="middle">误区</text>
+      <text x="180" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">「商品涨了，我买商品股票/ETF 一定赚」</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="400" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="55" fill="#50b070" font-size="13" text-anchor="middle">真相</text>
+      <text x="550" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">商品涨≠相关股票涨，还要看公司成本、管理、汇率</text>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相：商品价格与相关公司股价是两回事</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>期货</b></td><td>现在约定好价格、未来某个日子交货的「预售合同」——农场主用它锁住收成价格，赌徒用它押涨跌</td></tr>
+        <tr><td><b>现货</b></td><td>「一手交钱、一手交货」的即时买卖，价格就是当下的市场价</td></tr>
+        <tr><td><b>做多 / 做空</b></td><td>做多 = 赌它涨，先买后卖；做空 = 赌它跌，先借来卖掉、再买回还掉（来源：https://www.ig.com/cn/commodities/what-are-commodities-how-do-you-trade-them）</td></tr>
+        <tr><td><b>CFD（差价合约）</b></td><td>一种不需要真的拥有商品、只赌价格差结算的衍生品——杠杆高、风险大</td></tr>
+        <tr><td><b>套期保值</b></td><td>航空公司怕油价涨，提前买原油期货锁价——不为赚钱，只为「不亏」</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">2024 年，可可豆价格一度突破每吨 10,000 美元——原因是厄尔尼诺现象扰乱了南美农业生产。这意味着你爱吃的巧克力，成本可能比同重量的白银还贵（来源：https://endowus.com/zh-hk/insights/commodity-investing-guide-hong-kong）。下次咬巧克力时，可以想想：你吃的不是甜食，是全球天气的「期货报价」。</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">如果你喜欢看新闻、琢磨全球大事，且能忍受「账户上蹿下跳」，大宗商品会很有趣；如果你追求稳定、看到亏损就失眠，那更适合买指数基金 <span class="cool">（不适合）</span>。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">大宗商品是经济的「体温计」——它不创造光鲜的科技故事，但每一次涨价，都在提醒你世界正在发生什么 <span class="hot">（关注它，但别沉迷它）</span>。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：CMC Markets 学习中心、IG 课堂、TradingKey 新手课堂、21经济网 2024 大宗商品行业研究报告、Endowus 智安投、Dukascopy Bank 商品 CFD 指南。<br>
+  本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
