@@ -24,3 +24,4 @@
 | 2026-08-13 | 深空摄影：用相机捕捉一百万光年外的星光 | reports/2026-08-13-deep-sky-astrophotography.html |
 | 2026-08-14 | 钢笔：一根金属管里的慢科技，为什么 2025 年还在被疯狂买单？ | reports/2026-08-14-fountain-pen.html |
 | 2026-08-17 | 路亚钓鱼：一竿一线，年轻人为什么迷上“水上高尔夫” | reports/2026-08-17-luya-diaoyu.html |
+| 2026-08-18 | 观鸟入门指南：从公园到湿地的千亿级「追鸟」生意 | reports/2026-08-18-birdwatching-for-beginners.html |
