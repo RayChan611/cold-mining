@@ -94,3 +94,11 @@
 [cold_mining] git push ok=True info=To github.com:RayChan611/cold-mining.git
    ad3a677..871500f  main -> main
 [cold_mining] feishu code=0 link=https://raychan611.github.io/cold-mining/finance/reports/2026-08-17-gold-investing.html
+[cold_mining] line=finance topic=大宗商品 slug=commodity
+[cold_mining] tavily hits=2416
+[cold_mining] attempt=0 html_len=18418 svg=8
+[cold_mining] wrote /home/ubuntu/cold-mining/finance/reports/2026-08-18-commodity-basics-for-beginners.html
+[cold_mining] index+log updated
+[cold_mining] git push ok=True info=To github.com:RayChan611/cold-mining.git
+   50033fd..3aa6e22  main -> main
+[cold_mining] feishu code=0 link=https://raychan611.github.io/cold-mining/finance/reports/2026-08-18-commodity-basics-for-beginners.html

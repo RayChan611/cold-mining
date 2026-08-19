@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 碳信用</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05080; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 环境经济</div>
+  <h1>碳信用：一场关于“少排放”的全球大生意，到底是什么？</h1>
+  <div class="sub">一句话副标题：把“二氧化碳配额”当成商品买卖，用市场手段帮地球降温。</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。投资/收藏有风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：这个领域是干什么的、谁在玩、值不值得普通人关注。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：碳信用 = 一张“证明你少排了一吨二氧化碳”的证书，可以拿到市场上卖钱。</li>
+        <li><b>谁在玩</b>：控排企业（电厂、钢厂）、国际航空公司、金融机构、各国政府，以及做减排项目的开发商。</li>
+        <li><b>市场多大</b>：2024 年全球合规碳市场成交额约 1.5 万亿美元；碳信用交易平台 2023 年规模约 1.58 亿美元，预计 2033 年超 7.52 亿美元（来源：https://www.hkexgroup.com/media-centre/insight/insight/2022/hkex/carbon-markets-explained?sc_lang=zh-HK；https://www.sphericalinsights.com/zh/reports/carbon-credit-trading-platform-market）。</li>
+        <li><b>小白能玩吗</b>：门槛不低。个人很难直接开户交易，但可以通过投资相关基金、买碳抵消服务间接参与；风险在于碳价波动大、项目质量参差不齐。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <rect x="14" y="34" width="132" height="78" rx="10" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <circle cx="30" cy="50" r="4" fill="#e05050"/><circle cx="44" cy="50" r="4" fill="#c8a866"/><circle cx="58" cy="50" r="4" fill="#50b070"/>
+        <rect x="28" y="66" width="104" height="14" rx="4" fill="#1f1f1f" stroke="#2a2a2a"/>
+        <text x="34" y="77" fill="#c8a866" font-size="11" font-family="monospace">carbon.trade</text>
+        <path d="M14 112 H146" stroke="#2a2a2a" stroke-width="2"/>
+        <path d="M50 130 C 60 116, 70 116, 80 130" fill="none" stroke="#50b070" stroke-width="2"/>
+        <path d="M80 130 C 90 116, 100 116, 110 130" fill="none" stroke="#50b070" stroke-width="2"/>
+        <circle cx="80" cy="132" r="5" fill="#c8a866"/>
+        <text x="80" y="152" fill="#8a8a8a" font-size="10" text-anchor="middle">碳信用 · 减排证书</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">想象一下，地球是一个巨大的“限塑令”社区，每家工厂每年只能往垃圾桶里扔一定量的垃圾。有的工厂很努力，扔得少，剩下了“扔垃圾额度”；有的工厂技术跟不上，额度不够用。于是有人发明了一个办法：<b>扔得少的可以把多余的额度卖给扔得多的</b>——这就是碳信用的雏形。它不直接消灭二氧化碳，而是给“少排放”这件事标了价，让环保从口号变成可以交易的商品。碳信用项目主要分两类：<b>减排</b>（防止未来排放，比如把煤电厂换成风电）和<b>移除</b>（把已经存在空气中的二氧化碳抽回来，比如种树、直接空气捕集）(来源：https://www.sylvera.com/zh/blog/carbon-credit-project-types)。</p>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 120" width="720" height="120" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="40" width="180" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="100" y="60" fill="#e8e8e8" font-size="12" text-anchor="middle">减排项目</text>
+      <text x="100" y="76" fill="#8a8a8a" font-size="10" text-anchor="middle">风电 / 光伏 / 节能</text>
+      <path d="M195 62 H235" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="245" y="40" width="180" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="335" y="60" fill="#e8e8e8" font-size="12" text-anchor="middle">签发核证</text>
+      <text x="335" y="76" fill="#8a8a8a" font-size="10" text-anchor="middle">第三方审核 + 注册</text>
+      <path d="M430 62 H470" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="480" y="40" width="180" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="570" y="60" fill="#e8e8e8" font-size="12" text-anchor="middle">交易抵消</text>
+      <text x="570" y="76" fill="#8a8a8a" font-size="10" text-anchor="middle">企业购买 → 抵消排放</text>
+      <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">碳信用生命周期：从减排项目到企业手中的抵消凭证</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 价格带</h2>
+  <div class="sec-note">用真实数字说明蛋糕有多大、钱集中在哪。来源内联标注。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>档位</th><th>典型价格</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>低品质（无额外性争议）</td><td class="down">$1 – 5 / 吨</td><td>部分自然类项目，如避免砍伐（REDD+）中质量存疑的，价格低且争议大 [UNSOURCED]</td></tr>
+        <tr><td>中档品质</td><td>$5 – 20 / 吨</td><td>成熟的可再生能源、甲烷回收类项目，价格取决于核证标准（如 Verra、Gold Standard）[UNSOURCED]</td></tr>
+        <tr><td>高品质（含移除类）</td><td class="up">$50 – 200+ / 吨</td><td>直接空气捕集（DAC）、生物炭等“真移除”项目，价格高、买方多为科技巨头 [UNSOURCED]</td></tr>
+      </tbody>
+    </table>
+    <p class="src">注：价格波动大且高度分化，具体实时价需查询交易所或经纪商。来源：据公开资料整理。</p>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 220" width="720" height="220" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <rect x="110" y="140" width="90" height="40" fill="#c8a866"/>
+      <rect x="280" y="100" width="90" height="80" fill="#c8a866"/>
+      <rect x="450" y="30" width="90" height="150" fill="#e05050"/>
+      <text x="155" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">低品质</text>
+      <text x="325" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">中档</text>
+      <text x="495" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">高品质</text>
+      <text x="100" y="170" fill="#e8e8e8" font-size="10" text-anchor="middle">$1-5</text>
+      <text x="325" y="96" fill="#e8e8e8" font-size="10" text-anchor="middle">$5-20</text>
+      <text x="495" y="26" fill="#e8e8e8" font-size="10" text-anchor="middle">$50-200+</text>
+      <text x="380" y="215" fill="#8a8a8a" font-size="11" text-anchor="middle">碳信用价格带示意（非精确数据，据公开资料）</text>
+    </svg>
+    <div class="cap">不同品质碳信用的价格区间（对数感示意，具体实时价请查询交易平台）</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台 -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在制定规则、谁在赚钱、小白该去哪个平台。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">ROOT</span>
+        <h3>联合国 & 国际核证机构</h3>
+        <ul><li>CDM（清洁发展机制）、《巴黎协定》第 6.2 条等规则制定者，相当于“碳世界的央行”</li><li>瑞士已通过第 6.2 条采购 ITMOs，预计至 2030 年购买至少 2000 万吨（来源：https://ws.ndc.gov.tw/Download.ashx?u=LzAwMS9hZG1pbmlzdHJhdG9yLzEwL3JlbGZpbGUvMC8xNjM3NS83NDIyNDViMC00ZTc5LTQxNTMtODQ3My03ZDE4NDE0NTExMGYucGRm&n=M1%2FlvLfljJbmiJHlnIvnorPkv6HnlKjluILloLTkuYvmlL%2FnrZblu7rorbAucGRm&icon=.pdf）</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">交易所</span>
+        <h3>欧洲能源交易所（EEX）、芝加哥商品交易所（CME）</h3>
+        <ul><li>全球合规碳市场的核心交易场所，2024 年全球合规碳市场成交额约 1.5 万亿美元（来源：https://www.hkexgroup.com/media-centre/insight/insight/2022/hkex/carbon-markets-explained?sc_lang=zh-HK）</li><li>个人投资者通常需要通过期货经纪商间接参与</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">HOT</span>
+        <h3>Verra & Gold Standard</h3>
+        <ul><li>全球最大的两个自愿碳信用标准，负责审核和签发“减排证书”</li><li>它们认证的项目覆盖造林、REDD+、甲烷回收等（来源：https://www.sylvera.com/zh/blog/carbon-credit-project-types）</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>小白友好入口</h3>
+        <ul><li>想了解行情可看 CarbonCredits.com、Ecosystem Marketplace 等资讯站</li><li>想实际购买抵消个人碳排放，可选有第三方认证的在线零售商（如 Cool Effect 等，据公开资料）</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就梭哈。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">先搞懂“合规碳市场”和“自愿碳市场”的区别：前者是政府强制控排企业参与的，后者是企业和个人自愿买的。个人能接触到的几乎都是后者。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">围观行情：关注 EEX 的 EUA 期货价格、Verra 注册库的项目列表，感受碳价波动。不要急着花钱。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">建立判断框架：学会看“额外性”“永久性”“泄露风险”这三个词，能帮你避开 90% 的劣质碳信用（据公开资料）。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">小额试水：如果想体验，可以购买少量经 Gold Standard 或 Verra 认证的碳抵消，用于抵消自己的航班或家庭用电，金额控制在几十美元以内。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>“僵尸碳信用”</h3><ul><li>有些项目签发的碳信用从未被使用，甚至项目本身已不存在，但证书还在市场上流通。避坑方法：认准有实时监测、透明注销记录的平台 [UNSOURCED]</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>“洗绿”陷阱</h3><ul><li>部分企业买廉价碳信用宣称“碳中和”，实际减排效果存疑。避坑：看项目是否具备“额外性”——即没有这笔钱，项目就不会发生 [UNSOURCED]</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>价格暴涨暴跌</h3><ul><li>欧盟碳价曾在 2023 年突破 100 欧元/吨，后又因政策调整大幅回落 [UNSOURCED]。避坑：别把碳信用当短期炒作的标的。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>碳信用不是“投资品”，而是“抵消工具”。你买它的目的是补偿你无法避免的排放，而不是指望它升值赚钱。</li></ul></div>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="58" fill="#e05050" font-size="13" text-anchor="middle">误区</text>
+      <text x="180" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">“买了碳信用 = 可以随便排放”</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="400" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="58" fill="#50b070" font-size="13" text-anchor="middle">真相</text>
+      <text x="550" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">“先减排，再抵消剩余部分”</text>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相：碳信用是“最后一步”，不是“免罪金牌”</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>额外性（Additionally）</b></td><td>没有这笔碳信用收入，减排项目就不会发生。这是判断项目质量的第一道门槛。</td></tr>
+        <tr><td><b>REDD+</b></td><td>“减少砍伐森林和森林退化造成的排放”——简单说就是给森林“发工资”，让树活着比砍掉更值钱（来源：https://www.sylvera.com/zh/blog/carbon-credit-project-types）</td></tr>
+        <tr><td><b>ITMOs</b></td><td>《巴黎协定》第 6.2 条下的国际转让减排成果，国家之间买卖碳信用的“官方通道”。瑞士已用它买了至少 2000 万吨减排量（来源：https://ws.ndc.gov.tw/Download.ashx?u=LzAwMS9hZG1pbmlzdHJhdG9yLzEwL3JlbGZpbGUvMC8xNjM3NS83NDIyNDViMC00ZTc5LTQxNTMtODQ3My03ZDE4NDE0NTExMGYucGRm&n=M1%2FlvLfljJbmiJHlnIvnorPkv6HnlKjluILloLTkuYvmlL%2FnrZblu7rorbAucGRm&icon=.pdf）</td></tr>
+        <tr><td><b>自愿碳市场（VCM）</b></td><td>企业或个人出于自愿购买的碳信用，不受政府强制约束。你订机票时勾选的“碳抵消”就是这个。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">你可能不知道：全球碳市场 2024 年合规市场成交额达 1.5 万亿美元——这比很多国家的 GDP 还高。而世界银行估计，到 2025 年碳交易和碳税覆盖了全球约 28% 的温室气体排放，比 2005 年翻了五倍多（来源：https://www.hkexgroup.com/media-centre/insight/insight/2022/hkex/carbon-markets-explained?sc_lang=zh-HK）。换句话说，地球上每 4 吨排放里，就有 1 吨已经被“标了价”。</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">适合：关注环保、想抵消自己碳足迹的普通人，或想研究气候经济的学生。不适合：想靠炒碳信用短期暴富的人——这更像债券，不是 meme 币。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">碳信用不是“赎罪券”，而是一张通往低碳未来的期权——它不能让你免于减排，但能让你为“少排放”的人鼓掌并付钱。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：香港交易所《细说碳市场》（https://www.hkexgroup.com/media-centre/insight/insight/2022/hkex/carbon-markets-explained?sc_lang=zh-HK）、Spherical Insights（https://www.sphericalinsights.com/zh/reports/carbon-credit-trading-platform-market）、Sylvera（https://www.sylvera.com/zh/blog/carbon-credit-project-types）、国家发展委员会报告（https://ws.ndc.gov.tw/Download.ashx?u=LzAwMS9hZG1pbmlzdHJhdG9yLzEwL3JlbGZpbGUvMC8xNjM3NS83NDIyNDViMC00ZTc5LTQxNTMtODQ3My03ZDE4NDE0NTExMGYucGRm&n=M1%2FlvLfljJbmiJHlnIvnorPkv6HnlKjluILloLTkuYvmlL%2FnrZblu7rorbAucGRm&icon=.pdf）。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
