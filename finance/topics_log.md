@@ -20,3 +20,4 @@
 | 2026-08-14 | REITs 入门：用100块当“包租婆”，是馅饼还是陷阱？ | reports/2026-08-14-reits-beginners-guide.html |
 | 2026-08-17 | 黄金投资：为什么全世界都在囤这块黄色金属 | reports/2026-08-17-gold-investing.html |
 | 2026-08-18 | 大宗商品：藏在面包、汽油和手机里的全球脉搏 | reports/2026-08-18-commodity-basics-for-beginners.html |
+| 2026-08-19 | 加密货币入门：从零读懂数字黄金、智能合约与币圈生存法则 | reports/2026-08-19-cryptocurrency-beginners-guide.html |

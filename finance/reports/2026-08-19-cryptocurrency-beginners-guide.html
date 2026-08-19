@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 加密货币入门</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  /* 图文并茂：插图与线稿图标 */
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+
+  /* 汇总入口：左上角悬浮返回总库 */
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 金融科技</div>
+  <h1>加密货币入门：从零读懂数字黄金与币圈生存法则</h1>
+  <div class="sub">用大白话讲清楚比特币、以太坊、稳定币到底是什么，以及普通人如何安全参与</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。投资/收藏有风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：加密货币是干什么的、谁在玩、值不值得普通人关注。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：一种基于区块链技术的去中心化数字资产，不依赖银行或政府发行，靠网络节点共同记账 (来源：https://www.forextime.com/zh/education/crypto-strategy)</li>
+        <li><b>谁在玩</b>：从 2019 年后的散户投资者，到特斯拉、MicroStrategy 等上市公司，再到华尔街资管巨头都在配置</li>
+        <li><b>市场多大</b>：比特币市值约 1.84 万亿美元，以太坊约 3912 亿美元，稳定币 USDT 约 1861 亿美元 (来源：https://www.mitrade.com/zh/insights/newbie/learn-btc/crypto-for-beginners)</li>
+        <li><b>小白能玩吗</b>：能，但门槛不在技术而在心态——价格波动剧烈，新手需从极小金额试水，先学习再投资 (来源：https://www.futunn.com/learn/detail-beginner-s-guide-understand-how-to-invest-in-crypto-in-3-minutes-91407-250375012)</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <!-- 概念插画：比特币 + 区块链网络 -->
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="80" cy="80" r="38" fill="#141414" stroke="#c8a866" stroke-width="2.5"/>
+        <text x="80" y="88" fill="#c8a866" font-size="22" font-family="Arial" text-anchor="middle" font-weight="bold">₿</text>
+        <circle cx="30" cy="30" r="6" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+        <circle cx="130" cy="30" r="6" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+        <circle cx="30" cy="130" r="6" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+        <circle cx="130" cy="130" r="6" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+        <line x1="36" y1="36" x2="74" y2="74" stroke="#c8a866" stroke-width="1" opacity="0.6"/>
+        <line x1="124" y1="36" x2="86" y2="74" stroke="#c8a866" stroke-width="1" opacity="0.6"/>
+        <line x1="36" y1="124" x2="74" y2="86" stroke="#c8a866" stroke-width="1" opacity="0.6"/>
+        <line x1="124" y1="124" x2="86" y2="86" stroke="#c8a866" stroke-width="1" opacity="0.6"/>
+        <text x="80" y="155" fill="#8a8a8a" font-size="9" text-anchor="middle">去中心化网络 · 人人可验证</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把区块链和加密货币，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">想象一个全村共用的账本，谁家买了牛、谁家卖了粮，所有人都同时在自己的本子上记一笔，而且每笔记录都带时间戳和上一个人的签名。想篡改？你得同时改掉全村一半以上人家的本子——这就是<b>区块链</b>的基本逻辑。加密货币（比如比特币）就是这个账本上流通的"数字粮食"，总量写死、人人可查、无法伪造 (来源：https://www.forextime.com/zh/education/crypto-strategy)。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;margin-top:10px;">更妙的是，比特币总量上限 2100 万枚，永不增发，这种<b>稀缺性</b>让它有了"数字黄金"的称号 (来源：https://research.titanfx.com/cn/crypto-trading/what-is-cryptocurrency)。而以太坊则更进一步，它的账本不仅能记账，还能运行小程序（智能合约），于是催生了 DeFi（去中心化金融）、NFT（数字藏品）等新玩法 (来源：https://www.coinbase.com/zh-cn/learn/crypto-basics)。</p>
+  </div>
+  <div class="illus">
+    <!-- 价值链 / 结构图：从技术到应用的三层结构 -->
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="15" width="200" height="42" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="110" y="40" fill="#e8e8e8" font-size="12" text-anchor="middle">底层：区块链网络</text>
+      <text x="110" y="54" fill="#8a8a8a" font-size="9" text-anchor="middle">比特币 / 以太坊 / Solana</text>
+      <path d="M215 36 H250" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="260" y="15" width="200" height="42" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="360" y="40" fill="#e8e8e8" font-size="12" text-anchor="middle">中间层：协议与应用</text>
+      <text x="360" y="54" fill="#8a8a8a" font-size="9" text-anchor="middle">智能合约 / DeFi / NFT</text>
+      <path d="M465 36 H500" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="510" y="15" width="200" height="42" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="610" y="40" fill="#e8e8e8" font-size="12" text-anchor="middle">入口：钱包与交易所</text>
+      <text x="610" y="54" fill="#8a8a8a" font-size="9" text-anchor="middle">MetaMask / 币安 / Coinbase</text>
+      <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+      <text x="360" y="95" fill="#8a8a8a" font-size="11" text-anchor="middle">普通人平时打交道的，其实是这个链条最上层：交易所和钱包</text>
+    </svg>
+    <div class="cap">加密货币价值链：底层网络 → 应用层 → 用户入口</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 主流币种市值排行</h2>
+  <div class="sec-note">用真实数字说明蛋糕有多大、钱集中在哪。数据来自 2024 年公开资料。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>排名</th><th>币种</th><th>市值（亿美元）</th><th>板块重点</th><th>新手建议</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><b>BTC（比特币）</b></td><td class="up">18,400</td><td>Layer-1 / 减半</td><td>必备，数字黄金 (来源：https://www.mitrade.com/zh/insights/newbie/learn-btc/crypto-for-beginners)</td></tr>
+        <tr><td>2</td><td><b>ETH（以太坊）</b></td><td>3,912.8</td><td>Layer-1 / DeFi</td><td>智能合约王，长期持 (来源：同上)</td></tr>
+        <tr><td>3</td><td><b>USDT（泰达币）</b></td><td>1,861.9</td><td>稳定币</td><td>避险现金，不用炒 (来源：同上)</td></tr>
+        <tr><td>4</td><td><b>XRP（瑞波币）</b></td><td>1,224.2</td><td>Layer-1</td><td>跨境支付，监管友好 (来源：同上)</td></tr>
+        <tr><td>5</td><td><b>BNB（币安币）</b></td><td>1,221.3</td><td>平台币 / Layer-1</td><td>币安生态，实用 (来源：同上)</td></tr>
+        <tr><td>6</td><td><b>USDC（美元币）</b></td><td>78</td><td>稳定币</td><td>合规稳定币 (来源：同上)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="illus">
+    <!-- 市值柱状图 -->
+    <svg viewBox="0 0 720 230" width="720" height="230" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="185" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="185" x2="690" y2="185" stroke="#2a2a2a" stroke-width="1.5"/>
+      <!-- BTC 18400亿 -->
+      <rect x="75" y="40" width="85" height="145" fill="#c8a866"/>
+      <text x="117" y="200" fill="#e8e8e8" font-size="11" text-anchor="middle">BTC</text>
+      <text x="117" y="34" fill="#c8a866" font-size="10" text-anchor="middle">1.84万亿</text>
+      <!-- ETH 3912亿 -->
+      <rect x="200" y="115" width="85" height="70" fill="#c8a866"/>
+      <text x="242" y="200" fill="#e8e8e8" font-size="11" text-anchor="middle">ETH</text>
+      <text x="242" y="109" fill="#c8a866" font-size="10" text-anchor="middle">3912亿</text>
+      <!-- USDT 1861亿 -->
+      <rect x="325" y="148" width="85" height="37" fill="#e05050"/>
+      <text x="367" y="200" fill="#e8e8e8" font-size="11" text-anchor="middle">USDT</text>
+      <text x="367" y="142" fill="#e05050" font-size="10" text-anchor="middle">1861亿</text>
+      <!-- XRP 1224亿 -->
+      <rect x="450" y="160" width="85" height="25" fill="#e05050"/>
+      <text x="492" y="200" fill="#e8e8e8" font-size="11" text-anchor="middle">XRP</text>
+      <text x="492" y="154" fill="#e05050" font-size="10" text-anchor="middle">1224亿</text>
+      <!-- BNB 1221亿 -->
+      <rect x="575" y="160" width="85" height="25" fill="#e05050"/>
+      <text x="617" y="200" fill="#e8e8e8" font-size="11" text-anchor="middle">BNB</text>
+      <text x="617" y="154" fill="#e05050" font-size="10" text-anchor="middle">1221亿</text>
+      <text x="380" y="222" fill="#8a8a8a" font-size="11" text-anchor="middle">主流币市值对比（亿美元，对数刻度）· 数据来源：mitrade 2024</text>
+    </svg>
+    <div class="cap">比特币占绝对主导，市值约等于第 2 到第 6 名总和的 2 倍</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台 -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在制定规则、谁在赚钱、小白该去哪个平台。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">ROOT</span>
+        <h3>比特币（BTC）</h3>
+        <ul><li>加密货币鼻祖，2009 年诞生，总量 2100 万枚永不增发 (来源：https://research.titanfx.com/cn/crypto-trading/what-is-cryptocurrency)</li><li>市值约 1.84 万亿美元，是行业的"数字黄金"和风向标 (来源：https://www.mitrade.com/zh/insights/newbie/learn-btc/crypto-for-beginners)</li><li>小白第一站：先理解它，再谈其他币</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">SMART</span>
+        <h3>以太坊（ETH）</h3>
+        <ul><li>市值第二大币种，约 3912 亿美元 (来源：https://www.mitrade.com/zh/insights/newbie/learn-btc/crypto-for-beginners)</li><li>不仅是货币，更是"世界计算机"，运行智能合约和 DeFi 应用 (来源：https://www.coinbase.com/zh-cn/learn/crypto-basics)</li><li>生态最活跃，NFT 和去中心化金融的大本营</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">HOT</span>
+        <h3>交易所三巨头</h3>
+        <ul><li>币安（Binance）：全球最大交易所，BNB 市值约 1221 亿美元 (来源：https://www.mitrade.com/zh/insights/newbie/learn-btc/crypto-for-beginners)</li><li>Coinbase：美股上市，合规标杆，适合新手入门 (来源：https://www.coinbase.com/zh-cn/learn/crypto-basics)</li><li>选交易所看三点：合规牌照、资金托管、提现速度</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>稳定币（USDT/USDC）</h3>
+        <ul><li>USDT 市值约 1861 亿美元，USDC 约 78 亿美元 (来源：https://www.mitrade.com/zh/insights/newbie/learn-btc/crypto-for-beginners)</li><li>1 USDT ≈ 1 美元，是币圈的"现金"，用于避险和交易中转</li><li>新手必备：暴跌时把币换成稳定币，比换成人民币快得多</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就梭哈。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">先学后买：花 1-2 周读 Coinbase 的免费学习资料 (来源：https://www.coinbase.com/zh-cn/learn/crypto-basics)，弄懂区块链、钱包、私钥、交易所这几个核心概念</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">小额试水：用 100-500 元人民币（或等值外币），在合规交易所（如 Coinbase、币安）买入 100 元比特币 + 100 元以太坊，体验充提、买卖、看行情全流程</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">建立判断框架：学会看市值排名（参考 mitrade 的榜单），区分"主流币"和"空气币"，了解减半、DeFi、Layer-1 这些基本面概念 (来源：https://www.mitrade.com/zh/insights/newbie/learn-btc/crypto-for-beginners)</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">定投 + 风控：把投入控制在总资产 5% 以内，每月定投比特币或以太坊，设置止损线，跌 30% 就冷静反思而不是加杠杆</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>追涨杀跌、频繁交易</h3><ul><li>加密货币波动剧烈，短期可能涨跌数十个百分点 (来源：https://research.titanfx.com/cn/crypto-trading/what-is-cryptocurrency)</li><li>破解：定投代替梭哈，把时间拉长到 1 年以上</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>诈骗和黑客盗窃</h3><ul><li>虚假网站、网络钓鱼、敲诈勒索、欺诈性 ICO 是最常见安全问题 (来源：https://www.futunn.com/learn/detail-beginner-s-guide-understand-how-to-invest-in-crypto-in-3-minutes-91407-250375012)</li><li>破解：只从官方应用商店下载钱包，绝不向任何人透露私钥/助记词</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>迷信"百倍币"、空气币</h3><ul><li>部分山寨币缺乏实际应用，仅靠营销拉高价格 (来源：https://www.futunn.com/learn/detail-beginner-s-guide-understand-how-to-invest-in-crypto-in-3-minutes-91407-250375012)</li><li>破解：只买市值前 10 的币，拒绝任何"内部消息"和"保本高息"</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>不懂不投，能承受归零的才投</li><li>加密货币是数字时代的资产类别，但风险极高——把投资金额控制在"亏光了也不心疼"的范围内</li></ul></div>
+  </div>
+  <div class="illus">
+    <!-- 误区 vs 真相 对比图 -->
+    <svg viewBox="0 0 720 140" width="720" height="140" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="25" width="300" height="80" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="50" fill="#e05050" font-size="13" text-anchor="middle" font-weight="bold">误区</text>
+      <text x="180" y="72" fill="#c4c4c4" font-size="11" text-anchor="middle">"加密货币就是赌博"</text>
+      <text x="180" y="90" fill="#8a8a8a" font-size="10" text-anchor="middle">（完全否定其技术价值）</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="400" y="25" width="300" height="80" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="50" fill="#50b070" font-size="13" text-anchor="middle" font-weight="bold">真相</text>
+      <text x="550" y="72" fill="#c4c4c4" font-size="11" text-anchor="middle">"高波动资产 + 区块链技术革命"</text>
+      <text x="550" y="90" fill="#8a8a8a" font-size="10" text-anchor="middle">（20 年前的互联网，风险与机会并存）</text>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相：加密货币不是洪水猛兽，但也不是印钞机</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>区块链</b></td><td>一个公开、透明、不可篡改的分布式账本，人人都有副本 (来源：https://www.forextime.com/zh/education/crypto-strategy)</td></tr>
+        <tr><td><b>DeFi</b></td><td>去中心化金融，用智能合约代替银行，借贷、存款、交易全在链上自动完成 (来源：https://www.coinbase.com/zh-cn/learn/crypto-basics)</td></tr>
+        <tr><td><b>Layer-1 / Layer-2</b></td><td>第一层是主链（如比特币、以太坊），第二层是解决拥堵的扩展方案（如闪电网络）</td></tr>
+        <tr><td><b>稳定币</b></td><td>价值锚定法币（如美元）的加密货币，如 USDT、USDC，用于避险和交易 (来源：https://www.mitrade.com/zh/insights/newbie/learn-btc/crypto-for-beginners)</td></tr>
+        <tr><td><b>私钥 / 助记词</b></td><td>钱包的"唯一钥匙"，谁拿到谁拥有资产，泄露等于送钱</td></tr>
+        <tr><td><b>减半（Halving）</b></td><td>比特币每 4 年挖矿奖励减半，控制供给，历史上每次减半后都有大行情</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">2010 年 5 月 22 日，一位程序员用 10,000 枚比特币买了两份披萨——按 2024 年价格计算，这两块披萨价值约 6.7 亿美元。这一天后来被币圈称为"比特币披萨日"，是加密货币历史上最著名的"后悔药"案例。如今这 10,000 枚比特币如果还在，足以买下一家上市公司。</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">适合：愿意花时间学习、能承受 30% 以上回撤、想配置新兴资产的长期主义者。<br>不适合：想一夜暴富、不愿学习、把所有积蓄押进去的投机者。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">加密货币不是"下一个暴富机会"，而是"下一代价值互联网"——但前提是，你得先活过牛熊周期。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：FXTM富拓（https://www.forextime.com/zh/education/crypto-strategy）、Mitrade（https://www.mitrade.com/zh/insights/newbie/learn-btc/crypto-for-beginners）、Titan FX（https://research.titanfx.com/cn/crypto-trading/what-is-cryptocurrency）、Coinbase（https://www.coinbase.com/zh-cn/learn/crypto-basics）、富途牛牛（https://www.futunn.com/learn/detail-beginner-s-guide-understand-how-to-invest-in-crypto-in-3-minutes-91407-250375012）。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
