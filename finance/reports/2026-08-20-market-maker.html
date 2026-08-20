@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 做市商</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  /* 图文并茂：插图与线稿图标 */
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+
+  /* 汇总入口：左上角悬浮返回总库 */
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 金融市场机制</div>
+  <h1>做市商：交易所里的“庄家”到底在做什么？</h1>
+  <div class="sub">用大白话讲清楚：为什么你买卖股票时总有人“接盘”，以及他们怎么靠这个赚钱。</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。投资/收藏有风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：做市商是干什么的、谁在玩、值不值得普通人关注。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：做市商就是金融市场里的“批发商+黄牛”——他们同时报出买入价和卖出价，你买他就卖、你卖他就买，靠差价赚钱，顺便给市场提供了流动性（来源：https://www.ig.com/cn/glossary-trading-terms/market-maker-definition）。</li>
+        <li><b>谁在玩</b>：绝大多数是大型机构，因为需要海量资金和每秒微秒级的交易系统；个人理论上能玩，但几乎赢不了机构（来源：https://www.threads.com/@little_algo_trader/post/DY2CIXlExmc）。</li>
+        <li><b>市场多大</b>：全球股票、期货、加密货币交易所都有做市商身影；以低流动性股票为例，价差可达 0.1%–0.5%，高频交易下累积收益可观（来源：https://www.threads.com/@little_algo_trader/post/DY2CIXlExmc）。</li>
+        <li><b>小白能玩吗</b>：不能直接“当”做市商，但你在交易所下的每一单，背后几乎都有做市商在跟你对手交易。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <!-- 首屏概念图：做市商在买价和卖价之间赚差价 -->
+      <svg viewBox="0 0 200 200" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+        <!-- 中央做市商 -->
+        <circle cx="100" cy="100" r="26" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <text x="100" y="105" fill="#c8a866" font-size="11" text-anchor="middle" font-family="monospace">MM</text>
+        <!-- 买方 -->
+        <rect x="20" y="50" width="52" height="34" rx="6" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+        <text x="46" y="71" fill="#50b070" font-size="10" text-anchor="middle">买方</text>
+        <!-- 卖方 -->
+        <rect x="128" y="116" width="52" height="34" rx="6" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+        <text x="154" y="137" fill="#e05050" font-size="10" text-anchor="middle">卖方</text>
+        <!-- 箭头 -->
+        <path d="M72 67 H78 C80 67 80 100 88 100" stroke="#50b070" stroke-width="1.5" fill="none" marker-end="url(#g1)"/>
+        <path d="M128 133 H122 C120 133 120 100 112 100" stroke="#e05050" stroke-width="1.5" fill="none" marker-end="url(#g2)"/>
+        <defs>
+          <marker id="g1" markerWidth="6" markerHeight="6" refX="4" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#50b070"/></marker>
+          <marker id="g2" markerWidth="6" markerHeight="6" refX="4" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#e05050"/></marker>
+        </defs>
+        <!-- 差价标注 -->
+        <path d="M58 128 L142 72" stroke="#c8a866" stroke-width="1" stroke-dasharray="4 3"/>
+        <text x="148" y="68" fill="#c8a866" font-size="9">价差</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">想象你走进一家外币兑换店：柜台上永远挂着两个价格——买入价和卖出价。你拿美元换人民币，用较高的“卖出价”；你拿人民币换美元，用较低的“买入价”。你一进一出，柜台就赚了中间差价。做市商就是金融市场里这个“柜台”——只不过他们买卖的不是外币，而是股票、期货、加密货币等资产（来源：https://www.mbalib.com/zh-tw/做市商制度）。<br><br>区别在于：银行柜台不怕没人来换钱，但做市商是“承诺”随时买卖的——只要你想买，他就必须卖；只要你想卖，他就必须买。正是这种“随叫随到”的义务，保证了市场永远有人接盘，不会出现你想买却没人卖、想卖却没人买的尴尬场面（来源：https://wiki.mbalib.com/zh-tw/做市商制度）。</p>
+  </div>
+  <div class="illus">
+    <!-- 价值链图：从做市商到交易所到投资者的流转 -->
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="40" width="160" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="90" y="67" fill="#e8e8e8" font-size="12" text-anchor="middle">做市商</text>
+      <text x="90" y="82" fill="#8a8a8a" font-size="10" text-anchor="middle">报双边价格</text>
+      <path d="M175 62 H215" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="225" y="40" width="160" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="305" y="67" fill="#e8e8e8" font-size="12" text-anchor="middle">交易所</text>
+      <text x="305" y="82" fill="#8a8a8a" font-size="10" text-anchor="middle">撮合与监控</text>
+      <path d="M390 62 H430" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="440" y="40" width="160" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="520" y="67" fill="#e8e8e8" font-size="12" text-anchor="middle">投资者</text>
+      <text x="520" y="82" fill="#8a8a8a" font-size="10" text-anchor="middle">买卖指令</text>
+      <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">做市商制度运作路径：做市商报价 → 交易所撮合 → 投资者成交（来源：https://wiki.mbalib.com/zh-tw/做市商制度）</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 价差收益</h2>
+  <div class="sec-note">做市商赚的不是“涨跌”，而是“差价”——用真实数字说明这门生意有多大。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>资产类型</th><th>典型价差</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>高流动性股票/ETF</td><td class="up">0.01% – 0.05%</td><td>价差极窄，靠天量交易次数累积利润 [UNSOURCED]</td></tr>
+        <tr><td>低流动性股票</td><td>0.1% – 0.5%</td><td>价差更宽，单笔利润更高，但风险也更大（来源：https://www.threads.com/@little_algo_trader/post/DY2CIXlExmc）</td></tr>
+        <tr><td>加密货币（山寨币）</td><td class="down">0.1% – 1%+</td><td>波动剧烈，做市商既是流动性提供者，也常被质疑“操纵价格”（来源：https://www.youtube.com/watch?v=E4CI-MUfawU）</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="illus">
+    <!-- 数据图：价差对比柱状图 -->
+    <svg viewBox="0 0 720 220" width="720" height="220" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <!-- 高流动性 0.03% -->
+      <rect x="110" y="160" width="90" height="20" fill="#c8a866"/>
+      <text x="155" y="153" fill="#9a9a9a" font-size="10" text-anchor="middle">0.03%</text>
+      <!-- 低流动性 0.3% -->
+      <rect x="280" y="100" width="90" height="80" fill="#c8a866"/>
+      <text x="325" y="93" fill="#9a9a9a" font-size="10" text-anchor="middle">0.3%</text>
+      <!-- 山寨币 0.5%+ -->
+      <rect x="450" y="40" width="90" height="140" fill="#e05050"/>
+      <text x="495" y="33" fill="#9a9a9a" font-size="10" text-anchor="middle">0.5%+</text>
+      <text x="155" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">高流动性</text>
+      <text x="325" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">低流动性</text>
+      <text x="495" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">山寨币</text>
+      <text x="380" y="215" fill="#8a8a8a" font-size="11" text-anchor="middle">典型买卖价差对比（示意，非精确值）</text>
+    </svg>
+    <div class="cap">价差越宽，单笔利润越高，但做市商面临的风险也越大</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台 -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在制定规则、谁在赚钱、小白该去哪个平台。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">ROOT</span>
+        <h3>传统券商做市商</h3>
+        <ul><li>如 Citadel Securities、Virtu Financial 等巨头，主导美股等主流市场（据公开资料）</li><li>角色：为股票、ETF 提供双边报价，赚取极窄价差，靠天量交易次数累积利润</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">交易所</span>
+        <h3>交易所与监管方</h3>
+        <ul><li>纽交所、纳斯达克、CME 等交易所制定做市商规则，要求其履行“持续双边报价”义务（来源：https://www.cmegroup.com/cn-s/education/courses/trading-and-analysis/market-makers-vs-market-takers.html）</li><li>角色：监管做市商行为，防止操纵市场</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">HOT</span>
+        <h3>加密货币做市商</h3>
+        <ul><li>如 Wintermute、Jump Crypto 等，为币安、OKX 等交易所提供流动性（据公开资料）</li><li>最受争议：既维持市场运转，又常被质疑“在暗处操控价格”（来源：https://www.youtube.com/watch?v=E4CI-MUfawU）</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>小白友好入口</h3>
+        <ul><li>先别想“当”做市商——先去 CME 官网看免费课程，搞懂做市商和市场接受者的区别（来源：https://www.cmegroup.com/cn-s/education/courses/trading-and-analysis/market-makers-vs-market-takers.html）</li><li>再看 IG 的术语解释，建立基础认知（来源：https://www.ig.com/cn/glossary-trading-terms/market-maker-definition）</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就梭哈。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">搞懂基本概念：先读 IG 的做市商定义，理解“双边报价”“价差”是什么（来源：https://www.ig.com/cn/glossary-trading-terms/market-maker-definition）。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">看真实市场：打开任意交易软件，观察一只股票的买一/卖一价差——你看到的那个差价，就是做市商的“饭钱”。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">理解风险：做市商不是稳赚不赔——遇到单边暴涨暴跌，他们可能被迫持有亏损仓位（来源：https://www.threads.com/@little_algo_trader/post/DY2CIXlExmc）。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">别亲自下场：个人做市需要微秒级延迟和巨额资本，几乎是机构专属游戏——普通人最好的策略是理解它，而不是成为它（来源：https://www.threads.com/@little_algo_trader/post/DY2CIXlExmc）。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>以为做市商是“庄家控盘”</h3><ul><li>做市商确实能影响价格，但他们的核心义务是提供流动性，不是随意拉盘砸盘；真正的“控盘”是违规操纵（来源：https://www.youtube.com/watch?v=E4CI-MUfawU）</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>忽略“订单流毒性”</h3><ul><li>当市场单边急速移动时，做市商接到的订单可能全是“聪明钱”在收割他们——这叫逆向选择风险（来源：https://www.threads.com/@little_algo_trader/post/DY2CIXlExmc）</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>试图自己“做市”</h3><ul><li>个人做市商在延迟、资本、数据三方面全面劣势——机构用微秒级系统，你用手点鼠标，必输（来源：https://www.threads.com/@little_algo_trader/post/DY2CIXlExmc）</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>做市商是市场的“服务员”，不是“预言家”——他们的利润来自流动性，不是来自预测涨跌。散户该学的是他们的风险管理，而不是模仿他们的交易方式。</li></ul></div>
+  </div>
+  <div class="illus">
+    <!-- 误区 vs 真相 对比图 -->
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="58" fill="#e05050" font-size="13" text-anchor="middle">误区</text>
+      <text x="180" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">“做市商 = 庄家，随便控盘”</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="400" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="58" fill="#50b070" font-size="13" text-anchor="middle">真相</text>
+      <text x="550" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">“他们靠提供流动性赚差价，也承担巨大风险”</text>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相（来源：https://www.youtube.com/watch?v=E4CI-MUfawU）</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>价差（Spread）</b></td><td>做市商报的卖出价和买入价之间的差额，就是他们赚的“手续费”（来源：https://www.ig.com/cn/glossary-trading-terms/market-maker-definition）</td></tr>
+        <tr><td><b>订单流毒性</b></td><td>当市场单边急动时，做市商接到的订单可能全是知道内情的“聪明钱”——这些订单会让他们亏钱（来源：https://www.threads.com/@little_algo_trader/post/DY2CIXlExmc）</td></tr>
+        <tr><td><b>存货中性</b></td><td>做市商尽量让自己手里不积压太多资产，避免价格波动时亏钱——理想状态是“买多少卖多少”（来源：https://www.threads.com/@little_algo_trader/post/DY2CIXlExmc）</td></tr>
+        <tr><td><b>市场接受者</b></td><td>跟做市商对手交易的人——他们追求的是快速成交，而不是最优价格（来源：https://www.cmegroup.com/cn-s/education/courses/trading-and-analysis/market-makers-vs-market-takers.html）</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">你有没有想过：为什么股票“买卖盘”上永远有人挂单？那不是“好心人”在等你，而是做市商的程序在每秒钟自动刷新报价——他们的服务器延迟以微秒计，比人类眨眼快几万倍。你下单一瞬间，他们的算法已经完成了一次完整的“买低卖高”循环（来源：https://www.threads.com/@little_algo_trader/post/DY2CIXlExmc）。</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">如果你想靠“做市”赚钱——<span class="hot">不适合</span>，这是机构的游戏；但如果你想理解市场为什么“永远有人接盘”——<span class="cool">很适合</span>，这是理解金融市场的钥匙。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">做市商不赌涨跌，他们赌的是“你一定会来交易”。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：IG 术语表（https://www.ig.com/cn/glossary-trading-terms/market-maker-definition）、维基百科“做市商”词条（https://zh.wikipedia.org/zh-hans/做市商）、MBA智库“做市商制度”（https://wiki.mbalib.com/zh-tw/做市商制度）、CME Group 教育课程（https://www.cmegroup.com/cn-s/education/courses/trading-and-analysis/market-makers-vs-market-takers.html）、Little_Algo_Trader 做市商盈利模式分析（https://www.threads.com/@little_algo_trader/post/DY2CIXlExmc）、加密货币做市商视频解读（https://www.youtube.com/watch?v=E4CI-MUfawU）。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
