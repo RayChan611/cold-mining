@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 渔业配额</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  /* 图文并茂：插图与线稿图标 */
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+
+  /* 汇总入口：左上角悬浮返回总库 */
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 自然资源管理</div>
+  <h1>渔业配额：大海里的「股份公司」如何避免把鱼捞绝</h1>
+  <div class="sub">用大白话讲清楚「捕捞份额」是什么、谁在分蛋糕、以及为什么它可能是救活海洋的最后一张牌。</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。投资/收藏有风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：这个领域是干什么的、谁在玩、值不值得普通人关注。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：把每年允许捕捞的总鱼量，像股票一样分成「份额」分给渔民或渔船，每人只能捞自己那份，捞完就收工。</li>
+        <li><b>谁在玩</b>：各国渔业管理部门（如美国 NOAA）、渔民合作社、环保组织（如美国环保协会 EDF）、以及全球约 12 个占据 70% 捕捞量的主要渔业国家。</li>
+        <li><b>市场多大</b>：全球商业捕鱼业 2017 年市场规模约 2409.9 亿美元，预计 2026 年达 4385.9 亿美元；亚太渔业和水产养殖市场 2025 年约 167.8 亿美元，2032 年预计 321.7 亿美元 (来源：https://www.databridgemarketresearch.com/zh/reports/asia-pacific-fishery-and-aquaculture-market；http://www.21jingji.com/article/20220505/herald/e5f0c30ee3cc39dcb8edd1828b004350.html)。</li>
+        <li><b>小白能玩吗</b>：作为个人投资者基本无法直接「买配额」，但你可以通过关注海鲜品牌是否来自可持续渔业、支持相关环保倡议来间接参与。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <!-- 首屏概念插画：一条鱼被切成配额份额 -->
+      <svg viewBox="0 0 180 160" width="180" height="160" xmlns="http://www.w3.org/2000/svg">
+        <!-- 鱼身轮廓 -->
+        <path d="M20 80 Q20 40 80 40 L140 40 Q170 40 170 80 Q170 120 140 120 L80 120 Q20 120 20 80 Z" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <!-- 鱼眼 -->
+        <circle cx="55" cy="65" r="5" fill="none" stroke="#c8a866" stroke-width="1.5"/>
+        <!-- 分割线：配额份额 -->
+        <line x1="90" y1="40" x2="90" y2="120" stroke="#c8a866" stroke-width="1.5" stroke-dasharray="4 3"/>
+        <line x1="120" y1="40" x2="120" y2="120" stroke="#c8a866" stroke-width="1.5" stroke-dasharray="4 3"/>
+        <!-- 鱼尾 -->
+        <path d="M140 60 L170 40 L160 80 L170 120 L140 100" fill="none" stroke="#c8a866" stroke-width="2"/>
+        <!-- 份额标注 -->
+        <text x="68" y="85" fill="#e8e8e8" font-size="10" text-anchor="middle">30%</text>
+        <text x="105" y="85" fill="#e8e8e8" font-size="10" text-anchor="middle">30%</text>
+        <text x="135" y="85" fill="#e8e8e8" font-size="10" text-anchor="middle">40%</text>
+        <!-- 底部波浪 -->
+        <path d="M10 140 Q30 130 50 140 Q70 150 90 140 Q110 130 130 140 Q150 150 170 140" fill="none" stroke="#2a2a2a" stroke-width="1.5"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">想象一下，你家门口有个大池塘，里面养了一万条鱼。如果全村人都在疯狂捞鱼，今天你捞 100 条，明天他捞 200 条，很快池塘就空了。但如果村委会说：「今年一共只能捞 3000 条，咱们按人头分，每家最多捞 300 条，谁捞完谁休息。」——这就是渔业配额。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;margin-top:10px;">它有点像「碳排放配额」：政府先定一个总量（总可捕量，TAC），再把这个总量像切蛋糕一样切成份额，分配给个人、合作社或社区。拿到份额的人不能超过自己那份去捞，否则违规受罚 (来源：https://www.fisheries.noaa.gov/national/sustainable-fisheries/catch-shares)。</p>
+  </div>
+  <div class="illus">
+    <!-- 价值链：从科学评估到配额分配到市场 -->
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="40" width="150" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="85" y="58" fill="#e8e8e8" font-size="11" text-anchor="middle">科学评估鱼群</text>
+      <text x="85" y="74" fill="#8a8a8a" font-size="9" text-anchor="middle">科学家数鱼</text>
+      <path d="M165 62 H195" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="205" y="40" width="150" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="280" y="58" fill="#e8e8e8" font-size="11" text-anchor="middle">设定总可捕量</text>
+      <text x="280" y="74" fill="#8a8a8a" font-size="9" text-anchor="middle">政府定总量 TAC</text>
+      <path d="M360 62 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="400" y="40" width="150" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="475" y="58" fill="#e8e8e8" font-size="11" text-anchor="middle">分配捕捞份额</text>
+      <text x="475" y="74" fill="#8a8a8a" font-size="9" text-anchor="middle">按人/船/社区分</text>
+      <path d="M555 62 H585" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="595" y="40" width="120" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="655" y="58" fill="#e8e8e8" font-size="11" text-anchor="middle">市场交易</text>
+      <text x="655" y="74" fill="#8a8a8a" font-size="9" text-anchor="middle">海鲜上餐桌</text>
+      <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">渔业配额管理的核心流程：科学评估 → 设定总量 → 分配份额 → 市场交易</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 价格带</h2>
+  <div class="sec-note">用真实数字说明蛋糕有多大、钱集中在哪。来源内联标注。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>档位</th><th>规模 / 金额</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>全球商业捕鱼</td><td class="up">2409.9 亿美元（2017）→ 预计 4385.9 亿美元（2026）</td><td>涵盖金枪鱼、鲑鱼等野生捕捞 (来源：http://www.21jingji.com/article/20220505/herald/e5f0c30ee3cc39dcb8edd1828b004350.html)</td></tr>
+        <tr><td>亚太渔业+水产养殖</td><td>167.8 亿美元（2025）→ 预计 321.7 亿美元（2032）</td><td>年复合增长率 8.60%，主要玩家包括 Nireus、Pentair 等 (来源：https://www.databridgemarketresearch.com/zh/reports/asia-pacific-fishery-and-aquaculture-market)</td></tr>
+        <tr><td>配额交易价值</td><td class="down">[UNSOURCED]</td><td>配额本身可交易，但全球没有统一市场，价格因鱼种、海域、年份差异极大</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="illus">
+    <!-- 全球商业捕鱼市场规模柱状图（2017 vs 2026预测） -->
+    <svg viewBox="0 0 720 220" width="720" height="220" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <!-- 2017柱 -->
+      <rect x="150" y="90" width="120" height="90" fill="#c8a866"/>
+      <text x="210" y="110" fill="#0a0a0a" font-size="13" font-weight="700" text-anchor="middle">2409亿</text>
+      <text x="210" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">2017年</text>
+      <!-- 2026预测柱 -->
+      <rect x="420" y="20" width="120" height="160" fill="#e05050"/>
+      <text x="480" y="45" fill="#e8e8e8" font-size="13" font-weight="700" text-anchor="middle">4385亿</text>
+      <text x="480" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">2026年（预测）</text>
+      <!-- 单位 -->
+      <text x="380" y="215" fill="#8a8a8a" font-size="11" text-anchor="middle">单位：亿美元 · 全球商业捕鱼业市场规模 (来源：http://www.21jingji.com/article/20220505/herald/e5f0c30ee3cc39dcb8edd1828b004350.html)</text>
+    </svg>
+    <div class="cap">全球商业捕鱼业市场规模对比</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台 -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在制定规则、谁在赚钱、小白该去哪个平台。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">ROOT</span>
+        <h3>美国国家海洋渔业局（NOAA Fisheries）</h3>
+        <ul><li>全球最成熟的捕捞份额体系管理者之一，明确将「catch share」定义为把总可捕量分配给个人、合作社、社区等实体 (来源：https://www.fisheries.noaa.gov/national/sustainable-fisheries/catch-shares)</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">推动者</span>
+        <h3>美国环保协会（EDF）</h3>
+        <ul><li>促成墨西哥湾红鲷渔业改革，被誉为「捕捞份额最成功案例」；他们游说渔民与保育者合作，设定年度最大可捕量 (来源：http://www.chinaeol.net/zyzx/sjhjzz/zzlm/lskp/201804/W020180903670655495866.pdf)</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">HOT</span>
+        <h3>中国渔业企业</h3>
+        <ul><li>中国水产品产量、贸易额、消费量均居世界前列；2021 年渔业经济持续回暖，水产品进出口贸易量额双增 (来源：https://www.weihengag.com/home/article/detail/id/19888)</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>小白友好入口</h3>
+        <ul><li>关注 MSC（海洋管理委员会）认证海鲜；查阅 NOAA 的 Catch Shares 网页了解最新政策</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就梭哈。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">先理解「公地悲剧」：看一部纪录片（如《渔业阴谋》），了解为什么没有配额时鱼会被捞光。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">围观真实案例：搜索「墨西哥湾红鲷鱼配额」——这是被反复引用的成功故事，看它如何从崩溃边缘被救回 (来源：http://www.chinaeol.net/zyzx/sjhjzz/zzlm/lskp/201804/W020180903670655495866.pdf)。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">建立判断框架：学会看海鲜标签——MSC 认证、FAO 报告、以及「总可捕量 TAC」这个关键词，用它来筛选新闻。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">行动参与：不一定要投钱。在超市选有可持续认证的海鲜、给相关环保组织捐款、或向代表你选区的议员写信支持配额政策。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>以为「配额 = 绝对保护」</h3><ul><li>配额只是工具，若执法不严或数据不准，照样可能过度捕捞。墨西哥湾红鲷成功的关键是「渔民+保育者合作」，不是配额本身 (来源：http://www.chinaeol.net/zyzx/sjhjzz/zzlm/lskp/201804/W020180903670655495866.pdf)。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>忽视「分配公平」问题</h3><ul><li>配额给谁？大企业可能买断小渔民的份额，导致「富人捞鱼、穷人失业」——这是配额制度被批评最多的地方。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>被「可持续」标签忽悠</h3><ul><li>不是所有带小鱼标志的海鲜都真的可持续。要查认证机构的背景和标准，有些认证被批评「太宽松」。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>没有「完美的管理工具」，只有「适合特定渔场的方案」。别把配额当万能药，它是工具箱里的一件工具。</li></ul></div>
+  </div>
+  <div class="illus">
+    <!-- 误区 vs 真相 对比图 -->
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="58" fill="#e05050" font-size="13" text-anchor="middle">误区</text>
+      <text x="180" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">「配额就是禁止捕鱼」</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="400" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="58" fill="#50b070" font-size="13" text-anchor="middle">真相</text>
+      <text x="550" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">「配额是限量捕捞，不是禁捕」</text>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相：配额不是禁渔令</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>TAC（总可捕量）</b></td><td>政府科学家算出来的「今年最多能捞多少鱼」的总数。</td></tr>
+        <tr><td><b>Catch Share（捕捞份额）</b></td><td>把 TAC 切成一份份的「配额」，分配给个人、合作社或社区，谁也不能超过自己的份额 (来源：https://www.fisheries.noaa.gov/national/sustainable-fisheries/catch-shares)。</td></tr>
+        <tr><td><b>公地悲剧</b></td><td>公共资源（比如大海里的鱼）没人管时，每个人都会拼命捞，最后大家一起没鱼吃。</td></tr>
+        <tr><td><b>增殖放流</b></td><td>往海里投放鱼苗来补充鱼群，但专家建议「快放快收」，放流生命周期短、见效快的品种 (来源：https://www.cae.cn/cae/html/main/col95/2020-06/15/20200615174246490486052_1.html)。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">墨西哥湾的红鲷鱼曾因过度捕捞「整个种群接近崩溃边缘」，后来通过配额管理被成功救回——现在它成了全球渔业管理的「明星案例」。而这一切，靠的是渔民和环保主义者坐下来谈，而不是互相骂街 (来源：http://www.chinaeol.net/zyzx/sjhjzz/zzlm/lskp/201804/W020180903670655495866.pdf)。</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">适合关心环保、爱吃海鲜、或者对「公共资源管理」感兴趣的思考者；不适合想快速赚钱的人——配额不是股票。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">「大海不是无限的取款机，配额是给海洋办的储蓄卡。」</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：NOAA Fisheries (https://www.fisheries.noaa.gov/national/sustainable-fisheries/catch-shares)、中国环境在线 (http://www.chinaeol.net/zyzx/sjhjzz/zzlm/lskp/201804/W020180903670655495866.pdf)、21经济网 (http://www.21jingji.com/article/20220505/herald/e5f0c30ee3cc39dcb8edd1828b004350.html)、Data Bridge Market Research (https://www.databridgemarketresearch.com/zh/reports/asia-pacific-fishery-and-aquaculture-market)、农小蜂 (https://www.weihengag.com/home/article/detail/id/19888)、中国工程院 (https://www.cae.cn/cae/html/main/col95/2020-06/15/20200615174246490486052_1.html)。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html

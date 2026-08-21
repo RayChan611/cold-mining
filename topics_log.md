@@ -27,3 +27,4 @@
 | 2026-08-18 | 观鸟入门指南：从公园到湿地的千亿级「追鸟」生意 | reports/2026-08-18-birdwatching-for-beginners.html |
 | 2026-08-19 | 碳信用：一场关于“少排放”的全球大生意，到底是什么？ | reports/2026-08-19-carbon-credits.html |
 | 2026-08-20 | 水权：看不见的「水股票」，如何让节约用水变成一门生意？ | reports/2026-08-20-water-rights-basics.html |
+| 2026-08-21 | 渔业配额：大海里的「股份公司」如何避免把鱼捞绝 | reports/2026-08-21-fishery-quota.html |
