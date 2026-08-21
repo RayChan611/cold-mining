@@ -119,3 +119,11 @@
 [cold_mining] git push ok=True info=To github.com:RayChan611/cold-mining.git
    dfbcec0..25e1c4e  main -> main
 [cold_mining] feishu code=0 link=https://raychan611.github.io/cold-mining/reports/2026-08-20-water-rights-basics.html
+[cold_mining] line=cold topic=渔业配额 slug=fishing-quota
+[cold_mining] tavily hits=2310
+[cold_mining] attempt=0 html_len=19011 svg=8
+[cold_mining] wrote /home/ubuntu/cold-mining/reports/2026-08-21-fishery-quota.html
+[cold_mining] index+log updated
+[cold_mining] git push ok=True info=To github.com:RayChan611/cold-mining.git
+   f35b36e..f537aa8  main -> main
+[cold_mining] feishu code=0 link=https://raychan611.github.io/cold-mining/reports/2026-08-21-fishery-quota.html

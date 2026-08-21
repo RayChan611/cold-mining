@@ -22,3 +22,4 @@
 | 2026-08-18 | 大宗商品：藏在面包、汽油和手机里的全球脉搏 | reports/2026-08-18-commodity-basics-for-beginners.html |
 | 2026-08-19 | 加密货币入门：从零读懂数字黄金、智能合约与币圈生存法则 | reports/2026-08-19-cryptocurrency-beginners-guide.html |
 | 2026-08-20 | 做市商：交易所里的“庄家”到底在做什么？——一个外行也能看懂的入门报告 | reports/2026-08-20-market-maker.html |
+| 2026-08-21 | 印花税：一张小票背后的国家账本 | reports/2026-08-21-stamp-duty-guide.html |
