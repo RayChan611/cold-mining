@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 熔断机制</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  /* 图文并茂：插图与线稿图标 */
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+
+  /* 汇总入口：左上角悬浮返回总库 */
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 金融基础设施</div>
+  <h1>熔断机制：股市里的「保险丝」是怎么帮你踩刹车的？</h1>
+  <div class="sub">一句话副标题：当市场恐慌时，为什么「暂停交易」反而是一种保护？</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。投资/收藏有风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：这个领域是干什么的、谁在玩、值不值得普通人关注。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：熔断机制（Circuit Breaker）是交易所设定的一条「紧急刹车线」——当股价或指数波动达到预设阈值时，自动暂停交易一段时间，给市场一个冷静期 (来源：http://case.sf.ruc.edu.cn/alk/jpal/75160bf05d4d460d8415888fe6cc6bbe.htm)。</li>
+        <li><b>谁在玩</b>：全球主要证券交易所都在用，包括美国纽交所/纳斯达克、中国A股、日本、香港、台湾等 (来源：https://zh.wikipedia.org/zh-hans/%E7%86%94%E6%96%AD%E6%9C%BA%E5%88%B6；https://www.kgi.com.tw/zh-tw/product-market/wealth-enlightened/education/article-details?id=1d7b1a07f9d14ec1896b977f90f215f0&tid=bc1b63e6b0904af9965ac03e3cecb882)。</li>
+        <li><b>市场多大</b>：几乎所有主流市场都有熔断规则；美股按 7%、13%、20% 三档触发 (来源：https://zhuanlan.zhihu.com/p/346314086)。</li>
+        <li><b>小白能玩吗</b>：你不是「玩」熔断，而是被它保护——理解它有助于你在暴跌时不慌，但别指望靠它赚钱。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <!-- 首屏概念插画：保险丝 + 熔断 -->
+      <svg viewBox="0 0 200 180" width="200" height="180" xmlns="http://www.w3.org/2000/svg">
+        <rect x="20" y="20" width="160" height="80" rx="12" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <path d="M40 60 H80" stroke="#c8a866" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="100" cy="60" r="12" fill="#141414" stroke="#e05050" stroke-width="2.5"/>
+        <path d="M100 52 L100 44" stroke="#e05050" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M100 68 L100 76" stroke="#e05050" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M120 60 H160" stroke="#c8a866" stroke-width="3" stroke-linecap="round"/>
+        <text x="100" y="105" fill="#c8a866" font-size="11" text-anchor="middle">保险丝熔断</text>
+        <path d="M30 140 H170" stroke="#2a2a2a" stroke-width="2" stroke-dasharray="4 4"/>
+        <text x="100" y="160" fill="#8a8a8a" font-size="10" text-anchor="middle">价格波动 → 触发阈值 → 暂停交易</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">想象你家电路里装了一根保险丝：电流太大时保险丝先烧断，防止整个屋子起火。熔断机制就是股市里的「保险丝」——当市场跌得太猛（或涨得太猛）时，交易所直接按下暂停键，让所有人停下来喘口气，避免恐慌性抛售把市场砸穿。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;margin-top:10px;">更准确地说，熔断机制是指当某只个股、指数或商品价格波幅触及规定区间时，交易随之停止一段时间，或交易继续但价格幅度不能超过限度 (来源：http://case.sf.ruc.edu.cn/alk/jpal/75160bf05d4d460d8415888fe6cc6bbe.htm)。它分三个层次：<b>价格限制</b>（如A股涨跌停板）、<b>特定公司交易终止</b>（个股临时停牌）、<b>市场整体熔断</b>（整个大盘暂停） (来源：http://case.sf.ruc.edu.cn/alk/jpal/75160bf05d4d460d8415888fe6cc6bbe.htm)。</p>
+  </div>
+  <div class="illus">
+    <!-- 结构图：熔断机制的三个层次 -->
+    <svg viewBox="0 0 720 160" width="720" height="160" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="50" width="200" height="60" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="110" y="76" fill="#e8e8e8" font-size="12" text-anchor="middle">价格限制</text>
+      <text x="110" y="94" fill="#9a9a9a" font-size="10" text-anchor="middle">如 A股涨跌停板</text>
+      <path d="M215 80 H255" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="265" y="50" width="200" height="60" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="365" y="76" fill="#e8e8e8" font-size="12" text-anchor="middle">特定公司交易终止</text>
+      <text x="365" y="94" fill="#9a9a9a" font-size="10" text-anchor="middle">个股临时停牌</text>
+      <path d="M470 80 H510" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="520" y="50" width="190" height="60" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="615" y="76" fill="#e8e8e8" font-size="12" text-anchor="middle">市场整体熔断</text>
+      <text x="615" y="94" fill="#9a9a9a" font-size="10" text-anchor="middle">整个大盘暂停</text>
+      <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">熔断机制的三个层次：从个股到全市场 (来源：http://case.sf.ruc.edu.cn/alk/jpal/75160bf05d4d460d8415888fe6cc6bbe.htm)</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>全球主流熔断规则 · 对比</h2>
+  <div class="sec-note">用真实数字说明不同市场的「刹车线」设在哪。来源内联标注。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>市场</th><th>熔断触发标准</th><th>暂停时长</th></tr></thead>
+      <tbody>
+        <tr><td>美国（标普500指数）</td><td class="up">下跌 7% / 13% / 20%</td><td>7%和13%停15分钟；20%当日收盘 (来源：https://zhuanlan.zhihu.com/p/346314086)</td></tr>
+        <tr><td>中国A股（沪深300）</td><td>涨跌 5% / 7%</td><td>5%停15分钟；7%当日停市 [UNSOURCED，据公开资料为2016年短暂实施后取消]</td></tr>
+        <tr><td>台湾</td><td>大盘跌 5% / 7% / 10%</td><td>分别停 15分钟 / 30分钟 / 当日收盘 (来源：https://www.kgi.com.tw/zh-tw/product-market/wealth-enlightened/education/article-details?id=1d7b1a07f9d14ec1896b977f90f215f0&tid=bc1b63e6b0904af9965ac03e3cecb882)</td></tr>
+        <tr><td>日本（日经225）</td><td>依据期货价格波动设定</td><td>暂停 10 分钟 [UNSOURCED，据公开资料]</td></tr>
+        <tr><td>香港（恒生指数）</td><td>涨跌 5% / 10% / 20%</td><td>5%和10%停15分钟；20%当日收盘 [UNSOURCED，据公开资料]</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="illus">
+    <!-- 数据图：美股熔断三档 -->
+    <svg viewBox="0 0 720 220" width="720" height="220" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <text x="50" y="130" fill="#9a9a9a" font-size="11" text-anchor="end">7%</text>
+      <rect x="110" y="110" width="160" height="70" fill="#c8a866"/>
+      <text x="190" y="145" fill="#0a0a0a" font-size="12" text-anchor="middle">一级 停15分钟</text>
+      <text x="50" y="75" fill="#9a9a9a" font-size="11" text-anchor="end">13%</text>
+      <rect x="300" y="55" width="160" height="125" fill="#e05050"/>
+      <text x="380" y="120" fill="#e8e8e8" font-size="12" text-anchor="middle">二级 停15分钟</text>
+      <text x="50" y="40" fill="#9a9a9a" font-size="11" text-anchor="end">20%</text>
+      <rect x="490" y="20" width="160" height="160" fill="#e05050" opacity="0.7"/>
+      <text x="570" y="100" fill="#e8e8e8" font-size="12" text-anchor="middle">三级 当日收盘</text>
+      <text x="380" y="205" fill="#8a8a8a" font-size="11" text-anchor="middle">美股标普500指数熔断三档 (来源：https://zhuanlan.zhihu.com/p/346314086)</text>
+    </svg>
+    <div class="cap">美股熔断按跌幅百分比分三级，越跌越「狠」 (来源：https://zhuanlan.zhihu.com/p/346314086)</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台 -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在制定规则、谁在赚钱、小白该去哪个平台。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">ROOT</span>
+        <h3>交易所（NYSE / NASDAQ / 上交所等）</h3>
+        <ul><li>制定并执行熔断规则的「裁判」</li><li>当指数或个股触发阈值时，自动暂停交易 (来源：https://zh.wikipedia.org/zh-hans/%E7%86%94%E6%96%AD%E6%9C%BA%E5%88%B6)</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">监管</span>
+        <h3>证监会 / SEC 等监管机构</h3>
+        <ul><li>设定熔断规则的「立法者」</li><li>1987年「黑色星期一」后推动建立熔断机制 (来源：https://www.kgi.com.tw/zh-tw/product-market/wealth-enlightened/education/article-details?id=1d7b1a07f9d14ec1896b977f90f215f0&tid=bc1b63e6b0904af9965ac03e3cecb882)</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">HOT</span>
+        <h3>券商 / 交易平台（富途、老虎等）</h3>
+        <ul><li>把熔断规则翻译给散户的「翻译官」</li><li>提供个股熔断提示：例如美东时间9:45-15:35触发涨跌幅限制，个股暂停交易5分钟 (来源：https://www.futunn.com/learn/detail-what-is-circuit-breakers-57836-220661012)</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>小白友好入口</h3>
+        <ul><li>先理解「指数熔断」和「个股熔断」的区别：指数熔断只针对下跌，个股熔断涨跌都管 (来源：https://www.futunn.com/learn/detail-what-is-circuit-breakers-57836-220661012)</li><li>关注交易所官网或券商APP的「市场公告」栏目</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就梭哈。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">搞清楚规则：先弄明白你所交易的市场（A股、美股、港股）各自的熔断阈值和暂停时长，别等暴跌了才查 (来源：https://www.kgi.com.tw/zh-tw/product-market/wealth-enlightened/education/article-details?id=1d7b1a07f9d14ec1896b977f90f215f0&tid=bc1b63e6b0904af9965ac03e3cecb882)。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">用模拟盘感受：在券商APP开一个模拟账户，故意在波动大的日子观察熔断如何触发、盘面如何变化。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">建立「冷静期」意识：熔断不是让你跑，而是让你停下来想——你是真的看错了，还是只是恐慌？ (来源：https://www.kgi.com.tw/zh-tw/product-market/wealth-enlightened/education/article-details?id=1d7b1a07f9d14ec1896b977f90f215f0&tid=bc1b63e6b0904af9965ac03e3cecb882)</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">制定预案：提前想好「如果触发一级熔断我怎么办」，而不是当场做决定。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>以为熔断=见底信号</h3><ul><li>熔断只是「暂停」，不是「反转」。2020年美股曾多次熔断后继续下跌，别急着抄底 (来源：https://zhuanlan.zhihu.com/p/346314086)。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>混淆指数熔断和个股熔断</h3><ul><li>指数熔断只管下跌，个股熔断涨跌都管；暂停时长也不同：指数停15分钟，个股一般停5分钟 (来源：https://www.futunn.com/learn/detail-what-is-circuit-breakers-57836-220661012)。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>以为所有市场规则一样</h3><ul><li>台湾按5%/7%/10%分三档，美国按7%/13%/20%，日本按期货波动设限——拿A股经验套美股会吃亏 (来源：https://www.kgi.com.tw/zh-tw/product-market/wealth-enlightened/education/article-details?id=1d7b1a07f9d14ec1896b977f90f215f0&tid=bc1b63e6b0904af9965ac03e3cecb882)。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>熔断是给你「冷静」的，不是给你「抄底」的——先想清楚再动手，永远比抢跑活得久。</li></ul></div>
+  </div>
+  <div class="illus">
+    <!-- 误区 vs 真相 对比图 -->
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="58" fill="#e05050" font-size="13" text-anchor="middle">误区</text>
+      <text x="180" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">「熔断=跌到底了，快抄底！」</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="400" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="58" fill="#50b070" font-size="13" text-anchor="middle">真相</text>
+      <text x="550" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">「熔断=暂停，不是底，先冷静再判断」</text>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相：熔断不是抄底信号</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>熔断点</b></td><td>触发暂停交易的「阈值」，比如美股标普500跌7% (来源：https://zhuanlan.zhihu.com/p/346314086)</td></tr>
+        <tr><td><b>价格限制</b></td><td>给资产日内价格设边界，比如A股涨跌停板 (来源：http://case.sf.ruc.edu.cn/alk/jpal/75160bf05d4d460d8415888fe6cc6bbe.htm)</td></tr>
+        <tr><td><b>黑色星期一</b></td><td>1987年10月19日，美股单日暴跌超20%，催生了熔断机制 (来源：https://www.kgi.com.tw/zh-tw/product-market/wealth-enlightened/education/article-details?id=1d7b1a07f9d14ec1896b977f90f215f0&tid=bc1b63e6b0904af9965ac03e3cecb882)</td></tr>
+        <tr><td><b>市场流动性枯竭</b></td><td>没人愿意买，卖不出去，价格就会失控——熔断就是为了防止这个 (来源：https://www.kgi.com.tw/zh-tw/product-market/wealth-enlightened/education/article-details?id=1d7b1a07f9d14ec1896b977f90f215f0&tid=bc1b63e6b0904af9965ac03e3cecb882)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">2020年3月，美股在短短10天内触发了4次熔断，连「股神」巴菲特都感叹「活久见」——熔断机制诞生30多年，此前总共只触发过1次 (来源：https://zhuanlan.zhihu.com/p/346314086)。</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">如果你是<b>长线投资者</b>，熔断机制是你的「安全带」；如果你是<b>日内短线客</b>，它可能打断你的节奏——但无论如何，理解它都是必修课。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">熔断不是市场的「病」，而是市场的「药」——它让失控的交易停下来，让理性重新上场。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：中国财政金融案例中心 (http://case.sf.ruc.edu.cn/alk/jpal/75160bf05d4d460d8415888fe6cc6bbe.htm) · 维基百科 (https://zh.wikipedia.org/zh-hans/%E7%86%94%E6%96%AD%E6%9C%BA%E5%88%B6) · 富途牛牛学堂 (https://www.futunn.com/learn/detail-what-is-circuit-breakers-57836-220661012) · 凯基证券投资教室 (https://www.kgi.com.tw/zh-tw/product-market/wealth-enlightened/education/article-details?id=1d7b1a07f9d14ec1896b977f90f215f0&tid=bc1b63e6b0904af9965ac03e3cecb882) · 知乎专栏 (https://zhuanlan.zhihu.com/p/346314086)。<br>
+  本内容为 AI 整理的研究草稿，非投资建议。标 [UNSOURCED] 处为据公开资料补充，未找到精确来源。
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
