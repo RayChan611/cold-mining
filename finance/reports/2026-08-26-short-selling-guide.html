@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 做空</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  /* 图文并茂：插图与线稿图标 */
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+
+  /* 汇总入口：左上角悬浮返回总库 */
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 金融交易</div>
+  <h1>做空：先卖后买，赌下跌也能赚钱？</h1>
+  <div class="sub">用大白话讲清楚「做空」是什么、怎么操作、有哪些坑，以及为什么有人靠下跌发财，也有人一夜亏光。</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。投资/收藏有风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：做空是干什么的、谁在玩、值不值得普通人关注。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：做空（Short Selling）是与「做多」相反的金融策略——不是「先买后卖等涨」，而是「先借来卖、再低价买回还掉」，靠下跌赚差价 (来源：https://www.vtmarketsglobal.com/discover/28374)。</li>
+        <li><b>谁在玩</b>：对冲基金、专业交易员是主力；普通散户也能通过券商「融券」或差价合约（CFD）参与，但门槛和风险都很高。</li>
+        <li><b>市场多大</b>：几乎所有金融市场都可做空——股票、外汇、黄金、指数、期货、加密货币等都能找到做空工具 (来源：https://thinkmarkets.asia/zh-hans/academy/terminology/short-selling)。</li>
+        <li><b>小白能玩吗</b>：能，但不建议轻易尝试。最大获利有限（股价最多跌到 0），亏损却可能无限（股价理论上可一直涨）(来源：https://www.tmgm.com/zh-hant/academy/trading-academy/short-selling)。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <!-- 概念插画：下跌的股票 + 向下箭头 -->
+        <rect x="20" y="30" width="120" height="100" rx="10" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <path d="M35 110 L70 70 L90 85 L125 45" fill="none" stroke="#e05050" stroke-width="2.5"/>
+        <circle cx="125" cy="45" r="3" fill="#e05050"/>
+        <path d="M112 45 L125 45 L125 58" fill="none" stroke="#e05050" stroke-width="2" marker-end="url(#arr)"/>
+        <rect x="28" y="66" width="104" height="14" rx="4" fill="#1f1f1f" stroke="#2a2a2a"/>
+        <text x="34" y="77" fill="#c8a866" font-size="11" font-family="monospace">SHORT</text>
+        <path d="M20 130 H140" stroke="#2a2a2a" stroke-width="2"/>
+        <text x="80" y="146" fill="#8a8a8a" font-size="10" text-anchor="middle">先卖后买 · 赌下跌</text>
+        <defs><marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#e05050"/></marker></defs>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">用一个生活类比，把「先卖后买」讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">
+      想象你隔壁老王有一台 PS5，你判断下周新款发布后它肯定降价。于是你找老王借来他的 PS5，转头在闲鱼上以 3000 元卖掉。一周后价格果然跌到 2500 元，你花 2500 元买回一台同款 PS5 还给老王——你手里多了 500 元差价。这就是做空的核心逻辑：<b>先借资产卖出，再低价买回归还，赚取价差</b> (来源：https://www.tmgm.com/zh-hant/academy/trading-academy/short-selling)。
+    </p>
+    <p style="color:#c4c4c4;font-size:13.5px;margin-top:10px;">
+      和做多最大的区别是：做多是「先买后卖，靠上涨获利」；做空是「先卖后买，靠下跌获利」。但做空有个要命的对称性——<b>做多亏光了最多亏完本金，做空亏起来可能倒欠钱</b>。因为股价跌到 0 就到头了，但涨起来理论上没有天花板 (来源：https://www.tmgm.com/zh-hant/academy/trading-academy/short-selling)。
+    </p>
+  </div>
+  <div class="illus">
+    <!-- 做空机制流程图：借券 → 卖出 → 买回 → 还券 -->
+    <svg viewBox="0 0 720 120" width="720" height="120" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="40" width="150" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="85" y="58" fill="#e8e8e8" font-size="12" text-anchor="middle">① 借券</text>
+      <text x="85" y="74" fill="#9a9a9a" font-size="10" text-anchor="middle">向券商借股票</text>
+      <path d="M165 62 H195" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="205" y="40" width="150" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="280" y="58" fill="#e8e8e8" font-size="12" text-anchor="middle">② 卖出</text>
+      <text x="280" y="74" fill="#9a9a9a" font-size="10" text-anchor="middle">高价卖出得现金</text>
+      <path d="M360 62 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="400" y="40" width="150" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="475" y="58" fill="#e8e8e8" font-size="12" text-anchor="middle">③ 买回</text>
+      <text x="475" y="74" fill="#9a9a9a" font-size="10" text-anchor="middle">低价买回平仓</text>
+      <path d="M555 62 H585" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="595" y="40" width="115" height="44" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="652" y="58" fill="#50b070" font-size="12" text-anchor="middle">④ 还券</text>
+      <text x="652" y="74" fill="#9a9a9a" font-size="10" text-anchor="middle">赚差价</text>
+      <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">做空四步走：借券 → 卖出 → 买回 → 还券，赚的是高卖低买的差价</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>做空的「数学」：赚多少、亏多少</h2>
+  <div class="sec-note">用真实数字说明做空的收益与风险不对称性。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>情景</th><th>数字例子</th><th>结果</th></tr></thead>
+      <tbody>
+        <tr><td>做空获利</td><td>卖出价 100 元，买回价 70 元，做空 1,000 股</td><td class="up">毛获利 30,000 元</td></tr>
+        <tr><td>做空亏损</td><td>卖出价 100 元，买回价 120 元，做空 1,000 股</td><td class="down">毛亏损 20,000 元</td></tr>
+        <tr><td>做空极限获利</td><td>股价跌到接近 0（最多跌到 0）</td><td class="up">最多赚卖出价的 100%</td></tr>
+        <tr><td>做空极限亏损</td><td>股价理论上无限上涨</td><td class="down">亏损无上限（可能倒欠）</td></tr>
+      </tbody>
+    </table>
+    <p class="src">数字来源：https://www.tmgm.com/zh-hant/academy/trading-academy/short-selling</p>
+  </div>
+  <div class="illus">
+    <!-- 收益/风险不对称柱状图 -->
+    <svg viewBox="0 0 720 220" width="720" height="220" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <!-- 基准线 100 -->
+      <line x1="60" y1="110" x2="690" y2="110" stroke="#c8a866" stroke-width="1" stroke-dasharray="4 4"/>
+      <text x="680" y="106" fill="#c8a866" font-size="10" text-anchor="end">卖出价 100</text>
+      <!-- 下跌到 70：盈利柱（向下） -->
+      <rect x="120" y="140" width="100" height="40" fill="#50b070"/>
+      <text x="170" y="135" fill="#50b070" font-size="12" text-anchor="middle">跌到 70</text>
+      <text x="170" y="168" fill="#e8e8e8" font-size="11" text-anchor="middle">赚 30%</text>
+      <!-- 上涨到 120：亏损柱（向上） -->
+      <rect x="400" y="60" width="100" height="50" fill="#e05050"/>
+      <text x="450" y="55" fill="#e05050" font-size="12" text-anchor="middle">涨到 120</text>
+      <text x="450" y="80" fill="#e8e8e8" font-size="11" text-anchor="middle">亏 20%</text>
+      <!-- 上涨到 200：巨亏柱 -->
+      <rect x="560" y="20" width="100" height="90" fill="#e05050" opacity="0.7"/>
+      <text x="610" y="15" fill="#e05050" font-size="12" text-anchor="middle">涨到 200</text>
+      <text x="610" y="45" fill="#e8e8e8" font-size="11" text-anchor="middle">亏 100%</text>
+      <text x="380" y="210" fill="#8a8a8a" font-size="11" text-anchor="middle">同样做空，跌 30% 只赚 30%，涨 100% 却亏 100%——盈亏不对称</text>
+    </svg>
+    <div class="cap">做空的收益与风险不对称：赚有上限，亏无下限</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台 -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在做空、谁提供工具、小白该去哪。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">机构</span>
+        <h3>对冲基金 / 做空机构</h3>
+        <ul><li>做空市场的主角，如浑水（Muddy Waters）、香橼（Citron）等，通过发布研究报告揭露公司问题并做空获利。</li><li>对小白意义：他们的报告是学习做空逻辑的免费教材，但别盲目跟单。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">券商</span>
+        <h3>券商（借券渠道）</h3>
+        <ul><li>提供「融券」业务：散户向券商借股票卖出，需支付借券费、利息等持有成本 (来源：https://www.tmgm.com/zh-hant/academy/trading-academy/short-selling)。</li><li>门槛：通常需要一定资产规模或信用额度，不同券商要求不同。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">零售</span>
+        <h3>差价合约（CFD）平台</h3>
+        <ul><li>如 VT Markets、FXTM 等，提供外汇、黄金、指数、股票 CFD 做空，无需借券，直接「做空」价格 (来源：https://thinkmarkets.asia/zh-hans/academy/terminology/short-selling)。</li><li>门槛低、杠杆高，但风险极大，小白慎入。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>小白友好入口</h3>
+        <ul><li>先开模拟盘：多数券商和 CFD 平台提供模拟账户，用虚拟资金练习做空。</li><li>再学看报告：研究做空机构的公开报告，理解他们找「漏洞」的思路。</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就梭哈。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">搞懂游戏规则：先花 1-2 周读资料，理解做空四步流程（借券→卖出→买回→还券）以及费用结构（借券费、利息、手续费）(来源：https://www.tmgm.com/zh-hant/academy/trading-academy/short-selling)。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">开模拟盘练手：用券商或 CFD 平台的模拟账户做 2-3 个月虚拟做空，记录每次判断对错的原因，别急着上真钱。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">建立判断框架：学习基本面分析（公司财务、行业趋势）和技术面分析（K 线、支撑位/压力位），做空不是猜涨跌，而是找「高估」的标的。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">小额试水 + 严格止损：如果模拟盘连续 3 个月盈利，再用极小资金（如总资产的 1-2%）试水，并设置强制止损线（如亏 20% 必须平仓）。记住：做空亏起来没有底，止损是保命符。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>「无限亏损」风险</h3><ul><li>做多亏光本金就出局，做空如果股价暴涨，亏损无上限，可能倒欠券商钱 (来源：https://www.tmgm.com/zh-hant/academy/trading-academy/short-selling)。<br><b>怎么避：</b>永远设止损单，不裸奔。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>「逼空」行情</h3><ul><li>当大量做空者扎堆某只股票，股价反而被买盘推高，做空者被迫高价买回平仓，形成「逼空」踩踏。<br><b>怎么避：</b>避免做空已被大量做空的热门股，关注做空比例数据。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>忽视持有成本</h3><ul><li>借券要付利息，持仓时间越长成本越高，实际净获利要扣掉手续费、借券费、利息等 (来源：https://www.tmgm.com/zh-hant/academy/trading-academy/short-selling)。<br><b>怎么避：</b>做空适合中短线，别把做空当长期投资。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>「做多是赚小钱亏大钱，做空是赚小钱亏更大钱」——因为跌最多 100%，涨可能涨几倍。永远只用亏得起的钱做空。</li></ul></div>
+  </div>
+  <div class="illus">
+    <!-- 误区 vs 真相 对比图 -->
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="58" fill="#e05050" font-size="13" text-anchor="middle">误区</text>
+      <text x="180" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">「做空就是赌下跌，很简单」</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="400" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="58" fill="#50b070" font-size="13" text-anchor="middle">真相</text>
+      <text x="550" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">做空要研究基本面+时机+风控</text>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相：做空不是简单赌方向，而是综合博弈</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>做多（Long）</b></td><td>先买后卖，赌价格上涨。</td></tr>
+        <tr><td><b>做空（Short）</b></td><td>先借来卖、再低价买回还，赌价格下跌 (来源：https://www.vtmarketsglobal.com/discover/28374)。</td></tr>
+        <tr><td><b>融券</b></td><td>向券商借股票来卖，需要抵押品并付利息 (来源：https://www.tmgm.com/zh-hant/academy/trading-academy/short-selling)。</td></tr>
+        <tr><td><b>平仓</b></td><td>把做空的仓位「关掉」——买回股票还掉，锁定盈亏。</td></tr>
+        <tr><td><b>逼空（Short Squeeze）</b></td><td>股价上涨迫使大量做空者买回平仓，反而推高股价的踩踏现象。</td></tr>
+        <tr><td><b>裸卖空（Naked Short Selling）</b></td><td>没借到股票就直接卖空，多数市场禁止或严格限制 (来源：https://baike.baidu.com/item/%E5%81%9A%E7%A9%BA/17164)。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">
+      史上最著名的做空案例之一：2008 年金融危机前，少数对冲基金经理（如迈克尔·伯里）做空美国次贷债券，最终大赚数亿美元——这个真实故事后来被拍成电影《大空头》(The Big Short) [UNSOURCED，据公开资料]。但别忘了，同一场危机里，更多做空者因为时机太早、资金耗尽而破产——做空对了方向，也可能死在黎明前。
+    </p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">如果你能承受「亏光本金还倒欠」的心理压力，且有充足时间盯盘研究，可以尝试；如果只是听说了「做空赚钱」就想冲，<span class="hot">千万别</span>。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">做多是「和时间做朋友」，做空是「和趋势对赌」——<span class="cool">赚的是下跌的钱，担的是无限的风险</span>。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：VT Markets（https://www.vtmarketsglobal.com/discover/28374）、TMGM（https://www.tmgm.com/zh-hant/academy/trading-academy/short-selling）、ThinkMarkets（https://thinkmarkets.asia/zh-hans/academy/terminology/short-selling）、百度百科（https://baike.baidu.com/item/%E5%81%9A%E7%A9%BA/17164）。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
