@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 带宽交易</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  /* 图文并茂：插图与线稿图标 */
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+
+  /* 汇总入口：左上角悬浮返回总库 */
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 基础设施金融化</div>
+  <h1>带宽交易：把网络流量当“期货”买卖，这生意到底怎么做的？</h1>
+  <div class="sub">一句话副标题：互联网的“水电煤”也能像大豆原油一样被囤积、投机和对冲——这就是带宽批发市场的日常。</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。投资/收藏有风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：这个领域是干什么的、谁在玩、值不值得普通人关注。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：带宽交易，指的是互联网服务商之间把“网络传输容量”（即带宽）像大宗商品一样批量买卖——你买的是某条海底光缆或骨干网在特定时间段内的“运输能力”。</li>
+        <li><b>谁在玩</b>：电信运营商、云厂商（AWS、阿里云等）、内容分发网络（CDN）、大型互联网公司、以及一小撮专门做带宽“倒爷”的中间商/经纪商。</li>
+        <li><b>市场多大</b>：带宽本身不直接有公开交易所报价，但承载它的在线交易平台市场 2025 年全球规模已达 108.2 亿美元，预计 2034 年增至 185.0 亿美元 (来源：https://www.fortunebusinessinsights.com/zh/online-trading-platform-market-104934)。带宽批发市场估计是它的数十倍以上，属千亿美元级“隐形市场” [UNSOURCED]。</li>
+        <li><b>小白能玩吗</b>：门槛极高——你既没有海底光缆，也买不起骨干网端口。但普通人可以通过投资相关上市公司（如运营商、云厂商）间接参与，或者干脆把它当冷知识了解。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <!-- 概念插画：带宽管道交易 -->
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <rect x="14" y="34" width="132" height="78" rx="10" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <circle cx="30" cy="50" r="4" fill="#e05050"/><circle cx="44" cy="50" r="4" fill="#c8a866"/><circle cx="58" cy="50" r="4" fill="#50b070"/>
+        <!-- 带宽管道 -->
+        <path d="M28 68 H120" stroke="#c8a866" stroke-width="6" stroke-linecap="round"/>
+        <path d="M28 84 H132" stroke="#c8a866" stroke-width="6" stroke-linecap="round"/>
+        <text x="80" y="80" fill="#0a0a0a" font-size="10" font-family="monospace" text-anchor="middle" font-weight="bold">1 Gbps</text>
+        <path d="M14 112 H146" stroke="#2a2a2a" stroke-width="2"/>
+        <text x="80" y="132" fill="#8a8a8a" font-size="10" text-anchor="middle">带宽 = 管道粗细 × 时间</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">想象一下，你有一条从上海到洛杉矶的“数字高速公路”，这条路上能同时并排跑多少辆“数据卡车”，就是带宽（单位是 Gbps 或 Tbps）。带宽交易，就是有人把这条高速公路的“通行权”按年、按月甚至按小时租给别人。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;margin-top:10px;">它有点像房地产：运营商是“开发商”，负责修路（铺设光缆）；云厂商和互联网公司是“租户”，按需租用容量。但跟房地产不同的是，带宽会“过期”——今晚 11 点的空闲带宽，到了明晚 11 点就一文不值，因为网络流量是实时流动的。所以这里诞生了“批发市场”：有人低价囤入空闲带宽，等高峰期（比如双十一晚 8 点）高价卖出。华为预测，2025 年全球将有 1000 亿联接，人均每日流量消耗达 1.7G——这意味着带宽需求还在疯涨，交易空间也水涨船高 (来源：https://www.huawei.com/cn/huaweitech/publication/75/mbb-open-interconnect-cn)。</p>
+  </div>
+  <div class="illus">
+    <!-- 价值链 / 结构 图：从光缆到用户 -->
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="40" width="170" height="50" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="95" y="62" fill="#e8e8e8" font-size="12" text-anchor="middle">海底光缆 / 骨干网</text>
+      <text x="95" y="80" fill="#8a8a8a" font-size="10" text-anchor="middle">（运营商拥有）</text>
+      <path d="M185 65 H225" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="235" y="40" width="170" height="50" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="320" y="62" fill="#e8e8e8" font-size="12" text-anchor="middle">批发商 / 经纪商</text>
+      <text x="320" y="80" fill="#8a8a8a" font-size="10" text-anchor="middle">（倒买倒卖容量）</text>
+      <path d="M410 65 H450" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="460" y="40" width="170" height="50" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="545" y="62" fill="#e8e8e8" font-size="12" text-anchor="middle">云厂商 / 互联网公司</text>
+      <text x="545" y="80" fill="#8a8a8a" font-size="10" text-anchor="middle">（最终用户）</text>
+      <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">价值链：谁拥有管道 → 谁倒卖容量 → 谁真正使用流量</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 价格带</h2>
+  <div class="sec-note">用真实数字说明蛋糕有多大、钱集中在哪。来源内联标注。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>档位</th><th>典型价格</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>长途骨干带宽</td><td class="up">约 $1–5 / Mbps / 月</td><td>跨大西洋或跨太平洋的批发价，量大从优，长期合约更便宜 [UNSOURCED]</td></tr>
+        <tr><td>区域 IP 带宽</td><td>$10–50 / Mbps / 月</td><td>城域或国家级网络，价格受竞争格局影响大 [UNSOURCED]</td></tr>
+        <tr><td>高峰时段溢价</td><td class="down">可达平日的 3–10 倍</td><td>类似“峰谷电价”，晚高峰或大型活动期间现货价暴涨 [UNSOURCED]</td></tr>
+      </tbody>
+    </table>
+    <p class="src">注：带宽批发无公开统一报价，上述为行业经验区间，具体因地区、合约年限和 QoS 等级差异极大。在线交易平台市场规模作为参考：2025 年全球 108.2 亿美元，2034 年预计 185.0 亿美元 (来源：https://www.fortunebusinessinsights.com/zh/online-trading-platform-market-104934)。</p>
+  </div>
+  <div class="illus">
+    <!-- 价格带柱状图 -->
+    <svg viewBox="0 0 720 220" width="720" height="220" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <!-- 三个柱：长途、区域、高峰溢价 -->
+      <rect x="110" y="150" width="90" height="30" fill="#c8a866"/>
+      <text x="155" y="145" fill="#c8a866" font-size="11" text-anchor="middle">$1–5</text>
+      <rect x="280" y="100" width="90" height="80" fill="#c8a866"/>
+      <text x="325" y="95" fill="#c8a866" font-size="11" text-anchor="middle">$10–50</text>
+      <rect x="450" y="40" width="90" height="140" fill="#e05050"/>
+      <text x="495" y="35" fill="#e05050" font-size="11" text-anchor="middle">3–10x</text>
+      <text x="155" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">长途骨干</text>
+      <text x="325" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">区域带宽</text>
+      <text x="495" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">高峰溢价</text>
+      <text x="380" y="215" fill="#8a8a8a" font-size="11" text-anchor="middle">单位：美元 / Mbps / 月（对数示意，非精确比例）</text>
+    </svg>
+    <div class="cap">带宽价格带示意：从“批发白菜价”到“高峰奢侈品价”</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台 -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在制定规则、谁在赚钱、小白该去哪个平台。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">ROOT</span>
+        <h3>电信运营商</h3>
+        <ul><li>角色：带宽的“地主”，拥有光缆和骨干网，是交易市场的源头供给方。</li><li>典型：中国电信、AT&T、Verizon、NTT。它们之间的互联互通协议（Peering）本身就是一种非货币化的带宽交易。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">平台 B</span>
+        <h3>云厂商与 CDN</h3>
+        <ul><li>角色：最大的“批发买家”，一边囤带宽一边向企业客户零售。</li><li>典型：AWS、阿里云、Cloudflare、Akamai。它们对带宽的采购量巨大，议价能力强。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">HOT</span>
+        <h3>带宽经纪商 / 交易所</h3>
+        <ul><li>角色：专门做“倒爷”生意的中间商，撮合买卖、囤积居奇。</li><li>典型：Bandwidth X、FiberLight、以及各类“IP 交易平台”。它们是价格发现的核心场所 [UNSOURCED]。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>小白友好入口</h3>
+        <ul><li>想围观？去 Cloudflare 的 Radar 看实时流量；想间接参与？买运营商或云厂商的股票；真刀真枪交易？先准备几百万美元和一支法务团队再说。</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就梭哈。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">搞懂“流量”长什么样：安装 Wireshark 或 NetFlow 工具，观察自己家网络的流量曲线，理解高峰和低谷的节奏。成本：0 元。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">围观真实市场：去 Cloudflare Radar 或 Hurricane Electric 的 BGP 页面，看全球带宽的实时流向和拥堵情况。成本：0 元。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">建立判断框架：跟踪电信运营商财报中的“批发收入”和“互联成本”，理解带宽价格如何影响利润。推荐关注华为的《MBB 开放互联》报告 (来源：https://www.huawei.com/cn/huaweitech/publication/75/mbb-open-interconnect-cn)。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">如果要真金白银参与：别直接买带宽，去买相关上市公司股票（运营商、云厂商、CDN）。记住：带宽交易是机构游戏，散户只能“借道”投资。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>把“带宽”当“流量”</h3><ul><li>带宽是管道粗细，流量是实际流过的水。很多人以为买了 1Gbps 就有 1GB/s 的速度——实际上那是理论峰值，实际要看 QoS 和路由。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>忽略“时区”和“季节”</h3><ul><li>带宽价格像电价一样分峰谷。北美和亚洲的晚高峰时间不同，大型赛事或购物节（双十一）会让价格瞬时暴涨。不懂节奏就囤货，等于接盘侠。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>以为“签长约”就稳了</h3><ul><li>带宽技术迭代极快（海底光缆每 2-3 年翻倍），签 10 年长约可能在第 3 年就被新技术淘汰，手里的容量变成“负资产”。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>带宽交易的核心不是“预测未来”，而是“管理风险”——就像对冲基金做农产品一样，永远留足冗余容量，永远不要满仓押注单一线路。</li></ul></div>
+  </div>
+  <div class="illus">
+    <!-- 误区 vs 真相 对比图 -->
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="58" fill="#e05050" font-size="13" text-anchor="middle">误区：带宽是“无限”的</text>
+      <text x="180" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">加钱就能无限扩容？</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="400" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="58" fill="#50b070" font-size="13" text-anchor="middle">真相：物理光缆有极限</text>
+      <text x="550" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">扩容要挖沟、铺缆、谈判，周期以年计</text>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相：带宽不是自来水，是“限量版”的期货</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>Peering（对等互联）</b></td><td>两家运营商互相免费“换路”——你让我走你的网，我让你走我的网，省得付钱。</td></tr>
+        <tr><td><b>QoS（服务质量）</b></td><td>你的数据在管道里是“头等舱”还是“经济舱”。头等舱贵但快，经济舱便宜但可能卡。</td></tr>
+        <tr><td><b>IP Transit（IP 转接）</b></td><td>花真金白银向大运营商买“全球上网通行证”，是带宽交易中最常见的商品。</td></tr>
+        <tr><td><b>Dark Fiber（暗光纤）</b></td><td>铺好了但没点亮的光缆，像“毛坯房”——你租下来自己装设备，自己用。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">2015 年天猫双十一全天交易额超 900 亿元，其中移动端占比 68%；2016 年除夕微信红包收发 80 亿次——这些天文数字背后，是无数带宽交易员在幕后疯狂调货，确保你剁手时网络不卡 (来源：https://www.huawei.com/cn/huaweitech/publication/75/mbb-open-interconnect-cn)。</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">适合：对网络基础设施好奇、愿意研究长期趋势的人。不适合：想一夜暴富、手痒想“炒波段”的人——这里的水比股票深得多。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">带宽交易是互联网的“隐形粮仓”——你看不见它，但每次刷视频、打游戏、抢红包，都在为它买单。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：Fortune Business Insights（在线交易平台市场报告）、华为 MBB 开放互联白皮书、智研咨询（游戏虚拟物品交易报告）。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html

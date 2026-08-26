@@ -134,3 +134,10 @@
 [cold_mining] AI error: ReadTimeout(ReadTimeoutError("HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=240)"))
 [cold_mining] attempt=1 html_len=0 svg=0
 [cold_mining] FAILED: AI 未产出合格 HTML，今日跳过（报告不落盘以免脏数据）
+[cold_mining] line=cold topic=带宽交易 slug=bandwidth-trade
+[cold_mining] tavily hits=2242
+[cold_mining] AI error: HTTPError('429 Client Error: Too Many Requests for url: https://ark.cn-beijing.volces.com/api/coding/v3/chat/completions')
+[cold_mining] attempt=0 html_len=0 svg=0
+[cold_mining] AI error: HTTPError('429 Client Error: Too Many Requests for url: https://ark.cn-beijing.volces.com/api/coding/v3/chat/completions')
+[cold_mining] attempt=1 html_len=0 svg=0
+[cold_mining] FAILED: AI 未产出合格 HTML，今日跳过（报告不落盘以免脏数据）
