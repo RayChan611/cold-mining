@@ -25,3 +25,4 @@
 | 2026-08-21 | 印花税：一张小票背后的国家账本 | reports/2026-08-21-stamp-duty-guide.html |
 | 2026-08-24 | 熔断机制：股市里的「保险丝」是怎么帮你踩刹车的？ | reports/2026-08-24-circuit-breaker.html |
 | 2026-08-26 | 做空：先卖后买，赌下跌也能赚钱？——给外行的入门研究报告 | reports/2026-08-26-short-selling-guide.html |
+| 2026-08-27 | 期权到底是个啥？一张“未来入场券”的说明书 | reports/2026-08-27-options-basics.html |
