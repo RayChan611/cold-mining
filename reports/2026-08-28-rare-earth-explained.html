@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 稀土</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 战略矿产</div>
+  <h1>稀土：藏在手机和导弹里的“工业味精”到底是什么？</h1>
+  <div class="sub">一句话副标题：它不稀有，却是大国博弈的命门——用大白话拆解全球最关键的“小金属”。</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。投资/收藏有风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：这个领域是干什么的、谁在玩、值不值得普通人关注。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：17 种金属元素的统称，名字带“稀”但地壳里其实不算少，难在“提纯”和“分离”。它们是制造强磁铁、荧光粉、催化剂的关键原料，被誉为“工业味精”。</li>
+        <li><b>谁在玩</b>：国家资源战略部门、矿业巨头（中国、澳大利亚、美国企业为主）、磁材与合金厂商，以及关注地缘政治的投资者。散户通常通过股票或 ETF 间接参与。</li>
+        <li><b>市场多大</b>：2025 年全球稀土元素市场规模约 41.2 亿美元，预计到 2034 年将达 98.9 亿美元，复合年增长率 10.20%（来源：https://www.fortunebusinessinsights.com/zh/rare-earth-elements-market-102943）。</li>
+        <li><b>小白能玩吗</b>：不能直接买“稀土”回家囤——门槛极高、价格波动剧烈（曾从 11700 美元/吨跌至 7430 美元/吨，来源：http://www.news.cn/sikepro/20210310/C9335F27114000019DD36462138D1664/c.html）。普通人更适合关注相关产业股票或基金，且必须承受强周期波动。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <!-- 首屏概念图：元素周期表里发光的一格 -->
+      <svg viewBox="0 0 200 200" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+        <!-- 背景网格示意元素周期表 -->
+        <rect x="10" y="10" width="180" height="180" rx="12" fill="#101010" stroke="#2a2a2a" stroke-width="1.5"/>
+        <g stroke="#242424" stroke-width="0.5">
+          <line x1="10" y1="60" x2="190" y2="60"/><line x1="10" y1="110" x2="190" y2="110"/><line x1="10" y1="160" x2="190" y2="160"/>
+          <line x1="60" y1="10" x2="60" y2="190"/><line x1="110" y1="10" x2="110" y2="190"/><line x1="160" y1="10" x2="160" y2="190"/>
+        </g>
+        <!-- 发光的一格：代表稀土元素 -->
+        <rect x="115" y="65" width="40" height="40" rx="6" fill="none" stroke="#c8a866" stroke-width="2.5"/>
+        <text x="135" y="83" fill="#c8a866" font-size="9" text-anchor="middle" font-family="monospace">57</text>
+        <text x="135" y="98" fill="#e8e8e8" font-size="12" text-anchor="middle" font-family="monospace">La</text>
+        <!-- 光晕 -->
+        <circle cx="135" cy="85" r="36" fill="none" stroke="#c8a866" stroke-width="0.6" opacity="0.4"/>
+        <circle cx="135" cy="85" r="48" fill="none" stroke="#c8a866" stroke-width="0.4" opacity="0.2"/>
+        <text x="135" y="178" fill="#8a8a8a" font-size="11" text-anchor="middle">让手机震动、</text>
+        <text x="135" y="192" fill="#8a8a8a" font-size="11" text-anchor="middle">导弹制导的“小格子”</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">想象你去吃火锅，锅底本身没什么稀奇，但撒一把味精，汤立刻鲜得不一样。稀土就是工业界的“味精”——它不直接构成产品的主体，但<span style="color:#e8e8e8;font-weight:600;">只要加一点点，材料的性能就发生质变</span>：磁铁强几十倍、屏幕能发光、催化效率翻番。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;margin-top:10px;">它叫“稀土”，但<span style="color:#e8e8e8;font-weight:600;">其实并不稀</span>。地壳里铈（Ce）的含量比铜还多。真正难的是：17 种元素像双胞胎一样“长”在一起，化学性质极其相似，要把它们一个个分开，需要几百道工序。所以过去几十年，全世界的稀土分离工厂几乎都集中在中国——这不是资源垄断，而是<span style="color:#e8e8e8;font-weight:600;">技术加产业链的垄断</span>。为什么？因为中国当年用“白菜价”把稀土卖遍全球，练出了一套完整的冶炼分离手艺，别人想学，发现又贵又难 (来源：http://www.news.cn/sikepro/20210310/C9335F27114000019DD36462138D1664/c.html)。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;margin-top:10px;">知识点：稀土有“轻稀土”和“重稀土”之分。轻稀土（镧、铈、钕等）用于磁铁、抛光粉；重稀土（镝、铽等）更稀缺，是高端永磁体不可或缺的“增强剂”。中国的南方离子型矿是全球重稀土的主要来源。</p>
+  </div>
+  <div class="illus">
+    <!-- 价值链图：采矿→分离→应用 -->
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="35" width="180" height="50" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="100" y="55" fill="#e8e8e8" font-size="12" text-anchor="middle">采矿 &amp; 选矿</text>
+      <text x="100" y="73" fill="#8a8a8a" font-size="10" text-anchor="middle">稀土矿（独居石等）</text>
+      <path d="M195 60 H235" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="245" y="35" width="180" height="50" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="335" y="55" fill="#e8e8e8" font-size="12" text-anchor="middle">冶炼 &amp; 分离</text>
+      <text x="335" y="73" fill="#8a8a8a" font-size="10" text-anchor="middle">17 种元素逐一分开</text>
+      <path d="M430 60 H470" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="480" y="35" width="180" height="50" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="570" y="55" fill="#e8e8e8" font-size="12" text-anchor="middle">应用 &amp; 精加工</text>
+      <text x="570" y="73" fill="#8a8a8a" font-size="10" text-anchor="middle">磁铁 / 荧光粉 / 催化</text>
+      <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">稀土产业链三环节：卡脖子的关键在中间“冶炼分离”</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 价格带</h2>
+  <div class="sec-note">用真实数字说明蛋糕有多大、钱集中在哪。来源内联标注。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>品种</th><th>典型价格（2024 年）</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>氧化镨钕（轻稀土主力）</td><td class="up">约 7425 元/公斤</td><td>制造钕铁硼永磁体，新能源汽车电机核心材料（来源：https://pdf.dfcfw.com/pdf/H3_AP202402281623983985_1.pdf）</td></tr>
+        <tr><td>氧化镝（重稀土代表）</td><td>约 2500 元/公斤</td><td>添加到磁铁中提高耐高温性能，军工与风电必用（来源：同上）</td></tr>
+        <tr><td>氧化铽（重稀土之王）</td><td class="down">数万元/公斤 [UNSOURCED]</td><td>极其稀缺，用于高端声学与显示器件，价格波动剧烈</td></tr>
+      </tbody>
+    </table>
+    <p class="src">注：稀土价格波动大，以上为 2024 年初数据，仅作量级参考。</p>
+  </div>
+  <div class="illus">
+    <!-- 数据对比图：全球市场增长柱状图 -->
+    <svg viewBox="0 0 720 220" width="720" height="220" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <!-- 2025柱:41.2亿美元 -->
+      <rect x="120" y="105" width="120" height="75" fill="#c8a866"/>
+      <text x="180" y="95" fill="#e8e8e8" font-size="13" text-anchor="middle">41.2亿</text>
+      <!-- 2034柱:98.9亿美元 -->
+      <rect x="380" y="30" width="120" height="150" fill="#e05050"/>
+      <text x="440" y="20" fill="#e8e8e8" font-size="13" text-anchor="middle">98.9亿</text>
+      <text x="180" y="200" fill="#9a9a9a" font-size="12" text-anchor="middle">2025 年</text>
+      <text x="440" y="200" fill="#9a9a9a" font-size="12" text-anchor="middle">2034 年（预测）</text>
+      <text x="380" y="215" fill="#8a8a8a" font-size="11" text-anchor="middle">全球稀土市场规模（单位：亿美元）· CAGR 10.2%</text>
+      <text x="380" y="228" fill="#6a6a6a" font-size="10" text-anchor="middle">来源：Fortune Business Insights</text>
+    </svg>
+    <div class="cap">全球稀土市场规模将从 2025 年 41.2 亿美元增至 2034 年 98.9 亿美元（来源：https://www.fortunebusinessinsights.com/zh/rare-earth-elements-market-102943）</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台 -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在制定规则、谁在赚钱、小白该去看哪。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/><path d="M12 8v3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">ROOT</span>
+        <h3>中国稀土集团</h3>
+        <ul><li>全球稀土供应的绝对主导者，掌握约 70% 的冶炼分离产能（来源：https://cn.nytimes.com/business/20250417/china-rare-earths-us）</li><li>决定出口配额与价格，是产业“总阀门”</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">关键矿产</span>
+        <h3>Lynas（澳大利亚）</h3>
+        <ul><li>中国以外最大的稀土生产商（来源：https://www.researchnester.com/tw/reports/rare-earth-metals-market/5142）</li><li>美国国防部扶持对象，但产能远不能与中国抗衡</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">HOT</span>
+        <h3>中科三环 / 金力永磁</h3>
+        <ul><li>中国磁材龙头，把稀土变成新能源汽车电机里的钕铁硼磁铁（来源：https://www.researchnester.com/tw/reports/rare-earth-metals-market/5142）</li><li>普通人买股票最常接触的稀土下游标的</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>小白友好入口</h3>
+        <ul><li>中国稀土行业协会官网：看价格指数与政策风向</li><li>美国地质调查局（USGS）年度报告：看全球储量与产量数据</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就梭哈。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">先搞懂“稀土为什么重要”：读一遍本文 + 看 YouTube 上关于钕磁铁的科普视频。重点是理解“磁铁→电机→电动车/风电”这条主线。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">关注价格与政策：收藏中国稀土行业协会网站，每月看一次氧化镨钕价格指数。注意出口管制新闻——2025 年 4 月中国暂停关键矿产出口的新闻直接导致美股军工股波动（来源：https://cn.nytimes.com/business/20250417/china-rare-earths-us）。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">建立判断框架：跟踪三家代表性公司（北方稀土、金力永磁、Lynas）的财报与公告。看它们的毛利率变化，理解“上游矿价涨，下游磁材利润被挤压”的逻辑。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">小额定投或模拟盘：如果想参与，用不超过闲置资金 5% 的比例定投稀土 ETF（如中证稀土产业指数基金）。稀土是强周期品种，涨跌凶猛，绝不适合重仓。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>把“稀土”当普通金属炒</h3><ul><li>稀土不是黄金，没有全球统一定价。它是小品种、大波动，曾经从 11700 美元/吨跌到 7430 美元/吨（来源：http://www.news.cn/sikepro/20210310/C9335F27114000019DD36462138D1664/c.html）。</li><li>别信“稀土会一直涨”的鬼话——它是周期性极强的工业原料。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>误以为“储量多=话语权大”</h3><ul><li>中国稀土储量占全球约 30-40%（来源：https://pdf.dfcfw.com/pdf/H3_AP202402281623983985_1.pdf），但冶炼分离产能占 70%。</li><li>美国也有矿，但提炼能力几乎为零——所以“有矿”不等于“说了算”，技术才是命门。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>跟风炒概念股</h3><ul><li>稀土概念股鱼龙混杂，很多公司只是沾边。2010 年“稀土泡沫”时，多只概念股从高点跌超 80% [UNSOURCED]。</li><li>看财报，看它是否真的有矿、有冶炼产能、有长期订单。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>稀土是“国家战略资源”，不是“个人理财产品”。普通人可以关注、学习、小仓位参与，但永远记住：它的价格由政策与大国外交决定，不由市场供需决定。</li></ul></div>
+  </div>
+  <div class="illus">
+    <!-- 误区 vs 真相 对比图 -->
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="58" fill="#e05050" font-size="13" text-anchor="middle">误区</text>
+      <text x="180" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">“稀土很稀有，所以很贵”</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="400" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="58" fill="#50b070" font-size="13" text-anchor="middle">真相</text>
+      <text x="550" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">地壳里不少，难在分离技术</text>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">最常见的认知误区：名字带“稀”，其实不稀</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>镨钕（Pr-Nd）</b></td><td>稀土家族里的“黄金搭档”，做永磁铁的主力，价格风向标。</td></tr>
+        <tr><td><b>钕铁硼（NdFeB）</b></td><td>全世界最强的永磁体之一，电动车电机、风力发电机的心脏。</td></tr>
+        <tr><td><b>冶炼分离</b></td><td>把稀土矿里的 17 种元素一个个拆开，是产业链最赚钱也最难的一环。</td></tr>
+        <tr><td><b>重稀土</b></td><td>镝、铽等，比轻稀土更稀缺，是高端磁铁不可或缺的“添加剂”。</td></tr>
+        <tr><td><b>出口管制</b></td><td>国家限制稀土出口的手段，常被用作地缘政治筹码。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">你知道你的手机为什么能震动吗？里面那个小马达里，藏着一块比米粒还小的钕铁硼磁铁——它用到的稀土，可能就来自中国南方的某个矿区。更反常识的是：1990-2005 年，中国稀土矿石价格从 11700 美元/吨跌到 7430 美元/吨，中国企业互相杀价，把“工业味精”卖成了“工业盐”的价格（来源：http://www.news.cn/sikepro/20210310/C9335F27114000019DD36462138D1664/c.html）。</p>
+    <p class="quote" style="margin-top:8px;">另一个冷知识：美国不是没有稀土矿，加州 Mountain Pass 矿曾是全球最大稀土矿，但 2000 年代因为中国低价竞争而关停。如今美国想重启，却发现“有矿无技术”，只能把矿石运到中国加工——这就是为什么稀土被称为“大国博弈的终极筹码” (来源：https://cn.nytimes.com/business/20250417/china-rare-earths-us)。</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">如果你对地缘政治、新能源产业链感兴趣，稀土是绝佳观察窗口；但如果你只想快进快出赚一笔，这不是好地方——<span class="hot">波动太大、政策主导</span>。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">稀土不稀有，<span class="cool">“能分离”才稀有</span>——它让大国有了牌，让技术有了魂。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：Fortune Business Insights、Research Nester、东莞证券研究所、中国科学院院刊、新华网思客、纽约时报中文网。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html

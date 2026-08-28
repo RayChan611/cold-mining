@@ -243,11 +243,8 @@ def update_index(title, slug_file):
               f'<span class="date">{TODAY}</span>'
               f'<a href="{REPORT_PREFIX}{slug_file}">{title}</a></li>\n')
     html = html.replace(ul_open, ul_open + "\n    " + new_li, 1)
-    # 金融线：插入首条后删除空提示（精确匹配完整标签，避免误删嵌套内容）
-    html = re.sub(
-        r'<p[^>]*class=["\']?empty["\']?[^>]*id=["\']?empty-hint["\']?[^>]*>.*?</p>',
-        "", html, flags=re.S | re.I
-    )
+    # 金融线：插入首条后删除空提示
+    html = re.sub(r'<p class="empty" id="empty-hint">.*?</p>\n?', "", html, flags=re.S)
     with open(INDEX, "w", encoding="utf-8") as f:
         f.write(html)
 

@@ -150,3 +150,11 @@
 [cold_mining] git push ok=True info=To github.com:RayChan611/cold-mining.git
    f6dfd69..20f4165  main -> main
 [cold_mining] feishu code=0 link=https://raychan611.github.io/cold-mining/finance/reports/2026-08-26-short-selling-guide.html
+[cold_mining] line=finance topic=期权基础 slug=option-basics
+[cold_mining] tavily hits=2300
+[cold_mining] attempt=0 html_len=19198 svg=8
+[cold_mining] wrote /home/ubuntu/cold-mining/finance/reports/2026-08-27-options-basics.html
+[cold_mining] index+log updated
+[cold_mining] git push ok=True info=To github.com:RayChan611/cold-mining.git
+   2baf783..23aae9b  main -> main
+[cold_mining] feishu code=0 link=https://raychan611.github.io/cold-mining/finance/reports/2026-08-27-options-basics.html
