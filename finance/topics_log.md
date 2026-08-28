@@ -26,3 +26,4 @@
 | 2026-08-24 | 熔断机制：股市里的「保险丝」是怎么帮你踩刹车的？ | reports/2026-08-24-circuit-breaker.html |
 | 2026-08-26 | 做空：先卖后买，赌下跌也能赚钱？——给外行的入门研究报告 | reports/2026-08-26-short-selling-guide.html |
 | 2026-08-27 | 期权到底是个啥？一张“未来入场券”的说明书 | reports/2026-08-27-options-basics.html |
+| 2026-08-28 | 期权是什么？一份给外行的「买选择权」入门指南 | reports/2026-08-28-options-basics.html |
