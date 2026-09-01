@@ -31,3 +31,4 @@
 | 2026-08-26 | 带宽交易：把网络流量当“期货”买卖，这生意到底怎么做的？ | reports/2026-08-26-bandwidth-trading.html |
 | 2026-08-27 | 卫星频率：太空里的"黄金车道"到底归谁管 | reports/2026-08-27-satellite-frequency.html |
 | 2026-08-28 | 稀土：藏在手机和导弹里的“工业味精”到底是什么？ | reports/2026-08-28-rare-earth-explained.html |
+| 2026-09-01 | 电子墨水屏：不是黑白电视，是能写字的「电子纸」 | reports/2026-09-01-e-ink-display.html |
