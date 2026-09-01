@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 期权基础</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  /* 图文并茂：插图与线稿图标 */
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+
+  /* 汇总入口：左上角悬浮返回总库 */
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 金融衍生品</div>
+  <h1>期权基础：一张「价格保险单」的冷门玩法，看懂它你就超过了 90% 的散户</h1>
+  <div class="sub">一句话副标题：股票涨跌只能干瞪眼？期权让你在涨、跌、横盘三种行情里都有牌可打。</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。期权交易风险较高，决策需谨慎，入市前请务必通过券商官方投资者教育专区学习。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：期权是干什么的、谁在玩、值不值得普通人关注。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：一份「未来的选择权合约」。花一笔小钱（权利金），买一个「在约定日期、按约定价格买卖某资产」的权利——但没义务。股票、ETF 都可以是它的标的物 (来源：https://www.njzq.com.cn/options/jczs.html)。</li>
+        <li><b>谁在玩</b>：机构用它对冲风险、做资产配置；专业散户用它博方向性收益或增强持仓收益；新手玩家主要以「买方」身份小仓位参与。</li>
+        <li><b>市场多大</b>：以国内场内 ETF 期权为例，单张合约对应 10,000 份 ETF 份额（约数万元市值），权利金门槛从几十元到几千元不等 [UNSOURCED]。沪深交易所已上线多只 ETF 期权品种。</li>
+        <li><b>小白能玩吗</b>：能，但有门槛——需要验资和期权知识测试（俗称「开户考试」）。最大亏损是权利金（买方向），但卖方向亏损理论上无上限，新手切忌一上来就做卖方。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <!-- 概念插画：期权=保险单+选择权 -->
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <rect x="14" y="24" width="132" height="88" rx="10" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <!-- 盾牌+勾 = 保护 -->
+        <path d="M60 40 L60 60 L80 70 L100 60 L100 40" fill="none" stroke="#c8a866" stroke-width="2.5"/>
+        <path d="M70 52 L78 60 L92 44" fill="none" stroke="#50b070" stroke-width="2.5"/>
+        <!-- 向上向下的双向箭头 = 涨跌都能应对 -->
+        <path d="M30 90 L40 80 L44 86 M40 80 L40 98" stroke="#e05050" stroke-width="2" fill="none"/>
+        <path d="M130 80 L120 92 L116 86 M120 92 L120 72" stroke="#e05050" stroke-width="2" fill="none"/>
+        <text x="80" y="132" fill="#8a8a8a" font-size="10" text-anchor="middle">期权 = 价格保险单</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">想象你相中了一套房子，现在标价 500 万。你担心明年涨价，但又怕现在就买会砸在手里。这时你跟房主签了个「意向协议」：<b>付 5 万块诚意金</b>，换来一个权利——<b>一年后无论市场价多少，你都有权按 500 万买下它</b>；但你不承担义务，如果一年后房价跌到 400 万，你直接放弃这个权利，损失最多就是那 5 万块诚意金。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;margin-top:10px;">这其实就是期权。那 5 万块是「权利金」，500 万是「行权价」，一年后是「到期日」。期权分两种基本类型：<b>看涨期权（认购期权）</b>给你「按约定价买入」的权利；<b>看跌期权（认沽期权）</b>给你「按约定价卖出」的权利 (来源：https://www.moomoo.com/hant/community/feed/understanding-the-market-getting-started-with-options-essential-strategies-for-116029800185861)。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;margin-top:10px;">期权最妙的地方在于：<b>买方亏损有上限（最多赔光权利金），盈利理论上无上限；卖方反过来，收一笔权利金，但风险理论上无上限</b>。这就是为什么新手要从买方开始——「损失有限，收益上限很高」(来源：https://news.hstong.com/post/content/23072709532701635)。</p>
+  </div>
+  <div class="illus">
+    <!-- 结构图：期权四要素 -->
+    <svg viewBox="0 0 720 120" width="720" height="120" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="40" width="150" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="85" y="59" fill="#e8e8e8" font-size="11" text-anchor="middle">标的资产</text>
+      <text x="85" y="75" fill="#8a8a8a" font-size="9" text-anchor="middle">如 ETF、股票</text>
+      <path d="M165 62 H205" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="215" y="40" width="150" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="290" y="59" fill="#e8e8e8" font-size="11" text-anchor="middle">行权价</text>
+      <text x="290" y="75" fill="#8a8a8a" font-size="9" text-anchor="middle">约定买卖价</text>
+      <path d="M370 62 H410" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="420" y="40" width="150" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="495" y="59" fill="#e8e8e8" font-size="11" text-anchor="middle">到期日</text>
+      <text x="495" y="75" fill="#8a8a8a" font-size="9" text-anchor="middle">权利最后有效日</text>
+      <path d="M575 62 H615" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="625" y="40" width="80" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="665" y="59" fill="#e8e8e8" font-size="11" text-anchor="middle">权利金</text>
+      <text x="665" y="75" fill="#8a8a8a" font-size="9" text-anchor="middle">入场费</text>
+      <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">一份期权合约的四个关键要素 (来源：https://www.njzq.com.cn/options/jczs.html 合约要素表)</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 价格带</h2>
+  <div class="sec-note">用真实数字说明蛋糕有多大、钱集中在哪。来源内联标注。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>档位</th><th>典型权利金</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>入门档</td><td class="up">几十元 – 数百元</td><td>深度虚值期权，离当前价格很远，赌一把「彩票」，大概率归零 (据公开资料)</td></tr>
+        <tr><td>进阶档</td><td>数百元 – 数千元</td><td>平值或轻度实值期权，跟随标的涨跌敏感度高，是专业玩家主战场 [UNSOURCED]</td></tr>
+        <tr><td>机构档</td><td class="down">数万元 – 数十万元</td><td>深度实值期权或组合策略，用于对冲大额持仓风险，流动性较好，机构主导 (来源：https://www.ciccwm.com/geguqiquan/stockOptionEducation.html)</td></tr>
+      </tbody>
+    </table>
+    <p class="src">注：权利金随行权价、到期时间、市场波动率实时变动，以上为定性区间，不构成报价参考。</p>
+  </div>
+  <div class="illus">
+    <!-- 数据图：买方 vs 卖方的盈亏不对称 -->
+    <svg viewBox="0 0 720 220" width="720" height="220" xmlns="http://www.w3.org/2000/svg">
+      <!-- 坐标轴 -->
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <!-- 买入看涨 盈亏曲线 -->
+      <path d="M80 180 L250 180 L460 40" fill="none" stroke="#50b070" stroke-width="2.5"/>
+      <!-- 卖出看涨 盈亏曲线 -->
+      <path d="M80 40 L250 40 L460 180" fill="none" stroke="#e05050" stroke-width="2.5" stroke-dasharray="6 4"/>
+      <!-- 盈亏平衡点标注 -->
+      <circle cx="250" cy="110" r="4" fill="#c8a866"/>
+      <text x="250" y="100" fill="#c8a866" font-size="10" text-anchor="middle">盈亏平衡点</text>
+      <text x="360" y="45" fill="#50b070" font-size="11">买方：损失封顶</text>
+      <text x="360" y="170" fill="#e05050" font-size="11">卖方：风险无上限</text>
+      <text x="380" y="210" fill="#8a8a8a" font-size="11" text-anchor="middle">同一条曲线，买卖双方互为镜像——这是期权最核心的不对称性</text>
+    </svg>
+    <div class="cap">买入 vs 卖出看涨期权的盈亏对照（示意曲线，不反映具体数值）(来源：https://news.hstong.com/post/content/23072709532701635)</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台 -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在制定规则、谁在赚钱、小白该去哪个平台。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/><path d="M5 6h.01M8 6h.01M11 6h.01"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">ROOT</span>
+        <h3>交易所（沪/深）</h3>
+        <ul><li>制定合约规则、撮合交易。国内场内期权以 ETF 为标的（如 50ETF、300ETF），合约要素（行权价、到期日、合约单位）由交易所统一规范 (来源：https://www.njzq.com.cn/options/jczs.html)。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">券商</span>
+        <h3>券商（富途、老虎、中金等）</h3>
+        <ul><li>提供交易通道与投资者教育。如富途牛牛内置期权链，支持 Covered Call 等策略可视化操作 (来源：https://www.futuhk.com/hans/blog/detail-options-tutorial-from-beginner-to-practical-fundamentals-trading-strategies-hands-on-skills-30-240405004)；老虎证券提供行权价、到期日等基础教学 (来源：https://www.itiger.com/au/hans/learn/detail/m83x5n6jvv9iaxrek8)。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">HOT</span>
+        <h3>做市商 / 机构</h3>
+        <ul><li>提供流动性，赚买卖价差。它们常用期权组合策略做对冲，是市场上最专业的玩家，也是权利金的「卖方主力」[UNSOURCED]。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>投资者教育专区</h3>
+        <ul><li>新手最该先去的 1-2 个地方：中金公司股票期权投教专区（策略入门）(来源：https://www.ciccwm.com/geguqiquan/stockOptionEducation.html)、南京证券期权基础知识页（合约要素表）(来源：https://www.njzq.com.cn/options/jczs.html)。</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就梭哈。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body"><b>先过开户门槛</b>：国内期权账户需满足 50 万资产门槛 + 知识测试 + 模拟交易经验（据公开资料）。如果没有，可以用富途、老虎等互联网券商开户（门槛因地区而异，请以券商为准）。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body"><b>搞懂四个关键动作</b>：选标的（如 50ETF）、选方向（看涨买认购，看跌买认沽）、选行权价（离现价越近越贵）、选到期日（越远越贵）。先弄懂「买入开仓」和「卖出平仓」这两步 (来源：https://www.moomoo.com/hant/community/feed/understanding-the-market-getting-started-with-options-essential-strategies-for-116029800185861)。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body"><b>用「保险思维」做第一次交易</b>：假设你持有 100 股某股票，担心短期下跌，买入一张看跌期权做对冲——这就是 Covered Call / Protective Put 的雏形 (来源：https://www.futuhk.com/hans/blog/detail-options-tutorial-from-beginner-to-practical-fundamentals-trading-strategies-hands-on-skills-30-240405004)。用你能接受全部亏掉的钱试水。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body"><b>建立判断框架</b>：结合宏观经济、行业、基本面、技术面与市场情绪判断行情趋势，再选策略 (来源：https://www.njzq.com.cn/options/jczs.html)。别凭感觉下单，先写下一句话：「我认为 XX 在 XX 日前会涨/跌到 XX，所以我买 XX 期权。」</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>时间价值在偷偷漏血</h3><ul><li>期权有「到期日」，每天都在贬值（时间价值衰减）。很多人买了期权放着不管，到期时即使方向对了，也可能因为时间损耗而不赚钱。避开方法：尽量别买太短期的合约，留出足够时间窗口 [UNSOURCED]。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>「彩票心理」买深度虚值</h3><ul><li>几块钱一张的深度虚值期权看起来很便宜，但大概率到期归零。这不是投资，是买彩票。避开方法：用「如果亏光也不影响生活」的资金参与，且控制仓位。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>一上来就做卖方</h3><ul><li>卖方收权利金「躺着赚钱」很诱人，但风险理论上无上限。新手在没搞懂保证金和风险之前做卖方，一次极端行情可能亏掉本金。避开方法：前 6 个月只做买方，或只用 Covered Call 这种有持仓保护的卖方策略 (来源：https://www.futuhk.com/hans/blog/detail-options-tutorial-from-beginner-to-practical-fundamentals-trading-strategies-hands-on-skills-30-240405004)。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>期权是保险，不是彩票。每次下单前问自己：「如果这笔权利金全亏光，我能不能接受？」答案是否定的，就不要做。</li></ul></div>
+  </div>
+  <div class="illus">
+    <!-- 误区 vs 真相 对比图 -->
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="55" fill="#e05050" font-size="13" text-anchor="middle">误区</text>
+      <text x="180" y="77" fill="#c4c4c4" font-size="10" text-anchor="middle">「期权就是赌博，十赌九输」</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="400" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="55" fill="#50b070" font-size="13" text-anchor="middle">真相</text>
+      <text x="550" y="77" fill="#c4c4c4" font-size="10" text-anchor="middle">「用保险思维买期权，亏损封顶、收益可期」</text>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相：期权不是赌场，是「价格保险单」</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>权利金</b></td><td>买一张期权要付的「入场费」，也是卖方的「保险费收入」 (来源：https://www.itiger.com/au/hans/learn/detail/m83x5n6jvv9iaxrek8)</td></tr>
+        <tr><td><b>行权价</b></td><td>约定好的买卖价格。看涨期权的行权价越低越贵，看跌期权反之 (来源：https://www.itiger.com/au/hans/learn/detail/m83x5n6jvv9iaxrek8)</td></tr>
+        <tr><td><b>到期日</b></td><td>权利最后有效的那一天。过了这一天，价外期权直接变废纸 (来源：https://www.itiger.com/au/hans/learn/detail/m83x5n6jvv9iaxrek8)</td></tr>
+        <tr><td><b>价内 / 价外</b></td><td>价内 = 现在行权能赚钱；价外 = 现在行权会亏钱。价外期权便宜，但归零概率高 [UNSOURCED]</td></tr>
+        <tr><td><b>Covered Call</b></td><td>持有股票 + 卖出看涨期权，收权利金增强收益，但要放弃一部分上涨空间 (来源：https://www.futuhk.com/hans/blog/detail-options-tutorial-from-beginner-to-practical-fundamentals-trading-strategies-hands-on-skills-30-240405004)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">期权的历史比你想的古老得多——古希腊哲学家泰勒斯（Thales）在冬天就「买入」了来年春天榨油机的使用权，赌橄榄丰收。结果春天橄榄大丰收，他转手把使用权高价卖出去，赚了一大笔。这被公认是史上最早有记录的期权交易之一 [UNSOURCED]。所以，期权不是华尔街的发明，是哲学家的副业。</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb"><span class="cool">适合</span>：有股票持仓想对冲风险的人；能接受「亏光权利金」的闲钱玩家；愿意花时间学合约要素的人。<br><span class="hot">不适合</span>：想靠期权一夜暴富的人；连 K 线都没看懂就上杠杆的人；把生活费拿来买深度虚值的人。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">期权不是赌大小的骰子，而是「用有限风险，换无限可能」的价格保险单——前提是你真的把它当保险来用。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：富途期权教学专栏 (https://www.futuhk.com/hans/blog/detail-options-tutorial-from-beginner-to-practical-fundamentals-trading-strategies-hands-on-skills-30-240405004)、Moomoo 期权入门 (https://www.moomoo.com/hant/community/feed/understanding-the-market-getting-started-with-options-essential-strategies-for-116029800185861)、南京证券期权基础知识 (https://www.njzq.com.cn/options/jczs.html)、老虎证券期权教学 (https://www.itiger.com/au/hans/learn/detail/m83x5n6jvv9iaxrek8)、红星新闻期权策略 (https://news.hstong.com/post/content/23072709532701635)、中金公司期权投教专区 (https://www.ciccwm.com/geguqiquan/stockOptionEducation.html)。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
