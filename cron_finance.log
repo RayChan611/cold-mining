@@ -172,3 +172,11 @@
 [cold_mining] attempt=0 html_len=0 svg=0
 [cold_mining] attempt=1 html_len=0 svg=0
 [cold_mining] FAILED: AI 未产出合格 HTML，今日跳过（报告不落盘以免脏数据）
+[cold_mining] line=finance topic=期权基础 slug=option-basics
+[cold_mining] tavily hits=2118
+[cold_mining] attempt=0 html_len=19937 svg=8
+[cold_mining] wrote /home/ubuntu/cold-mining/finance/reports/2026-09-01-options-basics.html
+[cold_mining] index+log updated
+[cold_mining] git push ok=True info=To github.com:RayChan611/cold-mining.git
+   7c9158d..bdf9124  main -> main
+[cold_mining] feishu code=0 link=https://raychan611.github.io/cold-mining/finance/reports/2026-09-01-options-basics.html
