@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 对冲</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05080; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 金融衍生品</div>
+  <h1>对冲到底是什么：用对冲基金讲透「风险买卖」这门生意</h1>
+  <div class="sub">一句话副标题：先买保险再上路？不，对冲是「买入一份下跌也能赚钱」的金融术。</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。投资/收藏有风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：对冲是干什么的、谁在玩、值不值得普通人关注。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：一种「风险对冲」策略——同时做多和做空相关资产，把方向性风险抵消，只赚「相对」的钱（来源：好买基金网 https://www.howbuy.com/subject/hedgefund）</li>
+        <li><b>谁在玩</b>：全球对冲基金约 4.2 万亿美元规模，玩家主要是机构与高净值人群；头部玩家如桥水（宏观）、Citadel、Millennium、D.E. Shaw（多策略量化）等 (来源：https://www.preqin.net.cn/data/hedge-funds)</li>
+        <li><b>市场多大</b>：2025 年全球对冲基金总规模约 4.2 万亿美元；「十亿美元俱乐部」机构管理资产达 3.6 万亿美元，占比约 86% (来源：https://www.preqin.net.cn/data/hedge-funds)</li>
+        <li><b>小白能玩吗</b>：几乎不能直接玩——对冲基金通常要求「合格投资者」资质与高门槛（多数最低 100 万美元起）；普通散户可通过 ETF / 公募基金间接接触「对冲策略」 [UNSOURCED]</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <rect x="14" y="24" width="132" height="88" rx="10" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <path d="M30 88 L62 56 L82 66 L118 30" stroke="#e05050" stroke-width="2.5" fill="none"/>
+        <path d="M30 88 L62 96 L82 92 L118 100" stroke="#50b070" stroke-width="2.5" fill="none"/>
+        <circle cx="30" cy="88" r="3.5" fill="#c8a866"/><circle cx="62" cy="56" r="3.5" fill="#c8a866"/>
+        <circle cx="82" cy="66" r="3.5" fill="#c8a866"/><circle cx="118" cy="30" r="3.5" fill="#c8a866"/>
+        <text x="80" y="128" fill="#8a8a8a" font-size="10" text-anchor="middle">双线：一涨一跌，互相对冲</text>
+        <text x="80" y="142" fill="#6a6a6a" font-size="9" text-anchor="middle">核心概念：多空两条腿</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把它类比成「买保险」——但保险只能防损失，对冲还能「从别人亏钱里赚钱」。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">想象你开了一家小卖部，担心隔壁开一家更大的超市抢生意。你做的第一件事不是关店，而是「既卖自家货，又去进货隔壁超市的货」——如果隔壁超市生意爆好，你也能分一杯羹；如果它没起来，你的小卖部还是你的。这就是对冲：<b>同时押注两个相反方向，让「涨」和「跌」都不至于击垮你</b>。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;margin-top:10px;">专业定义上，对冲基金（Hedge Fund）的目标是「通过承担风险追求绝对收益，同时运用对冲工具避免可能出现的重大亏损」（来源：好买基金网 https://www.howbuy.com/subject/hedgefund）。它不像普通公募基金那样只买股票等「单一方向」，而是同时做多（赌涨）和做空（赌跌），把「市场方向」这件事先放在一边，专心赚「谁好谁坏」的钱。</p>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 120" width="720" height="120" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="40" width="180" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="100" y="67" fill="#e8e8e8" font-size="12" text-anchor="middle">调研选标的</text>
+      <path d="M195 62 H235" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="245" y="40" width="180" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="335" y="67" fill="#e8e8e8" font-size="12" text-anchor="middle">同时建多仓 + 空仓</text>
+      <path d="M430 62 H470" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="480" y="40" width="180" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="570" y="67" fill="#e8e8e8" font-size="12" text-anchor="middle">赚「相对收益」</text>
+      <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">对冲基金的基本操作链路：选标的 → 多空对冲 → 赚相对的钱</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 门槛与费用</h2>
+  <div class="sec-note">全球市场约 4.2 万亿美元；「2/20」费率了解一下。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>档位</th><th>典型门槛</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>全球对冲基金总规模</td><td class="up">约 4.2 万亿美元</td><td>2025 年数据；十亿美元俱乐部占 3.6 万亿 (来源：https://www.preqin.net.cn/data/hedge-funds)</td></tr>
+        <tr><td>个人投资门槛</td><td>多数 100 万美元起</td><td>需「合格投资者」资质（美国：年收入 20 万美元或净资产 100 万美元以上）[UNSOURCED]</td></tr>
+        <tr><td>费率结构</td><td class="down">管理费 2% + 业绩提成 20%</td><td>行业常见的「2/20」模式；部分基金业绩提成有「高水位线」条款 (来源：https://www.preqin.net.cn/data/hedge-funds)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 220" width="720" height="220" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <rect x="110" y="100" width="90" height="80" fill="#c8a866"/>
+      <rect x="280" y="40" width="90" height="140" fill="#e05050"/>
+      <rect x="450" y="140" width="90" height="40" fill="#c8a866"/>
+      <text x="155" y="195" fill="#9a9a9a" font-size="11" text-anchor="middle">个人门槛</text>
+      <text x="325" y="195" fill="#9a9a9a" font-size="11" text-anchor="middle">全球总规模</text>
+      <text x="495" y="195" fill="#9a9a9a" font-size="11" text-anchor="middle">Billion Dollar Club</text>
+      <text x="155" y="92" fill="#9a9a9a" font-size="10" text-anchor="middle">100 万$</text>
+      <text x="325" y="32" fill="#e05050" font-size="10" text-anchor="middle">4.2 万亿$</text>
+      <text x="495" y="132" fill="#9a9a9a" font-size="10" text-anchor="middle">3.6 万亿$</text>
+      <text x="380" y="215" fill="#8a8a8a" font-size="11" text-anchor="middle">数据来源：Preqin 对冲基金数据库（2025）</text>
+    </svg>
+    <div class="cap">规模对比：全球对冲基金行业集中于头部机构 (来源：https://www.preqin.net.cn/data/hedge-funds)</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台 -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在制定规则、谁在赚钱、小白该去哪围观。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">ROOT</span>
+        <h3>桥水基金（宏观策略）</h3>
+        <ul><li>全球规模最大的对冲基金，以「全天候」宏观策略著称 (来源：https://www.preqin.net.cn/data/hedge-funds)</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">多策略</span>
+        <h3>Citadel / Millennium / D.E. Shaw</h3>
+        <ul><li>多策略量化巨头，占据行业半壁江山；以 AI 与算力驱动 (来源：https://zhuanlan.zhihu.com/p/2076062568570005124)</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">HOT</span>
+        <h3>中国量化私募（灵均 / 幻方）</h3>
+        <ul><li>灵均投资以 73.51% 年度收益均值夺得 2025 年百亿量化私募冠军；幻方量化以 56.55% 位列第五 (来源：https://zhuanlan.zhihu.com/p/2076062568570005124)</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>小白友好入口</h3>
+        <ul><li>先读 Preqin 等行业数据库免费报告，了解基金评价指标（回撤、夏普比率等）(来源：https://www.preqin.net.cn/data/hedge-funds)</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">先别想对冲基金，你先理解「对冲」这件事。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">搞懂「做多」和「做空」：模拟盘或 ETF 上先练习；不必急着开户。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">看一眼行业数据：去 Preqin 看头部基金的回报率、回撤、波动率等指标，建立「相对收益」概念 (来源：https://www.preqin.net.cn/data/hedge-funds) 。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">理解费用与条款：研读管理费 2%、业绩提成 20%、高水位线（high-water mark）等条款——这决定了你最终拿到多少 (来源：https://www.preqin.net.cn/data/hedge-funds)。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">评估自己是否「合格投资者」；若否，关注公募基金中带「对冲」/「绝对收益」字样的产品（门槛低，但策略受限）[UNSOURCED]。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>以为「对冲」=「稳赚」</h3><ul><li><b>为什么坑：</b>对冲只是降低特定方向的波动，不等于无风险；策略失误照样亏。</li><li><b>怎么避：</b>看基金的「最大回撤」和「夏普比率」，别只看收益 (来源：https://www.preqin.net.cn/data/hedge-funds)</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>忽略费用吞噬收益</h3><ul><li><b>为什么坑：</b>「2/20」模式意味着即使没赚钱，管理费照收；业绩提成也很大。</li><li><b>怎么避：</b>算清楚「净收益」（扣除费用后）再说 (来源：https://www.preqin.net.cn/data/hedge-funds)</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>迷信「冠军基金经理」</h3><ul><li><b>为什么坑：</b>2025 年灵均夺冠（73.51%），但历年排名变动极大，追热点往往高位接盘 (来源：https://zhuanlan.zhihu.com/p/2076062568570005124)</li><li><b>怎么避：</b>看 3-5 年长期业绩与回撤控制，而非一年排名。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>把「对冲」理解为「买保险」：先保命（防大亏），再谈赚钱（追求绝对收益）。</li></ul></div>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="58" fill="#e05050" font-size="13" text-anchor="middle">误区</text>
+      <text x="180" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">「对冲就是稳赚不赔」</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="400" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="58" fill="#50b070" font-size="13" text-anchor="middle">真相</text>
+      <text x="550" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">「对冲是降低方向风险，仍有策略风险」</text>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相：对冲不是无风险，而是「风险换形式」</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>做多（Long）</b></td><td>赌它会涨，买入持有。</td></tr>
+        <tr><td><b>做空（Short）</b></td><td>赌它会跌，先借来卖掉，跌了再买回还回去。</td></tr>
+        <tr><td><b>高水位线（High-Water Mark）</b></td><td>只有净值超过历史最高点，基金才能拿业绩提成——防止「吃老本」 (来源：https://www.preqin.net.cn/data/hedge-funds)</td></tr>
+        <tr><td><b>夏普比率（Sharpe Ratio）</b></td><td>每承担一分风险能换来多少收益；越高说明「性价比」越好 (来源：https://www.preqin.net.cn/data/hedge-funds)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">「对冲基金」的英文 Hedge Fund 里的 Hedge 原意是「树篱」——最早的用法是「用树篱把风险围起来」。但现代对冲基金早已不止「围风险」，而是「利用风险赚钱」，名不副实。（来源：好买基金网 https://www.howbuy.com/subject/hedgefund）</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">有 100 万美元以上可投净资产、且能承受 1-2 年锁定的高净值人群；普通人更适合用公募「量化对冲」产品小额参与 [UNSOURCED]。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">对冲不是「不做风险」，而是「把风险卖给愿意接的人」——你付保费，我赚差价。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：好买基金网（https://www.howbuy.com/subject/hedgefund）、Preqin 对冲基金数据库（https://www.preqin.net.cn/data/hedge-funds）、知乎行业研究报告（https://zhuanlan.zhihu.com/p/2076062568570005124）。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
