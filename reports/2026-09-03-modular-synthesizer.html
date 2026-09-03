@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 模块合成器</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  /* 图文并茂：插图与线稿图标 */
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+
+  /* 汇总入口：左上角悬浮返回总库 */
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 音乐电子乐器</div>
+  <h1>模块合成器：把声音拆成乐高，再亲手拼出宇宙</h1>
+  <div class="sub">一句话副标题：它既不是琴也不是软件，而是一套让你从零「焊」出声音的乐高积木</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。硬件购买有风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：这个领域是干什么的、谁在玩、值不值得普通人关注。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：模块合成器不是一台「琴」，而是一套由多个独立功能模块（振荡器、滤波器、包络等）组成的电子乐器系统，模块之间用跳线（patch cable）自由连接，声音的每个环节都由你亲手决定（来源：https://emastered.com/zh/blog/modular-synthesis）</li>
+        <li><b>谁在玩</b>：电子音乐制作人、声音设计师、极客玩家、收藏家，以及一批「不满足于预设音色」的硬核音乐爱好者</li>
+        <li><b>市场多大</b>：单个模块通常几百到几千元，一套入门系统预算约 5000–15000 元，高端系统数万元起步（据公开资料）</li>
+        <li><b>小白能玩吗</b>：门槛不低——需要机箱、电源、多个模块和大量跳线，还要懂点基础电学；但软件模拟器（如 VCV Rack）可以零成本试水</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <!-- 首屏概念插画：模块化合成器机架 -->
+      <svg viewBox="0 0 180 180" width="180" height="180" xmlns="http://www.w3.org/2000/svg">
+        <rect x="20" y="15" width="140" height="150" rx="8" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <rect x="30" y="25" width="120" height="40" rx="4" fill="#1a1a1a" stroke="#2a2a2a"/>
+        <circle cx="40" cy="45" r="4" fill="#e05050"/><circle cx="54" cy="45" r="4" fill="#c8a866"/><circle cx="68" cy="45" r="4" fill="#50b070"/>
+        <rect x="30" y="72" width="120" height="40" rx="4" fill="#1a1a1a" stroke="#2a2a2a"/>
+        <circle cx="40" cy="92" r="4" fill="#c8a866"/><circle cx="54" cy="92" r="4" fill="#c8a866"/><circle cx="68" cy="92" r="4" fill="#e05050"/>
+        <rect x="30" y="119" width="120" height="36" rx="4" fill="#1a1a1a" stroke="#2a2a2a"/>
+        <line x1="40" y1="130" x2="100" y2="130" stroke="#c8a866" stroke-width="2"/>
+        <path d="M40 137 C60 137, 80 145, 100 137" fill="none" stroke="#c8a866" stroke-width="1.5"/>
+        <path d="M60 30 C80 60, 80 100, 60 130" fill="none" stroke="#8a8a8a" stroke-width="1.2" stroke-dasharray="4 3"/>
+        <path d="M80 30 C100 60, 100 100, 80 130" fill="none" stroke="#8a8a8a" stroke-width="1.2" stroke-dasharray="4 3"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">想象一下，普通电子琴是一台「一体机」：键盘、音源、扬声器、效果器全都焊死在一个盒子里，你只能按预设的按钮换音色。而模块合成器像是把一台电子琴彻底拆散，再把每个零件——负责产生波形的声音发生器（振荡器）、负责塑形的滤波器、负责控制音量的包络、负责节奏的时钟——都单独装进一个小盒子里，然后你用一根根「跳线」像插电话线一样把它们任意连起来。同一个振荡器，接上滤波器就变成柔和的 pad；改接到环形调制器，又能变成外星人说话的金属音。你的声音不是选出来的，是「焊」出来的（来源：https://emastered.com/zh/blog/modular-synthesis）。</p>
+  </div>
+  <div class="illus">
+    <!-- 结构图：模块化合成器的信号流 -->
+    <svg viewBox="0 0 720 140" width="720" height="140" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="40" width="140" height="50" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="80" y="62" fill="#e8e8e8" font-size="11" text-anchor="middle">振荡器</text>
+      <text x="80" y="78" fill="#8a8a8a" font-size="9" text-anchor="middle">产生波形</text>
+      <path d="M155 65 H195" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="205" y="40" width="140" height="50" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="275" y="62" fill="#e8e8e8" font-size="11" text-anchor="middle">滤波器</text>
+      <text x="275" y="78" fill="#8a8a8a" font-size="9" text-anchor="middle">塑形音色</text>
+      <path d="M350 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="400" y="40" width="140" height="50" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="470" y="62" fill="#e8e8e8" font-size="11" text-anchor="middle">包络/放大器</text>
+      <text x="470" y="78" fill="#8a8a8a" font-size="9" text-anchor="middle">控制音量</text>
+      <path d="M545 65 H585" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="595" y="40" width="100" height="50" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="645" y="67" fill="#e8e8e8" font-size="11" text-anchor="middle">输出/耳机</text>
+      <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">信号流示意：声音从振荡器出发，经过滤波器塑形、包络控制音量，最终输出（来源：https://emastered.com/zh/blog/modular-synthesis）</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 价格带</h2>
+  <div class="sec-note">用真实数字说明蛋糕有多大、钱集中在哪。来源内联标注。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>档位</th><th>典型价格</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>软件试水档</td><td class="up">¥0</td><td>VCV Rack 等免费软件模拟器，零成本入门（据公开资料）</td></tr>
+        <tr><td>入门硬件档</td><td>¥5,000 – 15,000</td><td>一个机箱 + 电源 + 3-5 个基础模块（振荡器、滤波器、包络、VCA），能出声但很朴素（据公开资料）</td></tr>
+        <tr><td>进阶档</td><td>¥15,000 – 40,000</td><td>增加音序器、效果器、随机模块等，可玩性大幅提升（据公开资料）</td></tr>
+        <tr><td>发烧/收藏档</td><td class="down">¥50,000 – 200,000+</td><td>大型系统、稀有复古模块、定制面板，无上限 [UNSOURCED]</td></tr>
+      </tbody>
+    </table>
+    <p class="src">注：模块合成器价格高度分散，二手市场活跃，具体价格以实际为准。</p>
+  </div>
+  <div class="illus">
+    <!-- 价格带柱状图 -->
+    <svg viewBox="0 0 720 220" width="720" height="220" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <rect x="90" y="175" width="90" height="5" fill="#50b070"/>
+      <text x="135" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">软件试水</text>
+      <rect x="250" y="130" width="90" height="50" fill="#c8a866"/>
+      <text x="295" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">入门硬件</text>
+      <rect x="410" y="90" width="90" height="90" fill="#c8a866"/>
+      <text x="455" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">进阶</text>
+      <rect x="570" y="30" width="90" height="150" fill="#e05050"/>
+      <text x="615" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">发烧收藏</text>
+      <text x="380" y="215" fill="#8a8a8a" font-size="11" text-anchor="middle">价格带示意（单位：人民币，相对比例，据公开资料整理）</text>
+    </svg>
+    <div class="cap">价格带示意：软件免费，硬件从几千到十几万跨度极大</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台 -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在制定规则、谁在赚钱、小白该去哪个平台。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="3"/><rect x="6" y="8" width="3" height="3" fill="#c8a866"/><rect x="12" y="8" width="3" height="3" fill="#c8a866"/><rect x="6" y="13" width="3" height="3" fill="#c8a866"/><rect x="12" y="13" width="3" height="3" fill="#c8a866"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">ROOT</span>
+        <h3>Doepfer（德国）</h3>
+        <ul><li>Eurorack 格式的鼻祖，定义了「3U 高度 + 模块宽度」的行业标准，几乎所有品牌都兼容它的机箱（据公开资料）</li><li>对小白意义：入门机箱和基础模块首选，便宜且规范</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">平台 B</span>
+        <h3>ModularGrid（网站）</h3>
+        <ul><li>全球最大的模块合成器数据库，可以「虚拟搭建」你的系统并估算总价（据公开资料）</li><li>小白用途：先在上面规划，再决定买什么，避免乱花钱</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">HOT</span>
+        <h3>Make Noise / Intellijel / Mutable Instruments</h3>
+        <ul><li>近十年最热门的模块品牌，设计前卫、声音独特，二手市场流通性好（据公开资料）</li><li>「Mutable Instruments」的模块大量被复刻，话题度极高 [UNSOURCED]</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 12l3 3 5-6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>VCV Rack（免费软件）</h3>
+        <ul><li>完全免费的软件模块合成器，界面和硬件几乎一致，是零成本学习信号流的最佳起点（据公开资料）</li><li>官方社区大量免费模块，适合先玩明白再买硬件</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就梭哈。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">下载免费的 VCV Rack（或网页版），花 1-2 周时间，跟着教程把「振荡器→滤波器→包络→输出」这条基本链路接通，理解信号流（据公开资料）</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">去 ModularGrid 注册账号，看看热门模块的价格和评价，虚拟搭建一套 6U 84HP 的小系统，预算控制在 8000 元以内（据公开资料）</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">逛二手平台（如闲鱼、Reverb）或本地音乐人圈子，收一个二手入门机箱 + 3-5 个基础模块，总价 5000 元左右即可出声（据公开资料）</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">先别急着买更多模块！把手上这几个模块的每一种连接方式都玩透，录下音来对比；确定自己真的喜欢再逐步扩展，避免「买了一堆不用」的浪费 [UNSOURCED]</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>一上来就买大系统</h3><ul><li>以为模块越多越好，结果买了一堆用不上的，钱花了声音还乱</li><li>正确做法：先用软件模拟，再用小系统起步，逐块扩展（据公开资料）</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>忽略电源和机箱质量</h3><ul><li>贪便宜买劣质电源，导致模块噪音大甚至损坏</li><li>正确做法：机箱和电源选 Doepfer 等靠谱品牌，这是整个系统的基础（据公开资料）</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>以为模块合成器=电子琴</h3><ul><li>很多人以为买回来就能弹旋律，实际上它没有键盘，需要额外购买音序器或键盘模块，且需要大量学习（来源：https://www.gcores.com/articles/113588）</li><li>正确做法：先明确自己要「做实验」还是「弹音乐」，后者建议先玩常规合成器</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>「模块合成器是乐器中的乐高，不是乐器中的钢琴」——它奖励的是耐心和好奇心，而不是预算。先玩免费软件，再买小系统，慢慢来（据公开资料）</li></ul></div>
+  </div>
+  <div class="illus">
+    <!-- 误区 vs 真相 对比图 -->
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="58" fill="#e05050" font-size="13" text-anchor="middle">误区</text>
+      <text x="180" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">「模块越多 = 声音越好」</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="400" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="58" fill="#50b070" font-size="13" text-anchor="middle">真相</text>
+      <text x="550" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">「理解信号流 > 堆模块」</text>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相：模块合成器玩的是「连接」，不是「数量」</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>Eurorack</b></td><td>最主流的模块化合成器「格式」，规定了模块的高度（3U）和宽度（HP），Doepfer 发明，几乎所有品牌都兼容（据公开资料）</td></tr>
+        <tr><td><b>Patch（跳线）</b></td><td>用一根根线把不同模块的接口连起来的过程，也是模块合成器最核心的操作（来源：https://emastered.com/zh/blog/modular-synthesis）</td></tr>
+        <tr><td><b>VCO / 振荡器</b></td><td>产生原始波形（方波、锯齿波等）的模块，是声音的「原料」</td></tr>
+        <tr><td><b>VCF / 滤波器</b></td><td>削掉某些频率，改变音色的「明暗」，是塑造声音性格的关键</td></tr>
+        <tr><td><b>VCA / 放大器</b></td><td>控制音量的模块，通常配合包络（ADSR）使用，让声音有「起音-衰减-延音-释音」的变化</td></tr>
+        <tr><td><b>Sequencer / 音序器</b></td><td>用来编排音符序列的模块，相当于模块世界的「自动演奏员」</td></tr>
+        <tr><td><b>CV（控制电压）</b></td><td>模块之间传递控制信号的电压，是模块合成器区别于普通合成器的核心——它让「控制」本身也变得可控</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">模块合成器最早诞生于 1960 年代，当时的「模块」是一整面墙大小的机柜，需要几个人才能搬动。如今你口袋里一台手机的性能，比当年整个录音室的模块系统都强大，但很多人依然愿意花几万元买这些「古董技术」——因为亲手插线、拧旋钮、听声音从无到有长出来的过程，是任何软件都无法替代的体验（据公开资料）。</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">适合：喜欢动手、有耐心、不满足于预设音色、愿意花时间「玩」声音的人。不适合：只想快速弹出一首曲子、预算有限且不想学习的人。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">模块合成器不是一台乐器，而是一套「声音的乐高」——你连接的不是电线，是想象力。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：机核网《什么是"模块化合成器"》（https://www.gcores.com/articles/113588）、eMastered《模块化合成：完全入门指南》（https://emastered.com/zh/blog/modular-synthesis）、Reddit r/synthesizers 与 r/modular 社区讨论、知乎《2022便宜大碗合成器选购指南》（https://zhuanlan.zhihu.com/p/542273204）。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
