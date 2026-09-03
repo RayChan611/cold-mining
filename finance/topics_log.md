@@ -29,3 +29,4 @@
 | 2026-08-28 | 期权是什么？一份给外行的「买选择权」入门指南 | reports/2026-08-28-options-basics.html |
 | 2026-09-01 | 期权基础：一张「价格保险单」的冷门玩法，看懂它你就超过了 90% 的散户 | reports/2026-09-01-options-basics.html |
 | 2026-09-02 | 对冲到底是什么：用对冲基金讲透「风险买卖」这门生意 | reports/2026-09-02-hedge-funds.html |
+| 2026-09-03 | 杠杆：用一小笔钱撬动大资金，是机会还是陷阱？ | reports/2026-09-03-leverage-beginners-guide.html |

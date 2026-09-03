@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 杠杆入门研究报告</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 金融杠杆</div>
+  <h1>杠杆：用一小笔钱撬动大资金，是机会还是陷阱？</h1>
+  <div class="sub">大白话拆解「杠杆交易」：它如何放大盈亏、哪些人在用、以及为什么大多数人应该远离它。</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。杠杆交易风险极高，可能导致全部本金损失，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：杠杆是干什么的、谁在玩、普通人能不能碰。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：用一笔小钱（保证金）作为「押金」，撬动数倍甚至数十倍于本金的交易头寸。盈亏按全额计算，所以赚得快、亏得更快 (来源：https://j2t.com/zh/solutions/blogview/what-is-leverage)</li>
+        <li><b>谁在玩</b>：外汇交易者、差价合约（CFD）玩家、专业机构，以及少量风险承受力极高的散户 (来源：https://www.fpmarkets.com/zh-hk/leverage)</li>
+        <li><b>市场多大</b>：外汇市场是全球最大的金融市场，日交易量超过 6 万亿美元（据国际清算银行 2022 年调查，来源：https://www.ig.com/cn/risk-management/what-is-leverage）</li>
+        <li><b>小白能玩吗</b>：门槛极低（几百美元就能开户），但风险极高，多数新手在 6 个月内亏光本金 [UNSOURCED]</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <!-- 跷跷板概念：小支点撬动大石头 -->
+        <rect x="10" y="120" width="140" height="10" rx="4" fill="#141414" stroke="#2a2a2a"/>
+        <path d="M80 130 L80 60" stroke="#c8a866" stroke-width="3"/>
+        <polygon points="72,60 88,60 80,44" fill="#c8a866"/>
+        <path d="M80 70 L140 40" stroke="#c8a866" stroke-width="4"/>
+        <path d="M80 70 L30 100" stroke="#c8a866" stroke-width="4"/>
+        <rect x="122" y="20" width="36" height="20" rx="3" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+        <text x="140" y="34" fill="#e05050" font-size="10" text-anchor="middle">大资金</text>
+        <rect x="12" y="86" width="36" height="14" rx="3" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+        <text x="30" y="96" fill="#50b070" font-size="9" text-anchor="middle">小押金</text>
+        <text x="80" y="145" fill="#8a8a8a" font-size="10" text-anchor="middle">杠杆 = 撬动比本金更大的头寸</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">用一个生活场景，把「杠杆」讲给完全没接触过的人。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">想象你买房子：一套 100 万的房子，你只需要付 20 万首付，银行借你 80 万。如果房子涨到 110 万，你赚了 10 万——但这是相对于你的 20 万本金而言，收益率是 50%，而不是 10%。这就是杠杆：用一小笔钱控制一大笔资产，盈亏都按总额算 (来源：https://www.atfxcapital.com/zh-hans/analysis/trading-strategies/what-is-leverage-in-trading)。<br><br>
+    金融交易里的杠杆，原理类似但更刺激：你存入 500 美元保证金，如果平台提供 20 倍杠杆，你就能开出价值 10,000 美元的仓位。价格只要涨 2%，你的本金就翻倍；但跌 2%，你的本金就归零。注意，盈亏计算的基础是整个 10,000 美元的仓位，而不是你实际投入的 500 美元 (来源：https://www.ig.com/cn/risk-management/what-is-leverage)。<br><br>
+    它本质上是一笔「保证金贷款」——交易平台借给你钱，但要你提供抵押。杠杆倍数越高，所需保证金比例越低，风险也越大。以 IG 为例，保证金 5% 意味着 20 倍杠杆，账户里只剩 300 美元时，任何不利走势超过 2% 就会爆仓 (来源：https://www.ig.com/cn/risk-management/what-is-leverage)。</p>
+  </div>
+  <div class="illus">
+    <!-- 杠杆机制图解：保证金 → 杠杆 → 头寸 -->
+    <svg viewBox="0 0 720 140" width="720" height="140" xmlns="http://www.w3.org/2000/svg">
+      <rect x="20" y="40" width="150" height="60" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="95" y="67" fill="#50b070" font-size="12" text-anchor="middle">你的保证金</text>
+      <text x="95" y="86" fill="#9a9a9a" font-size="11" text-anchor="middle">500 美元</text>
+      <path d="M175 70 H215" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="225" y="40" width="150" height="60" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="300" y="67" fill="#c8a866" font-size="12" text-anchor="middle">杠杆（20倍）</text>
+      <text x="300" y="86" fill="#9a9a9a" font-size="11" text-anchor="middle">平台借你资金</text>
+      <path d="M380 70 H420" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="430" y="40" width="180" height="60" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="520" y="67" fill="#e05050" font-size="12" text-anchor="middle">交易头寸</text>
+      <text x="520" y="86" fill="#9a9a9a" font-size="11" text-anchor="middle">10,000 美元（盈亏按此计算）</text>
+      <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">杠杆交易流程：小额保证金 → 平台放大 → 大额头寸，盈亏全按头寸规模计算 (来源：https://www.ig.com/cn/risk-management/what-is-leverage)</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>杠杆倍数 · 风险与保证金关系</h2>
+  <div class="sec-note">不同杠杆倍数意味着什么？用真实数字看清风险。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>杠杆比率</th><th>所需保证金</th><th>价格反向波动多少会亏光本金</th></tr></thead>
+      <tbody>
+        <tr><td>20 倍</td><td>5%</td><td class="down">约 5%（方向不利时）</td></tr>
+        <tr><td>5 倍</td><td>20%</td><td class="down">约 20%</td></tr>
+        <tr><td>3.33 倍</td><td>30%</td><td class="down">约 30%</td></tr>
+        <tr><td>2 倍</td><td>50%</td><td class="down">约 50%</td></tr>
+        <tr><td>1.67 倍</td><td>60%</td><td>约 60%</td></tr>
+        <tr><td>1.43 倍</td><td>70%</td><td>约 70%</td></tr>
+      </tbody>
+    </table>
+    <p class="src">数据来源：杠杆与保证金成反比，保证金越低、杠杆越高，本金亏光的波动阈值越小 (来源：https://www.poems.com.sg/zh-hans/market-journal/5mins-to-learn-pwr-of-leverage)</p>
+  </div>
+  <div class="illus">
+    <!-- 柱状对比图：不同杠杆倍数下本金亏光的波动幅度 -->
+    <svg viewBox="0 0 720 220" width="720" height="220" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <rect x="90" y="30" width="80" height="150" fill="#e05050"/>
+      <text x="130" y="165" fill="#e8e8e8" font-size="11" text-anchor="middle">5%</text>
+      <rect x="240" y="90" width="80" height="90" fill="#e05050"/>
+      <text x="280" y="165" fill="#e8e8e8" font-size="11" text-anchor="middle">20%</text>
+      <rect x="390" y="120" width="80" height="60" fill="#c8a866"/>
+      <text x="430" y="165" fill="#e8e8e8" font-size="11" text-anchor="middle">30%</text>
+      <rect x="540" y="140" width="80" height="40" fill="#50b070"/>
+      <text x="580" y="165" fill="#e8e8e8" font-size="11" text-anchor="middle">50%</text>
+      <text x="130" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">20倍杠杆</text>
+      <text x="280" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">5倍杠杆</text>
+      <text x="430" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">3.3倍</text>
+      <text x="580" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">2倍</text>
+      <text x="360" y="218" fill="#8a8a8a" font-size="11" text-anchor="middle">柱高 = 本金亏光所需的价格反向波动幅度（越小越危险）</text>
+    </svg>
+    <div class="cap">杠杆越高，容错空间越小：20 倍杠杆下价格只需反向波动 5% 本金即归零 (来源：https://www.poems.com.sg/zh-hans/market-journal/5mins-to-learn-pwr-of-leverage)</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台 -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在提供杠杆工具、谁在交易、小白该去哪个平台。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M3 21V8l9-5 9 5v13"/><path d="M3 21h18M9 21v-6h6v6"/><circle cx="12" cy="10" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">做市商</span>
+        <h3>IG 集团</h3>
+        <ul><li>全球领先的差价合约（CFD）与外汇经纪商，提供最高 20 倍以上的杠杆（来源：https://www.ig.com/cn/risk-management/what-is-leverage）</li><li>对小白的意义：平台有中文界面和风险教育内容，但开户即意味着进入高杠杆领域</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">经纪商</span>
+        <h3>FP Markets</h3>
+        <ul><li>外汇与差价合约经纪商，强调杠杆是「强大的工具」，允许交易者以远大于开户金额的规模开仓 (来源：https://www.fpmarkets.com/zh-hk/leverage)</li><li>门槛：数百美元即可开户，但低门槛不等于低风险</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">热门</span>
+        <h3>Just2Trade</h3>
+        <ul><li>强调「杠杆本身无固有盈利或亏损属性」，关键取决于如何使用 (来源：https://j2t.com/zh/solutions/blogview/what-is-leverage)</li><li>提供股票和外汇杠杆，是散户接触杠杆的常见入口之一</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>模拟账户 + 教育平台</h3>
+        <ul><li>几乎每家经纪商都提供「模拟账户」——用虚拟资金练习，这是小白唯一推荐的「上手」方式 [UNSOURCED]</li><li>先花 1-2 个月模拟盘验证策略，再考虑是否用真实资金（来源：https://www.atfxcapital.com/zh-hans/analysis/trading-strategies/what-is-leverage-in-trading）</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">如果坚持要了解杠杆，请按这个顺序来，别跳步。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">彻底搞懂「保证金」和「爆仓」：先读平台的风险披露文件，明白亏光是常态而不是意外。IG 的案例很直观：账户 800 美元，开 10,000 美元仓位，剩余可用资金 300 美元，价格反向波动超 2% 就爆仓 (来源：https://www.ig.com/cn/risk-management/what-is-leverage)</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">开模拟账户练习至少 1-2 个月：所有主流平台都提供免费模拟盘。目标是验证你能否连续 4 周不亏光虚拟本金 [UNSOURCED]</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">如果坚持用真实资金，只投入「归零也不心疼」的钱：比如 100-500 美元，并只用最低杠杆（2 倍以内），同时设置止损单 (来源：https://www.atfxcapital.com/zh-hans/analysis/trading-strategies/what-is-leverage-in-trading)</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">建立退出纪律：明确「亏多少就离场」的铁律。杠杆交易成功的关键在于风险控制，而不是追求暴富 (来源：https://j2t.com/zh/solutions/blogview/what-is-leverage)</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方，每条都是真金白银换来的教训。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>把杠杆当成「快速致富」工具</h3><ul><li>为什么坑：杠杆放大的是盈亏两面，不是只放大收益。几个不利的举动就可能让账户余额全部损失殆尽 (来源：https://j2t.com/zh/solutions/blogview/what-is-leverage)</li><li>怎么避：先假设自己会亏光，再决定要不要入场</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>不设止损，扛单等反弹</h3><ul><li>为什么坑：杠杆仓位亏到保证金不足时，经纪商有权强制平仓（追加保证金通知），你可能被迫在最低点割肉 (来源：https://www.poems.com.sg/zh-hans/market-journal/5mins-to-learn-pwr-of-leverage)</li><li>怎么避：每笔交易入场前就设好止损单，并严格执行</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>高杠杆 + 满仓 = 自杀式组合</h3><ul><li>为什么坑：20 倍杠杆下，市场反向波动 5% 本金即归零 (来源：https://www.poems.com.sg/zh-hans/market-journal/5mins-to-learn-pwr-of-leverage)。外汇市场日常波动 1-2% 是常态，满仓高杠杆等于赌硬币</li><li>怎么避：单笔交易风险不超过本金的 1-2% [UNSOURCED]</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>「杠杆交易本身并无固有的盈利或亏损属性——它取决于如何使用。」 (来源：https://j2t.com/zh/solutions/blogview/what-is-leverage)</li><li>把它当作风险管理工具，而不是赌博工具</li></ul></div>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="58" fill="#e05050" font-size="13" text-anchor="middle">误区</text>
+      <text x="180" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">「高杠杆 = 赚大钱」</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="400" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="58" fill="#50b070" font-size="13" text-anchor="middle">真相</text>
+      <text x="550" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">「高杠杆 = 亏光速度也乘以 20 倍」</text>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相：杠杆放大的是「结果」，不是「胜率」</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>保证金</b></td><td>你放在平台里的「押金」，用于开立杠杆头寸。保证金比例越低，杠杆倍数越高 (来源：https://www.poems.com.sg/zh-hans/market-journal/5mins-to-learn-pwr-of-leverage)</td></tr>
+        <tr><td><b>爆仓 / 追加保证金通知</b></td><td>你的亏损快把保证金耗尽时，平台要求你补充资金，否则强制平仓 (来源：https://www.poems.com.sg/zh-hans/market-journal/5mins-to-learn-pwr-of-leverage)</td></tr>
+        <tr><td><b>头寸规模</b></td><td>你实际控制的交易金额。杠杆交易的盈亏按头寸规模计算，而不是按保证金计算 (来源：https://j2t.com/zh/solutions/blogview/what-is-leverage)</td></tr>
+        <tr><td><b>止损单</b></td><td>预设一个价格，跌到就自动平仓，用来限制最大亏损 (来源：https://www.atfxcapital.com/zh-hans/analysis/trading-strategies/what-is-leverage-in-trading)</td></tr>
+        <tr><td><b>差价合约（CFD）</b></td><td>一种衍生品，让你不用实际持有资产就能交易其价格涨跌，是杠杆交易的常见载体 (来源：https://www.fpmarkets.com/zh-hk/leverage)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">外汇市场是全球流动性最强的市场，日交易量超过 6 万亿美元——比全球所有股票市场的日交易额加起来还要多。而其中绝大多数交易都带有杠杆，也就是说，你看到的每一笔「以小博大」背后，都是无数个账户在同时赌方向 (来源：https://www.ig.com/cn/risk-management/what-is-leverage)</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">适合：有充足闲置资金、能承受全部本金损失、有 1-2 年模拟盘经验的人。<br><span class="hot">不适合：</span>想靠它快速翻本、承受不了大额亏损、缺乏交易纪律的人。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">杠杆不是印钞机，而是<span class="hot">放大器</span>——它把你的判断力、纪律和风险承受力全部乘以 20 倍，然后还给市场。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：Just2Trade（j2t.com）、IG 官网（ig.com）、FP Markets（fpmarkets.com）、ATFX（atfxcapital.com）、POEMS（poems.com.sg）等公开资料。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
