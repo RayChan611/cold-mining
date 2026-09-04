@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 看懂PE、PB、ROE</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 股票估值基础</div>
+  <h1>看懂PE、PB、ROE：三把尺子量出好公司</h1>
+  <div class="sub">用大白话讲清楚三个最常见的财务指标：它们是什么、怎么用、为什么不能单看一个</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。投资有风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：这三个指标是干什么的、谁在看、普通人能怎么用。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它们是什么</b>：PE（市盈率）看「贵不贵」，PB（市净率）看「家底厚不厚」，ROE（净资产收益率）看「赚钱能力强不强」。</li>
+        <li><b>谁在玩</b>：散户、机构投资者、分析师，几乎每个看股票的人都会用到这三把尺子。</li>
+        <li><b>市场多大</b>：A股、港股、美股所有上市公司都会披露这些数据，是股票估值最基本的工具组合（来源：https://aix.me/blog/valuation）。</li>
+        <li><b>小白能玩吗</b>：能，但别只看一个数就冲进去。三个指标要配合用，还得结合行业特性。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="80" cy="80" r="52" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <text x="80" y="70" fill="#c8a866" font-size="11" text-anchor="middle" font-family="monospace">PE</text>
+        <text x="80" y="86" fill="#e8e8e8" font-size="11" text-anchor="middle" font-family="monospace">PB</text>
+        <text x="80" y="102" fill="#e8e8e8" font-size="11" text-anchor="middle" font-family="monospace">ROE</text>
+        <path d="M28 80 Q14 50 40 30" stroke="#50b070" stroke-width="1.5" fill="none" stroke-dasharray="4 3"/>
+        <path d="M132 80 Q146 50 120 30" stroke="#e05050" stroke-width="1.5" fill="none" stroke-dasharray="4 3"/>
+        <text x="20" y="30" fill="#8a8a8a" font-size="9" text-anchor="middle">贵</text>
+        <text x="140" y="30" fill="#8a8a8a" font-size="9" text-anchor="middle">值</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把三个听起来很高深的财务指标，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">
+      <b>PE（市盈率）</b>：好比「回本年限」。你花 100 万买下一家小吃店，它每年净赚 10 万，那你的 PE 就是 10 倍——意思是不算其他因素，光靠利润你要 10 年回本。PE 越低，回本越快，看起来越「便宜」（来源：https://walker2026.wordpress.com/2016/06/01/）。<br><br>
+      <b>PB（市净率）</b>：好比「买房子时你愿意为地段付多少溢价」。房子本身的建材和人工值 100 万（净资产），但因为它在地铁口，你愿意花 200 万买，那 PB 就是 2 倍——市场愿意用 2 块钱买它账面上 1 块钱的家底（来源：https://aix.me/blog/valuation）。<br><br>
+      <b>ROE（净资产收益率）</b>：好比「你的本金每年能生出多少利息」。你投了 100 万开店，一年净赚 15 万，那 ROE 就是 15%。这个数字越高，说明公司用股东的钱赚钱的效率越高。
+    </p>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 150" width="720" height="150" xmlns="http://www.w3.org/2000/svg">
+      <!-- 三把尺子 -->
+      <rect x="40" y="30" width="180" height="90" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="130" y="60" fill="#c8a866" font-size="13" text-anchor="middle" font-weight="700">PE 市盈率</text>
+      <text x="130" y="82" fill="#c4c4c4" font-size="11" text-anchor="middle">回本要几年</text>
+      <text x="130" y="102" fill="#8a8a8a" font-size="10" text-anchor="middle">越低越便宜</text>
+
+      <rect x="270" y="30" width="180" height="90" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="360" y="60" fill="#c8a866" font-size="13" text-anchor="middle" font-weight="700">PB 市净率</text>
+      <text x="360" y="82" fill="#c4c4c4" font-size="11" text-anchor="middle">家底值多少</text>
+      <text x="360" y="102" fill="#8a8a8a" font-size="10" text-anchor="middle">破净=打折</text>
+
+      <rect x="500" y="30" width="180" height="90" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="590" y="60" fill="#c8a866" font-size="13" text-anchor="middle" font-weight="700">ROE 净资产收益率</text>
+      <text x="590" y="82" fill="#c4c4c4" font-size="11" text-anchor="middle">赚钱效率</text>
+      <text x="590" y="102" fill="#8a8a8a" font-size="10" text-anchor="middle">越高越优秀</text>
+    </svg>
+    <div class="cap">三把尺子各管一件事：贵不贵、厚不厚、强不强</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 数值范围 -->
+<section>
+  <h2><span class="num">02</span>数值范围 · 多少算好</h2>
+  <div class="sec-note">用真实数字说明「多少算便宜、多少算贵」。来源内联标注。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>指标</th><th>典型数值</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td><b>PE</b></td><td class="up">10–20 倍</td><td>成熟行业如银行、钢铁通常较低；科技、成长股可能 30–50 倍甚至更高（来源：https://walker2026.wordpress.com/2016/06/01/）</td></tr>
+        <tr><td><b>PB</b></td><td class="up">1–3 倍</td><td>PB &lt; 1 叫「破净」，意味着市值比净资产还低，常见于银行、钢铁等重资产行业（来源：https://aix.me/blog/valuation）</td></tr>
+        <tr><td><b>ROE</b></td><td class="up">10–20%</td><td>长期 ROE 超过 15% 的公司通常被视为优秀；低于 5% 则说明赚钱效率较低 [UNSOURCED]</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 220" width="720" height="220" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <!-- 三组柱状：低中高 -->
+      <rect x="100" y="140" width="70" height="40" fill="#50b070"/>
+      <rect x="210" y="100" width="70" height="80" fill="#c8a866"/>
+      <rect x="320" y="40" width="70" height="140" fill="#e05050"/>
+      <text x="135" y="195" fill="#9a9a9a" font-size="11" text-anchor="middle">低 PE</text>
+      <text x="245" y="195" fill="#9a9a9a" font-size="11" text-anchor="middle">中 PE</text>
+      <text x="355" y="195" fill="#9a9a9a" font-size="11" text-anchor="middle">高 PE</text>
+      <!-- 右侧 ROE 柱 -->
+      <rect x="480" y="80" width="70" height="100" fill="#50b070"/>
+      <rect x="580" y="30" width="70" height="150" fill="#c8a866"/>
+      <text x="515" y="195" fill="#9a9a9a" font-size="11" text-anchor="middle">ROE 10%</text>
+      <text x="615" y="195" fill="#9a9a9a" font-size="11" text-anchor="middle">ROE 20%</text>
+      <text x="400" y="215" fill="#8a8a8a" font-size="11" text-anchor="middle">示意：PE 越低越「便宜」（左），ROE 越高越「能赚」（右）</text>
+    </svg>
+    <div class="cap">PE 与 ROE 的直观对比（数值为示意，实际因行业而异）</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台 -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在制定规则、谁在解读这些数字、小白该去哪看。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">数据源</span>
+        <h3>交易所 &amp; 财报</h3>
+        <ul><li>上市公司每季度发布财报，PE/PB/ROE 都从财报数据算出（来源：https://aix.me/blog/valuation）</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">工具</span>
+        <h3>炒股软件 / 行情网站</h3>
+        <ul><li>同花顺、东方财富、雪球等免费提供这些指标，输入股票代码就能看到</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">分析</span>
+        <h3>券商研报 / 财经媒体</h3>
+        <ul><li>分析师会用这三把尺子做估值对比，财经媒体天天引用，是最常见的「投资话语」</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>小白友好入口</h3>
+        <ul><li>先看「雪球」或「理杏仁」这类社区/工具，上面有现成的 PE/PB/ROE 历史曲线</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就梭哈。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">打开任意炒股软件，随便挑一家你熟悉的公司（比如你天天用的 App 母公司），看它的 PE、PB、ROE 三个数字长什么样。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">对比同一行业的两三家公司，看看谁更便宜（PE/PB 低）、谁更能赚（ROE 高）。注意：不同行业的数字不能直接比。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">建立判断框架：ROE 是「质」，PE/PB 是「价」。好公司（高 ROE）+ 合理价格（不夸张的 PE/PB），才是好投资。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">当你发现一家公司 ROE 持续多年很高（比如超过 15%），但 PE/PB 还处于历史低位时，才值得深入研究（来源：https://aix.me/blog/valuation）。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>只看 PE 低就买</h3><ul><li>PE 低可能因为利润即将下滑，或行业前景黯淡。银行股 PE 常年很低，但不一定涨（来源：https://aix.me/blog/valuation）</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>PB 破净就以为捡到宝</h3><ul><li>破净可能因为资产质量差——比如大量坏账、过时设备。便宜有便宜的原因（来源：https://aix.me/blog/valuation）</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>拿不同行业的数字硬比</h3><ul><li>科技公司 PE 30 倍可能正常，银行 PE 5 倍也正常。跨行业比较毫无意义（来源：https://walker2026.wordpress.com/2016/06/01/）</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>三个指标要一起看：ROE 看公司好不好，PE/PB 看价格合不合理。单看任何一个都是盲人摸象。</li></ul></div>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="58" fill="#e05050" font-size="13" text-anchor="middle">误区</text>
+      <text x="180" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">PE 低 = 便宜 = 买</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="400" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="58" fill="#50b070" font-size="13" text-anchor="middle">真相</text>
+      <text x="550" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">还要看 ROE 和行业前景</text>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相：低 PE 只是起点，不是终点</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>市盈率（PE）</b></td><td>股价 ÷ 每股利润。相当于「按当前赚钱速度，几年回本」（来源：https://walker2026.wordpress.com/2016/06/01/）</td></tr>
+        <tr><td><b>市净率（PB）</b></td><td>股价 ÷ 每股净资产。相当于「你愿意花几倍价钱买它的家底」（来源：https://aix.me/blog/valuation）</td></tr>
+        <tr><td><b>净资产收益率（ROE）</b></td><td>净利润 ÷ 净资产。相当于「股东每投 100 块钱，一年能赚回多少」（来源：https://walker2026.wordpress.com/2016/06/01/）</td></tr>
+        <tr><td><b>破净</b></td><td>PB &lt; 1，市值比净资产还低，理论上是「打折甩卖」（来源：https://aix.me/blog/valuation）</td></tr>
+        <tr><td><b>净资产</b></td><td>总资产 − 总负债，也就是「股东权益」或「家底」（来源：https://aix.me/blog/valuation）</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">巴菲特的老师格雷厄姆特别喜欢 PB 这个指标，专门找「破净」的股票买，号称「捡烟蒂」——就像地上捡起还能吸一口的烟头。但如今市场越来越有效，纯靠破净捡漏的机会越来越少（来源：https://aix.me/blog/valuation）。</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">如果你愿意花时间看财报、理解行业，这三把尺子够用；如果你想一夜暴富、不研究就下手，那它们也救不了你。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">「ROE 看公司好不好，PE/PB 看价格贵不贵——好公司 + 好价格，才是好投资。」</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：彼岸回响《股票估值怎么看》（https://aix.me/blog/valuation）、2017-2026《什么是PE、PB、ROE？》（https://walker2026.wordpress.com/2016/06/01/）。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
