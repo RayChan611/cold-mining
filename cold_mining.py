@@ -27,6 +27,8 @@ import time
 import datetime
 import subprocess
 import requests
+import html as _html_mod
+from urllib.parse import unquote
 
 BASE = "/home/ubuntu/cold-mining"
 
@@ -164,6 +166,43 @@ def parse_output(text):
     return slug, title, html
 
 
+# 2026-09-04: URL 链接化 + 响应式 CSS 兜底
+_SRC_RE = re.compile(r"[(\uFF08]来源[:\uFF1A]\s*<?(\S+?)>?[)\uFF09]")
+_RESPONSIVE_CSS = (
+    "\n<style id=cold-mining-responsive-20260904>\n"
+    "  /* 长 URL 兜底换行（防止撑破容器） */\n"
+    "  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb, .sec-note {\n"
+    "    overflow-wrap: anywhere;\n"
+    "    word-break: break-word;\n"
+    "  }\n"
+    "  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }\n"
+    "  .src:hover { color: #c8a866; text-decoration: underline; }\n"
+    "</style>\n"
+)
+
+
+def _url_to_a(match):
+    raw = match.group(1).strip("<>").rstrip(".,;:!?)]}\"")
+    if not raw.startswith(("http://", "https://")):
+        return match.group(0)
+    return (
+        f'<a class="src" href="{_html_mod.escape(raw)}" target="_blank" '
+        f'rel="noopener noreferrer">查看来源</a>'
+    )
+
+
+def _post_process_html(html_text):
+    if not html_text:
+        return html_text
+    if "cold-mining-responsive-20260904" not in html_text:
+        if "</head>" in html_text:
+            html_text = html_text.replace("</head>", _RESPONSIVE_CSS + "</head>", 1)
+        else:
+            html_text = html_text.replace("<body>", _RESPONSIVE_CSS + "<body>", 1)
+    html_text = _SRC_RE.sub(_url_to_a, html_text)
+    return html_text
+
+
 def web_search(query, api_key, max_results=6):
     """调用 Tavily 搜索，返回拼接的「标题（URL）：摘要」上下文；失败返回空串。"""
     try:
@@ -213,6 +252,9 @@ def build_prompt(topic, template_text, used_topics, search_context=""):
 - 保留 <body> 顶部左上角的「返回汇总」悬浮链接（class=to-index，指向 ../index.html），禁止删除或改动它。
 - {fact_rule}
 - 各 section 都要填真实、具体的内容，不要保留「（示例）」「请替换」之类的占位文字。
+
+## 来源链接格式（2026-09-04 新增）
+**所有来源链接必须用 <a> 标签包裹**，形如 <a class="src" href="URL" target="_blank" rel="noopener noreferrer">查看来源</a>，**严禁**写成纯文本「(来源：URL)」。URL 必须是 unquote 后的中文路径，**不要**把 URL-encoded 字符串（%E6%BA%95...）直接贴进正文。
 
 ## 输出格式（严格）
 第一行：SLUG: <英文短横连字符 slug，用于文件名，如 {topic}>
@@ -324,6 +366,7 @@ def main():
     slug = s or slug
     slug_file = f"{TODAY}-{slug}.html"
     out_path = os.path.join(REPORTS, slug_file)
+    html = _post_process_html(html)  # 2026-09-04: URL 链接化 + 响应式 CSS
     with open(out_path, "w", encoding="utf-8") as f:
         f.write(html)
     print(f"[cold_mining] wrote {out_path}")
