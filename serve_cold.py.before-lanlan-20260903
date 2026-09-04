@@ -20,11 +20,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         # 按 URL 路径分段拦截隐藏文件/目录与 .env，避免泄露密钥与 git 历史
         # 注意：根路径 "/" 解析为 [""], 不应被误伤
         parts = [x for x in urlparse(self.path).path.split("/") if x]
-        is_acme_challenge = (
-            len(parts) == 3
-            and parts[:2] == [".well-known", "acme-challenge"]
-        )
-        if (any(x.startswith(".") for x in parts) or ".env" in parts) and not is_acme_challenge:
+        if any(x.startswith(".") for x in parts) or ".env" in parts:
             self.send_error(403, "Forbidden")
             return
         super().do_GET()
