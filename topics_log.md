@@ -35,3 +35,4 @@
 | 2026-09-02 | 机械键盘轴体：按键底下的手感宇宙，到底在玩什么？ | reports/2026-09-02-mechanical-keyboard-switches.html |
 | 2026-09-03 | 模块合成器：把声音拆成乐高，再亲手拼出宇宙 | reports/2026-09-03-modular-synthesizer.html |
 | 2026-09-04 | 黑胶唱片：为什么一张塑料圆盘，能让年轻人排队去买 | reports/2026-09-04-vinyl-records.html |
+| 2026-09-08 | 路亚钓鱼：不用鱼饵的“水上高尔夫”，为何让年轻人上头？ | reports/2026-09-08-luya-fishing.html |
