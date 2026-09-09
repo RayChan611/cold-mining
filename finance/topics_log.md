@@ -32,3 +32,4 @@
 | 2026-09-03 | 杠杆：用一小笔钱撬动大资金，是机会还是陷阱？ | reports/2026-09-03-leverage-beginners-guide.html |
 | 2026-09-04 | 看懂PE、PB、ROE：三把尺子量出好公司 | reports/2026-09-04-pe-pb-roe-beginners-guide.html |
 | 2026-09-08 | PE / PB / ROE 三件套：一眼看穿一家公司值不值钱 | reports/2026-09-08-pe-pb-roe.html |
+| 2026-09-09 | 定投：给普通人的“懒人理财”入门指南 | reports/2026-09-09-ding-tou.html |

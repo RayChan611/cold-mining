@@ -221,3 +221,11 @@
 [cold_mining] git push ok=True info=To github.com:RayChan611/cold-mining.git
    e7ad551..af5e1b0  main -> main
 [cold_mining] feishu code=0 link=https://raychan611.github.io/cold-mining/reports/2026-09-08-luya-fishing.html
+[cold_mining] line=cold topic=观鸟 slug=bird-watch
+[cold_mining] tavily hits=1177
+[cold_mining] attempt=0 html_len=18303 svg=8
+[cold_mining] wrote /home/ubuntu/cold-mining/reports/2026-09-09-birdwatching.html
+[cold_mining] index+log updated
+[cold_mining] git push ok=True info=To github.com:RayChan611/cold-mining.git
+   64725b2..dc51507  main -> main
+[cold_mining] feishu code=0 link=https://raychan611.github.io/cold-mining/reports/2026-09-09-birdwatching.html
