@@ -36,3 +36,4 @@
 | 2026-09-03 | 模块合成器：把声音拆成乐高，再亲手拼出宇宙 | reports/2026-09-03-modular-synthesizer.html |
 | 2026-09-04 | 黑胶唱片：为什么一张塑料圆盘，能让年轻人排队去买 | reports/2026-09-04-vinyl-records.html |
 | 2026-09-08 | 路亚钓鱼：不用鱼饵的“水上高尔夫”，为何让年轻人上头？ | reports/2026-09-08-luya-fishing.html |
+| 2026-09-09 | 观鸟：从“公园里看鸟”到千亿级全球产业 | reports/2026-09-09-birdwatching.html |
