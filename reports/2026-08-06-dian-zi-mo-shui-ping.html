@@ -79,6 +79,16 @@
   }
   .to-index:hover { background: #c8a866; color: #0a0a0a; }
 </style>
+
+<style id="fix-overflow-wrap">
+  /* 2026-09-04: 修复长 URL 撑破容器 */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
 </head>
 <body>
 <a class="to-index" href="../index.html">← 全部报告</a>
@@ -98,8 +108,8 @@
     <div class="hero-txt">
       <ul>
         <li><b>它是什么</b>：一种模仿纸张的显示技术，屏幕本身不发光，靠反射环境光显示内容，极其省电，阳光下清晰可见。</li>
-        <li><b>谁在玩</b>：上游元太科技（E Ink）垄断全球90%以上市场，下游厂商包括文石、华为、科大讯飞、亚马逊Kindle等，以及零售、交通、医疗等商用领域 (来源：https://www.tmtpost.com/7497542.html)。</li>
-        <li><b>市场多大</b>：2025年全球市场规模约XX亿美元，预计2025-2033年复合年增长率（CAGR）达16.8% (来源：https://www.reportsinsights.com/zh/industry-forecast/%E9%9B%BB%E5%AD%90%E5%A2%A8%E6%B0%B4%E5%B1%8F%E5%B8%82%E5%A0%B4-704021)。</li>
+        <li><b>谁在玩</b>：上游元太科技（E Ink）垄断全球90%以上市场，下游厂商包括文石、华为、科大讯飞、亚马逊Kindle等，以及零售、交通、医疗等商用领域 <a class="src" href="https://www.tmtpost.com/7497542.html" target="_blank" rel="noopener noreferrer">查看来源</a>。</li>
+        <li><b>市场多大</b>：2025年全球市场规模约XX亿美元，预计2025-2033年复合年增长率（CAGR）达16.8% <a class="src" href="https://www.reportsinsights.com/zh/industry-forecast/%E9%9B%BB%E5%AD%90%E5%A2%A8%E6%B0%B4%E5%B1%8F%E5%B8%82%E5%A0%B4-704021" target="_blank" rel="noopener noreferrer">查看来源</a>。</li>
         <li><b>小白能玩吗</b>：门槛极低，花几百元买一台入门级电子阅读器即可体验，风险主要是买错品类（如买了不适合阅读的型号）。</li>
       </ul>
     </div>
@@ -180,8 +190,8 @@
       <thead><tr><th>档位</th><th>典型价格</th><th>说明</th></tr></thead>
       <tbody>
         <tr><td>入门档</td><td class="up">¥300 – ¥800</td><td>基础款电子阅读器，如Kindle入门版、小米多看电纸书，适合纯阅读。</td></tr>
-        <tr><td>进阶档</td><td>¥1,500 – ¥3,500</td><td>带手写笔、开放系统（Android）、大屏（7-10英寸）的智能墨水屏平板，如文石BOOX、华为MatePad Paper (来源：https://www.news.cn/tech/20230628/97583e63434143ef81a67f18cf438175/c.html)。</td></tr>
-        <tr><td>商用/极品档</td><td class="down">¥10,000+</td><td>用于零售广告、公交站牌、医疗信息屏的大尺寸彩色电子纸（如E Ink Spectra 6），价格根据尺寸和定制化程度浮动。(来源：https://cn.eink.com/news/detail/TJ5A60MIO4)</td></tr>
+        <tr><td>进阶档</td><td>¥1,500 – ¥3,500</td><td>带手写笔、开放系统（Android）、大屏（7-10英寸）的智能墨水屏平板，如文石BOOX、华为MatePad Paper <a class="src" href="https://www.news.cn/tech/20230628/97583e63434143ef81a67f18cf438175/c.html" target="_blank" rel="noopener noreferrer">查看来源</a>。</td></tr>
+        <tr><td>商用/极品档</td><td class="down">¥10,000+</td><td>用于零售广告、公交站牌、医疗信息屏的大尺寸彩色电子纸（如E Ink Spectra 6），价格根据尺寸和定制化程度浮动。<a class="src" href="https://cn.eink.com/news/detail/TJ5A60MIO4" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
       </tbody>
     </table>
   </div>
@@ -212,7 +222,7 @@
       <div class="ptxt">
         <span class="tag tag-root">ROOT</span>
         <h3>E Ink 元太科技</h3>
-        <ul><li>全球电子墨水屏的绝对霸主，市场占有率超过90% (来源：https://pdf.dfcfw.com/pdf/H3_AP202309221599715911_1.pdf)。</li><li>几乎所有主流电子阅读器（Kindle、文石、华为）的屏幕都来自它。</li><li>正在投资H5产线，主攻大尺寸和彩色电子纸 (来源：https://www.tmtpost.com/7497542.html)。</li></ul>
+        <ul><li>全球电子墨水屏的绝对霸主，市场占有率超过90% <a class="src" href="https://pdf.dfcfw.com/pdf/H3_AP202309221599715911_1.pdf" target="_blank" rel="noopener noreferrer">查看来源</a>。</li><li>几乎所有主流电子阅读器（Kindle、文石、华为）的屏幕都来自它。</li><li>正在投资H5产线，主攻大尺寸和彩色电子纸 <a class="src" href="https://www.tmtpost.com/7497542.html" target="_blank" rel="noopener noreferrer">查看来源</a>。</li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -220,7 +230,7 @@
       <div class="ptxt">
         <span class="tag tag-direct">平台</span>
         <h3>文石 BOOX / 华为</h3>
-        <ul><li>文石：主打开放安卓系统，可以安装微信读书、京东读书等App，是“智能墨水屏平板”的代表 (来源：https://www.news.cn/tech/20230628/97583e63434143ef81a67f18cf438175/c.html)。</li><li>华为：MatePad Paper主打“智慧办公”，与手机、PC互联，面向商务场景 (来源：同上)。</li></ul>
+        <ul><li>文石：主打开放安卓系统，可以安装微信读书、京东读书等App，是“智能墨水屏平板”的代表 <a class="src" href="https://www.news.cn/tech/20230628/97583e63434143ef81a67f18cf438175/c.html" target="_blank" rel="noopener noreferrer">查看来源</a>。</li><li>华为：MatePad Paper主打“智慧办公”，与手机、PC互联，面向商务场景 (来源：同上)。</li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -228,7 +238,7 @@
       <div class="ptxt">
         <span class="tag tag-hot">HOT</span>
         <h3>广州奥翼 / 追新玩家</h3>
-        <ul><li>广州奥翼（OED）是国内彩色电子纸领域的挑战者，其极速彩色电子纸刷新速度达到17毫秒 (来源：https://www.tmtpost.com/7497542.html)。</li><li>适合追求“彩色墨水屏”和更优刷新率的小众玩家。</li></ul>
+        <ul><li>广州奥翼（OED）是国内彩色电子纸领域的挑战者，其极速彩色电子纸刷新速度达到17毫秒 <a class="src" href="https://www.tmtpost.com/7497542.html" target="_blank" rel="noopener noreferrer">查看来源</a>。</li><li>适合追求“彩色墨水屏”和更优刷新率的小众玩家。</li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -260,7 +270,7 @@
   <div class="sec-note">外行最容易交学费的地方。</div>
   <div class="grid2">
     <div class="card"><span class="tag tag-warn">坑 1</span><h3>买前以为能代替手机/平板</h3><ul><li>墨水屏刷新慢、不支持彩色视频、不能玩游戏。把它当“第二块屏幕”或“护眼阅读器”，而不是手机替代品。</li></ul></div>
-    <div class="card"><span class="tag tag-warn">坑 2</span><h3>盲目追求“彩色”</h3><ul><li>目前的彩色电子墨水屏（如Kaleido 3）色彩饱和度、刷新率远不如液晶屏，且价格贵。如果主要看文字，黑白屏完全够用，更便宜、更清晰 (来源：http://m.pjtime.com/2024/12/m152624401634.shtml)。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>盲目追求“彩色”</h3><ul><li>目前的彩色电子墨水屏（如Kaleido 3）色彩饱和度、刷新率远不如液晶屏，且价格贵。如果主要看文字，黑白屏完全够用，更便宜、更清晰 <a class="src" href="http://m.pjtime.com/2024/12/m152624401634.shtml" target="_blank" rel="noopener noreferrer">查看来源</a>。</li></ul></div>
     <div class="card"><span class="tag tag-warn">坑 3</span><h3>买“电子纸”当普通显示器用</h3><ul><li>市面上有“电子纸显示器”用于办公，但价格昂贵（数千元），且刷新率低，不适合鼠标快速移动。除非你是重度文字工作者且非常需要护眼，否则性价比不高。</li></ul></div>
     <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li><strong>先明确场景，再掏钱。</strong> 墨水屏最擅长的就是“静态阅读”。如果你80%的使用场景是看小说、看文档、看漫画，它非常适合；否则，大概率会吃灰。</li></ul></div>
   </div>

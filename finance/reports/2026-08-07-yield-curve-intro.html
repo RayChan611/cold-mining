@@ -76,6 +76,16 @@
   }
   .to-index:hover { background: #c8a866; color: #0a0a0a; }
 </style>
+
+<style id="fix-overflow-wrap">
+  /* 2026-09-04: 修复长 URL 撑破容器 */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
 </head>
 <body>
 <a class="to-index" href="../../index.html">← 全部报告</a>
@@ -94,9 +104,9 @@
   <div class="card hero">
     <div class="hero-txt">
       <ul>
-        <li><b>它是什么</b>：把不同期限（比如3个月、1年、10年）的国债收益率连成一条线，展示“借钱时间越长，利息越高还是越低” (来源：https://cn.tradingview.com/support/solutions/43000758123)</li>
+        <li><b>它是什么</b>：把不同期限（比如3个月、1年、10年）的国债收益率连成一条线，展示“借钱时间越长，利息越高还是越低” <a class="src" href="https://cn.tradingview.com/support/solutions/43000758123" target="_blank" rel="noopener noreferrer">查看来源</a></li>
         <li><b>谁在玩</b>：央行、银行、大型基金、债券交易员，以及所有关注经济走势的人</li>
-        <li><b>市场多大</b>：中国国债规模超30万亿元（2023年末），收益率曲线是每日定价基准 (来源：https://www.chinamoney.com.cn/chinese/bkcurvclosedy)</li>
+        <li><b>市场多大</b>：中国国债规模超30万亿元（2023年末），收益率曲线是每日定价基准 <a class="src" href="https://www.chinamoney.com.cn/chinese/bkcurvclosedy" target="_blank" rel="noopener noreferrer">查看来源</a></li>
         <li><b>小白能玩吗</b>：不需要买债券，免费看曲线就能判断市场情绪；但直接买债券需要一定资金门槛</li>
       </ul>
     </div>
@@ -129,7 +139,7 @@
   <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
   <div class="sec-note">用“借钱的年龄歧视”来类比：越年轻的人借钱，利息通常越高？</div>
   <div class="card">
-    <p style="color:#c4c4c4;font-size:13.5px;">想象你借钱给别人：借1个月，你只承担短期风险，利息要求低；借10年，你要承担通货膨胀、对方违约等长期风险，自然要求更高的利息。所以正常情况下，期限越长，收益率越高——曲线向右上方倾斜，叫“正常曲线”。但如果市场预期经济要变差，投资者会争相买入长期国债避险，把长期收益率压低，甚至低于短期，曲线就“倒挂”了——这在历史上往往是经济衰退的前兆 (来源：https://zh.khanacademy.org/economics-finance-domain/core-finance/stock-and-bonds/bonds-tutorial/v/introduction-to-the-yield-curve)。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;">想象你借钱给别人：借1个月，你只承担短期风险，利息要求低；借10年，你要承担通货膨胀、对方违约等长期风险，自然要求更高的利息。所以正常情况下，期限越长，收益率越高——曲线向右上方倾斜，叫“正常曲线”。但如果市场预期经济要变差，投资者会争相买入长期国债避险，把长期收益率压低，甚至低于短期，曲线就“倒挂”了——这在历史上往往是经济衰退的前兆 <a class="src" href="https://zh.khanacademy.org/economics-finance-domain/core-finance/stock-and-bonds/bonds-tutorial/v/introduction-to-the-yield-curve" target="_blank" rel="noopener noreferrer">查看来源</a>。</p>
   </div>
   <div class="illus">
     <!-- 价值链/结构图：从债券发行到收益率曲线 -->
@@ -205,7 +215,7 @@
       <div class="ptxt">
         <span class="tag tag-direct">平台 B</span>
         <h3>中国货币网</h3>
-        <ul><li>官方发布国债收益率曲线的平台，每日收盘后更新关键期限点数据 (来源：https://www.chinamoney.com.cn/chinese/bkcurvclosedy)</li></ul>
+        <ul><li>官方发布国债收益率曲线的平台，每日收盘后更新关键期限点数据 <a class="src" href="https://www.chinamoney.com.cn/chinese/bkcurvclosedy" target="_blank" rel="noopener noreferrer">查看来源</a></li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -213,7 +223,7 @@
       <div class="ptxt">
         <span class="tag tag-hot">HOT</span>
         <h3>TradingView</h3>
-        <ul><li>全球热门图表平台，提供收益率曲线可视化工具，可自由切换期限坐标和线性坐标 (来源：https://cn.tradingview.com/support/solutions/43000758123)</li></ul>
+        <ul><li>全球热门图表平台，提供收益率曲线可视化工具，可自由切换期限坐标和线性坐标 <a class="src" href="https://cn.tradingview.com/support/solutions/43000758123" target="_blank" rel="noopener noreferrer">查看来源</a></li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -221,7 +231,7 @@
       <div class="ptxt">
         <span class="tag tag-step">入门</span>
         <h3>小白友好入口</h3>
-        <ul><li>MacroMicro 财经M平方：免费动态图表，直观展示美国、中国等主要经济体收益率曲线 (来源：https://sc.macromicro.me/dynamic_chart?id=4)</li></ul>
+        <ul><li>MacroMicro 财经M平方：免费动态图表，直观展示美国、中国等主要经济体收益率曲线 <a class="src" href="https://sc.macromicro.me/dynamic_chart?id=4" target="_blank" rel="noopener noreferrer">查看来源</a></li></ul>
       </div>
     </div>
   </div>
@@ -233,7 +243,7 @@
   <div class="sec-note">按步骤走，别一上来就买债券。</div>
   <div class="tl">
     <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">打开 MacroMicro 或 TradingView 的收益率曲线图，先看曲线斜率是向上还是向下。向上=正常，向下=倒挂。</div></div>
-    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">学习概念：期限利差（10年期收益率减2年期收益率）。如果为负，就是倒挂，历史上常预示衰退 (来源：https://zh.khanacademy.org/economics-finance-domain/core-finance/stock-and-bonds/bonds-tutorial/v/introduction-to-the-yield-curve)。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">学习概念：期限利差（10年期收益率减2年期收益率）。如果为负，就是倒挂，历史上常预示衰退 <a class="src" href="https://zh.khanacademy.org/economics-finance-domain/core-finance/stock-and-bonds/bonds-tutorial/v/introduction-to-the-yield-curve" target="_blank" rel="noopener noreferrer">查看来源</a>。</div></div>
     <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">关注央行政策声明，理解短期利率为何变动。比如美联储加息，短期收益率会快速上升。</div></div>
     <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">小额尝试：可以通过国债ETF间接投资债券，观察收益率变化对净值的影响。但注意债券价格与收益率反向。</div></div>
   </div>

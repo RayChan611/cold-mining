@@ -76,6 +76,16 @@
   }
   .to-index:hover { background: #c8a866; color: #0a0a0a; }
 </style>
+
+<style id="fix-overflow-wrap">
+  /* 2026-09-04: 修复长 URL 撑破容器 */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
 </head>
 <body>
 <a class="to-index" href="../../index.html">← 全部报告</a>
@@ -127,7 +137,7 @@
   <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
   <div class="sec-note">用一个生活类比，搞懂央行是怎么“拧水龙头”的。</div>
   <div class="card">
-    <p style="color:#c4c4c4;font-size:13.5px;">想象央行是整栋经济大楼的“总水闸管理员”。它手里的<strong>货币政策</strong>就是控制水流（货币）大小和水压（资金成本）的工具。经济太热（通胀高），就拧紧水龙头（加息、减少货币供应），让水流变小，给经济降温；经济太冷（衰退、通缩），就开大水龙头（降息、增加货币供应），让水流变大，刺激经济活跃。而“水”就是市场上的钱，水管就是银行体系。央行通过买卖国债（公开市场操作）等操作，直接影响水管里的水量和流向。 (来源：https://www.imf.org/zh/about/factsheets/sheets/2023/monetary-policy-and-central-banking)</p>
+    <p style="color:#c4c4c4;font-size:13.5px;">想象央行是整栋经济大楼的“总水闸管理员”。它手里的<strong>货币政策</strong>就是控制水流（货币）大小和水压（资金成本）的工具。经济太热（通胀高），就拧紧水龙头（加息、减少货币供应），让水流变小，给经济降温；经济太冷（衰退、通缩），就开大水龙头（降息、增加货币供应），让水流变大，刺激经济活跃。而“水”就是市场上的钱，水管就是银行体系。央行通过买卖国债（公开市场操作）等操作，直接影响水管里的水量和流向。 <a class="src" href="https://www.imf.org/zh/about/factsheets/sheets/2023/monetary-policy-and-central-banking" target="_blank" rel="noopener noreferrer">查看来源</a></p>
   </div>
   <div class="illus">
     <svg viewBox="0 0 720 140" width="720" height="140" xmlns="http://www.w3.org/2000/svg">

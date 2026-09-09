@@ -76,6 +76,16 @@
   }
   .to-index:hover { background: #c8a866; color: #0a0a0a; }
 </style>
+
+<style id="fix-overflow-wrap">
+  /* 2026-09-04: 修复长 URL 撑破容器 */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
 </head>
 <body>
 <a class="to-index" href="../index.html">← 全部报告</a>
@@ -94,9 +104,9 @@
   <div class="card hero">
     <div class="hero-txt">
       <ul>
-        <li><b>它是什么</b>：把一棵真树栽进盆里，通过修剪、蟠扎、控水等手法，让它长得像一株历经风霜的百年老树——这是源于中国、后经日本禅宗改造的古老艺术，已有上千年历史 (来源：https://www.bonsaiempire.com.tw/inspiration/origin/what-is-bonsai)。</li>
+        <li><b>它是什么</b>：把一棵真树栽进盆里，通过修剪、蟠扎、控水等手法，让它长得像一株历经风霜的百年老树——这是源于中国、后经日本禅宗改造的古老艺术，已有上千年历史 <a class="src" href="https://www.bonsaiempire.com.tw/inspiration/origin/what-is-bonsai" target="_blank" rel="noopener noreferrer">查看来源</a>。</li>
         <li><b>谁在玩</b>：从中国文人墨客、日本禅僧，到今天全球各地的园艺爱好者、艺术家和退休大爷。</li>
-        <li><b>市场多大</b>：仅中国盆栽植物销售总量在 2018 年就达约 72.05 亿盆（含普通绿植盆栽），其中艺术盆景虽是小众分支，但单株价格可从几十元到数百万元 (来源：https://zhuanlan.zhihu.com/p/546688348)。</li>
+        <li><b>市场多大</b>：仅中国盆栽植物销售总量在 2018 年就达约 72.05 亿盆（含普通绿植盆栽），其中艺术盆景虽是小众分支，但单株价格可从几十元到数百万元 <a class="src" href="https://zhuanlan.zhihu.com/p/546688348" target="_blank" rel="noopener noreferrer">查看来源</a>。</li>
         <li><b>小白能玩吗</b>：能。入门门槛不高，几十元买棵苗就能开始；真正的门槛是耐心、审美和「别把它养死」的细心。</li>
       </ul>
     </div>
@@ -126,7 +136,7 @@
   <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
   <div class="card">
     <p style="color:#c4c4c4;font-size:13.5px;">想象一下：你养的不是一盆花，而是一棵「被时间压缩了的树」。普通树长在野外，要几百年才能长出那种苍劲、弯曲、枝干如铁的姿态；而盆栽艺术就是通过人工干预——剪枝、捆扎金属丝、控制水分和光照——把这几百年的岁月「快进」到十几年甚至几年里。它有点像「树木的微缩摄影」，但比摄影更难：因为它是活的，每天都在生长，你得不断跟它「谈判」。</p>
-    <p style="color:#c4c4c4;font-size:13.5px;margin-top:10px;">「文人树」是其中一个特别有味道的分支。它不追求枝叶繁茂，而是追求「孤高」「清瘦」——树干细长、弯曲如书法笔势，枝条稀疏，像一位独自站在山巅的诗人。这种风格源于中国文人画的审美，后来被日本禅宗吸收改造，成为盆栽（bonsai）中的重要美学流派 (来源：https://www.bonsaiempire.com.tw/inspiration/origin/what-is-bonsai)。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;margin-top:10px;">「文人树」是其中一个特别有味道的分支。它不追求枝叶繁茂，而是追求「孤高」「清瘦」——树干细长、弯曲如书法笔势，枝条稀疏，像一位独自站在山巅的诗人。这种风格源于中国文人画的审美，后来被日本禅宗吸收改造，成为盆栽（bonsai）中的重要美学流派 <a class="src" href="https://www.bonsaiempire.com.tw/inspiration/origin/what-is-bonsai" target="_blank" rel="noopener noreferrer">查看来源</a>。</p>
   </div>
   <div class="illus">
     <!-- 结构图：从素材到成品的价值链 -->
@@ -158,7 +168,7 @@
       <tbody>
         <tr><td>入门档</td><td class="up">¥30 – 300</td><td>苗木、基础工具、入门盆器。淘宝/花市就能买，适合练手（据公开资料）。</td></tr>
         <tr><td>进阶档</td><td>¥1,000 – 50,000</td><td>已造型的半成品、名家工作室作品、较好的盆与几架（据公开资料）。</td></tr>
-        <tr><td>极品档</td><td class="down">¥100,000 – 数百万</td><td>百年树龄、名家手笔、展览级藏品。2018 年中国盆栽植物销售总量约 72 亿盆，其中艺术盆景虽占比极小但单价极高 (来源：https://zhuanlan.zhihu.com/p/546688348)。</td></tr>
+        <tr><td>极品档</td><td class="down">¥100,000 – 数百万</td><td>百年树龄、名家手笔、展览级藏品。2018 年中国盆栽植物销售总量约 72 亿盆，其中艺术盆景虽占比极小但单价极高 <a class="src" href="https://zhuanlan.zhihu.com/p/546688348" target="_blank" rel="noopener noreferrer">查看来源</a>。</td></tr>
       </tbody>
     </table>
   </div>
@@ -200,7 +210,7 @@
       <div class="ptxt">
         <span class="tag tag-direct">日本盆栽界</span>
         <h3>日本盆栽（Bonsai）</h3>
-        <ul><li>将中国盆景吸收改造为「盆栽」，影响全球审美。日本盆景展、大师作品在国际市场上是硬通货 (来源：https://en.wikipedia.org/wiki/Bonsai)。</li></ul>
+        <ul><li>将中国盆景吸收改造为「盆栽」，影响全球审美。日本盆景展、大师作品在国际市场上是硬通货 <a class="src" href="https://en.wikipedia.org/wiki/Bonsai" target="_blank" rel="noopener noreferrer">查看来源</a>。</li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -283,7 +293,7 @@
   <h2><span class="num">07</span>趣味小知识</h2>
   <div class="sec-note">聊天永远有料的包袱。</div>
   <div class="card">
-    <p class="quote">日本广岛有一棵「原爆盆景」，1945 年原子弹爆炸后从废墟中被救出，至今仍在生长，被视为和平的象征 (来源：https://en.wikipedia.org/wiki/Bonsai)。一棵树活过战争，比任何雕塑都更有说服力。</p>
+    <p class="quote">日本广岛有一棵「原爆盆景」，1945 年原子弹爆炸后从废墟中被救出，至今仍在生长，被视为和平的象征 <a class="src" href="https://en.wikipedia.org/wiki/Bonsai" target="_blank" rel="noopener noreferrer">查看来源</a>。一棵树活过战争，比任何雕塑都更有说服力。</p>
   </div>
   <div class="verdict">
     <div class="vcell"><div class="vt">适不适合你</div><div class="vb">适合：有耐心、喜欢安静、享受「慢」的人。不适合：追求速成、三分钟热度、看到植物死掉就崩溃的人。</div></div>

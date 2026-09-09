@@ -76,6 +76,16 @@
   }
   .to-index:hover { background: #c8a866; color: #0a0a0a; }
 </style>
+
+<style id="fix-overflow-wrap">
+  /* 2026-09-04: 修复长 URL 撑破容器 */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
 </head>
 <body>
 <a class="to-index" href="../index.html">← 全部报告</a>
@@ -96,7 +106,7 @@
       <ul>
         <li><b>它是什么</b>：17 种金属元素的统称，名字带“稀”但地壳里其实不算少，难在“提纯”和“分离”。它们是制造强磁铁、荧光粉、催化剂的关键原料，被誉为“工业味精”。</li>
         <li><b>谁在玩</b>：国家资源战略部门、矿业巨头（中国、澳大利亚、美国企业为主）、磁材与合金厂商，以及关注地缘政治的投资者。散户通常通过股票或 ETF 间接参与。</li>
-        <li><b>市场多大</b>：2025 年全球稀土元素市场规模约 41.2 亿美元，预计到 2034 年将达 98.9 亿美元，复合年增长率 10.20%（来源：https://www.fortunebusinessinsights.com/zh/rare-earth-elements-market-102943）。</li>
+        <li><b>市场多大</b>：2025 年全球稀土元素市场规模约 41.2 亿美元，预计到 2034 年将达 98.9 亿美元，复合年增长率 10.20%<a class="src" href="https://www.fortunebusinessinsights.com/zh/rare-earth-elements-market-102943" target="_blank" rel="noopener noreferrer">查看来源</a>。</li>
         <li><b>小白能玩吗</b>：不能直接买“稀土”回家囤——门槛极高、价格波动剧烈（曾从 11700 美元/吨跌至 7430 美元/吨，来源：http://www.news.cn/sikepro/20210310/C9335F27114000019DD36462138D1664/c.html）。普通人更适合关注相关产业股票或基金，且必须承受强周期波动。</li>
       </ul>
     </div>
@@ -129,7 +139,7 @@
   <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
   <div class="card">
     <p style="color:#c4c4c4;font-size:13.5px;">想象你去吃火锅，锅底本身没什么稀奇，但撒一把味精，汤立刻鲜得不一样。稀土就是工业界的“味精”——它不直接构成产品的主体，但<span style="color:#e8e8e8;font-weight:600;">只要加一点点，材料的性能就发生质变</span>：磁铁强几十倍、屏幕能发光、催化效率翻番。</p>
-    <p style="color:#c4c4c4;font-size:13.5px;margin-top:10px;">它叫“稀土”，但<span style="color:#e8e8e8;font-weight:600;">其实并不稀</span>。地壳里铈（Ce）的含量比铜还多。真正难的是：17 种元素像双胞胎一样“长”在一起，化学性质极其相似，要把它们一个个分开，需要几百道工序。所以过去几十年，全世界的稀土分离工厂几乎都集中在中国——这不是资源垄断，而是<span style="color:#e8e8e8;font-weight:600;">技术加产业链的垄断</span>。为什么？因为中国当年用“白菜价”把稀土卖遍全球，练出了一套完整的冶炼分离手艺，别人想学，发现又贵又难 (来源：http://www.news.cn/sikepro/20210310/C9335F27114000019DD36462138D1664/c.html)。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;margin-top:10px;">它叫“稀土”，但<span style="color:#e8e8e8;font-weight:600;">其实并不稀</span>。地壳里铈（Ce）的含量比铜还多。真正难的是：17 种元素像双胞胎一样“长”在一起，化学性质极其相似，要把它们一个个分开，需要几百道工序。所以过去几十年，全世界的稀土分离工厂几乎都集中在中国——这不是资源垄断，而是<span style="color:#e8e8e8;font-weight:600;">技术加产业链的垄断</span>。为什么？因为中国当年用“白菜价”把稀土卖遍全球，练出了一套完整的冶炼分离手艺，别人想学，发现又贵又难 <a class="src" href="http://www.news.cn/sikepro/20210310/C9335F27114000019DD36462138D1664/c.html" target="_blank" rel="noopener noreferrer">查看来源</a>。</p>
     <p style="color:#c4c4c4;font-size:13.5px;margin-top:10px;">知识点：稀土有“轻稀土”和“重稀土”之分。轻稀土（镧、铈、钕等）用于磁铁、抛光粉；重稀土（镝、铽等）更稀缺，是高端永磁体不可或缺的“增强剂”。中国的南方离子型矿是全球重稀土的主要来源。</p>
   </div>
   <div class="illus">
@@ -160,7 +170,7 @@
     <table>
       <thead><tr><th>品种</th><th>典型价格（2024 年）</th><th>说明</th></tr></thead>
       <tbody>
-        <tr><td>氧化镨钕（轻稀土主力）</td><td class="up">约 7425 元/公斤</td><td>制造钕铁硼永磁体，新能源汽车电机核心材料（来源：https://pdf.dfcfw.com/pdf/H3_AP202402281623983985_1.pdf）</td></tr>
+        <tr><td>氧化镨钕（轻稀土主力）</td><td class="up">约 7425 元/公斤</td><td>制造钕铁硼永磁体，新能源汽车电机核心材料<a class="src" href="https://pdf.dfcfw.com/pdf/H3_AP202402281623983985_1.pdf" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
         <tr><td>氧化镝（重稀土代表）</td><td>约 2500 元/公斤</td><td>添加到磁铁中提高耐高温性能，军工与风电必用（来源：同上）</td></tr>
         <tr><td>氧化铽（重稀土之王）</td><td class="down">数万元/公斤 [UNSOURCED]</td><td>极其稀缺，用于高端声学与显示器件，价格波动剧烈</td></tr>
       </tbody>
@@ -183,7 +193,7 @@
       <text x="380" y="215" fill="#8a8a8a" font-size="11" text-anchor="middle">全球稀土市场规模（单位：亿美元）· CAGR 10.2%</text>
       <text x="380" y="228" fill="#6a6a6a" font-size="10" text-anchor="middle">来源：Fortune Business Insights</text>
     </svg>
-    <div class="cap">全球稀土市场规模将从 2025 年 41.2 亿美元增至 2034 年 98.9 亿美元（来源：https://www.fortunebusinessinsights.com/zh/rare-earth-elements-market-102943）</div>
+    <div class="cap">全球稀土市场规模将从 2025 年 41.2 亿美元增至 2034 年 98.9 亿美元<a class="src" href="https://www.fortunebusinessinsights.com/zh/rare-earth-elements-market-102943" target="_blank" rel="noopener noreferrer">查看来源</a></div>
   </div>
 </section>
 
@@ -197,7 +207,7 @@
       <div class="ptxt">
         <span class="tag tag-root">ROOT</span>
         <h3>中国稀土集团</h3>
-        <ul><li>全球稀土供应的绝对主导者，掌握约 70% 的冶炼分离产能（来源：https://cn.nytimes.com/business/20250417/china-rare-earths-us）</li><li>决定出口配额与价格，是产业“总阀门”</li></ul>
+        <ul><li>全球稀土供应的绝对主导者，掌握约 70% 的冶炼分离产能<a class="src" href="https://cn.nytimes.com/business/20250417/china-rare-earths-us" target="_blank" rel="noopener noreferrer">查看来源</a></li><li>决定出口配额与价格，是产业“总阀门”</li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -205,7 +215,7 @@
       <div class="ptxt">
         <span class="tag tag-direct">关键矿产</span>
         <h3>Lynas（澳大利亚）</h3>
-        <ul><li>中国以外最大的稀土生产商（来源：https://www.researchnester.com/tw/reports/rare-earth-metals-market/5142）</li><li>美国国防部扶持对象，但产能远不能与中国抗衡</li></ul>
+        <ul><li>中国以外最大的稀土生产商<a class="src" href="https://www.researchnester.com/tw/reports/rare-earth-metals-market/5142" target="_blank" rel="noopener noreferrer">查看来源</a></li><li>美国国防部扶持对象，但产能远不能与中国抗衡</li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -213,7 +223,7 @@
       <div class="ptxt">
         <span class="tag tag-hot">HOT</span>
         <h3>中科三环 / 金力永磁</h3>
-        <ul><li>中国磁材龙头，把稀土变成新能源汽车电机里的钕铁硼磁铁（来源：https://www.researchnester.com/tw/reports/rare-earth-metals-market/5142）</li><li>普通人买股票最常接触的稀土下游标的</li></ul>
+        <ul><li>中国磁材龙头，把稀土变成新能源汽车电机里的钕铁硼磁铁<a class="src" href="https://www.researchnester.com/tw/reports/rare-earth-metals-market/5142" target="_blank" rel="noopener noreferrer">查看来源</a></li><li>普通人买股票最常接触的稀土下游标的</li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -233,7 +243,7 @@
   <div class="sec-note">按步骤走，别一上来就梭哈。</div>
   <div class="tl">
     <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">先搞懂“稀土为什么重要”：读一遍本文 + 看 YouTube 上关于钕磁铁的科普视频。重点是理解“磁铁→电机→电动车/风电”这条主线。</div></div>
-    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">关注价格与政策：收藏中国稀土行业协会网站，每月看一次氧化镨钕价格指数。注意出口管制新闻——2025 年 4 月中国暂停关键矿产出口的新闻直接导致美股军工股波动（来源：https://cn.nytimes.com/business/20250417/china-rare-earths-us）。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">关注价格与政策：收藏中国稀土行业协会网站，每月看一次氧化镨钕价格指数。注意出口管制新闻——2025 年 4 月中国暂停关键矿产出口的新闻直接导致美股军工股波动<a class="src" href="https://cn.nytimes.com/business/20250417/china-rare-earths-us" target="_blank" rel="noopener noreferrer">查看来源</a>。</div></div>
     <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">建立判断框架：跟踪三家代表性公司（北方稀土、金力永磁、Lynas）的财报与公告。看它们的毛利率变化，理解“上游矿价涨，下游磁材利润被挤压”的逻辑。</div></div>
     <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">小额定投或模拟盘：如果想参与，用不超过闲置资金 5% 的比例定投稀土 ETF（如中证稀土产业指数基金）。稀土是强周期品种，涨跌凶猛，绝不适合重仓。</div></div>
   </div>
@@ -244,8 +254,8 @@
   <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
   <div class="sec-note">外行最容易交学费的地方。</div>
   <div class="grid2">
-    <div class="card"><span class="tag tag-warn">坑 1</span><h3>把“稀土”当普通金属炒</h3><ul><li>稀土不是黄金，没有全球统一定价。它是小品种、大波动，曾经从 11700 美元/吨跌到 7430 美元/吨（来源：http://www.news.cn/sikepro/20210310/C9335F27114000019DD36462138D1664/c.html）。</li><li>别信“稀土会一直涨”的鬼话——它是周期性极强的工业原料。</li></ul></div>
-    <div class="card"><span class="tag tag-warn">坑 2</span><h3>误以为“储量多=话语权大”</h3><ul><li>中国稀土储量占全球约 30-40%（来源：https://pdf.dfcfw.com/pdf/H3_AP202402281623983985_1.pdf），但冶炼分离产能占 70%。</li><li>美国也有矿，但提炼能力几乎为零——所以“有矿”不等于“说了算”，技术才是命门。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>把“稀土”当普通金属炒</h3><ul><li>稀土不是黄金，没有全球统一定价。它是小品种、大波动，曾经从 11700 美元/吨跌到 7430 美元/吨<a class="src" href="http://www.news.cn/sikepro/20210310/C9335F27114000019DD36462138D1664/c.html" target="_blank" rel="noopener noreferrer">查看来源</a>。</li><li>别信“稀土会一直涨”的鬼话——它是周期性极强的工业原料。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>误以为“储量多=话语权大”</h3><ul><li>中国稀土储量占全球约 30-40%<a class="src" href="https://pdf.dfcfw.com/pdf/H3_AP202402281623983985_1.pdf" target="_blank" rel="noopener noreferrer">查看来源</a>，但冶炼分离产能占 70%。</li><li>美国也有矿，但提炼能力几乎为零——所以“有矿”不等于“说了算”，技术才是命门。</li></ul></div>
     <div class="card"><span class="tag tag-warn">坑 3</span><h3>跟风炒概念股</h3><ul><li>稀土概念股鱼龙混杂，很多公司只是沾边。2010 年“稀土泡沫”时，多只概念股从高点跌超 80% [UNSOURCED]。</li><li>看财报，看它是否真的有矿、有冶炼产能、有长期订单。</li></ul></div>
     <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>稀土是“国家战略资源”，不是“个人理财产品”。普通人可以关注、学习、小仓位参与，但永远记住：它的价格由政策与大国外交决定，不由市场供需决定。</li></ul></div>
   </div>
@@ -288,8 +298,8 @@
   <h2><span class="num">07</span>趣味小知识</h2>
   <div class="sec-note">聊天永远有料的包袱。</div>
   <div class="card">
-    <p class="quote">你知道你的手机为什么能震动吗？里面那个小马达里，藏着一块比米粒还小的钕铁硼磁铁——它用到的稀土，可能就来自中国南方的某个矿区。更反常识的是：1990-2005 年，中国稀土矿石价格从 11700 美元/吨跌到 7430 美元/吨，中国企业互相杀价，把“工业味精”卖成了“工业盐”的价格（来源：http://www.news.cn/sikepro/20210310/C9335F27114000019DD36462138D1664/c.html）。</p>
-    <p class="quote" style="margin-top:8px;">另一个冷知识：美国不是没有稀土矿，加州 Mountain Pass 矿曾是全球最大稀土矿，但 2000 年代因为中国低价竞争而关停。如今美国想重启，却发现“有矿无技术”，只能把矿石运到中国加工——这就是为什么稀土被称为“大国博弈的终极筹码” (来源：https://cn.nytimes.com/business/20250417/china-rare-earths-us)。</p>
+    <p class="quote">你知道你的手机为什么能震动吗？里面那个小马达里，藏着一块比米粒还小的钕铁硼磁铁——它用到的稀土，可能就来自中国南方的某个矿区。更反常识的是：1990-2005 年，中国稀土矿石价格从 11700 美元/吨跌到 7430 美元/吨，中国企业互相杀价，把“工业味精”卖成了“工业盐”的价格<a class="src" href="http://www.news.cn/sikepro/20210310/C9335F27114000019DD36462138D1664/c.html" target="_blank" rel="noopener noreferrer">查看来源</a>。</p>
+    <p class="quote" style="margin-top:8px;">另一个冷知识：美国不是没有稀土矿，加州 Mountain Pass 矿曾是全球最大稀土矿，但 2000 年代因为中国低价竞争而关停。如今美国想重启，却发现“有矿无技术”，只能把矿石运到中国加工——这就是为什么稀土被称为“大国博弈的终极筹码” <a class="src" href="https://cn.nytimes.com/business/20250417/china-rare-earths-us" target="_blank" rel="noopener noreferrer">查看来源</a>。</p>
   </div>
   <div class="verdict">
     <div class="vcell"><div class="vt">适不适合你</div><div class="vb">如果你对地缘政治、新能源产业链感兴趣，稀土是绝佳观察窗口；但如果你只想快进快出赚一笔，这不是好地方——<span class="hot">波动太大、政策主导</span>。</div></div>

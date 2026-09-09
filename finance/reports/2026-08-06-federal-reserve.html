@@ -79,6 +79,16 @@
   }
   .to-index:hover { background: #c8a866; color: #0a0a0a; }
 </style>
+
+<style id="fix-overflow-wrap">
+  /* 2026-09-04: 修复长 URL 撑破容器 */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
 </head>
 <body>
 <a class="to-index" href="../../index.html">← 全部报告</a>
@@ -97,10 +107,10 @@
   <div class="card hero">
     <div class="hero-txt">
       <ul>
-        <li><b>它是什么</b>：美国的中央银行，负责制定全美货币政策，监管银行系统，并在金融危机时充当“最后贷款人”。(来源：https://www.monetamarkets.com/cn/analysis/what-is-the-fed-how-federal-reserve-works-fomc)</li>
-        <li><b>谁在操作</b>：联邦储备系统由位于华盛顿的理事会（7名委员）和12家地区联邦储备银行组成，真正的决策核心是联邦公开市场委员会（FOMC）。(来源：https://research.titanfx.com/cn/glossary/what_is_frb_fed)</li>
+        <li><b>它是什么</b>：美国的中央银行，负责制定全美货币政策，监管银行系统，并在金融危机时充当“最后贷款人”。<a class="src" href="https://www.monetamarkets.com/cn/analysis/what-is-the-fed-how-federal-reserve-works-fomc" target="_blank" rel="noopener noreferrer">查看来源</a></li>
+        <li><b>谁在操作</b>：联邦储备系统由位于华盛顿的理事会（7名委员）和12家地区联邦储备银行组成，真正的决策核心是联邦公开市场委员会（FOMC）。<a class="src" href="https://research.titanfx.com/cn/glossary/what_is_frb_fed" target="_blank" rel="noopener noreferrer">查看来源</a></li>
         <li><b>影响多大</b>：美联储的利率决策直接牵动全球金融市场，影响数万亿美元的债券、股票和外汇市场。它设定的联邦基金利率是全球资产定价的“基准”。[UNSOURCED]</li>
-        <li><b>小白能看懂吗</b>：完全能。它的核心目标很简单：保证就业最大化和物价稳定（2%通胀率）。(来源：https://www.futunn.com/learn/detail-how-to-analyze-the-federal-reserve-s-monetary-policy-88969-230759065)</li>
+        <li><b>小白能看懂吗</b>：完全能。它的核心目标很简单：保证就业最大化和物价稳定（2%通胀率）。<a class="src" href="https://www.futunn.com/learn/detail-how-to-analyze-the-federal-reserve-s-monetary-policy-88969-230759065" target="_blank" rel="noopener noreferrer">查看来源</a></li>
       </ul>
     </div>
     <div class="hero-art">
@@ -125,7 +135,7 @@
   <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
   <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
   <div class="card">
-    <p style="color:#c4c4c4;font-size:13.5px;">想象一下，美联储就像一个国家的“经济自动驾驶仪”，它不负责生产东西，也不管你钱包里有多少钱，但它掌握着方向盘和油门。它的任务就是让整个经济跑得既不太快（引发通胀）也不太慢（导致失业）。它最常用的工具就是“利率”——相当于给经济这辆车的油门踏板。踩油门（降息），大家更愿意借钱消费和投资，经济加速；踩刹车（加息），借钱变贵，大家开始省钱，经济降温。(来源：https://www.futunn.com/learn/detail-how-to-analyze-the-federal-reserve-s-monetary-policy-88969-230759065)</p>
+    <p style="color:#c4c4c4;font-size:13.5px;">想象一下，美联储就像一个国家的“经济自动驾驶仪”，它不负责生产东西，也不管你钱包里有多少钱，但它掌握着方向盘和油门。它的任务就是让整个经济跑得既不太快（引发通胀）也不太慢（导致失业）。它最常用的工具就是“利率”——相当于给经济这辆车的油门踏板。踩油门（降息），大家更愿意借钱消费和投资，经济加速；踩刹车（加息），借钱变贵，大家开始省钱，经济降温。<a class="src" href="https://www.futunn.com/learn/detail-how-to-analyze-the-federal-reserve-s-monetary-policy-88969-230759065" target="_blank" rel="noopener noreferrer">查看来源</a></p>
   </div>
   <div class="illus">
     <!-- 结构图：美联储的三大支柱 -->
@@ -153,9 +163,9 @@
     <table>
       <thead><tr><th>指标</th><th>数值/范围</th><th>说明</th></tr></thead>
       <tbody>
-        <tr><td>资产负债表规模</td><td class="up">约 7.5 万亿美元</td><td>2024年数据，疫情期间一度接近9万亿，现在缩表中。(来源：https://www.monetamarkets.com/cn/analysis/what-is-the-fed-how-federal-reserve-works-fomc)</td></tr>
+        <tr><td>资产负债表规模</td><td class="up">约 7.5 万亿美元</td><td>2024年数据，疫情期间一度接近9万亿，现在缩表中。<a class="src" href="https://www.monetamarkets.com/cn/analysis/what-is-the-fed-how-federal-reserve-works-fomc" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
         <tr><td>联邦基金利率</td><td>5.25% – 5.50%</td><td>2023年7月-2024年，为抑制通胀达到的历史高位。[UNSOURCED]</td></tr>
-        <tr><td>FOMC会议频率</td><td>每年 8 次</td><td>固定日程，决定利率走向，市场如临大考。(来源：https://pdf.dfcfw.com/pdf/H3_AP202410301640590023_1.pdf)</td></tr>
+        <tr><td>FOMC会议频率</td><td>每年 8 次</td><td>固定日程，决定利率走向，市场如临大考。<a class="src" href="https://pdf.dfcfw.com/pdf/H3_AP202410301640590023_1.pdf" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
       </tbody>
     </table>
   </div>
@@ -184,7 +194,7 @@
       <div class="ptxt">
         <span class="tag tag-root">核心</span>
         <h3>联邦储备理事会</h3>
-        <ul><li><b>角色</b>：位于华盛顿的中央机构，7名委员由总统任命、参议院批准，任期14年。主席（如鲍威尔）是美联储的“代言人”。(来源：https://www.monetamarkets.com/cn/analysis/what-is-the-fed-how-federal-reserve-works-fomc)</li></ul>
+        <ul><li><b>角色</b>：位于华盛顿的中央机构，7名委员由总统任命、参议院批准，任期14年。主席（如鲍威尔）是美联储的“代言人”。<a class="src" href="https://www.monetamarkets.com/cn/analysis/what-is-the-fed-how-federal-reserve-works-fomc" target="_blank" rel="noopener noreferrer">查看来源</a></li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -192,7 +202,7 @@
       <div class="ptxt">
         <span class="tag tag-direct">决策</span>
         <h3>FOMC（联邦公开市场委员会）</h3>
-        <ul><li><b>角色</b>：真正的“利率开关”。由理事会7人+5位地区联储主席组成，每年开8次会议，投票决定加息、降息还是按兵不动。(来源：https://research.titanfx.com/cn/glossary/what_is_frb_fed)</li></ul>
+        <ul><li><b>角色</b>：真正的“利率开关”。由理事会7人+5位地区联储主席组成，每年开8次会议，投票决定加息、降息还是按兵不动。<a class="src" href="https://research.titanfx.com/cn/glossary/what_is_frb_fed" target="_blank" rel="noopener noreferrer">查看来源</a></li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -200,7 +210,7 @@
       <div class="ptxt">
         <span class="tag tag-hot">市场</span>
         <h3>华尔街 & 全球投资者</h3>
-        <ul><li><b>角色</b>：美联储做什么，他们立刻反应。股票涨跌、美元强弱、债券收益率波动，都跟着FOMC的“剧本”走。(来源：https://www.cmegroup.com/cn-s/education/courses/learn-about-key-economic-events/understanding-the-fomc-report.html)</li></ul>
+        <ul><li><b>角色</b>：美联储做什么，他们立刻反应。股票涨跌、美元强弱、债券收益率波动，都跟着FOMC的“剧本”走。<a class="src" href="https://www.cmegroup.com/cn-s/education/courses/learn-about-key-economic-events/understanding-the-fomc-report.html" target="_blank" rel="noopener noreferrer">查看来源</a></li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -208,7 +218,7 @@
       <div class="ptxt">
         <span class="tag tag-step">入门</span>
         <h3>小白友好入口</h3>
-        <ul><li><b>去哪看</b>：美联储官网 (federalreserve.gov) 上有所有公开声明、会议纪要、经济预测。CME FedWatch Tool 可以看市场对加息概率的预测。(来源：https://www.cmegroup.com/cn-s/education/courses/learn-about-key-economic-events/understanding-the-fomc-report.html)</li></ul>
+        <ul><li><b>去哪看</b>：美联储官网 (federalreserve.gov) 上有所有公开声明、会议纪要、经济预测。CME FedWatch Tool 可以看市场对加息概率的预测。<a class="src" href="https://www.cmegroup.com/cn-s/education/courses/learn-about-key-economic-events/understanding-the-fomc-report.html" target="_blank" rel="noopener noreferrer">查看来源</a></li></ul>
       </div>
     </div>
   </div>
@@ -219,9 +229,9 @@
   <h2><span class="num">04</span>小白如何起步</h2>
   <div class="sec-note">按步骤走，别一上来就梭哈。</div>
   <div class="tl">
-    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">理解核心目标：美联储就管两件事——就业和通胀。记住“2%通胀目标”和“最大就业”这两个词。(来源：https://www.futunn.com/learn/detail-how-to-analyze-the-federal-reserve-s-monetary-policy-88969-230759065)</div></div>
-    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">学会看“点阵图”：每个FOMC委员对未来利率的匿名预测，散点图形式。它告诉你“未来利率可能会往哪走”。(来源：https://www.futunn.com/learn/detail-how-to-analyze-the-federal-reserve-s-monetary-policy-88969-230759065)</div></div>
-    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">关注FOMC会议日历：每年8次，提前规划。会议后半小时发布声明，市场震荡。先看“利率决议”，再看“政策声明”。(来源：https://pdf.dfcfw.com/pdf/H3_AP202410301640590023_1.pdf)</div></div>
+    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">理解核心目标：美联储就管两件事——就业和通胀。记住“2%通胀目标”和“最大就业”这两个词。<a class="src" href="https://www.futunn.com/learn/detail-how-to-analyze-the-federal-reserve-s-monetary-policy-88969-230759065" target="_blank" rel="noopener noreferrer">查看来源</a></div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">学会看“点阵图”：每个FOMC委员对未来利率的匿名预测，散点图形式。它告诉你“未来利率可能会往哪走”。<a class="src" href="https://www.futunn.com/learn/detail-how-to-analyze-the-federal-reserve-s-monetary-policy-88969-230759065" target="_blank" rel="noopener noreferrer">查看来源</a></div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">关注FOMC会议日历：每年8次，提前规划。会议后半小时发布声明，市场震荡。先看“利率决议”，再看“政策声明”。<a class="src" href="https://pdf.dfcfw.com/pdf/H3_AP202410301640590023_1.pdf" target="_blank" rel="noopener noreferrer">查看来源</a></div></div>
     <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">小额试水：用模拟账户或小额资金，在美联储宣布利率决策前后，观察市场（如美股、美元、黄金）的反应，建立自己的判断框架。</div></div>
   </div>
 </section>
@@ -232,7 +242,7 @@
   <div class="sec-note">外行最容易交学费的地方。</div>
   <div class="grid2">
     <div class="card"><span class="tag tag-warn">坑 1</span><h3>以为美联储可以直接控制股市</h3><ul><li><b>为什么坑</b>：美联储管的是利率和货币供应，股市只是“被影响”。有时加息股市反而涨，因为市场提前“price in”了。</li></ul></div>
-    <div class="card"><span class="tag tag-warn">坑 2</span><h3>只看“加息/降息”结果，不看“预期”</h3><ul><li><b>为什么坑</b>：市场早已预测了加息概率。真正让市场波动的是“预期差”——比如市场预期加息25个基点，结果加了50个基点，就会大跌。(来源：https://research.titanfx.com/cn/glossary/what_is_frb_fed)</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>只看“加息/降息”结果，不看“预期”</h3><ul><li><b>为什么坑</b>：市场早已预测了加息概率。真正让市场波动的是“预期差”——比如市场预期加息25个基点，结果加了50个基点，就会大跌。<a class="src" href="https://research.titanfx.com/cn/glossary/what_is_frb_fed" target="_blank" rel="noopener noreferrer">查看来源</a></li></ul></div>
     <div class="card"><span class="tag tag-warn">坑 3</span><h3>把美联储当“万能救世主”</h3><ul><li><b>为什么坑</b>：美联储能救流动性危机，但救不了经济基本面。比如高通胀时，它只能加息，无法解决供应链问题。</li></ul></div>
     <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li><b>不要跟美联储作对</b>：当美联储明确表示要收紧货币政策（加息/缩表）时，不要盲目做多高风险资产，顺势而为。</li></ul></div>
   </div>
@@ -264,7 +274,7 @@
         <tr><td><b>量化宽松（QE）</b></td><td>美联储直接印钱买国债等资产，向市场注入流动性，相当于“直升机撒钱”。</td></tr>
         <tr><td><b>缩表</b></td><td>量化宽松的反向操作，美联储卖出资产收回现金，从市场抽走流动性。</td></tr>
         <tr><td><b>鹰派 / 鸽派</b></td><td>鹰派倾向于加息（收紧货币，更担心通胀）；鸽派倾向于降息（宽松货币，更担心就业）。</td></tr>
-        <tr><td><b>点阵图</b></td><td>FOMC委员对未来利率的匿名预测，以散点图形式呈现，能看出未来利率走向。(来源：https://www.futunn.com/learn/detail-how-to-analyze-the-federal-reserve-s-monetary-policy-88969-230759065)</td></tr>
+        <tr><td><b>点阵图</b></td><td>FOMC委员对未来利率的匿名预测，以散点图形式呈现，能看出未来利率走向。<a class="src" href="https://www.futunn.com/learn/detail-how-to-analyze-the-federal-reserve-s-monetary-policy-88969-230759065" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
       </tbody>
     </table>
   </div>
@@ -275,7 +285,7 @@
   <h2><span class="num">07</span>趣味小知识</h2>
   <div class="sec-note">聊天永远有料的包袱。</div>
   <div class="card">
-    <p class="quote">美联储成立于1913年，起因是1907年一次严重的银行恐慌，当时美国没有中央银行，私人银行家J.P.摩根不得不亲自出马组织救市。后来国会觉得“不能总靠一个人”，于是通过了《联邦储备法案》，美联储由此诞生。(来源：https://pdf.dfcfw.com/pdf/H3_AP202410301640590023_1.pdf)</p>
+    <p class="quote">美联储成立于1913年，起因是1907年一次严重的银行恐慌，当时美国没有中央银行，私人银行家J.P.摩根不得不亲自出马组织救市。后来国会觉得“不能总靠一个人”，于是通过了《联邦储备法案》，美联储由此诞生。<a class="src" href="https://pdf.dfcfw.com/pdf/H3_AP202410301640590023_1.pdf" target="_blank" rel="noopener noreferrer">查看来源</a></p>
   </div>
   <div class="verdict">
     <div class="vcell"><div class="vt">适不适合你</div><div class="vb">如果你对宏观经济、投资、全球金融感兴趣，了解美联储是必修课。如果你只关心自己的一亩三分地，可以暂时不学，但你会发现美联储的动向最终会通过房贷利率、物价、养老金等影响到你。</div></div>

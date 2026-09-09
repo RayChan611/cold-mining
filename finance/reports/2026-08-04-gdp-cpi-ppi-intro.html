@@ -76,6 +76,16 @@
   }
   .to-index:hover { background: #c8a866; color: #0a0a0a; }
 </style>
+
+<style id="fix-overflow-wrap">
+  /* 2026-09-04: 修复长 URL 撑破容器 */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
 </head>
 <body>
 <a class="to-index" href="../../index.html">← 全部报告</a>
@@ -95,7 +105,7 @@
     <div class="hero-txt">
       <ul>
         <li><b>它是什么</b>：GDP（国内生产总值）是经济体的“体重”，衡量所有活干得多少；CPI（消费者物价指数）是“你买东西贵不贵”，衡量老百姓的日常开销涨跌；PPI（生产者物价指数）是“工厂进货贵不贵”，衡量企业端的成本压力。</li>
-        <li><b>谁在看</b>：央行、政府、投资者、交易员，以及任何一个关心自己钱包的普通人。美联储等央行会依据 CPI 和 PPI 调整货币政策（来源：https://www.cmegroup.com/cn-s/education/courses/learn-about-key-economic-events/understanding-consumer-price-index-and-producer-price-index.html）。</li>
+        <li><b>谁在看</b>：央行、政府、投资者、交易员，以及任何一个关心自己钱包的普通人。美联储等央行会依据 CPI 和 PPI 调整货币政策<a class="src" href="https://www.cmegroup.com/cn-s/education/courses/learn-about-key-economic-events/understanding-consumer-price-index-and-producer-price-index.html" target="_blank" rel="noopener noreferrer">查看来源</a>。</li>
         <li><b>市场多大</b>：GDP 是几十万亿甚至百万亿级别的国家总体经济规模。例如 2023 年中国 GDP 超过 126 万亿元人民币（据国家统计局）。CPI 和 PPI 是月度发布的百分比变动数据，直接影响全球数万亿美元的债券、股票和商品市场。</li>
         <li><b>小白能懂吗</b>：门槛极低，不需要高数，但需要一点逻辑。风险在于误读：比如“CPI 涨了”不等于“所有东西都贵了”，需要看结构。</li>
       </ul>
@@ -120,8 +130,8 @@
   <div class="card">
     <p style="color:#c4c4c4;font-size:13.5px;">
     <b>GDP</b> 就像你家小区的“总劳动量”。如果小区里修路、送快递、开餐馆、写代码的人都在忙活，总产出就高，GDP 就涨。如果大家都不干活，GDP 就跌。<br><br>
-    <b>CPI</b> 就像你每个月去超市买牛奶、鸡蛋、理发的开销。如果这个月牛奶比上个月贵了 10%，鸡蛋贵了 5%，理发没变，那 CPI 就会上涨。它衡量的是<b>你</b>的消费成本变化 (来源：https://www.fuzhou.gov.cn/zcjd/bs/201706/t20170630_1158228.htm)。<br><br>
-    <b>PPI</b> 则是工厂老板的视角。他买钢材、煤炭、化工原料做东西，如果这些原料涨价了，他的成本就高了，PPI 就会涨。工厂老板成本高了，最后可能也会把涨价的压力传导给你——也就是 CPI 跟着涨 (来源：https://wallstreetcn.com/articles/3624538)。
+    <b>CPI</b> 就像你每个月去超市买牛奶、鸡蛋、理发的开销。如果这个月牛奶比上个月贵了 10%，鸡蛋贵了 5%，理发没变，那 CPI 就会上涨。它衡量的是<b>你</b>的消费成本变化 <a class="src" href="https://www.fuzhou.gov.cn/zcjd/bs/201706/t20170630_1158228.htm" target="_blank" rel="noopener noreferrer">查看来源</a>。<br><br>
+    <b>PPI</b> 则是工厂老板的视角。他买钢材、煤炭、化工原料做东西，如果这些原料涨价了，他的成本就高了，PPI 就会涨。工厂老板成本高了，最后可能也会把涨价的压力传导给你——也就是 CPI 跟着涨 <a class="src" href="https://wallstreetcn.com/articles/3624538" target="_blank" rel="noopener noreferrer">查看来源</a>。
     </p>
   </div>
   <div class="illus">
@@ -180,7 +190,7 @@
       <div class="ptxt">
         <span class="tag tag-root">ROOT</span>
         <h3>国家统计局</h3>
-        <ul><li>中国所有官方 CPI、PPI、GDP 数据的发布者。每月/每季度定期公布，是交易员和媒体的一手来源 (来源：https://www.stats.gov.cn/hd/lyzx/zxgk/cpippi/index_1.html)。</li></ul>
+        <ul><li>中国所有官方 CPI、PPI、GDP 数据的发布者。每月/每季度定期公布，是交易员和媒体的一手来源 <a class="src" href="https://www.stats.gov.cn/hd/lyzx/zxgk/cpippi/index_1.html" target="_blank" rel="noopener noreferrer">查看来源</a>。</li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -188,7 +198,7 @@
       <div class="ptxt">
         <span class="tag tag-direct">央行</span>
         <h3>美联储 / 中国人民银行</h3>
-        <ul><li>CPI 和 PPI 是央行调整利率的核心参考。如果 CPI 太高，央行会加息来降温；如果太低，可能降息来刺激经济 (来源：https://www.cmegroup.com/cn-s/education/courses/learn-about-key-economic-events/understanding-consumer-price-index-and-producer-price-index.html)。</li></ul>
+        <ul><li>CPI 和 PPI 是央行调整利率的核心参考。如果 CPI 太高，央行会加息来降温；如果太低，可能降息来刺激经济 <a class="src" href="https://www.cmegroup.com/cn-s/education/courses/learn-about-key-economic-events/understanding-consumer-price-index-and-producer-price-index.html" target="_blank" rel="noopener noreferrer">查看来源</a>。</li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -196,7 +206,7 @@
       <div class="ptxt">
         <span class="tag tag-hot">HOT</span>
         <h3>财经媒体与交易员</h3>
-        <ul><li>华尔街见闻、财新、彭博、路透等。交易员会在数据发布前押注，发布后瞬间交易，导致市场剧烈波动 (来源：https://wallstreetcn.com/articles/3624538)。</li></ul>
+        <ul><li>华尔街见闻、财新、彭博、路透等。交易员会在数据发布前押注，发布后瞬间交易，导致市场剧烈波动 <a class="src" href="https://wallstreetcn.com/articles/3624538" target="_blank" rel="noopener noreferrer">查看来源</a>。</li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -270,7 +280,7 @@
   <h2><span class="num">07</span>趣味小知识</h2>
   <div class="sec-note">聊天永远有料的包袱。</div>
   <div class="card">
-    <p class="quote">你知道吗？CPI 的“一篮子”商品不是一成不变的。中国统计局每五年会调整一次篮子，比如 2021 年就加入了外卖、新能源汽车等新消费，而“大哥大”早就被移出篮子了。这种调整会直接影响 CPI 数值，甚至影响央行的加息决策 (来源：https://www.stats.gov.cn/hd/lyzx/zxgk/cpippi/index_1.html)。</p>
+    <p class="quote">你知道吗？CPI 的“一篮子”商品不是一成不变的。中国统计局每五年会调整一次篮子，比如 2021 年就加入了外卖、新能源汽车等新消费，而“大哥大”早就被移出篮子了。这种调整会直接影响 CPI 数值，甚至影响央行的加息决策 <a class="src" href="https://www.stats.gov.cn/hd/lyzx/zxgk/cpippi/index_1.html" target="_blank" rel="noopener noreferrer">查看来源</a>。</p>
   </div>
   <div class="verdict">
     <div class="vcell"><div class="vt">适不适合你</div><div class="vb">如果你对新闻里的“经济数据”一头雾水，或者想了解自己工资为什么跑不赢物价，那就值得花 10 分钟搞懂这三个指标。不适合纯技术流，因为它偏宏观，不教你具体炒股。</div></div>

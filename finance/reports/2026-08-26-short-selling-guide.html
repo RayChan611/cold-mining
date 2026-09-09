@@ -79,6 +79,16 @@
   }
   .to-index:hover { background: #c8a866; color: #0a0a0a; }
 </style>
+
+<style id="fix-overflow-wrap">
+  /* 2026-09-04: 修复长 URL 撑破容器 */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
 </head>
 <body>
 <a class="to-index" href="../../index.html">← 全部报告</a>
@@ -97,10 +107,10 @@
   <div class="card hero">
     <div class="hero-txt">
       <ul>
-        <li><b>它是什么</b>：做空（Short Selling）是与「做多」相反的金融策略——不是「先买后卖等涨」，而是「先借来卖、再低价买回还掉」，靠下跌赚差价 (来源：https://www.vtmarketsglobal.com/discover/28374)。</li>
+        <li><b>它是什么</b>：做空（Short Selling）是与「做多」相反的金融策略——不是「先买后卖等涨」，而是「先借来卖、再低价买回还掉」，靠下跌赚差价 <a class="src" href="https://www.vtmarketsglobal.com/discover/28374" target="_blank" rel="noopener noreferrer">查看来源</a>。</li>
         <li><b>谁在玩</b>：对冲基金、专业交易员是主力；普通散户也能通过券商「融券」或差价合约（CFD）参与，但门槛和风险都很高。</li>
-        <li><b>市场多大</b>：几乎所有金融市场都可做空——股票、外汇、黄金、指数、期货、加密货币等都能找到做空工具 (来源：https://thinkmarkets.asia/zh-hans/academy/terminology/short-selling)。</li>
-        <li><b>小白能玩吗</b>：能，但不建议轻易尝试。最大获利有限（股价最多跌到 0），亏损却可能无限（股价理论上可一直涨）(来源：https://www.tmgm.com/zh-hant/academy/trading-academy/short-selling)。</li>
+        <li><b>市场多大</b>：几乎所有金融市场都可做空——股票、外汇、黄金、指数、期货、加密货币等都能找到做空工具 <a class="src" href="https://thinkmarkets.asia/zh-hans/academy/terminology/short-selling" target="_blank" rel="noopener noreferrer">查看来源</a>。</li>
+        <li><b>小白能玩吗</b>：能，但不建议轻易尝试。最大获利有限（股价最多跌到 0），亏损却可能无限（股价理论上可一直涨）<a class="src" href="https://www.tmgm.com/zh-hant/academy/trading-academy/short-selling" target="_blank" rel="noopener noreferrer">查看来源</a>。</li>
       </ul>
     </div>
     <div class="hero-art">
@@ -126,10 +136,10 @@
   <div class="sec-note">用一个生活类比，把「先卖后买」讲明白。</div>
   <div class="card">
     <p style="color:#c4c4c4;font-size:13.5px;">
-      想象你隔壁老王有一台 PS5，你判断下周新款发布后它肯定降价。于是你找老王借来他的 PS5，转头在闲鱼上以 3000 元卖掉。一周后价格果然跌到 2500 元，你花 2500 元买回一台同款 PS5 还给老王——你手里多了 500 元差价。这就是做空的核心逻辑：<b>先借资产卖出，再低价买回归还，赚取价差</b> (来源：https://www.tmgm.com/zh-hant/academy/trading-academy/short-selling)。
+      想象你隔壁老王有一台 PS5，你判断下周新款发布后它肯定降价。于是你找老王借来他的 PS5，转头在闲鱼上以 3000 元卖掉。一周后价格果然跌到 2500 元，你花 2500 元买回一台同款 PS5 还给老王——你手里多了 500 元差价。这就是做空的核心逻辑：<b>先借资产卖出，再低价买回归还，赚取价差</b> <a class="src" href="https://www.tmgm.com/zh-hant/academy/trading-academy/short-selling" target="_blank" rel="noopener noreferrer">查看来源</a>。
     </p>
     <p style="color:#c4c4c4;font-size:13.5px;margin-top:10px;">
-      和做多最大的区别是：做多是「先买后卖，靠上涨获利」；做空是「先卖后买，靠下跌获利」。但做空有个要命的对称性——<b>做多亏光了最多亏完本金，做空亏起来可能倒欠钱</b>。因为股价跌到 0 就到头了，但涨起来理论上没有天花板 (来源：https://www.tmgm.com/zh-hant/academy/trading-academy/short-selling)。
+      和做多最大的区别是：做多是「先买后卖，靠上涨获利」；做空是「先卖后买，靠下跌获利」。但做空有个要命的对称性——<b>做多亏光了最多亏完本金，做空亏起来可能倒欠钱</b>。因为股价跌到 0 就到头了，但涨起来理论上没有天花板 <a class="src" href="https://www.tmgm.com/zh-hant/academy/trading-academy/short-selling" target="_blank" rel="noopener noreferrer">查看来源</a>。
     </p>
   </div>
   <div class="illus">
@@ -216,7 +226,7 @@
       <div class="ptxt">
         <span class="tag tag-direct">券商</span>
         <h3>券商（借券渠道）</h3>
-        <ul><li>提供「融券」业务：散户向券商借股票卖出，需支付借券费、利息等持有成本 (来源：https://www.tmgm.com/zh-hant/academy/trading-academy/short-selling)。</li><li>门槛：通常需要一定资产规模或信用额度，不同券商要求不同。</li></ul>
+        <ul><li>提供「融券」业务：散户向券商借股票卖出，需支付借券费、利息等持有成本 <a class="src" href="https://www.tmgm.com/zh-hant/academy/trading-academy/short-selling" target="_blank" rel="noopener noreferrer">查看来源</a>。</li><li>门槛：通常需要一定资产规模或信用额度，不同券商要求不同。</li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -224,7 +234,7 @@
       <div class="ptxt">
         <span class="tag tag-hot">零售</span>
         <h3>差价合约（CFD）平台</h3>
-        <ul><li>如 VT Markets、FXTM 等，提供外汇、黄金、指数、股票 CFD 做空，无需借券，直接「做空」价格 (来源：https://thinkmarkets.asia/zh-hans/academy/terminology/short-selling)。</li><li>门槛低、杠杆高，但风险极大，小白慎入。</li></ul>
+        <ul><li>如 VT Markets、FXTM 等，提供外汇、黄金、指数、股票 CFD 做空，无需借券，直接「做空」价格 <a class="src" href="https://thinkmarkets.asia/zh-hans/academy/terminology/short-selling" target="_blank" rel="noopener noreferrer">查看来源</a>。</li><li>门槛低、杠杆高，但风险极大，小白慎入。</li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -243,7 +253,7 @@
   <h2><span class="num">04</span>小白如何起步</h2>
   <div class="sec-note">按步骤走，别一上来就梭哈。</div>
   <div class="tl">
-    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">搞懂游戏规则：先花 1-2 周读资料，理解做空四步流程（借券→卖出→买回→还券）以及费用结构（借券费、利息、手续费）(来源：https://www.tmgm.com/zh-hant/academy/trading-academy/short-selling)。</div></div>
+    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">搞懂游戏规则：先花 1-2 周读资料，理解做空四步流程（借券→卖出→买回→还券）以及费用结构（借券费、利息、手续费）<a class="src" href="https://www.tmgm.com/zh-hant/academy/trading-academy/short-selling" target="_blank" rel="noopener noreferrer">查看来源</a>。</div></div>
     <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">开模拟盘练手：用券商或 CFD 平台的模拟账户做 2-3 个月虚拟做空，记录每次判断对错的原因，别急着上真钱。</div></div>
     <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">建立判断框架：学习基本面分析（公司财务、行业趋势）和技术面分析（K 线、支撑位/压力位），做空不是猜涨跌，而是找「高估」的标的。</div></div>
     <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">小额试水 + 严格止损：如果模拟盘连续 3 个月盈利，再用极小资金（如总资产的 1-2%）试水，并设置强制止损线（如亏 20% 必须平仓）。记住：做空亏起来没有底，止损是保命符。</div></div>
@@ -255,9 +265,9 @@
   <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
   <div class="sec-note">外行最容易交学费的地方。</div>
   <div class="grid2">
-    <div class="card"><span class="tag tag-warn">坑 1</span><h3>「无限亏损」风险</h3><ul><li>做多亏光本金就出局，做空如果股价暴涨，亏损无上限，可能倒欠券商钱 (来源：https://www.tmgm.com/zh-hant/academy/trading-academy/short-selling)。<br><b>怎么避：</b>永远设止损单，不裸奔。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>「无限亏损」风险</h3><ul><li>做多亏光本金就出局，做空如果股价暴涨，亏损无上限，可能倒欠券商钱 <a class="src" href="https://www.tmgm.com/zh-hant/academy/trading-academy/short-selling" target="_blank" rel="noopener noreferrer">查看来源</a>。<br><b>怎么避：</b>永远设止损单，不裸奔。</li></ul></div>
     <div class="card"><span class="tag tag-warn">坑 2</span><h3>「逼空」行情</h3><ul><li>当大量做空者扎堆某只股票，股价反而被买盘推高，做空者被迫高价买回平仓，形成「逼空」踩踏。<br><b>怎么避：</b>避免做空已被大量做空的热门股，关注做空比例数据。</li></ul></div>
-    <div class="card"><span class="tag tag-warn">坑 3</span><h3>忽视持有成本</h3><ul><li>借券要付利息，持仓时间越长成本越高，实际净获利要扣掉手续费、借券费、利息等 (来源：https://www.tmgm.com/zh-hant/academy/trading-academy/short-selling)。<br><b>怎么避：</b>做空适合中短线，别把做空当长期投资。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>忽视持有成本</h3><ul><li>借券要付利息，持仓时间越长成本越高，实际净获利要扣掉手续费、借券费、利息等 <a class="src" href="https://www.tmgm.com/zh-hant/academy/trading-academy/short-selling" target="_blank" rel="noopener noreferrer">查看来源</a>。<br><b>怎么避：</b>做空适合中短线，别把做空当长期投资。</li></ul></div>
     <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>「做多是赚小钱亏大钱，做空是赚小钱亏更大钱」——因为跌最多 100%，涨可能涨几倍。永远只用亏得起的钱做空。</li></ul></div>
   </div>
   <div class="illus">
@@ -285,11 +295,11 @@
       <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
       <tbody>
         <tr><td><b>做多（Long）</b></td><td>先买后卖，赌价格上涨。</td></tr>
-        <tr><td><b>做空（Short）</b></td><td>先借来卖、再低价买回还，赌价格下跌 (来源：https://www.vtmarketsglobal.com/discover/28374)。</td></tr>
-        <tr><td><b>融券</b></td><td>向券商借股票来卖，需要抵押品并付利息 (来源：https://www.tmgm.com/zh-hant/academy/trading-academy/short-selling)。</td></tr>
+        <tr><td><b>做空（Short）</b></td><td>先借来卖、再低价买回还，赌价格下跌 <a class="src" href="https://www.vtmarketsglobal.com/discover/28374" target="_blank" rel="noopener noreferrer">查看来源</a>。</td></tr>
+        <tr><td><b>融券</b></td><td>向券商借股票来卖，需要抵押品并付利息 <a class="src" href="https://www.tmgm.com/zh-hant/academy/trading-academy/short-selling" target="_blank" rel="noopener noreferrer">查看来源</a>。</td></tr>
         <tr><td><b>平仓</b></td><td>把做空的仓位「关掉」——买回股票还掉，锁定盈亏。</td></tr>
         <tr><td><b>逼空（Short Squeeze）</b></td><td>股价上涨迫使大量做空者买回平仓，反而推高股价的踩踏现象。</td></tr>
-        <tr><td><b>裸卖空（Naked Short Selling）</b></td><td>没借到股票就直接卖空，多数市场禁止或严格限制 (来源：https://baike.baidu.com/item/%E5%81%9A%E7%A9%BA/17164)。</td></tr>
+        <tr><td><b>裸卖空（Naked Short Selling）</b></td><td>没借到股票就直接卖空，多数市场禁止或严格限制 <a class="src" href="https://baike.baidu.com/item/%E5%81%9A%E7%A9%BA/17164" target="_blank" rel="noopener noreferrer">查看来源</a>。</td></tr>
       </tbody>
     </table>
   </div>

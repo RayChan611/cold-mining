@@ -79,6 +79,16 @@
   }
   .to-index:hover { background: #c8a866; color: #0a0a0a; }
 </style>
+
+<style id="fix-overflow-wrap">
+  /* 2026-09-04: 修复长 URL 撑破容器 */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
 </head>
 <body>
 <a class="to-index" href="../../index.html">← 全部报告</a>
@@ -97,10 +107,10 @@
   <div class="card hero">
     <div class="hero-txt">
       <ul>
-        <li><b>它是什么</b>：一种基于区块链技术的去中心化数字资产，不依赖银行或政府发行，靠网络节点共同记账 (来源：https://www.forextime.com/zh/education/crypto-strategy)</li>
+        <li><b>它是什么</b>：一种基于区块链技术的去中心化数字资产，不依赖银行或政府发行，靠网络节点共同记账 <a class="src" href="https://www.forextime.com/zh/education/crypto-strategy" target="_blank" rel="noopener noreferrer">查看来源</a></li>
         <li><b>谁在玩</b>：从 2019 年后的散户投资者，到特斯拉、MicroStrategy 等上市公司，再到华尔街资管巨头都在配置</li>
-        <li><b>市场多大</b>：比特币市值约 1.84 万亿美元，以太坊约 3912 亿美元，稳定币 USDT 约 1861 亿美元 (来源：https://www.mitrade.com/zh/insights/newbie/learn-btc/crypto-for-beginners)</li>
-        <li><b>小白能玩吗</b>：能，但门槛不在技术而在心态——价格波动剧烈，新手需从极小金额试水，先学习再投资 (来源：https://www.futunn.com/learn/detail-beginner-s-guide-understand-how-to-invest-in-crypto-in-3-minutes-91407-250375012)</li>
+        <li><b>市场多大</b>：比特币市值约 1.84 万亿美元，以太坊约 3912 亿美元，稳定币 USDT 约 1861 亿美元 <a class="src" href="https://www.mitrade.com/zh/insights/newbie/learn-btc/crypto-for-beginners" target="_blank" rel="noopener noreferrer">查看来源</a></li>
+        <li><b>小白能玩吗</b>：能，但门槛不在技术而在心态——价格波动剧烈，新手需从极小金额试水，先学习再投资 <a class="src" href="https://www.futunn.com/learn/detail-beginner-s-guide-understand-how-to-invest-in-crypto-in-3-minutes-91407-250375012" target="_blank" rel="noopener noreferrer">查看来源</a></li>
       </ul>
     </div>
     <div class="hero-art">
@@ -127,8 +137,8 @@
   <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
   <div class="sec-note">把区块链和加密货币，用生活类比讲明白。</div>
   <div class="card">
-    <p style="color:#c4c4c4;font-size:13.5px;">想象一个全村共用的账本，谁家买了牛、谁家卖了粮，所有人都同时在自己的本子上记一笔，而且每笔记录都带时间戳和上一个人的签名。想篡改？你得同时改掉全村一半以上人家的本子——这就是<b>区块链</b>的基本逻辑。加密货币（比如比特币）就是这个账本上流通的"数字粮食"，总量写死、人人可查、无法伪造 (来源：https://www.forextime.com/zh/education/crypto-strategy)。</p>
-    <p style="color:#c4c4c4;font-size:13.5px;margin-top:10px;">更妙的是，比特币总量上限 2100 万枚，永不增发，这种<b>稀缺性</b>让它有了"数字黄金"的称号 (来源：https://research.titanfx.com/cn/crypto-trading/what-is-cryptocurrency)。而以太坊则更进一步，它的账本不仅能记账，还能运行小程序（智能合约），于是催生了 DeFi（去中心化金融）、NFT（数字藏品）等新玩法 (来源：https://www.coinbase.com/zh-cn/learn/crypto-basics)。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;">想象一个全村共用的账本，谁家买了牛、谁家卖了粮，所有人都同时在自己的本子上记一笔，而且每笔记录都带时间戳和上一个人的签名。想篡改？你得同时改掉全村一半以上人家的本子——这就是<b>区块链</b>的基本逻辑。加密货币（比如比特币）就是这个账本上流通的"数字粮食"，总量写死、人人可查、无法伪造 <a class="src" href="https://www.forextime.com/zh/education/crypto-strategy" target="_blank" rel="noopener noreferrer">查看来源</a>。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;margin-top:10px;">更妙的是，比特币总量上限 2100 万枚，永不增发，这种<b>稀缺性</b>让它有了"数字黄金"的称号 <a class="src" href="https://research.titanfx.com/cn/crypto-trading/what-is-cryptocurrency" target="_blank" rel="noopener noreferrer">查看来源</a>。而以太坊则更进一步，它的账本不仅能记账，还能运行小程序（智能合约），于是催生了 DeFi（去中心化金融）、NFT（数字藏品）等新玩法 <a class="src" href="https://www.coinbase.com/zh-cn/learn/crypto-basics" target="_blank" rel="noopener noreferrer">查看来源</a>。</p>
   </div>
   <div class="illus">
     <!-- 价值链 / 结构图：从技术到应用的三层结构 -->
@@ -159,7 +169,7 @@
     <table>
       <thead><tr><th>排名</th><th>币种</th><th>市值（亿美元）</th><th>板块重点</th><th>新手建议</th></tr></thead>
       <tbody>
-        <tr><td>1</td><td><b>BTC（比特币）</b></td><td class="up">18,400</td><td>Layer-1 / 减半</td><td>必备，数字黄金 (来源：https://www.mitrade.com/zh/insights/newbie/learn-btc/crypto-for-beginners)</td></tr>
+        <tr><td>1</td><td><b>BTC（比特币）</b></td><td class="up">18,400</td><td>Layer-1 / 减半</td><td>必备，数字黄金 <a class="src" href="https://www.mitrade.com/zh/insights/newbie/learn-btc/crypto-for-beginners" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
         <tr><td>2</td><td><b>ETH（以太坊）</b></td><td>3,912.8</td><td>Layer-1 / DeFi</td><td>智能合约王，长期持 (来源：同上)</td></tr>
         <tr><td>3</td><td><b>USDT（泰达币）</b></td><td>1,861.9</td><td>稳定币</td><td>避险现金，不用炒 (来源：同上)</td></tr>
         <tr><td>4</td><td><b>XRP（瑞波币）</b></td><td>1,224.2</td><td>Layer-1</td><td>跨境支付，监管友好 (来源：同上)</td></tr>
@@ -209,7 +219,7 @@
       <div class="ptxt">
         <span class="tag tag-root">ROOT</span>
         <h3>比特币（BTC）</h3>
-        <ul><li>加密货币鼻祖，2009 年诞生，总量 2100 万枚永不增发 (来源：https://research.titanfx.com/cn/crypto-trading/what-is-cryptocurrency)</li><li>市值约 1.84 万亿美元，是行业的"数字黄金"和风向标 (来源：https://www.mitrade.com/zh/insights/newbie/learn-btc/crypto-for-beginners)</li><li>小白第一站：先理解它，再谈其他币</li></ul>
+        <ul><li>加密货币鼻祖，2009 年诞生，总量 2100 万枚永不增发 <a class="src" href="https://research.titanfx.com/cn/crypto-trading/what-is-cryptocurrency" target="_blank" rel="noopener noreferrer">查看来源</a></li><li>市值约 1.84 万亿美元，是行业的"数字黄金"和风向标 <a class="src" href="https://www.mitrade.com/zh/insights/newbie/learn-btc/crypto-for-beginners" target="_blank" rel="noopener noreferrer">查看来源</a></li><li>小白第一站：先理解它，再谈其他币</li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -217,7 +227,7 @@
       <div class="ptxt">
         <span class="tag tag-direct">SMART</span>
         <h3>以太坊（ETH）</h3>
-        <ul><li>市值第二大币种，约 3912 亿美元 (来源：https://www.mitrade.com/zh/insights/newbie/learn-btc/crypto-for-beginners)</li><li>不仅是货币，更是"世界计算机"，运行智能合约和 DeFi 应用 (来源：https://www.coinbase.com/zh-cn/learn/crypto-basics)</li><li>生态最活跃，NFT 和去中心化金融的大本营</li></ul>
+        <ul><li>市值第二大币种，约 3912 亿美元 <a class="src" href="https://www.mitrade.com/zh/insights/newbie/learn-btc/crypto-for-beginners" target="_blank" rel="noopener noreferrer">查看来源</a></li><li>不仅是货币，更是"世界计算机"，运行智能合约和 DeFi 应用 <a class="src" href="https://www.coinbase.com/zh-cn/learn/crypto-basics" target="_blank" rel="noopener noreferrer">查看来源</a></li><li>生态最活跃，NFT 和去中心化金融的大本营</li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -225,7 +235,7 @@
       <div class="ptxt">
         <span class="tag tag-hot">HOT</span>
         <h3>交易所三巨头</h3>
-        <ul><li>币安（Binance）：全球最大交易所，BNB 市值约 1221 亿美元 (来源：https://www.mitrade.com/zh/insights/newbie/learn-btc/crypto-for-beginners)</li><li>Coinbase：美股上市，合规标杆，适合新手入门 (来源：https://www.coinbase.com/zh-cn/learn/crypto-basics)</li><li>选交易所看三点：合规牌照、资金托管、提现速度</li></ul>
+        <ul><li>币安（Binance）：全球最大交易所，BNB 市值约 1221 亿美元 <a class="src" href="https://www.mitrade.com/zh/insights/newbie/learn-btc/crypto-for-beginners" target="_blank" rel="noopener noreferrer">查看来源</a></li><li>Coinbase：美股上市，合规标杆，适合新手入门 <a class="src" href="https://www.coinbase.com/zh-cn/learn/crypto-basics" target="_blank" rel="noopener noreferrer">查看来源</a></li><li>选交易所看三点：合规牌照、资金托管、提现速度</li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -233,7 +243,7 @@
       <div class="ptxt">
         <span class="tag tag-step">入门</span>
         <h3>稳定币（USDT/USDC）</h3>
-        <ul><li>USDT 市值约 1861 亿美元，USDC 约 78 亿美元 (来源：https://www.mitrade.com/zh/insights/newbie/learn-btc/crypto-for-beginners)</li><li>1 USDT ≈ 1 美元，是币圈的"现金"，用于避险和交易中转</li><li>新手必备：暴跌时把币换成稳定币，比换成人民币快得多</li></ul>
+        <ul><li>USDT 市值约 1861 亿美元，USDC 约 78 亿美元 <a class="src" href="https://www.mitrade.com/zh/insights/newbie/learn-btc/crypto-for-beginners" target="_blank" rel="noopener noreferrer">查看来源</a></li><li>1 USDT ≈ 1 美元，是币圈的"现金"，用于避险和交易中转</li><li>新手必备：暴跌时把币换成稳定币，比换成人民币快得多</li></ul>
       </div>
     </div>
   </div>
@@ -244,9 +254,9 @@
   <h2><span class="num">04</span>小白如何起步</h2>
   <div class="sec-note">按步骤走，别一上来就梭哈。</div>
   <div class="tl">
-    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">先学后买：花 1-2 周读 Coinbase 的免费学习资料 (来源：https://www.coinbase.com/zh-cn/learn/crypto-basics)，弄懂区块链、钱包、私钥、交易所这几个核心概念</div></div>
+    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">先学后买：花 1-2 周读 Coinbase 的免费学习资料 <a class="src" href="https://www.coinbase.com/zh-cn/learn/crypto-basics" target="_blank" rel="noopener noreferrer">查看来源</a>，弄懂区块链、钱包、私钥、交易所这几个核心概念</div></div>
     <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">小额试水：用 100-500 元人民币（或等值外币），在合规交易所（如 Coinbase、币安）买入 100 元比特币 + 100 元以太坊，体验充提、买卖、看行情全流程</div></div>
-    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">建立判断框架：学会看市值排名（参考 mitrade 的榜单），区分"主流币"和"空气币"，了解减半、DeFi、Layer-1 这些基本面概念 (来源：https://www.mitrade.com/zh/insights/newbie/learn-btc/crypto-for-beginners)</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">建立判断框架：学会看市值排名（参考 mitrade 的榜单），区分"主流币"和"空气币"，了解减半、DeFi、Layer-1 这些基本面概念 <a class="src" href="https://www.mitrade.com/zh/insights/newbie/learn-btc/crypto-for-beginners" target="_blank" rel="noopener noreferrer">查看来源</a></div></div>
     <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">定投 + 风控：把投入控制在总资产 5% 以内，每月定投比特币或以太坊，设置止损线，跌 30% 就冷静反思而不是加杠杆</div></div>
   </div>
 </section>
@@ -256,9 +266,9 @@
   <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
   <div class="sec-note">外行最容易交学费的地方。</div>
   <div class="grid2">
-    <div class="card"><span class="tag tag-warn">坑 1</span><h3>追涨杀跌、频繁交易</h3><ul><li>加密货币波动剧烈，短期可能涨跌数十个百分点 (来源：https://research.titanfx.com/cn/crypto-trading/what-is-cryptocurrency)</li><li>破解：定投代替梭哈，把时间拉长到 1 年以上</li></ul></div>
-    <div class="card"><span class="tag tag-warn">坑 2</span><h3>诈骗和黑客盗窃</h3><ul><li>虚假网站、网络钓鱼、敲诈勒索、欺诈性 ICO 是最常见安全问题 (来源：https://www.futunn.com/learn/detail-beginner-s-guide-understand-how-to-invest-in-crypto-in-3-minutes-91407-250375012)</li><li>破解：只从官方应用商店下载钱包，绝不向任何人透露私钥/助记词</li></ul></div>
-    <div class="card"><span class="tag tag-warn">坑 3</span><h3>迷信"百倍币"、空气币</h3><ul><li>部分山寨币缺乏实际应用，仅靠营销拉高价格 (来源：https://www.futunn.com/learn/detail-beginner-s-guide-understand-how-to-invest-in-crypto-in-3-minutes-91407-250375012)</li><li>破解：只买市值前 10 的币，拒绝任何"内部消息"和"保本高息"</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>追涨杀跌、频繁交易</h3><ul><li>加密货币波动剧烈，短期可能涨跌数十个百分点 <a class="src" href="https://research.titanfx.com/cn/crypto-trading/what-is-cryptocurrency" target="_blank" rel="noopener noreferrer">查看来源</a></li><li>破解：定投代替梭哈，把时间拉长到 1 年以上</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>诈骗和黑客盗窃</h3><ul><li>虚假网站、网络钓鱼、敲诈勒索、欺诈性 ICO 是最常见安全问题 <a class="src" href="https://www.futunn.com/learn/detail-beginner-s-guide-understand-how-to-invest-in-crypto-in-3-minutes-91407-250375012" target="_blank" rel="noopener noreferrer">查看来源</a></li><li>破解：只从官方应用商店下载钱包，绝不向任何人透露私钥/助记词</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>迷信"百倍币"、空气币</h3><ul><li>部分山寨币缺乏实际应用，仅靠营销拉高价格 <a class="src" href="https://www.futunn.com/learn/detail-beginner-s-guide-understand-how-to-invest-in-crypto-in-3-minutes-91407-250375012" target="_blank" rel="noopener noreferrer">查看来源</a></li><li>破解：只买市值前 10 的币，拒绝任何"内部消息"和"保本高息"</li></ul></div>
     <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>不懂不投，能承受归零的才投</li><li>加密货币是数字时代的资产类别，但风险极高——把投资金额控制在"亏光了也不心疼"的范围内</li></ul></div>
   </div>
   <div class="illus">
@@ -287,10 +297,10 @@
     <table>
       <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
       <tbody>
-        <tr><td><b>区块链</b></td><td>一个公开、透明、不可篡改的分布式账本，人人都有副本 (来源：https://www.forextime.com/zh/education/crypto-strategy)</td></tr>
-        <tr><td><b>DeFi</b></td><td>去中心化金融，用智能合约代替银行，借贷、存款、交易全在链上自动完成 (来源：https://www.coinbase.com/zh-cn/learn/crypto-basics)</td></tr>
+        <tr><td><b>区块链</b></td><td>一个公开、透明、不可篡改的分布式账本，人人都有副本 <a class="src" href="https://www.forextime.com/zh/education/crypto-strategy" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
+        <tr><td><b>DeFi</b></td><td>去中心化金融，用智能合约代替银行，借贷、存款、交易全在链上自动完成 <a class="src" href="https://www.coinbase.com/zh-cn/learn/crypto-basics" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
         <tr><td><b>Layer-1 / Layer-2</b></td><td>第一层是主链（如比特币、以太坊），第二层是解决拥堵的扩展方案（如闪电网络）</td></tr>
-        <tr><td><b>稳定币</b></td><td>价值锚定法币（如美元）的加密货币，如 USDT、USDC，用于避险和交易 (来源：https://www.mitrade.com/zh/insights/newbie/learn-btc/crypto-for-beginners)</td></tr>
+        <tr><td><b>稳定币</b></td><td>价值锚定法币（如美元）的加密货币，如 USDT、USDC，用于避险和交易 <a class="src" href="https://www.mitrade.com/zh/insights/newbie/learn-btc/crypto-for-beginners" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
         <tr><td><b>私钥 / 助记词</b></td><td>钱包的"唯一钥匙"，谁拿到谁拥有资产，泄露等于送钱</td></tr>
         <tr><td><b>减半（Halving）</b></td><td>比特币每 4 年挖矿奖励减半，控制供给，历史上每次减半后都有大行情</td></tr>
       </tbody>

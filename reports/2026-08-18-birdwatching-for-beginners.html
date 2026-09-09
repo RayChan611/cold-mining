@@ -77,6 +77,16 @@
   }
   .to-index:hover { background: #c8a866; color: #0a0a0a; }
 </style>
+
+<style id="fix-overflow-wrap">
+  /* 2026-09-04: 修复长 URL 撑破容器 */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
 </head>
 <body>
 <a class="to-index" href="../index.html">← 全部报告</a>
@@ -96,8 +106,8 @@
     <div class="hero-txt">
       <ul>
         <li><b>它是什么</b>：拿着望远镜或长焦相机，在公园、湿地、山林里观察和记录野生鸟类，顺便「集邮」加新种。</li>
-        <li><b>谁在玩</b>：从退休大爷到 25 岁年轻人都有。最近一年小红书「观鸟」搜索量同比增长 19 倍，25 岁左右用户已成为内容主要创作者 (来源：https://www.news.cn/fortune/20250515/e0f8e792134a412980162f0bf333c489/c.html)。</li>
-        <li><b>市场多大</b>：全球观鸟旅游市场 2023 年规模约 59.78 亿美元，预计 2033 年翻倍以上，复合年增长率 6.07% (来源：https://www.sphericalinsights.com/zh/reports/birdwatching-tourism-market)。另有口径称全球观鸟相关市场约 2607 亿美元 (来源：https://zhuanlan.zhihu.com/p/2032612805690529604)。</li>
+        <li><b>谁在玩</b>：从退休大爷到 25 岁年轻人都有。最近一年小红书「观鸟」搜索量同比增长 19 倍，25 岁左右用户已成为内容主要创作者 <a class="src" href="https://www.news.cn/fortune/20250515/e0f8e792134a412980162f0bf333c489/c.html" target="_blank" rel="noopener noreferrer">查看来源</a>。</li>
+        <li><b>市场多大</b>：全球观鸟旅游市场 2023 年规模约 59.78 亿美元，预计 2033 年翻倍以上，复合年增长率 6.07% <a class="src" href="https://www.sphericalinsights.com/zh/reports/birdwatching-tourism-market" target="_blank" rel="noopener noreferrer">查看来源</a>。另有口径称全球观鸟相关市场约 2607 亿美元 <a class="src" href="https://zhuanlan.zhihu.com/p/2032612805690529604" target="_blank" rel="noopener noreferrer">查看来源</a>。</li>
         <li><b>小白能玩吗</b>：门槛极低——出门、抬头、带个望远镜就能开始；但装备和「追新种」的执念会让钱包迅速变瘦。</li>
       </ul>
     </div>
@@ -132,7 +142,7 @@
   <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
   <div class="sec-note">把「观鸟」用生活类比讲明白。</div>
   <div class="card">
-    <p style="color:#c4c4c4;font-size:13.5px;">观鸟有点像「宝可梦收集」的真人版：你的图鉴是《中国鸟类野外手册》或各种 App，你的「精灵球」是望远镜和长焦镜头，你的「稀有闪光」是黑脸琵鹭、勺嘴鹬这种珍稀鸟种。区别在于——你不需要对战，只需要找到它们、看清它们、记录下来。整个过程像一场沉浸式户外寻宝，还顺带解锁了「自然观察者」成就。在深圳，有人为此专门创业，开发智能喂鸟器并搭建观鸟者社区，成立了公司 COOLFLY (来源：https://sz.chinadaily.com.cn/a/202511/24/WS6923c603a310942cc4992eea.html)。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;">观鸟有点像「宝可梦收集」的真人版：你的图鉴是《中国鸟类野外手册》或各种 App，你的「精灵球」是望远镜和长焦镜头，你的「稀有闪光」是黑脸琵鹭、勺嘴鹬这种珍稀鸟种。区别在于——你不需要对战，只需要找到它们、看清它们、记录下来。整个过程像一场沉浸式户外寻宝，还顺带解锁了「自然观察者」成就。在深圳，有人为此专门创业，开发智能喂鸟器并搭建观鸟者社区，成立了公司 COOLFLY <a class="src" href="https://sz.chinadaily.com.cn/a/202511/24/WS6923c603a310942cc4992eea.html" target="_blank" rel="noopener noreferrer">查看来源</a>。</p>
   </div>
   <div class="illus">
     <!-- 价值链 / 结构图：观鸟活动的四环节 -->
@@ -168,7 +178,7 @@
       <tbody>
         <tr><td>入门档</td><td class="up">¥0 – 500</td><td>肉眼 + 手机 + 公园，零成本起步；入门双筒望远镜约 ¥200–500 [UNSOURCED]</td></tr>
         <tr><td>进阶档</td><td>¥1,000 – 5,000</td><td>中端望远镜或二手长焦镜头；参加本地观鸟团单次 ¥100–300 [UNSOURCED]</td></tr>
-        <tr><td>发烧档</td><td class="down">¥10,000 – 30,000+</td><td>旗舰长焦镜头（如 600mm f/4）+ 高端机身；外地/国外观鸟团两到定价在万元以上 (来源：https://zhuanlan.zhihu.com/p/2032612805690529604)</td></tr>
+        <tr><td>发烧档</td><td class="down">¥10,000 – 30,000+</td><td>旗舰长焦镜头（如 600mm f/4）+ 高端机身；外地/国外观鸟团两到定价在万元以上 <a class="src" href="https://zhuanlan.zhihu.com/p/2032612805690529604" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
       </tbody>
     </table>
   </div>
@@ -217,7 +227,7 @@
       <div class="ptxt">
         <span class="tag tag-direct">平台</span>
         <h3>小红书 / 抖音</h3>
-        <ul><li>年轻人「入坑」的第一站：近一年「观鸟」相关笔记发布量是过去十年总和的 1.2 倍 (来源：https://www.news.cn/fortune/20250515/e0f8e792134a412980162f0bf333c489/c.html)</li></ul>
+        <ul><li>年轻人「入坑」的第一站：近一年「观鸟」相关笔记发布量是过去十年总和的 1.2 倍 <a class="src" href="https://www.news.cn/fortune/20250515/e0f8e792134a412980162f0bf333c489/c.html" target="_blank" rel="noopener noreferrer">查看来源</a></li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -233,7 +243,7 @@
       <div class="ptxt">
         <span class="tag tag-step">入门</span>
         <h3>城市公园 + 本地湿地</h3>
-        <ul><li>新手最该先去的 1-2 个地方：深圳福田红树林自然保护区（黑脸琵鹭）、杭州西溪湿地（水鸟）等都是经典观鸟点 (来源：http://paper.people.com.cn/rmrbhwb/pc/content/202502/27/content_30059176.html)</li></ul>
+        <ul><li>新手最该先去的 1-2 个地方：深圳福田红树林自然保护区（黑脸琵鹭）、杭州西溪湿地（水鸟）等都是经典观鸟点 <a class="src" href="http://paper.people.com.cn/rmrbhwb/pc/content/202502/27/content_30059176.html" target="_blank" rel="noopener noreferrer">查看来源</a></li></ul>
       </div>
     </div>
   </div>
@@ -247,7 +257,7 @@
     <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">出门，抬头。找最近的公园、河边或湿地，先不买任何装备，用肉眼和手机拍几张「不明鸟类」，感受一下自己是否真的喜欢。</div></div>
     <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">下载一个识鸟 App（如 Merlin 或「懂鸟」），把拍的鸟传上去识别，顺便看看别人发的鸟图，培养「鸟感」。</div></div>
     <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">如果还感兴趣，买一台入门双筒望远镜（¥200–500）或加入本地观鸟会的一次活动（单次 ¥100–300），跟老鸟人学找鸟技巧。</div></div>
-    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">建立自己的「鸟单」（Life List），记录每次看到的新鸟种。当你的鸟单超过 100 种时，再考虑要不要升级装备或参加外地观鸟团（两到万元以上）(来源：https://zhuanlan.zhihu.com/p/2032612805690529604)。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">建立自己的「鸟单」（Life List），记录每次看到的新鸟种。当你的鸟单超过 100 种时，再考虑要不要升级装备或参加外地观鸟团（两到万元以上）<a class="src" href="https://zhuanlan.zhihu.com/p/2032612805690529604" target="_blank" rel="noopener noreferrer">查看来源</a>。</div></div>
   </div>
 </section>
 
@@ -273,7 +283,7 @@
       <text x="550" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">25 岁年轻人已成主力，手机+肉眼就能开始</text>
       <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
     </svg>
-    <div class="cap">误区 vs 真相（来源：https://www.news.cn/fortune/20250515/e0f8e792134a412980162f0bf333c489/c.html）</div>
+    <div class="cap">误区 vs 真相<a class="src" href="https://www.news.cn/fortune/20250515/e0f8e792134a412980162f0bf333c489/c.html" target="_blank" rel="noopener noreferrer">查看来源</a></div>
   </div>
 </section>
 
@@ -301,11 +311,11 @@
   <h2><span class="num">07</span>趣味小知识</h2>
   <div class="sec-note">聊天永远有料的包袱。</div>
   <div class="card">
-    <p class="quote">美国是全球鸟类产品最赚钱的市场之一，观鸟是美国人的第二大户外爱好——仅次于园艺。这意味着，你在美国街头看到举着望远镜的人，可能比举着钓鱼竿的还多 (来源：https://www.ebrun.com/20250807/590046.shtml)。</p>
+    <p class="quote">美国是全球鸟类产品最赚钱的市场之一，观鸟是美国人的第二大户外爱好——仅次于园艺。这意味着，你在美国街头看到举着望远镜的人，可能比举着钓鱼竿的还多 <a class="src" href="https://www.ebrun.com/20250807/590046.shtml" target="_blank" rel="noopener noreferrer">查看来源</a>。</p>
   </div>
   <div class="verdict">
     <div class="vcell"><div class="vt">适不适合你</div><div class="vb">适合：喜欢户外、有耐心、享受「收集」乐趣的人。不适合：追求即时刺激、无法忍受「蹲守半小时一无所获」的人。</div></div>
-    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">观鸟是城市人离「野外」最近的一种方式——你只需要抬头，就能加入这场全球 2607 亿美元的「追鸟」游戏 (来源：https://zhuanlan.zhihu.com/p/2032612805690529604)。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">观鸟是城市人离「野外」最近的一种方式——你只需要抬头，就能加入这场全球 2607 亿美元的「追鸟」游戏 <a class="src" href="https://zhuanlan.zhihu.com/p/2032612805690529604" target="_blank" rel="noopener noreferrer">查看来源</a>。</div></div>
   </div>
 </section>
 

@@ -79,6 +79,16 @@
   }
   .to-index:hover { background: #c8a866; color: #0a0a0a; }
 </style>
+
+<style id="fix-overflow-wrap">
+  /* 2026-09-04: 修复长 URL 撑破容器 */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
 </head>
 <body>
 <a class="to-index" href="../../index.html">← 全部报告</a>
@@ -97,9 +107,9 @@
   <div class="card hero">
     <div class="hero-txt">
       <ul>
-        <li><b>它是什么</b>：对合同、产权转移书据、营业账簿和股票交易等「应税凭证」征收的一种税。最早是贴在文件上的「印花税票」，所以叫印花税 (来源：https://zh.wikipedia.org/zh-cn/%E5%8D%B0%E8%8A%B1%E7%A8%8E)。</li>
-        <li><b>谁在交</b>：在境内书立应税凭证、进行证券交易的单位和个人，包括企业和股民 (来源：https://baike.baidu.com/item/%E5%8D%B0%E8%8A%B1%E7%A8%8E/89641)。</li>
-        <li><b>市场多大</b>：2022年《印花税法》施行后，税率从万分之零点五到千分之一不等，定额每件 5 元；证券交易印花税目前为卖出时单边收取 0.05% (来源：https://blog.csdn.net/PlutoZuo/article/details/144709689；https://zh.wikipedia.org/zh-cn/%E5%8D%B0%E8%8A%B1%E7%A8%8E)。</li>
+        <li><b>它是什么</b>：对合同、产权转移书据、营业账簿和股票交易等「应税凭证」征收的一种税。最早是贴在文件上的「印花税票」，所以叫印花税 <a class="src" href="https://zh.wikipedia.org/zh-cn/%E5%8D%B0%E8%8A%B1%E7%A8%8E" target="_blank" rel="noopener noreferrer">查看来源</a>。</li>
+        <li><b>谁在交</b>：在境内书立应税凭证、进行证券交易的单位和个人，包括企业和股民 <a class="src" href="https://baike.baidu.com/item/%E5%8D%B0%E8%8A%B1%E7%A8%8E/89641" target="_blank" rel="noopener noreferrer">查看来源</a>。</li>
+        <li><b>市场多大</b>：2022年《印花税法》施行后，税率从万分之零点五到千分之一不等，定额每件 5 元；证券交易印花税目前为卖出时单边收取 0.05% <a class="src" href="https://blog.csdn.net/PlutoZuo/article/details/144709689；https://zh.wikipedia.org/zh-cn/%E5%8D%B0%E8%8A%B1%E7%A8%8E" target="_blank" rel="noopener noreferrer">查看来源</a>。</li>
         <li><b>小白能玩吗</b>：不用主动「玩」，但只要你签合同、炒股、买房，就自动成了纳税人。了解它 = 省钱。</li>
       </ul>
     </div>
@@ -125,7 +135,7 @@
   <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
   <div class="card">
     <p style="color:#c4c4c4;font-size:13.5px;">想象一下，你去政府办事大厅领「合同认证」：窗口工作人员递给你一张小票，说「贴上去，盖个章，这份合同才算数」。这张小票就是「印花税票」。现在的印花税已经电子化，不用真的贴票，但原理没变——它是国家对你「签重要文书」这件事收的「认证费」。<br><br>
-    它有点像快递的「保价费」：你可以不保，但出了事没人管；合同不缴印花税，法律上合同依然有效，但税务机关会找你补税并罚款。本质上，这是国家给经济活动「盖章」的成本。历史上，荷兰在 1624 年发明印花税，因为单据上贴了花、盖了章，看起来「名正言顺」，纳税人抵触最小 (来源：https://zh.wikipedia.org/zh-cn/%E5%8D%B0%E8%8A%B1%E7%A8%8E)。</p>
+    它有点像快递的「保价费」：你可以不保，但出了事没人管；合同不缴印花税，法律上合同依然有效，但税务机关会找你补税并罚款。本质上，这是国家给经济活动「盖章」的成本。历史上，荷兰在 1624 年发明印花税，因为单据上贴了花、盖了章，看起来「名正言顺」，纳税人抵触最小 <a class="src" href="https://zh.wikipedia.org/zh-cn/%E5%8D%B0%E8%8A%B1%E7%A8%8E" target="_blank" rel="noopener noreferrer">查看来源</a>。</p>
   </div>
   <div class="illus">
     <!-- 价值链 / 结构 内联 SVG 图：印花税的流转路径 -->
@@ -155,11 +165,11 @@
     <table>
       <thead><tr><th>税目</th><th>税率 / 税额</th><th>说明</th></tr></thead>
       <tbody>
-        <tr><td>证券交易（A股）</td><td class="down">卖出单边 0.05%</td><td>仅对出让方征收，买入不交 (来源：https://blog.csdn.net/PlutoZuo/article/details/144709689)</td></tr>
-        <tr><td>借款合同</td><td>万分之零点五</td><td>税率最低的一档，鼓励资金融通 (来源：https://zh.wikipedia.org/zh-cn/%E5%8D%B0%E8%8A%B1%E7%A8%8E)</td></tr>
-        <tr><td>产权转移书据（含房产）</td><td>万分之五</td><td>买卖房屋、股权转让等 (来源：https://zh.wikipedia.org/zh-cn/%E5%8D%B0%E8%8A%B1%E7%A8%8E)</td></tr>
-        <tr><td>营业账簿</td><td>实收资本的万分之二点五</td><td>记载资金的账簿按实收资本缴 (来源：https://zh.wikipedia.org/zh-cn/%E5%8D%B0%E8%8A%B1%E7%A8%8E)</td></tr>
-        <tr><td>权利许可证照</td><td>每件 5 元</td><td>定额征收，按件贴花 (来源：https://zh.wikipedia.org/zh-cn/%E5%8D%B0%E8%8A%B1%E7%A8%8E)</td></tr>
+        <tr><td>证券交易（A股）</td><td class="down">卖出单边 0.05%</td><td>仅对出让方征收，买入不交 <a class="src" href="https://blog.csdn.net/PlutoZuo/article/details/144709689" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
+        <tr><td>借款合同</td><td>万分之零点五</td><td>税率最低的一档，鼓励资金融通 <a class="src" href="https://zh.wikipedia.org/zh-cn/%E5%8D%B0%E8%8A%B1%E7%A8%8E" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
+        <tr><td>产权转移书据（含房产）</td><td>万分之五</td><td>买卖房屋、股权转让等 <a class="src" href="https://zh.wikipedia.org/zh-cn/%E5%8D%B0%E8%8A%B1%E7%A8%8E" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
+        <tr><td>营业账簿</td><td>实收资本的万分之二点五</td><td>记载资金的账簿按实收资本缴 <a class="src" href="https://zh.wikipedia.org/zh-cn/%E5%8D%B0%E8%8A%B1%E7%A8%8E" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
+        <tr><td>权利许可证照</td><td>每件 5 元</td><td>定额征收，按件贴花 <a class="src" href="https://zh.wikipedia.org/zh-cn/%E5%8D%B0%E8%8A%B1%E7%A8%8E" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
       </tbody>
     </table>
   </div>
@@ -203,7 +213,7 @@
       <div class="ptxt">
         <span class="tag tag-root">立法者</span>
         <h3>全国人大常委会</h3>
-        <ul><li>2022 年 7 月 1 日施行《印花税法》，将印花税从暂行条例上升为法律，税率法定 (来源：https://zh.wikipedia.org/zh-cn/%E5%8D%B0%E8%8A%B1%E7%A8%8E)</li></ul>
+        <ul><li>2022 年 7 月 1 日施行《印花税法》，将印花税从暂行条例上升为法律，税率法定 <a class="src" href="https://zh.wikipedia.org/zh-cn/%E5%8D%B0%E8%8A%B1%E7%A8%8E" target="_blank" rel="noopener noreferrer">查看来源</a></li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -211,7 +221,7 @@
       <div class="ptxt">
         <span class="tag tag-direct">征收方</span>
         <h3>各地税务局</h3>
-        <ul><li>印花税是地方税，由各地地方税务局负责征收 (来源：https://zh.wikipedia.org/zh-cn/%E5%8D%B0%E8%8A%B1%E7%A8%8E)</li></ul>
+        <ul><li>印花税是地方税，由各地地方税务局负责征收 <a class="src" href="https://zh.wikipedia.org/zh-cn/%E5%8D%B0%E8%8A%B1%E7%A8%8E" target="_blank" rel="noopener noreferrer">查看来源</a></li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -219,7 +229,7 @@
       <div class="ptxt">
         <span class="tag tag-hot">代扣方</span>
         <h3>证券公司 / 登记结算机构</h3>
-        <ul><li>证券交易印花税由证券经营机构代扣代缴，股民卖出股票时自动扣收 (来源：https://blog.csdn.net/PlutoZuo/article/details/144709689)</li></ul>
+        <ul><li>证券交易印花税由证券经营机构代扣代缴，股民卖出股票时自动扣收 <a class="src" href="https://blog.csdn.net/PlutoZuo/article/details/144709689" target="_blank" rel="noopener noreferrer">查看来源</a></li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -227,7 +237,7 @@
       <div class="ptxt">
         <span class="tag tag-step">纳税人</span>
         <h3>你和我（企业 + 个人）</h3>
-        <ul><li>签合同、买房、炒股都会触发纳税义务。境外书立在境内使用的应税凭证也要缴 (来源：https://baike.baidu.com/item/%E5%8D%B0%E8%8A%B1%E7%A8%8E/89641)</li></ul>
+        <ul><li>签合同、买房、炒股都会触发纳税义务。境外书立在境内使用的应税凭证也要缴 <a class="src" href="https://baike.baidu.com/item/%E5%8D%B0%E8%8A%B1%E7%A8%8E/89641" target="_blank" rel="noopener noreferrer">查看来源</a></li></ul>
       </div>
     </div>
   </div>
@@ -238,10 +248,10 @@
   <h2><span class="num">04</span>小白如何起步</h2>
   <div class="sec-note">不用专门学，但要知道这几步。</div>
   <div class="tl">
-    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">搞清「应税凭证」：合同、产权转移书据、营业账簿、证券交易，这四类才需要缴印花税 (来源：https://baike.baidu.com/item/%E5%8D%B0%E8%8A%B1%E7%A8%8E/89641)。</div></div>
-    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">对号入座看税率：借款合同最低万分之零点五，产权转移书据万分之五，证券交易卖出 0.05%，别被「千分之一」吓到，绝大多数税率很低 (来源：https://zh.wikipedia.org/zh-cn/%E5%8D%B0%E8%8A%B1%E7%A8%8E；https://blog.csdn.net/PlutoZuo/article/details/144709689)。</div></div>
+    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">搞清「应税凭证」：合同、产权转移书据、营业账簿、证券交易，这四类才需要缴印花税 <a class="src" href="https://baike.baidu.com/item/%E5%8D%B0%E8%8A%B1%E7%A8%8E/89641" target="_blank" rel="noopener noreferrer">查看来源</a>。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">对号入座看税率：借款合同最低万分之零点五，产权转移书据万分之五，证券交易卖出 0.05%，别被「千分之一」吓到，绝大多数税率很低 <a class="src" href="https://zh.wikipedia.org/zh-cn/%E5%8D%B0%E8%8A%B1%E7%A8%8E；https://blog.csdn.net/PlutoZuo/article/details/144709689" target="_blank" rel="noopener noreferrer">查看来源</a>。</div></div>
     <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">学会「贴花」逻辑：企业通过电子税务局申报，个人炒股由券商代扣，买房由不动产登记环节代征——你基本不用主动操作。</div></div>
-    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">关注政策风向：2023 年 8 月证券交易印花税减半至 0.05%，这类调整直接影响你的炒股成本。市场常有「降低印花税=利好」的解读 (来源：https://zhuanlan.zhihu.com/p/354219004)。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">关注政策风向：2023 年 8 月证券交易印花税减半至 0.05%，这类调整直接影响你的炒股成本。市场常有「降低印花税=利好」的解读 <a class="src" href="https://zhuanlan.zhihu.com/p/354219004" target="_blank" rel="noopener noreferrer">查看来源</a>。</div></div>
   </div>
 </section>
 
@@ -251,8 +261,8 @@
   <div class="sec-note">外行最容易交学费的地方。</div>
   <div class="grid2">
     <div class="card"><span class="tag tag-warn">坑 1</span><h3>以为「没贴花=合同无效」</h3><ul><li>合同不贴印花税票，法律上依然有效。但税务机关会责令补缴并加收滞纳金。别被「不交钱合同作废」的谣言骗了。</li></ul></div>
-    <div class="card"><span class="tag tag-warn">坑 2</span><h3>以为买卖双方都要交证券印花税</h3><ul><li>目前 A 股只对出让方（卖方）征收 0.05%，买入方不交 (来源：https://blog.csdn.net/PlutoZuo/article/details/144709689)。港股则是买卖双方都交，别把规则搞混。</li></ul></div>
-    <div class="card"><span class="tag tag-warn">坑 3</span><h3>境外合同不用交</h3><ul><li>在境外书立、但在境内使用的应税凭证，同样要缴印花税 (来源：https://baike.baidu.com/item/%E5%8D%B0%E8%8A%B1%E7%A8%8E/89641)。跨境业务别忽略。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>以为买卖双方都要交证券印花税</h3><ul><li>目前 A 股只对出让方（卖方）征收 0.05%，买入方不交 <a class="src" href="https://blog.csdn.net/PlutoZuo/article/details/144709689" target="_blank" rel="noopener noreferrer">查看来源</a>。港股则是买卖双方都交，别把规则搞混。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>境外合同不用交</h3><ul><li>在境外书立、但在境内使用的应税凭证，同样要缴印花税 <a class="src" href="https://baike.baidu.com/item/%E5%8D%B0%E8%8A%B1%E7%A8%8E/89641" target="_blank" rel="noopener noreferrer">查看来源</a>。跨境业务别忽略。</li></ul></div>
     <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>印花税是「凭证税」不是「交易税」——只要合同签了、账簿立了、股票卖了，纳税义务就产生，与你是否实际盈利无关。记住这一点，就不会漏税。</li></ul></div>
   </div>
   <div class="illus">
@@ -279,11 +289,11 @@
     <table>
       <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
       <tbody>
-        <tr><td><b>应税凭证</b></td><td>需要缴印花税的文书：合同、产权转移书据、营业账簿 (来源：https://baike.baidu.com/item/%E5%8D%B0%E8%8A%B1%E7%A8%8E/89641)</td></tr>
-        <tr><td><b>单边征收</b></td><td>只对交易的一方收税。A股印花税只对卖方收，买方免 (来源：https://blog.csdn.net/PlutoZuo/article/details/144709689)</td></tr>
-        <tr><td><b>印花税票</b></td><td>历史上贴在文件上的小票，现在电子化申报后已很少用 (来源：https://zh.wikipedia.org/zh-cn/%E5%8D%B0%E8%8A%B1%E7%A8%8E)</td></tr>
-        <tr><td><b>产权转移书据</b></td><td>买卖房产、股权等产权变更时签的文书，税率万分之五 (来源：https://zh.wikipedia.org/zh-cn/%E5%8D%B0%E8%8A%B1%E7%A8%8E)</td></tr>
-        <tr><td><b>定额征收</b></td><td>不看金额，按件固定收 5 元，比如权利许可证照 (来源：https://zh.wikipedia.org/zh-cn/%E5%8D%B0%E8%8A%B1%E7%A8%8E)</td></tr>
+        <tr><td><b>应税凭证</b></td><td>需要缴印花税的文书：合同、产权转移书据、营业账簿 <a class="src" href="https://baike.baidu.com/item/%E5%8D%B0%E8%8A%B1%E7%A8%8E/89641" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
+        <tr><td><b>单边征收</b></td><td>只对交易的一方收税。A股印花税只对卖方收，买方免 <a class="src" href="https://blog.csdn.net/PlutoZuo/article/details/144709689" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
+        <tr><td><b>印花税票</b></td><td>历史上贴在文件上的小票，现在电子化申报后已很少用 <a class="src" href="https://zh.wikipedia.org/zh-cn/%E5%8D%B0%E8%8A%B1%E7%A8%8E" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
+        <tr><td><b>产权转移书据</b></td><td>买卖房产、股权等产权变更时签的文书，税率万分之五 <a class="src" href="https://zh.wikipedia.org/zh-cn/%E5%8D%B0%E8%8A%B1%E7%A8%8E" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
+        <tr><td><b>定额征收</b></td><td>不看金额，按件固定收 5 元，比如权利许可证照 <a class="src" href="https://zh.wikipedia.org/zh-cn/%E5%8D%B0%E8%8A%B1%E7%A8%8E" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
       </tbody>
     </table>
   </div>
@@ -294,7 +304,7 @@
   <h2><span class="num">07</span>趣味小知识</h2>
   <div class="sec-note">聊天永远有料的包袱。</div>
   <div class="card">
-    <p class="quote">印花税发明于 1624 年的荷兰。当时政府缺钱，又怕加税引发民怨，就搞了个「贴花」创意：在合同上贴一张官方小票，既不影响交易，又能收钱。因为「票面小、税负轻」，老百姓抵触最小，后来被全球各国学走 (来源：https://zh.wikipedia.org/zh-cn/%E5%8D%B0%E8%8A%B1%E7%A8%8E)。</p>
+    <p class="quote">印花税发明于 1624 年的荷兰。当时政府缺钱，又怕加税引发民怨，就搞了个「贴花」创意：在合同上贴一张官方小票，既不影响交易，又能收钱。因为「票面小、税负轻」，老百姓抵触最小，后来被全球各国学走 <a class="src" href="https://zh.wikipedia.org/zh-cn/%E5%8D%B0%E8%8A%B1%E7%A8%8E" target="_blank" rel="noopener noreferrer">查看来源</a>。</p>
   </div>
   <div class="verdict">
     <div class="vcell"><div class="vt">适不适合你</div><div class="vb">如果你炒股、买房、开公司，印花税是你绕不开的「固定成本」；如果你只是普通打工人，它跟你关系不大，但了解一下能帮你读懂财经新闻里的「减税利好」。</div></div>

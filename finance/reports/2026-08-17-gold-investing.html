@@ -79,6 +79,16 @@
   }
   .to-index:hover { background: #c8a866; color: #0a0a0a; }
 </style>
+
+<style id="fix-overflow-wrap">
+  /* 2026-09-04: 修复长 URL 撑破容器 */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
 </head>
 <body>
 <a class="to-index" href="../../index.html">← 全部报告</a>
@@ -98,9 +108,9 @@
     <div class="hero-txt">
       <ul>
         <li><b>它是什么</b>：一种几乎「不灭」的金属。从古埃及法老的面具到今天的金条 ETF，它既是首饰原材料，也是全球央行和普通人都在配置的「避险资产」。</li>
-        <li><b>谁在玩</b>：全球央行、对冲基金、伦敦/纽约的巨型交易所、金矿公司，以及像你我一样的普通投资者（来源：https://china.gold.org/goldhub/research/market-primer/gold-market-primer-market-size-and-structure）。</li>
+        <li><b>谁在玩</b>：全球央行、对冲基金、伦敦/纽约的巨型交易所、金矿公司，以及像你我一样的普通投资者<a class="src" href="https://china.gold.org/goldhub/research/market-primer/gold-market-primer-market-size-and-structure" target="_blank" rel="noopener noreferrer">查看来源</a>。</li>
         <li><b>市场多大</b>：有史以来人类已开采近 22 万吨黄金，价值约 31 万亿美元——这个数字超过美国股市总市值的一半（来源：同上）。</li>
-        <li><b>小白能玩吗</b>：能。门槛低至几十块（黄金 ETF），但坑也不少：杠杆、假金条、追涨杀跌。建议从「看得见摸得着」的实物金或 ETF 起步（来源：https://qhweb.eastmoney.com/help/1960945.html）。</li>
+        <li><b>小白能玩吗</b>：能。门槛低至几十块（黄金 ETF），但坑也不少：杠杆、假金条、追涨杀跌。建议从「看得见摸得着」的实物金或 ETF 起步<a class="src" href="https://qhweb.eastmoney.com/help/1960945.html" target="_blank" rel="noopener noreferrer">查看来源</a>。</li>
       </ul>
     </div>
     <div class="hero-art">
@@ -127,7 +137,7 @@
   <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
   <div class="sec-note">把「黄金」从珠宝柜台里拿出来，放到全球金融大棋盘上看。</div>
   <div class="card">
-    <p style="color:#c4c4c4;font-size:13.5px;">黄金有点像「全世界的硬通货备用电池」。平时它静静地躺在金库里，不怎么发光发热；可一旦股市暴跌、通货膨胀、打仗或恐慌，大家就疯狂地把它掏出来「充电」。它的价值主要来自「大家相信它值钱」——几千年来，从埃及法老到现代央行，这种信任从未中断（来源：https://www.etoro.com/zh/investing/investing-in-gold）。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;">黄金有点像「全世界的硬通货备用电池」。平时它静静地躺在金库里，不怎么发光发热；可一旦股市暴跌、通货膨胀、打仗或恐慌，大家就疯狂地把它掏出来「充电」。它的价值主要来自「大家相信它值钱」——几千年来，从埃及法老到现代央行，这种信任从未中断<a class="src" href="https://www.etoro.com/zh/investing/investing-in-gold" target="_blank" rel="noopener noreferrer">查看来源</a>。</p>
   </div>
   <div class="illus">
     <!-- 黄金的流转结构图：从矿山到金库到投资品 -->
@@ -162,9 +172,9 @@
     <table>
       <thead><tr><th>投资方式</th><th>典型门槛</th><th>说明</th></tr></thead>
       <tbody>
-        <tr><td>黄金 ETF</td><td class="up">几十元起</td><td>像买股票一样买卖，门槛最低，流动性好（来源：https://qhweb.eastmoney.com/help/1960945.html）</td></tr>
+        <tr><td>黄金 ETF</td><td class="up">几十元起</td><td>像买股票一样买卖，门槛最低，流动性好<a class="src" href="https://qhweb.eastmoney.com/help/1960945.html" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
         <tr><td>实物金条</td><td>约 ¥2,000 – 50,000+</td><td>银行/金店购买，适合长期持有；注意保管和回购渠道 [UNSOURCED]</td></tr>
-        <tr><td>黄金期货</td><td class="down">保证金数千至数万</td><td>杠杆高、风险大，标准合约 100 金衡盎司（约 3.11 公斤），新手慎入（来源：https://www.cmcmarkets.com/zh-nz/cfd/learn/cfd-asset-classes/commodities-introduction-to-gold-trading）</td></tr>
+        <tr><td>黄金期货</td><td class="down">保证金数千至数万</td><td>杠杆高、风险大，标准合约 100 金衡盎司（约 3.11 公斤），新手慎入<a class="src" href="https://www.cmcmarkets.com/zh-nz/cfd/learn/cfd-asset-classes/commodities-introduction-to-gold-trading" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
       </tbody>
     </table>
   </div>
@@ -187,7 +197,7 @@
       <text x="540" y="195" fill="#9a9a9a" font-size="11" text-anchor="middle">~1500 亿美元</text>
       <text x="380" y="215" fill="#8a8a8a" font-size="11" text-anchor="middle">数据来源：World Gold Council（2025）</text>
     </svg>
-    <div class="cap">黄金市场规模对比：地上存量 22 万吨 vs 年产量 3500 吨 vs 日均交易额（来源：https://china.gold.org/goldhub/research/market-primer/gold-market-primer-market-size-and-structure）</div>
+    <div class="cap">黄金市场规模对比：地上存量 22 万吨 vs 年产量 3500 吨 vs 日均交易额<a class="src" href="https://china.gold.org/goldhub/research/market-primer/gold-market-primer-market-size-and-structure" target="_blank" rel="noopener noreferrer">查看来源</a></div>
   </div>
 </section>
 
@@ -209,7 +219,7 @@
       <div class="ptxt">
         <span class="tag tag-direct">交易所</span>
         <h3>LBMA + COMEX</h3>
-        <ul><li>约 70% 的全球黄金现货交易通过伦敦金银市场协会（LBMA）完成；期货最大市场是芝加哥 COMEX（代码 GC）。它们就是黄金的「定价中心」（来源：https://www.cmcmarkets.com/zh-nz/cfd/learn/cfd-asset-classes/commodities-introduction-to-gold-trading）。</li></ul>
+        <ul><li>约 70% 的全球黄金现货交易通过伦敦金银市场协会（LBMA）完成；期货最大市场是芝加哥 COMEX（代码 GC）。它们就是黄金的「定价中心」<a class="src" href="https://www.cmcmarkets.com/zh-nz/cfd/learn/cfd-asset-classes/commodities-introduction-to-gold-trading" target="_blank" rel="noopener noreferrer">查看来源</a>。</li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -217,7 +227,7 @@
       <div class="ptxt">
         <span class="tag tag-hot">零售</span>
         <h3>金饰与金条零售市场</h3>
-        <ul><li>全球个人投资者中，黄金是最主流投资产品之一，金饰消费在中国和印度尤其旺盛（来源：https://retailinsights.gold/cn/state-of-the-market.html）。</li></ul>
+        <ul><li>全球个人投资者中，黄金是最主流投资产品之一，金饰消费在中国和印度尤其旺盛<a class="src" href="https://retailinsights.gold/cn/state-of-the-market.html" target="_blank" rel="noopener noreferrer">查看来源</a>。</li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -225,7 +235,7 @@
       <div class="ptxt">
         <span class="tag tag-step">入门</span>
         <h3>小白友好入口</h3>
-        <ul><li>黄金 ETF（如国内华安黄金 ETF）和银行金条是最低门槛的起步方式；股票账户直接搜「黄金ETF」即可（来源：https://qhweb.eastmoney.com/help/1960945.html）。</li></ul>
+        <ul><li>黄金 ETF（如国内华安黄金 ETF）和银行金条是最低门槛的起步方式；股票账户直接搜「黄金ETF」即可<a class="src" href="https://qhweb.eastmoney.com/help/1960945.html" target="_blank" rel="noopener noreferrer">查看来源</a>。</li></ul>
       </div>
     </div>
   </div>
@@ -236,7 +246,7 @@
   <h2><span class="num">04</span>小白如何起步</h2>
   <div class="sec-note">按步骤走，别一上来就梭哈。</div>
   <div class="tl">
-    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">先搞懂「你买黄金是为了什么」：抗通胀？避险？还是纯粹喜欢金饰？目的不同，选择完全不同（来源：https://www.etoro.com/zh/investing/investing-in-gold）。</div></div>
+    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">先搞懂「你买黄金是为了什么」：抗通胀？避险？还是纯粹喜欢金饰？目的不同，选择完全不同<a class="src" href="https://www.etoro.com/zh/investing/investing-in-gold" target="_blank" rel="noopener noreferrer">查看来源</a>。</div></div>
     <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">从黄金 ETF 或银行金条开始，投入金额控制在总资产的 5%–10% 以内，别上来就 all in [UNSOURCED]。</div></div>
     <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">关注美联储利率、美元指数、地缘冲突这三个「金价开关」。利率降、美元弱、世界乱，黄金就容易涨（据公开资料整理）。</div></div>
     <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">设定止盈/止损线，比如涨 20% 考虑分批卖出，跌 15% 重新审视持有逻辑。别把「避险资产」玩成「投机工具」[UNSOURCED]。</div></div>
@@ -248,10 +258,10 @@
   <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
   <div class="sec-note">外行最容易交学费的地方。</div>
   <div class="grid2">
-    <div class="card"><span class="tag tag-warn">坑 1</span><h3>杠杆爆仓</h3><ul><li>黄金期货保证金交易看似「赚得快」，但方向反了可能血本无归。新手远离杠杆（来源：https://www.usmart.sg/cn/news/7193165990061048562）。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>杠杆爆仓</h3><ul><li>黄金期货保证金交易看似「赚得快」，但方向反了可能血本无归。新手远离杠杆<a class="src" href="https://www.usmart.sg/cn/news/7193165990061048562" target="_blank" rel="noopener noreferrer">查看来源</a>。</li></ul></div>
     <div class="card"><span class="tag tag-warn">坑 2</span><h3>买金饰当投资</h3><ul><li>金饰含工费和品牌溢价，买入价远高于金价，卖出时只能按金料回收，一来一回可能亏 20%+ [UNSOURCED]。</li></ul></div>
-    <div class="card"><span class="tag tag-warn">坑 3</span><h3>误以为「黄金只涨不跌」</h3><ul><li>黄金价格同样会大幅下跌。如果市场情绪转变，黄金可能失去避险地位，价格可能大幅下跌（来源：https://www.etoro.com/zh/investing/investing-in-gold）。</li></ul></div>
-    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>黄金是「压舱石」不是「发动机」。它在正常经济环境下很难产生高于市场的回报，配置它的意义在于对冲风险，而非赚快钱（来源：https://www.etoro.com/zh/investing/investing-in-gold）。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>误以为「黄金只涨不跌」</h3><ul><li>黄金价格同样会大幅下跌。如果市场情绪转变，黄金可能失去避险地位，价格可能大幅下跌<a class="src" href="https://www.etoro.com/zh/investing/investing-in-gold" target="_blank" rel="noopener noreferrer">查看来源</a>。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>黄金是「压舱石」不是「发动机」。它在正常经济环境下很难产生高于市场的回报，配置它的意义在于对冲风险，而非赚快钱<a class="src" href="https://www.etoro.com/zh/investing/investing-in-gold" target="_blank" rel="noopener noreferrer">查看来源</a>。</li></ul></div>
   </div>
   <div class="illus">
     <!-- 误区 vs 真相 -->
@@ -277,10 +287,10 @@
     <table>
       <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
       <tbody>
-        <tr><td><b>金衡盎司</b></td><td>黄金的「标准重量单位」，1 金衡盎司 ≈ 31.1 克。期货合约就是以它计量的（来源：https://www.cmcmarkets.com/zh-nz/cfd/learn/cfd-asset-classes/commodities-introduction-to-gold-trading）</td></tr>
+        <tr><td><b>金衡盎司</b></td><td>黄金的「标准重量单位」，1 金衡盎司 ≈ 31.1 克。期货合约就是以它计量的<a class="src" href="https://www.cmcmarkets.com/zh-nz/cfd/learn/cfd-asset-classes/commodities-introduction-to-gold-trading" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
         <tr><td><b>LBMA</b></td><td>伦敦金银市场协会，全球黄金现货交易的中枢，约 70% 的现货交易在这里完成（来源：同上）</td></tr>
-        <tr><td><b>黄金 ETF</b></td><td>交易所交易基金，像买股票一样买黄金份额，不用去金店扛金条（来源：https://qhweb.eastmoney.com/help/1960945.html）</td></tr>
-        <tr><td><b>避险资产</b></td><td>市场恐慌时资金「逃往」的资产。黄金是其中最古老的一种（来源：https://www.etoro.com/zh/investing/investing-in-gold）</td></tr>
+        <tr><td><b>黄金 ETF</b></td><td>交易所交易基金，像买股票一样买黄金份额，不用去金店扛金条<a class="src" href="https://qhweb.eastmoney.com/help/1960945.html" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
+        <tr><td><b>避险资产</b></td><td>市场恐慌时资金「逃往」的资产。黄金是其中最古老的一种<a class="src" href="https://www.etoro.com/zh/investing/investing-in-gold" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
       </tbody>
     </table>
   </div>
@@ -291,7 +301,7 @@
   <h2><span class="num">07</span>趣味小知识</h2>
   <div class="sec-note">聊天永远有料的包袱。</div>
   <div class="card">
-    <p class="quote">如果把人类有史以来开采的所有黄金——约 22 万吨——熔成一个立方体，边长大约只有 22 米，刚好能放进一个标准游泳池。然而它的价值高达约 31 万亿美元，比全球多数国家的 GDP 加起来还多（来源：https://china.gold.org/goldhub/research/market-primer/gold-market-primer-market-size-and-structure）。</p>
+    <p class="quote">如果把人类有史以来开采的所有黄金——约 22 万吨——熔成一个立方体，边长大约只有 22 米，刚好能放进一个标准游泳池。然而它的价值高达约 31 万亿美元，比全球多数国家的 GDP 加起来还多<a class="src" href="https://china.gold.org/goldhub/research/market-primer/gold-market-primer-market-size-and-structure" target="_blank" rel="noopener noreferrer">查看来源</a>。</p>
   </div>
   <div class="verdict">
     <div class="vcell"><div class="vt">适不适合你</div><div class="vb">适合：求稳、想对冲风险、能拿住 3–5 年的人。<span class="hot">不适合</span>：想短期暴富、追涨杀跌、扛不住 20% 回撤的人。</div></div>

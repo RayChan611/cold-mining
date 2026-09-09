@@ -79,6 +79,16 @@
   }
   .to-index:hover { background: #c8a866; color: #0a0a0a; }
 </style>
+
+<style id="fix-overflow-wrap">
+  /* 2026-09-04: 修复长 URL 撑破容器 */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
 </head>
 <body>
 <a class="to-index" href="../index.html">← 全部报告</a>
@@ -97,7 +107,7 @@
   <div class="card hero">
     <div class="hero-txt">
       <ul>
-        <li><b>它是什么</b>：模块合成器不是一台「琴」，而是一套由多个独立功能模块（振荡器、滤波器、包络等）组成的电子乐器系统，模块之间用跳线（patch cable）自由连接，声音的每个环节都由你亲手决定（来源：https://emastered.com/zh/blog/modular-synthesis）</li>
+        <li><b>它是什么</b>：模块合成器不是一台「琴」，而是一套由多个独立功能模块（振荡器、滤波器、包络等）组成的电子乐器系统，模块之间用跳线（patch cable）自由连接，声音的每个环节都由你亲手决定<a class="src" href="https://emastered.com/zh/blog/modular-synthesis" target="_blank" rel="noopener noreferrer">查看来源</a></li>
         <li><b>谁在玩</b>：电子音乐制作人、声音设计师、极客玩家、收藏家，以及一批「不满足于预设音色」的硬核音乐爱好者</li>
         <li><b>市场多大</b>：单个模块通常几百到几千元，一套入门系统预算约 5000–15000 元，高端系统数万元起步（据公开资料）</li>
         <li><b>小白能玩吗</b>：门槛不低——需要机箱、电源、多个模块和大量跳线，还要懂点基础电学；但软件模拟器（如 VCV Rack）可以零成本试水</li>
@@ -126,7 +136,7 @@
   <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
   <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
   <div class="card">
-    <p style="color:#c4c4c4;font-size:13.5px;">想象一下，普通电子琴是一台「一体机」：键盘、音源、扬声器、效果器全都焊死在一个盒子里，你只能按预设的按钮换音色。而模块合成器像是把一台电子琴彻底拆散，再把每个零件——负责产生波形的声音发生器（振荡器）、负责塑形的滤波器、负责控制音量的包络、负责节奏的时钟——都单独装进一个小盒子里，然后你用一根根「跳线」像插电话线一样把它们任意连起来。同一个振荡器，接上滤波器就变成柔和的 pad；改接到环形调制器，又能变成外星人说话的金属音。你的声音不是选出来的，是「焊」出来的（来源：https://emastered.com/zh/blog/modular-synthesis）。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;">想象一下，普通电子琴是一台「一体机」：键盘、音源、扬声器、效果器全都焊死在一个盒子里，你只能按预设的按钮换音色。而模块合成器像是把一台电子琴彻底拆散，再把每个零件——负责产生波形的声音发生器（振荡器）、负责塑形的滤波器、负责控制音量的包络、负责节奏的时钟——都单独装进一个小盒子里，然后你用一根根「跳线」像插电话线一样把它们任意连起来。同一个振荡器，接上滤波器就变成柔和的 pad；改接到环形调制器，又能变成外星人说话的金属音。你的声音不是选出来的，是「焊」出来的<a class="src" href="https://emastered.com/zh/blog/modular-synthesis" target="_blank" rel="noopener noreferrer">查看来源</a>。</p>
   </div>
   <div class="illus">
     <!-- 结构图：模块化合成器的信号流 -->
@@ -147,7 +157,7 @@
       <text x="645" y="67" fill="#e8e8e8" font-size="11" text-anchor="middle">输出/耳机</text>
       <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
     </svg>
-    <div class="cap">信号流示意：声音从振荡器出发，经过滤波器塑形、包络控制音量，最终输出（来源：https://emastered.com/zh/blog/modular-synthesis）</div>
+    <div class="cap">信号流示意：声音从振荡器出发，经过滤波器塑形、包络控制音量，最终输出<a class="src" href="https://emastered.com/zh/blog/modular-synthesis" target="_blank" rel="noopener noreferrer">查看来源</a></div>
   </div>
 </section>
 
@@ -245,7 +255,7 @@
   <div class="grid2">
     <div class="card"><span class="tag tag-warn">坑 1</span><h3>一上来就买大系统</h3><ul><li>以为模块越多越好，结果买了一堆用不上的，钱花了声音还乱</li><li>正确做法：先用软件模拟，再用小系统起步，逐块扩展（据公开资料）</li></ul></div>
     <div class="card"><span class="tag tag-warn">坑 2</span><h3>忽略电源和机箱质量</h3><ul><li>贪便宜买劣质电源，导致模块噪音大甚至损坏</li><li>正确做法：机箱和电源选 Doepfer 等靠谱品牌，这是整个系统的基础（据公开资料）</li></ul></div>
-    <div class="card"><span class="tag tag-warn">坑 3</span><h3>以为模块合成器=电子琴</h3><ul><li>很多人以为买回来就能弹旋律，实际上它没有键盘，需要额外购买音序器或键盘模块，且需要大量学习（来源：https://www.gcores.com/articles/113588）</li><li>正确做法：先明确自己要「做实验」还是「弹音乐」，后者建议先玩常规合成器</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>以为模块合成器=电子琴</h3><ul><li>很多人以为买回来就能弹旋律，实际上它没有键盘，需要额外购买音序器或键盘模块，且需要大量学习<a class="src" href="https://www.gcores.com/articles/113588" target="_blank" rel="noopener noreferrer">查看来源</a></li><li>正确做法：先明确自己要「做实验」还是「弹音乐」，后者建议先玩常规合成器</li></ul></div>
     <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>「模块合成器是乐器中的乐高，不是乐器中的钢琴」——它奖励的是耐心和好奇心，而不是预算。先玩免费软件，再买小系统，慢慢来（据公开资料）</li></ul></div>
   </div>
   <div class="illus">
@@ -273,7 +283,7 @@
       <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
       <tbody>
         <tr><td><b>Eurorack</b></td><td>最主流的模块化合成器「格式」，规定了模块的高度（3U）和宽度（HP），Doepfer 发明，几乎所有品牌都兼容（据公开资料）</td></tr>
-        <tr><td><b>Patch（跳线）</b></td><td>用一根根线把不同模块的接口连起来的过程，也是模块合成器最核心的操作（来源：https://emastered.com/zh/blog/modular-synthesis）</td></tr>
+        <tr><td><b>Patch（跳线）</b></td><td>用一根根线把不同模块的接口连起来的过程，也是模块合成器最核心的操作<a class="src" href="https://emastered.com/zh/blog/modular-synthesis" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
         <tr><td><b>VCO / 振荡器</b></td><td>产生原始波形（方波、锯齿波等）的模块，是声音的「原料」</td></tr>
         <tr><td><b>VCF / 滤波器</b></td><td>削掉某些频率，改变音色的「明暗」，是塑造声音性格的关键</td></tr>
         <tr><td><b>VCA / 放大器</b></td><td>控制音量的模块，通常配合包络（ADSR）使用，让声音有「起音-衰减-延音-释音」的变化</td></tr>

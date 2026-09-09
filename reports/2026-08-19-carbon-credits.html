@@ -76,6 +76,16 @@
   }
   .to-index:hover { background: #c8a866; color: #0a0a0a; }
 </style>
+
+<style id="fix-overflow-wrap">
+  /* 2026-09-04: 修复长 URL 撑破容器 */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
 </head>
 <body>
 <a class="to-index" href="../index.html">← 全部报告</a>
@@ -96,7 +106,7 @@
       <ul>
         <li><b>它是什么</b>：碳信用 = 一张“证明你少排了一吨二氧化碳”的证书，可以拿到市场上卖钱。</li>
         <li><b>谁在玩</b>：控排企业（电厂、钢厂）、国际航空公司、金融机构、各国政府，以及做减排项目的开发商。</li>
-        <li><b>市场多大</b>：2024 年全球合规碳市场成交额约 1.5 万亿美元；碳信用交易平台 2023 年规模约 1.58 亿美元，预计 2033 年超 7.52 亿美元（来源：https://www.hkexgroup.com/media-centre/insight/insight/2022/hkex/carbon-markets-explained?sc_lang=zh-HK；https://www.sphericalinsights.com/zh/reports/carbon-credit-trading-platform-market）。</li>
+        <li><b>市场多大</b>：2024 年全球合规碳市场成交额约 1.5 万亿美元；碳信用交易平台 2023 年规模约 1.58 亿美元，预计 2033 年超 7.52 亿美元<a class="src" href="https://www.hkexgroup.com/media-centre/insight/insight/2022/hkex/carbon-markets-explained?sc_lang=zh-HK；https://www.sphericalinsights.com/zh/reports/carbon-credit-trading-platform-market" target="_blank" rel="noopener noreferrer">查看来源</a>。</li>
         <li><b>小白能玩吗</b>：门槛不低。个人很难直接开户交易，但可以通过投资相关基金、买碳抵消服务间接参与；风险在于碳价波动大、项目质量参差不齐。</li>
       </ul>
     </div>
@@ -121,7 +131,7 @@
   <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
   <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
   <div class="card">
-    <p style="color:#c4c4c4;font-size:13.5px;">想象一下，地球是一个巨大的“限塑令”社区，每家工厂每年只能往垃圾桶里扔一定量的垃圾。有的工厂很努力，扔得少，剩下了“扔垃圾额度”；有的工厂技术跟不上，额度不够用。于是有人发明了一个办法：<b>扔得少的可以把多余的额度卖给扔得多的</b>——这就是碳信用的雏形。它不直接消灭二氧化碳，而是给“少排放”这件事标了价，让环保从口号变成可以交易的商品。碳信用项目主要分两类：<b>减排</b>（防止未来排放，比如把煤电厂换成风电）和<b>移除</b>（把已经存在空气中的二氧化碳抽回来，比如种树、直接空气捕集）(来源：https://www.sylvera.com/zh/blog/carbon-credit-project-types)。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;">想象一下，地球是一个巨大的“限塑令”社区，每家工厂每年只能往垃圾桶里扔一定量的垃圾。有的工厂很努力，扔得少，剩下了“扔垃圾额度”；有的工厂技术跟不上，额度不够用。于是有人发明了一个办法：<b>扔得少的可以把多余的额度卖给扔得多的</b>——这就是碳信用的雏形。它不直接消灭二氧化碳，而是给“少排放”这件事标了价，让环保从口号变成可以交易的商品。碳信用项目主要分两类：<b>减排</b>（防止未来排放，比如把煤电厂换成风电）和<b>移除</b>（把已经存在空气中的二氧化碳抽回来，比如种树、直接空气捕集）<a class="src" href="https://www.sylvera.com/zh/blog/carbon-credit-project-types" target="_blank" rel="noopener noreferrer">查看来源</a>。</p>
   </div>
   <div class="illus">
     <svg viewBox="0 0 720 120" width="720" height="120" xmlns="http://www.w3.org/2000/svg">
@@ -186,7 +196,7 @@
       <div class="ptxt">
         <span class="tag tag-root">ROOT</span>
         <h3>联合国 & 国际核证机构</h3>
-        <ul><li>CDM（清洁发展机制）、《巴黎协定》第 6.2 条等规则制定者，相当于“碳世界的央行”</li><li>瑞士已通过第 6.2 条采购 ITMOs，预计至 2030 年购买至少 2000 万吨（来源：https://ws.ndc.gov.tw/Download.ashx?u=LzAwMS9hZG1pbmlzdHJhdG9yLzEwL3JlbGZpbGUvMC8xNjM3NS83NDIyNDViMC00ZTc5LTQxNTMtODQ3My03ZDE4NDE0NTExMGYucGRm&n=M1%2FlvLfljJbmiJHlnIvnorPkv6HnlKjluILloLTkuYvmlL%2FnrZblu7rorbAucGRm&icon=.pdf）</li></ul>
+        <ul><li>CDM（清洁发展机制）、《巴黎协定》第 6.2 条等规则制定者，相当于“碳世界的央行”</li><li>瑞士已通过第 6.2 条采购 ITMOs，预计至 2030 年购买至少 2000 万吨<a class="src" href="https://ws.ndc.gov.tw/Download.ashx?u=LzAwMS9hZG1pbmlzdHJhdG9yLzEwL3JlbGZpbGUvMC8xNjM3NS83NDIyNDViMC00ZTc5LTQxNTMtODQ3My03ZDE4NDE0NTExMGYucGRm&amp;n=M1%2FlvLfljJbmiJHlnIvnorPkv6HnlKjluILloLTkuYvmlL%2FnrZblu7rorbAucGRm&amp;icon=.pdf" target="_blank" rel="noopener noreferrer">查看来源</a></li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -194,7 +204,7 @@
       <div class="ptxt">
         <span class="tag tag-direct">交易所</span>
         <h3>欧洲能源交易所（EEX）、芝加哥商品交易所（CME）</h3>
-        <ul><li>全球合规碳市场的核心交易场所，2024 年全球合规碳市场成交额约 1.5 万亿美元（来源：https://www.hkexgroup.com/media-centre/insight/insight/2022/hkex/carbon-markets-explained?sc_lang=zh-HK）</li><li>个人投资者通常需要通过期货经纪商间接参与</li></ul>
+        <ul><li>全球合规碳市场的核心交易场所，2024 年全球合规碳市场成交额约 1.5 万亿美元<a class="src" href="https://www.hkexgroup.com/media-centre/insight/insight/2022/hkex/carbon-markets-explained?sc_lang=zh-HK" target="_blank" rel="noopener noreferrer">查看来源</a></li><li>个人投资者通常需要通过期货经纪商间接参与</li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -202,7 +212,7 @@
       <div class="ptxt">
         <span class="tag tag-hot">HOT</span>
         <h3>Verra & Gold Standard</h3>
-        <ul><li>全球最大的两个自愿碳信用标准，负责审核和签发“减排证书”</li><li>它们认证的项目覆盖造林、REDD+、甲烷回收等（来源：https://www.sylvera.com/zh/blog/carbon-credit-project-types）</li></ul>
+        <ul><li>全球最大的两个自愿碳信用标准，负责审核和签发“减排证书”</li><li>它们认证的项目覆盖造林、REDD+、甲烷回收等<a class="src" href="https://www.sylvera.com/zh/blog/carbon-credit-project-types" target="_blank" rel="noopener noreferrer">查看来源</a></li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -262,8 +272,8 @@
       <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
       <tbody>
         <tr><td><b>额外性（Additionally）</b></td><td>没有这笔碳信用收入，减排项目就不会发生。这是判断项目质量的第一道门槛。</td></tr>
-        <tr><td><b>REDD+</b></td><td>“减少砍伐森林和森林退化造成的排放”——简单说就是给森林“发工资”，让树活着比砍掉更值钱（来源：https://www.sylvera.com/zh/blog/carbon-credit-project-types）</td></tr>
-        <tr><td><b>ITMOs</b></td><td>《巴黎协定》第 6.2 条下的国际转让减排成果，国家之间买卖碳信用的“官方通道”。瑞士已用它买了至少 2000 万吨减排量（来源：https://ws.ndc.gov.tw/Download.ashx?u=LzAwMS9hZG1pbmlzdHJhdG9yLzEwL3JlbGZpbGUvMC8xNjM3NS83NDIyNDViMC00ZTc5LTQxNTMtODQ3My03ZDE4NDE0NTExMGYucGRm&n=M1%2FlvLfljJbmiJHlnIvnorPkv6HnlKjluILloLTkuYvmlL%2FnrZblu7rorbAucGRm&icon=.pdf）</td></tr>
+        <tr><td><b>REDD+</b></td><td>“减少砍伐森林和森林退化造成的排放”——简单说就是给森林“发工资”，让树活着比砍掉更值钱<a class="src" href="https://www.sylvera.com/zh/blog/carbon-credit-project-types" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
+        <tr><td><b>ITMOs</b></td><td>《巴黎协定》第 6.2 条下的国际转让减排成果，国家之间买卖碳信用的“官方通道”。瑞士已用它买了至少 2000 万吨减排量<a class="src" href="https://ws.ndc.gov.tw/Download.ashx?u=LzAwMS9hZG1pbmlzdHJhdG9yLzEwL3JlbGZpbGUvMC8xNjM3NS83NDIyNDViMC00ZTc5LTQxNTMtODQ3My03ZDE4NDE0NTExMGYucGRm&amp;n=M1%2FlvLfljJbmiJHlnIvnorPkv6HnlKjluILloLTkuYvmlL%2FnrZblu7rorbAucGRm&amp;icon=.pdf" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
         <tr><td><b>自愿碳市场（VCM）</b></td><td>企业或个人出于自愿购买的碳信用，不受政府强制约束。你订机票时勾选的“碳抵消”就是这个。</td></tr>
       </tbody>
     </table>
@@ -275,7 +285,7 @@
   <h2><span class="num">07</span>趣味小知识</h2>
   <div class="sec-note">聊天永远有料的包袱。</div>
   <div class="card">
-    <p class="quote">你可能不知道：全球碳市场 2024 年合规市场成交额达 1.5 万亿美元——这比很多国家的 GDP 还高。而世界银行估计，到 2025 年碳交易和碳税覆盖了全球约 28% 的温室气体排放，比 2005 年翻了五倍多（来源：https://www.hkexgroup.com/media-centre/insight/insight/2022/hkex/carbon-markets-explained?sc_lang=zh-HK）。换句话说，地球上每 4 吨排放里，就有 1 吨已经被“标了价”。</p>
+    <p class="quote">你可能不知道：全球碳市场 2024 年合规市场成交额达 1.5 万亿美元——这比很多国家的 GDP 还高。而世界银行估计，到 2025 年碳交易和碳税覆盖了全球约 28% 的温室气体排放，比 2005 年翻了五倍多<a class="src" href="https://www.hkexgroup.com/media-centre/insight/insight/2022/hkex/carbon-markets-explained?sc_lang=zh-HK" target="_blank" rel="noopener noreferrer">查看来源</a>。换句话说，地球上每 4 吨排放里，就有 1 吨已经被“标了价”。</p>
   </div>
   <div class="verdict">
     <div class="vcell"><div class="vt">适不适合你</div><div class="vb">适合：关注环保、想抵消自己碳足迹的普通人，或想研究气候经济的学生。不适合：想靠炒碳信用短期暴富的人——这更像债券，不是 meme 币。</div></div>

@@ -76,6 +76,16 @@
   }
   .to-index:hover { background: #c8a866; color: #0a0a0a; }
 </style>
+
+<style id="fix-overflow-wrap">
+  /* 2026-09-04: 修复长 URL 撑破容器 */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
 </head>
 <body>
 <a class="to-index" href="../../index.html">← 全部报告</a>
@@ -94,10 +104,10 @@
   <div class="card hero">
     <div class="hero-txt">
       <ul>
-        <li><b>它是什么</b>：ETF（Exchange Traded Fund，交易所买卖基金）是一种可以在股票市场像买卖股票一样交易的「一篮子资产」——买一份 ETF，相当于同时持有一揽子公司的股份 (来源：https://www.invesco.com/hk/zh/etf/investing-basics.html)</li>
+        <li><b>它是什么</b>：ETF（Exchange Traded Fund，交易所买卖基金）是一种可以在股票市场像买卖股票一样交易的「一篮子资产」——买一份 ETF，相当于同时持有一揽子公司的股份 <a class="src" href="https://www.invesco.com/hk/zh/etf/investing-basics.html" target="_blank" rel="noopener noreferrer">查看来源</a></li>
         <li><b>谁在玩</b>：从大型机构、退休基金到刚开户的上班族都在玩。它既是机构配置资产的核心工具，也是普通人入门指数投资的最常见入口。</li>
-        <li><b>市场多大</b>：全球 ETF 市场规模以万亿美元计 [UNSOURCED]；仅单只追踪纳斯达克 100 或标普 500 的头部 ETF 规模就常达千亿美元级 [UNSOURCED]。台湾半导体主题 ETF 因行业集中，波幅可能比分散基金更高 (来源：https://www.fubonfund.com.hk/Insights20250123)</li>
-        <li><b>小白能玩吗</b>：能。门槛很低（有的几十美元甚至更低就能买一份），但它不是保本储蓄——市场跌它跟着跌，还有跟踪误差和流动性风险 (来源：https://www.etoro.com/zh/investing/what-is-etf)</li>
+        <li><b>市场多大</b>：全球 ETF 市场规模以万亿美元计 [UNSOURCED]；仅单只追踪纳斯达克 100 或标普 500 的头部 ETF 规模就常达千亿美元级 [UNSOURCED]。台湾半导体主题 ETF 因行业集中，波幅可能比分散基金更高 <a class="src" href="https://www.fubonfund.com.hk/Insights20250123" target="_blank" rel="noopener noreferrer">查看来源</a></li>
+        <li><b>小白能玩吗</b>：能。门槛很低（有的几十美元甚至更低就能买一份），但它不是保本储蓄——市场跌它跟着跌，还有跟踪误差和流动性风险 <a class="src" href="https://www.etoro.com/zh/investing/what-is-etf" target="_blank" rel="noopener noreferrer">查看来源</a></li>
       </ul>
     </div>
     <div class="hero-art">
@@ -124,9 +134,9 @@
   <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
   <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
   <div class="card">
-    <p style="color:#c4c4c4;font-size:13.5px;">把 ETF 想成一顿「公司股票自助餐」。你花一份套餐的钱，餐盘里自动装好了几十甚至几百家公司的「小份额股份」。比如追踪标普 500 的 ETF，你买一份，就等于同时拥有苹果、微软、亚马逊等 500 家大公司的一丁点股份 (来源：https://www.invesco.com/hk/zh/etf/investing-basics.html)。<br><br>
-    它和「主动型基金」最大的区别是：大多数主动基金靠基金经理选股，又贵又不保证赢；而 ETF 大多「被动」追踪指数，管理费低，规则透明。根据 S&amp;P Global 统计，美国 85% 以上的主动型基金在 10 年期间跑输被动型指数基金 (来源：https://academy.fbs.com.tw/academy/columndetails/c000580)。<br><br>
-    另一个好处是交易方式：普通基金一天只能按收盘净值买卖一次，ETF 却像股票一样在交易所全天实时交易，灵活度高 (来源：https://bookdown.org/ngo9527/etf10items/_book/etf-etf-basics.html)。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;">把 ETF 想成一顿「公司股票自助餐」。你花一份套餐的钱，餐盘里自动装好了几十甚至几百家公司的「小份额股份」。比如追踪标普 500 的 ETF，你买一份，就等于同时拥有苹果、微软、亚马逊等 500 家大公司的一丁点股份 <a class="src" href="https://www.invesco.com/hk/zh/etf/investing-basics.html" target="_blank" rel="noopener noreferrer">查看来源</a>。<br><br>
+    它和「主动型基金」最大的区别是：大多数主动基金靠基金经理选股，又贵又不保证赢；而 ETF 大多「被动」追踪指数，管理费低，规则透明。根据 S&amp;P Global 统计，美国 85% 以上的主动型基金在 10 年期间跑输被动型指数基金 <a class="src" href="https://academy.fbs.com.tw/academy/columndetails/c000580" target="_blank" rel="noopener noreferrer">查看来源</a>。<br><br>
+    另一个好处是交易方式：普通基金一天只能按收盘净值买卖一次，ETF 却像股票一样在交易所全天实时交易，灵活度高 <a class="src" href="https://bookdown.org/ngo9527/etf10items/_book/etf-etf-basics.html" target="_blank" rel="noopener noreferrer">查看来源</a>。</p>
   </div>
   <div class="illus">
     <!-- 结构图：从指数到 ETF 到投资人 -->
@@ -194,7 +204,7 @@
       <div class="ptxt">
         <span class="tag tag-root">ROOT</span>
         <h3>指数公司</h3>
-        <ul><li>标普、纳斯达克、富时等机构负责制定指数规则，是 ETF 的「上游图纸」 (来源：https://www.invesco.com/hk/zh/etf/investing-basics.html)</li></ul>
+        <ul><li>标普、纳斯达克、富时等机构负责制定指数规则，是 ETF 的「上游图纸」 <a class="src" href="https://www.invesco.com/hk/zh/etf/investing-basics.html" target="_blank" rel="noopener noreferrer">查看来源</a></li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -202,7 +212,7 @@
       <div class="ptxt">
         <span class="tag tag-direct">发行商</span>
         <h3>基金公司 / 投信</h3>
-        <ul><li>贝莱德（iShares）、先锋领航（Vanguard）、国泰投信、富邦投信等，负责「照着图纸」发行和运作 ETF (来源：https://academy.fbs.com.tw/academy/columndetails/c000580)</li></ul>
+        <ul><li>贝莱德（iShares）、先锋领航（Vanguard）、国泰投信、富邦投信等，负责「照着图纸」发行和运作 ETF <a class="src" href="https://academy.fbs.com.tw/academy/columndetails/c000580" target="_blank" rel="noopener noreferrer">查看来源</a></li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -210,7 +220,7 @@
       <div class="ptxt">
         <span class="tag tag-hot">HOT</span>
         <h3>交易平台 / 券商</h3>
-        <ul><li>散户通过券商账户买卖 ETF。海外如 eToro 等平台提供新手友好的界面 (来源：https://www.etoro.com/zh/investing/what-is-etf)</li></ul>
+        <ul><li>散户通过券商账户买卖 ETF。海外如 eToro 等平台提供新手友好的界面 <a class="src" href="https://www.etoro.com/zh/investing/what-is-etf" target="_blank" rel="noopener noreferrer">查看来源</a></li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -218,7 +228,7 @@
       <div class="ptxt">
         <span class="tag tag-step">入门</span>
         <h3>小白友好入口</h3>
-        <ul><li>先看投信官网的「每日净值」和 ETF 说明书，再开一个支持碎股交易的券商账户，小额开始 (来源：https://www.youtube.com/watch?v=L2r_bWEoQsY)</li></ul>
+        <ul><li>先看投信官网的「每日净值」和 ETF 说明书，再开一个支持碎股交易的券商账户，小额开始 <a class="src" href="https://www.youtube.com/watch?v=L2r_bWEoQsY" target="_blank" rel="noopener noreferrer">查看来源</a></li></ul>
       </div>
     </div>
   </div>
@@ -230,9 +240,9 @@
   <div class="sec-note">按步骤走，别一上来就梭哈。</div>
   <div class="tl">
     <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">开一个券商账户（或支持 ETF 交易的投资 App），完成入金。先别买，先看。</div></div>
-    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">选一档「宽基」ETF（比如追踪标普 500 或纳指 100 的），观察它一个月的走势和成交量，感受波动 (来源：https://www.invesco.com/hk/zh/etf/investing-basics.html)</div></div>
-    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">用一笔「亏了也不心疼」的钱买入第一笔。注意看费用率（expense ratio）和跟踪误差，越低越好 (来源：https://www.etoro.com/zh/investing/what-is-etf)</div></div>
-    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">长期持有、定期定额投入。根据 S&amp;P Global，85% 以上的主动基金十年跑输被动指数基金——时间是 ETF 最好的朋友 (来源：https://academy.fbs.com.tw/academy/columndetails/c000580)</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">选一档「宽基」ETF（比如追踪标普 500 或纳指 100 的），观察它一个月的走势和成交量，感受波动 <a class="src" href="https://www.invesco.com/hk/zh/etf/investing-basics.html" target="_blank" rel="noopener noreferrer">查看来源</a></div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">用一笔「亏了也不心疼」的钱买入第一笔。注意看费用率（expense ratio）和跟踪误差，越低越好 <a class="src" href="https://www.etoro.com/zh/investing/what-is-etf" target="_blank" rel="noopener noreferrer">查看来源</a></div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">长期持有、定期定额投入。根据 S&amp;P Global，85% 以上的主动基金十年跑输被动指数基金——时间是 ETF 最好的朋友 <a class="src" href="https://academy.fbs.com.tw/academy/columndetails/c000580" target="_blank" rel="noopener noreferrer">查看来源</a></div></div>
   </div>
 </section>
 
@@ -241,10 +251,10 @@
   <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
   <div class="sec-note">外行最容易交学费的地方。</div>
   <div class="grid2">
-    <div class="card"><span class="tag tag-warn">坑 1</span><h3>把 ETF 当股票炒</h3><ul><li>有人把 ETF 当短线股票天天进出，结果手续费和情绪损耗吃掉了收益。ETF 的设计初衷是长期参与市场成长 (来源：https://academy.fbs.com.tw/academy/columndetails/c000580)</li></ul></div>
-    <div class="card"><span class="tag tag-warn">坑 2</span><h3>忽略「跟踪误差」</h3><ul><li>ETF 表现可能和基准指数不一致，这就是跟踪误差。误差太大，你买的就不是「指数」 (来源：https://www.etoro.com/zh/investing/what-is-etf)</li></ul></div>
-    <div class="card"><span class="tag tag-warn">坑 3</span><h3>迷信「热门主题」</h3><ul><li>像半导体这类热门主题 ETF，行业集中、波动剧烈，可能比分散基金风险高得多，不适合当第一只 ETF (来源：https://www.fubonfund.com.hk/Insights20250123)</li></ul></div>
-    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>别碰「规模长期偏低」的 ETF——它可能面临清算下市风险；选择规模持续增长、资金充裕的产品更稳 (来源：https://www.youtube.com/watch?v=L2r_bWEoQsY)</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>把 ETF 当股票炒</h3><ul><li>有人把 ETF 当短线股票天天进出，结果手续费和情绪损耗吃掉了收益。ETF 的设计初衷是长期参与市场成长 <a class="src" href="https://academy.fbs.com.tw/academy/columndetails/c000580" target="_blank" rel="noopener noreferrer">查看来源</a></li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>忽略「跟踪误差」</h3><ul><li>ETF 表现可能和基准指数不一致，这就是跟踪误差。误差太大，你买的就不是「指数」 <a class="src" href="https://www.etoro.com/zh/investing/what-is-etf" target="_blank" rel="noopener noreferrer">查看来源</a></li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>迷信「热门主题」</h3><ul><li>像半导体这类热门主题 ETF，行业集中、波动剧烈，可能比分散基金风险高得多，不适合当第一只 ETF <a class="src" href="https://www.fubonfund.com.hk/Insights20250123" target="_blank" rel="noopener noreferrer">查看来源</a></li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>别碰「规模长期偏低」的 ETF——它可能面临清算下市风险；选择规模持续增长、资金充裕的产品更稳 <a class="src" href="https://www.youtube.com/watch?v=L2r_bWEoQsY" target="_blank" rel="noopener noreferrer">查看来源</a></li></ul></div>
   </div>
   <div class="illus">
     <!-- 误区 vs 真相 对比图 -->
@@ -258,7 +268,7 @@
       <text x="550" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">市场下跌时 ETF 一样会跌 (来源：eToro)</text>
       <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
     </svg>
-    <div class="cap">误区 vs 真相：ETF 是工具，不是印钞机 (来源：https://www.etoro.com/zh/investing/what-is-etf)</div>
+    <div class="cap">误区 vs 真相：ETF 是工具，不是印钞机 <a class="src" href="https://www.etoro.com/zh/investing/what-is-etf" target="_blank" rel="noopener noreferrer">查看来源</a></div>
   </div>
 </section>
 
@@ -270,11 +280,11 @@
     <table>
       <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
       <tbody>
-        <tr><td><b>NAV（资产净值）</b></td><td>基金真实的价值，每天更新。你可以在投信官网查到 (来源：https://www.youtube.com/watch?v=L2r_bWEoQsY)</td></tr>
-        <tr><td><b>跟踪误差</b></td><td>ETF 表现和它追踪的指数之间的「跑偏程度」，越小越好 (来源：https://www.etoro.com/zh/investing/what-is-etf)</td></tr>
-        <tr><td><b>费用率</b></td><td>基金每年收的管理费，被动 ETF 通常比主动基金便宜很多 (来源：https://bookdown.org/ngo9527/etf10items/_book/etf-etf-basics.html)</td></tr>
+        <tr><td><b>NAV（资产净值）</b></td><td>基金真实的价值，每天更新。你可以在投信官网查到 <a class="src" href="https://www.youtube.com/watch?v=L2r_bWEoQsY" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
+        <tr><td><b>跟踪误差</b></td><td>ETF 表现和它追踪的指数之间的「跑偏程度」，越小越好 <a class="src" href="https://www.etoro.com/zh/investing/what-is-etf" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
+        <tr><td><b>费用率</b></td><td>基金每年收的管理费，被动 ETF 通常比主动基金便宜很多 <a class="src" href="https://bookdown.org/ngo9527/etf10items/_book/etf-etf-basics.html" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
         <tr><td><b>折溢价</b></td><td>ETF 市价和净值之间的差价；市场波动大时可能出现明显偏离 [UNSOURCED]</td></tr>
-        <tr><td><b>清算 / 下市</b></td><td>基金规模长期太小，可能被清盘返还净值——这就是为什么别碰太小的 ETF (来源：https://www.youtube.com/watch?v=L2r_bWEoQsY)</td></tr>
+        <tr><td><b>清算 / 下市</b></td><td>基金规模长期太小，可能被清盘返还净值——这就是为什么别碰太小的 ETF <a class="src" href="https://www.youtube.com/watch?v=L2r_bWEoQsY" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
       </tbody>
     </table>
   </div>
@@ -288,8 +298,8 @@
     <p class="quote">世界上第一只 ETF 诞生于 1993 年的美国，追踪标普 500 指数，代号 SPDR（发音像「蜘蛛」），至今仍是全球最具标志性的 ETF 之一 [UNSOURCED]。</p>
   </div>
   <div class="verdict">
-    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">适合：想省心参与股市、不想研究个股、愿意长期持有的人。不适合：追求一夜暴富、无法承受短期波动的人 (来源：https://www.etoro.com/zh/investing/what-is-etf)</div></div>
-    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">ETF 不是让你「赢过市场」，而是让你用最低的成本「搭上市场的车」——时间是最好的朋友 (来源：https://academy.fbs.com.tw/academy/columndetails/c000580)</div></div>
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">适合：想省心参与股市、不想研究个股、愿意长期持有的人。不适合：追求一夜暴富、无法承受短期波动的人 <a class="src" href="https://www.etoro.com/zh/investing/what-is-etf" target="_blank" rel="noopener noreferrer">查看来源</a></div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">ETF 不是让你「赢过市场」，而是让你用最低的成本「搭上市场的车」——时间是最好的朋友 <a class="src" href="https://academy.fbs.com.tw/academy/columndetails/c000580" target="_blank" rel="noopener noreferrer">查看来源</a></div></div>
   </div>
 </section>
 

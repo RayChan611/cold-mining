@@ -76,6 +76,16 @@
   }
   .to-index:hover { background: #c8a866; color: #0a0a0a; }
 </style>
+
+<style id="fix-overflow-wrap">
+  /* 2026-09-04: 修复长 URL 撑破容器 */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
 </head>
 <body>
 <a class="to-index" href="../index.html">← 全部报告</a>
@@ -95,9 +105,9 @@
     <div class="hero-txt">
       <ul>
         <li><b>它是什么</b>：用长曝光 + 望远镜/长焦镜头，拍摄银河系外星云、星系、星团等暗淡天体的摄影门类。和日常拍照最大的区别是：目标非常暗，需要「积少成多」地收集光子。</li>
-        <li><b>谁在玩</b>：天文爱好者、摄影发烧友、程序员/工程师（因为后期要处理大量数据），以及少数专职科普摄影师。国内有巡星客、ZWO天文社区，国外有Astrobin等社区（来源：https://grapeot.me/astrophoto-tutorial-1.html）。</li>
-        <li><b>市场多大</b>：一套入门级全新设备大约需要15万新台币（约合人民币3.4万元）左右（来源：https://www.youtube.com/watch?v=eUIYeD-jMrU）；高阶发烧配置可达数万美元。据预测，到2040年，全球深空经济市场规模有望达到万亿美元级别，但那是深空探测产业，不是摄影器材（来源：https://m.spacechina.com/n2014789/n2014809/c4429496/content.html）。</li>
-        <li><b>小白能玩吗</b>：能。门槛没有想象中高——如今星野赤道仪精度足够且价格便宜，配大口径中长焦镜头甚至标准镜头也能拍明亮天体（来源：https://kepu.gmw.cn/astro/2019-05/31/content_32882905.htm）。真正的门槛是耐心和折腾精神。</li>
+        <li><b>谁在玩</b>：天文爱好者、摄影发烧友、程序员/工程师（因为后期要处理大量数据），以及少数专职科普摄影师。国内有巡星客、ZWO天文社区，国外有Astrobin等社区<a class="src" href="https://grapeot.me/astrophoto-tutorial-1.html" target="_blank" rel="noopener noreferrer">查看来源</a>。</li>
+        <li><b>市场多大</b>：一套入门级全新设备大约需要15万新台币（约合人民币3.4万元）左右<a class="src" href="https://www.youtube.com/watch?v=eUIYeD-jMrU" target="_blank" rel="noopener noreferrer">查看来源</a>；高阶发烧配置可达数万美元。据预测，到2040年，全球深空经济市场规模有望达到万亿美元级别，但那是深空探测产业，不是摄影器材<a class="src" href="https://m.spacechina.com/n2014789/n2014809/c4429496/content.html" target="_blank" rel="noopener noreferrer">查看来源</a>。</li>
+        <li><b>小白能玩吗</b>：能。门槛没有想象中高——如今星野赤道仪精度足够且价格便宜，配大口径中长焦镜头甚至标准镜头也能拍明亮天体<a class="src" href="https://kepu.gmw.cn/astro/2019-05/31/content_32882905.htm" target="_blank" rel="noopener noreferrer">查看来源</a>。真正的门槛是耐心和折腾精神。</li>
       </ul>
     </div>
     <div class="hero-art">
@@ -130,7 +140,7 @@
   <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
   <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
   <div class="card">
-    <p style="color:#c4c4c4;font-size:13.5px;">想象你在一个漆黑的房间里，要拍清一只远处蜡烛上的小字。手机一拍——糊的。但如果把手机放在三脚架上，快门一直开着，让光线在传感器上积累 10 分钟、1 小时甚至一整夜，烛光就能在照片上「显形」。深空摄影就是这个原理：那些星云、星系离我们太远、太暗，肉眼只能看到一小团模糊的光斑（甚至什么都看不到），但相机长时间曝光后，就能把那些微弱的光子一点点收集起来，拼出一张壮丽的照片。<br><br>它和普通摄影最大的区别在于：<b>普通摄影是「捕捉瞬间」，深空摄影是「积攒光线」</b>。单张曝光往往不够，需要拍几十张、上百张，再用软件「叠加」起来提升信噪比——就像把几十张模糊的底片叠在一起，噪点互相抵消，信号越来越清晰。入门者拍完一张单张照片后，大约 1-2 分钟就能在液晶屏上看到成果，虽然存在不足，但已经算入门了（来源：https://kepu.gmw.cn/astro/2019-05/31/content_32882905.htm）。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;">想象你在一个漆黑的房间里，要拍清一只远处蜡烛上的小字。手机一拍——糊的。但如果把手机放在三脚架上，快门一直开着，让光线在传感器上积累 10 分钟、1 小时甚至一整夜，烛光就能在照片上「显形」。深空摄影就是这个原理：那些星云、星系离我们太远、太暗，肉眼只能看到一小团模糊的光斑（甚至什么都看不到），但相机长时间曝光后，就能把那些微弱的光子一点点收集起来，拼出一张壮丽的照片。<br><br>它和普通摄影最大的区别在于：<b>普通摄影是「捕捉瞬间」，深空摄影是「积攒光线」</b>。单张曝光往往不够，需要拍几十张、上百张，再用软件「叠加」起来提升信噪比——就像把几十张模糊的底片叠在一起，噪点互相抵消，信号越来越清晰。入门者拍完一张单张照片后，大约 1-2 分钟就能在液晶屏上看到成果，虽然存在不足，但已经算入门了<a class="src" href="https://kepu.gmw.cn/astro/2019-05/31/content_32882905.htm" target="_blank" rel="noopener noreferrer">查看来源</a>。</p>
   </div>
   <div class="illus">
     <!-- 深空摄影核心流程：拍摄 → 校准 → 叠加 → 后期 -->
@@ -164,8 +174,8 @@
     <table>
       <thead><tr><th>档位</th><th>典型价格（人民币）</th><th>说明</th></tr></thead>
       <tbody>
-        <tr><td>入门档</td><td class="up">¥3,000 – 8,000</td><td>星野赤道仪（如信达大星野）+ 现有单反/微单 + 中长焦镜头，可拍银河、明亮星云（来源：https://kepu.gmw.cn/astro/2019-05/31/content_32882905.htm）</td></tr>
-        <tr><td>进阶档</td><td>¥15,000 – 40,000</td><td>入门级全套（赤道仪+望远镜+冷冻相机+导星），约15万新台币≈3.4万人民币（来源：https://www.youtube.com/watch?v=eUIYeD-jMrU）</td></tr>
+        <tr><td>入门档</td><td class="up">¥3,000 – 8,000</td><td>星野赤道仪（如信达大星野）+ 现有单反/微单 + 中长焦镜头，可拍银河、明亮星云<a class="src" href="https://kepu.gmw.cn/astro/2019-05/31/content_32882905.htm" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
+        <tr><td>进阶档</td><td>¥15,000 – 40,000</td><td>入门级全套（赤道仪+望远镜+冷冻相机+导星），约15万新台币≈3.4万人民币<a class="src" href="https://www.youtube.com/watch?v=eUIYeD-jMrU" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
         <tr><td>发烧档</td><td class="down">¥50,000 – 200,000+</td><td>高精度赤道仪、大口径APO折射镜/牛反、专业冷冻CMOS、滤镜轮、电调焦等，上不封顶 [UNSOURCED]</td></tr>
       </tbody>
     </table>
@@ -192,7 +202,7 @@
       <text x="495" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">发烧档</text>
       <text x="380" y="215" fill="#8a8a8a" font-size="10" text-anchor="middle">价格带（人民币，对数感示意）· 据公开资料整理</text>
     </svg>
-    <div class="cap">价格带示意：入门一套约3-8k，进阶全套约3.4万人民币起（来源：https://www.youtube.com/watch?v=eUIYeD-jMrU）</div>
+    <div class="cap">价格带示意：入门一套约3-8k，进阶全套约3.4万人民币起<a class="src" href="https://www.youtube.com/watch?v=eUIYeD-jMrU" target="_blank" rel="noopener noreferrer">查看来源</a></div>
   </div>
 </section>
 
@@ -206,7 +216,7 @@
       <div class="ptxt">
         <span class="tag tag-root">设备商</span>
         <h3>ZWO（振旺）</h3>
-        <ul><li>国产天文相机/赤道仪头部品牌，其社区（ZWO天文社区）是国内主要中文交流地之一（来源：https://grapeot.me/astrophoto-tutorial-1.html）。</li><li>以冷冻相机（ASI系列）出名，几乎成了深空摄影的「标配」之一。</li></ul>
+        <ul><li>国产天文相机/赤道仪头部品牌，其社区（ZWO天文社区）是国内主要中文交流地之一<a class="src" href="https://grapeot.me/astrophoto-tutorial-1.html" target="_blank" rel="noopener noreferrer">查看来源</a>。</li><li>以冷冻相机（ASI系列）出名，几乎成了深空摄影的「标配」之一。</li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -214,7 +224,7 @@
       <div class="ptxt">
         <span class="tag tag-direct">社区</span>
         <h3>巡星客 / Astrobin</h3>
-        <ul><li>国内巡星客、国外Astrobin等天文社区，通常有精选和每日一图，大佬会列出拍摄参数和器材，适合找灵感和参考（来源：https://grapeot.me/astrophoto-tutorial-1.html）。</li><li>Astrobin参加每日一图评选需付费，服务质量口碑一般（来源：https://grapeot.me/astrophoto-tutorial-1.html）。</li></ul>
+        <ul><li>国内巡星客、国外Astrobin等天文社区，通常有精选和每日一图，大佬会列出拍摄参数和器材，适合找灵感和参考<a class="src" href="https://grapeot.me/astrophoto-tutorial-1.html" target="_blank" rel="noopener noreferrer">查看来源</a>。</li><li>Astrobin参加每日一图评选需付费，服务质量口碑一般<a class="src" href="https://grapeot.me/astrophoto-tutorial-1.html" target="_blank" rel="noopener noreferrer">查看来源</a>。</li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -222,7 +232,7 @@
       <div class="ptxt">
         <span class="tag tag-hot">教程</span>
         <h3>个人博客 / YouTube</h3>
-        <ul><li>如「Computing Life」（grapeot.me）有系列入门教程，从社区选择到器材配置都讲得很细（来源：https://grapeot.me/astrophoto-tutorial-1.html）。</li><li>国家地理摄影论坛也有新手入坑指南，涵盖电源、预算等实操细节（来源：https://www.youtube.com/watch?v=eUIYeD-jMrU）。</li></ul>
+        <ul><li>如「Computing Life」（grapeot.me）有系列入门教程，从社区选择到器材配置都讲得很细<a class="src" href="https://grapeot.me/astrophoto-tutorial-1.html" target="_blank" rel="noopener noreferrer">查看来源</a>。</li><li>国家地理摄影论坛也有新手入坑指南，涵盖电源、预算等实操细节<a class="src" href="https://www.youtube.com/watch?v=eUIYeD-jMrU" target="_blank" rel="noopener noreferrer">查看来源</a>。</li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -230,7 +240,7 @@
       <div class="ptxt">
         <span class="tag tag-step">入门</span>
         <h3>先别买！先看</h3>
-        <ul><li>去巡星客/Astrobin看每日一图，找到让你觉得「牛逼」的图片和喜欢的方向（来源：https://grapeot.me/astrophoto-tutorial-1.html）。</li><li>搜索特定目标，看大佬的参数和器材配置，再决定买什么。</li></ul>
+        <ul><li>去巡星客/Astrobin看每日一图，找到让你觉得「牛逼」的图片和喜欢的方向<a class="src" href="https://grapeot.me/astrophoto-tutorial-1.html" target="_blank" rel="noopener noreferrer">查看来源</a>。</li><li>搜索特定目标，看大佬的参数和器材配置，再决定买什么。</li></ul>
       </div>
     </div>
   </div>
@@ -241,10 +251,10 @@
   <h2><span class="num">04</span>小白如何起步</h2>
   <div class="sec-note">按步骤走，别一上来就梭哈。</div>
   <div class="tl">
-    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">不花钱：逛社区、看大片。巡星客、Astrobin、ZWO社区刷一周，找到你真正想拍的目标（比如猎户座大星云M42、仙女座星系M31）。记住：大佬都会列拍摄参数，这就是最好的免费教材（来源：https://grapeot.me/astrophoto-tutorial-1.html）。</div></div>
-    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">小成本试水：用现有单反/微单 + 三脚架，先拍银河（不需要赤道仪，短曝光多张叠加也行）。或者买一台入门星野赤道仪（约2-4k），配50mm/135mm镜头，就能拍出不错的广域深空（来源：https://kepu.gmw.cn/astro/2019-05/31/content_32882905.htm）。</div></div>
+    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">不花钱：逛社区、看大片。巡星客、Astrobin、ZWO社区刷一周，找到你真正想拍的目标（比如猎户座大星云M42、仙女座星系M31）。记住：大佬都会列拍摄参数，这就是最好的免费教材<a class="src" href="https://grapeot.me/astrophoto-tutorial-1.html" target="_blank" rel="noopener noreferrer">查看来源</a>。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">小成本试水：用现有单反/微单 + 三脚架，先拍银河（不需要赤道仪，短曝光多张叠加也行）。或者买一台入门星野赤道仪（约2-4k），配50mm/135mm镜头，就能拍出不错的广域深空<a class="src" href="https://kepu.gmw.cn/astro/2019-05/31/content_32882905.htm" target="_blank" rel="noopener noreferrer">查看来源</a>。</div></div>
     <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">建立判断框架：学会看「单张曝光时长 × 张数 × 增益」这些参数，理解为什么别人拍得比你清晰——往往是累计曝光时间更长、校准帧更规范。</div></div>
-    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">再决定是否加注：如果三个月后你还在拍，再考虑上冷冻相机、导星、滤镜轮。入门级全套约3.4万人民币（来源：https://www.youtube.com/watch?v=eUIYeD-jMrU），但很多人用几千块的配置也能出好片。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">再决定是否加注：如果三个月后你还在拍，再考虑上冷冻相机、导星、滤镜轮。入门级全套约3.4万人民币<a class="src" href="https://www.youtube.com/watch?v=eUIYeD-jMrU" target="_blank" rel="noopener noreferrer">查看来源</a>，但很多人用几千块的配置也能出好片。</div></div>
   </div>
 </section>
 
@@ -253,10 +263,10 @@
   <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
   <div class="sec-note">外行最容易交学费的地方。</div>
   <div class="grid2">
-    <div class="card"><span class="tag tag-warn">坑 1</span><h3>一上来就买全套顶级装备</h3><ul><li>花了大几万，结果发现没时间、没耐心、不会后期，器材吃灰。建议先用现有相机+镜头拍银河，确认热爱再升级（来源：https://grapeot.me/astrophoto-tutorial-1.html）。</li></ul></div>
-    <div class="card"><span class="tag tag-warn">坑 2</span><h3>忽略「电」的问题</h3><ul><li>拍到一半没电很常见。资深玩家建议专门为深空摄影配电源（来源：https://www.youtube.com/watch?v=eUIYeD-jMrU）。野外拍摄还要注意低温对电池的影响。</li></ul></div>
-    <div class="card"><span class="tag tag-warn">坑 3</span><h3>以为望远镜越大越好</h3><ul><li>不同目标需要不同焦段：广域星云用小望远镜+短焦，行星状星云/星系需要长焦大镜子。小望远镜一样能出好片，「并不会因为望远镜看起来没有那么威武就拍不出好照片」（来源：https://www.youtube.com/watch?v=eUIYeD-jMrU）。</li></ul></div>
-    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>「先拍起来，再升级」——哪怕用标准镜头拍单张，1-2分钟就能看到成果，先享受过程（来源：https://kepu.gmw.cn/astro/2019-05/31/content_32882905.htm）。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>一上来就买全套顶级装备</h3><ul><li>花了大几万，结果发现没时间、没耐心、不会后期，器材吃灰。建议先用现有相机+镜头拍银河，确认热爱再升级<a class="src" href="https://grapeot.me/astrophoto-tutorial-1.html" target="_blank" rel="noopener noreferrer">查看来源</a>。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>忽略「电」的问题</h3><ul><li>拍到一半没电很常见。资深玩家建议专门为深空摄影配电源<a class="src" href="https://www.youtube.com/watch?v=eUIYeD-jMrU" target="_blank" rel="noopener noreferrer">查看来源</a>。野外拍摄还要注意低温对电池的影响。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>以为望远镜越大越好</h3><ul><li>不同目标需要不同焦段：广域星云用小望远镜+短焦，行星状星云/星系需要长焦大镜子。小望远镜一样能出好片，「并不会因为望远镜看起来没有那么威武就拍不出好照片」<a class="src" href="https://www.youtube.com/watch?v=eUIYeD-jMrU" target="_blank" rel="noopener noreferrer">查看来源</a>。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>「先拍起来，再升级」——哪怕用标准镜头拍单张，1-2分钟就能看到成果，先享受过程<a class="src" href="https://kepu.gmw.cn/astro/2019-05/31/content_32882905.htm" target="_blank" rel="noopener noreferrer">查看来源</a>。</li></ul></div>
   </div>
   <div class="illus">
     <!-- 误区 vs 真相 对比图 -->
@@ -270,7 +280,7 @@
       <text x="550" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">小望远镜+短焦也能拍广域深空</text>
       <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
     </svg>
-    <div class="cap">误区 vs 真相：不同目标需要不同焦段，小镜子也有用武之地（来源：https://www.youtube.com/watch?v=eUIYeD-jMrU）</div>
+    <div class="cap">误区 vs 真相：不同目标需要不同焦段，小镜子也有用武之地<a class="src" href="https://www.youtube.com/watch?v=eUIYeD-jMrU" target="_blank" rel="noopener noreferrer">查看来源</a></div>
   </div>
 </section>
 
@@ -284,9 +294,9 @@
       <tbody>
         <tr><td><b>赤道仪</b></td><td>一种能跟着星星转的支架，抵消地球自转，让目标在长曝光中保持不动。深空摄影的「地基」。</td></tr>
         <tr><td><b>导星</b></td><td>用一个小相机盯着某颗星，实时修正赤道仪的跟踪误差，让曝光几十分钟星点都不拖线。</td></tr>
-        <tr><td><b>暗场 / 平场 / 偏置</b></td><td>「校准帧」三兄弟：暗场拍镜头盖盖上的噪点，平场拍均匀白墙的光学瑕疵，偏置拍传感器本底噪声。叠加时用来消除相机自身缺陷（来源：https://kepu.gmw.cn/astro/2019-05/31/content_32882905.htm）。</td></tr>
+        <tr><td><b>暗场 / 平场 / 偏置</b></td><td>「校准帧」三兄弟：暗场拍镜头盖盖上的噪点，平场拍均匀白墙的光学瑕疵，偏置拍传感器本底噪声。叠加时用来消除相机自身缺陷<a class="src" href="https://kepu.gmw.cn/astro/2019-05/31/content_32882905.htm" target="_blank" rel="noopener noreferrer">查看来源</a>。</td></tr>
         <tr><td><b>叠加</b></td><td>把几十上百张照片对齐叠起来，信号增强、噪点被平均掉，信噪比大幅提升。</td></tr>
-        <tr><td><b>线性拉伸</b></td><td>深空原片通常是「线性」的（很暗），后期把亮度曲线拉开来，才能看到星云细节（来源：https://kepu.gmw.cn/astro/2019-05/31/content_32882905.htm）。</td></tr>
+        <tr><td><b>线性拉伸</b></td><td>深空原片通常是「线性」的（很暗），后期把亮度曲线拉开来，才能看到星云细节<a class="src" href="https://kepu.gmw.cn/astro/2019-05/31/content_32882905.htm" target="_blank" rel="noopener noreferrer">查看来源</a>。</td></tr>
         <tr><td><b>信噪比（SNR）</b></td><td>信号和噪点的比值。深空摄影的本质就是靠长曝光+叠加把信噪比堆上去。</td></tr>
       </tbody>
     </table>

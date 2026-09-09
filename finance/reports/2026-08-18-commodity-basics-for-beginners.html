@@ -79,6 +79,16 @@
   }
   .to-index:hover { background: #c8a866; color: #0a0a0a; }
 </style>
+
+<style id="fix-overflow-wrap">
+  /* 2026-09-04: 修复长 URL 撑破容器 */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
 </head>
 <body>
 <a class="to-index" href="../../index.html">← 全部报告</a>
@@ -99,7 +109,7 @@
       <ul>
         <li><b>它是什么</b>：大宗商品就是「没有经过太多加工、大家都要用的基础原料」——原油、铁矿石、大豆、黄金，都是。它们是全球经济运转的「水和电」。</li>
         <li><b>谁在玩</b>：开采商、冶炼厂、食品巨头等产业链企业在套期保值；对冲基金、投行在投机；近年也有不少散户通过 ETF 或 CFD 参与。</li>
-        <li><b>市场多大</b>：全球大宗商品市场总交易量超过数万亿美元，覆盖钢铁、石油、黄金、农产品等多个品种，其中原油是最大的市场（来源：http://www.21jingji.com/article/20231219/herald/0c506cd2265d55591b8acaa6cf813826.html）。</li>
+        <li><b>市场多大</b>：全球大宗商品市场总交易量超过数万亿美元，覆盖钢铁、石油、黄金、农产品等多个品种，其中原油是最大的市场<a class="src" href="http://www.21jingji.com/article/20231219/herald/0c506cd2265d55591b8acaa6cf813826.html" target="_blank" rel="noopener noreferrer">查看来源</a>。</li>
         <li><b>小白能玩吗</b>：能，但门槛主要在「认知」而非「资金」。商品价格波动剧烈，杠杆产品（如 CFD）风险极高，新手应先从学习供需逻辑开始，而非直接上杠杆。</li>
       </ul>
     </div>
@@ -130,7 +140,7 @@
   <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
   <div class="card">
     <p style="color:#c4c4c4;font-size:13.5px;">想象你开了一家「超级奶茶店」。你需要的不是一杯杯做好的奶茶，而是<b>珍珠、茶叶、牛奶、糖、塑料杯和吸管</b>——这些原料就是「大宗商品」。不管哪家奶茶店，都绕不开这些基础物料；它们的价格一涨，所有奶茶店都得跟着调价。</p>
-    <p style="color:#c4c4c4;font-size:13.5px;margin-top:10px;">大宗商品分两大类：<b>硬商品</b>是从地里挖出来的——能源（原油、天然气、煤炭）和金属（黄金、铜、铁矿石）；<b>软商品</b>是种出来的——咖啡、可可、小麦、大豆等（来源：https://www.tradingkey.com/zh-hant/learn/beginner/commodities/diving-into-commodity-trading-understanding-market-operations）。硬商品物理性质稳定、方便长期储存，是「工业的骨架」；软商品靠天吃饭，天气一变价格就跳。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;margin-top:10px;">大宗商品分两大类：<b>硬商品</b>是从地里挖出来的——能源（原油、天然气、煤炭）和金属（黄金、铜、铁矿石）；<b>软商品</b>是种出来的——咖啡、可可、小麦、大豆等<a class="src" href="https://www.tradingkey.com/zh-hant/learn/beginner/commodities/diving-into-commodity-trading-understanding-market-operations" target="_blank" rel="noopener noreferrer">查看来源</a>。硬商品物理性质稳定、方便长期储存，是「工业的骨架」；软商品靠天吃饭，天气一变价格就跳。</p>
   </div>
   <div class="illus">
     <!-- 价值链：开采→定价→消费 -->
@@ -162,7 +172,7 @@
       <tbody>
         <tr><td>原油（布伦特）</td><td class="up">约 60 – 120 美元/桶</td><td>全球最大商品市场，价格受产油国减产、经济预期影响剧烈（据公开资料）</td></tr>
         <tr><td>黄金</td><td>约 1,800 – 2,400 美元/盎司</td><td>「避险之王」，地缘冲突、通胀预期升温时资金涌入（据公开资料）</td></tr>
-        <tr><td>可可豆</td><td class="down">2024 年一度突破 10,000 美元/吨</td><td>因厄尔尼诺干扰南美生产而飙升，全球巧克力产业链承压（来源：https://endowus.com/zh-hk/insights/commodity-investing-guide-hong-kong）</td></tr>
+        <tr><td>可可豆</td><td class="down">2024 年一度突破 10,000 美元/吨</td><td>因厄尔尼诺干扰南美生产而飙升，全球巧克力产业链承压<a class="src" href="https://endowus.com/zh-hk/insights/commodity-investing-guide-hong-kong" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
       </tbody>
     </table>
   </div>
@@ -220,7 +230,7 @@
       <div class="ptxt">
         <span class="tag tag-step">入门</span>
         <h3>小白友好入口</h3>
-        <ul><li>先看免费的行情 App（如 TradingView）和科普平台（如 IG 课堂、CMC Markets 学习中心）</li><li>想动手，先从追踪商品价格的 ETF 开始，别直接碰 CFD 杠杆产品（来源：https://www.ig.com/cn/commodities/what-are-commodities-how-do-you-trade-them）</li></ul>
+        <ul><li>先看免费的行情 App（如 TradingView）和科普平台（如 IG 课堂、CMC Markets 学习中心）</li><li>想动手，先从追踪商品价格的 ETF 开始，别直接碰 CFD 杠杆产品<a class="src" href="https://www.ig.com/cn/commodities/what-are-commodities-how-do-you-trade-them" target="_blank" rel="noopener noreferrer">查看来源</a></li></ul>
       </div>
     </div>
   </div>
@@ -233,7 +243,7 @@
   <div class="tl">
     <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">打开行情软件，每天花 10 分钟看原油、黄金、铜的报价，坚持两周——先「混个脸熟」，感受价格波动节奏，一分钱不花。</div></div>
     <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">挑一个你最熟悉的品种（比如你天天喝咖啡，就研究咖啡豆）。去 IG 课堂或 CMC Markets 学习中心看这个品种的科普文章，搞清楚「谁在供给、谁在需求」。</div></div>
-    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">建立判断框架：关注 OPEC 减产新闻（影响原油）、美联储利率决议（影响黄金）、厄尔尼诺天气（影响农产品）。全球政治事件、货币政策、技术创新、环境因素都会影响商品价格（来源：http://www.21jingji.com/article/20231219/herald/0c506cd2265d55591b8acaa6cf813826.html）。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">建立判断框架：关注 OPEC 减产新闻（影响原油）、美联储利率决议（影响黄金）、厄尔尼诺天气（影响农产品）。全球政治事件、货币政策、技术创新、环境因素都会影响商品价格<a class="src" href="http://www.21jingji.com/article/20231219/herald/0c506cd2265d55591b8acaa6cf813826.html" target="_blank" rel="noopener noreferrer">查看来源</a>。</div></div>
     <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">模拟盘或小额试水。用不亏了也不心疼的钱，买一手追踪原油或黄金的 ETF，持有 1-3 个月，体验真实的涨跌与心态波动，再决定要不要继续。</div></div>
   </div>
 </section>
@@ -243,9 +253,9 @@
   <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
   <div class="sec-note">外行最容易交学费的地方。</div>
   <div class="grid2">
-    <div class="card"><span class="tag tag-warn">坑 1</span><h3>一上来就碰 CFD 杠杆</h3><ul><li>CFD 可以「做空」「做多」，听起来很灵活，但杠杆会放大亏损——价格反向波动 5%，你的本金可能就没了（来源：https://www.dukascopy.com/swiss/chinese/cfd/range-of-markets/cfd-commodities）</li><li>怎么避：先玩现货 ETF，不碰杠杆</li></ul></div>
-    <div class="card"><span class="tag tag-warn">坑 2</span><h3>把「新闻」当「交易信号」</h3><ul><li>「黄金需求跌至十年新低」这类消息一出，很多人恐慌抛售，但专业机构早就在更早的阶段布局了——等你看到新闻，行情往往已走完一半（来源：https://www.cmcmarkets.com/zh-au/cfd/learn/cfds-explained/what-is-a-commodity）</li><li>怎么避：新闻用来理解逻辑，不要用来追涨杀跌</li></ul></div>
-    <div class="card"><span class="tag tag-warn">坑 3</span><h3>忽视「地缘政治」这个隐形开关</h3><ul><li>俄乌战争爆发时，能源和农产品价格瞬间跳涨；制裁、关税、战争都会直接冲击供需平衡（来源：https://endowus.com/zh-hk/insights/commodity-investing-guide-hong-kong）</li><li>怎么避：下单前先问一句「最近有没有大选、战争、贸易摩擦」</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>一上来就碰 CFD 杠杆</h3><ul><li>CFD 可以「做空」「做多」，听起来很灵活，但杠杆会放大亏损——价格反向波动 5%，你的本金可能就没了<a class="src" href="https://www.dukascopy.com/swiss/chinese/cfd/range-of-markets/cfd-commodities" target="_blank" rel="noopener noreferrer">查看来源</a></li><li>怎么避：先玩现货 ETF，不碰杠杆</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>把「新闻」当「交易信号」</h3><ul><li>「黄金需求跌至十年新低」这类消息一出，很多人恐慌抛售，但专业机构早就在更早的阶段布局了——等你看到新闻，行情往往已走完一半<a class="src" href="https://www.cmcmarkets.com/zh-au/cfd/learn/cfds-explained/what-is-a-commodity" target="_blank" rel="noopener noreferrer">查看来源</a></li><li>怎么避：新闻用来理解逻辑，不要用来追涨杀跌</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>忽视「地缘政治」这个隐形开关</h3><ul><li>俄乌战争爆发时，能源和农产品价格瞬间跳涨；制裁、关税、战争都会直接冲击供需平衡<a class="src" href="https://endowus.com/zh-hk/insights/commodity-investing-guide-hong-kong" target="_blank" rel="noopener noreferrer">查看来源</a></li><li>怎么避：下单前先问一句「最近有没有大选、战争、贸易摩擦」</li></ul></div>
     <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>大宗商品是「高波动、低容错」的领域——永远只用「亏光了也不影响生活」的钱参与，并且永远留一半现金。</li></ul></div>
   </div>
   <div class="illus">
@@ -274,7 +284,7 @@
       <tbody>
         <tr><td><b>期货</b></td><td>现在约定好价格、未来某个日子交货的「预售合同」——农场主用它锁住收成价格，赌徒用它押涨跌</td></tr>
         <tr><td><b>现货</b></td><td>「一手交钱、一手交货」的即时买卖，价格就是当下的市场价</td></tr>
-        <tr><td><b>做多 / 做空</b></td><td>做多 = 赌它涨，先买后卖；做空 = 赌它跌，先借来卖掉、再买回还掉（来源：https://www.ig.com/cn/commodities/what-are-commodities-how-do-you-trade-them）</td></tr>
+        <tr><td><b>做多 / 做空</b></td><td>做多 = 赌它涨，先买后卖；做空 = 赌它跌，先借来卖掉、再买回还掉<a class="src" href="https://www.ig.com/cn/commodities/what-are-commodities-how-do-you-trade-them" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
         <tr><td><b>CFD（差价合约）</b></td><td>一种不需要真的拥有商品、只赌价格差结算的衍生品——杠杆高、风险大</td></tr>
         <tr><td><b>套期保值</b></td><td>航空公司怕油价涨，提前买原油期货锁价——不为赚钱，只为「不亏」</td></tr>
       </tbody>
@@ -287,7 +297,7 @@
   <h2><span class="num">07</span>趣味小知识</h2>
   <div class="sec-note">聊天永远有料的包袱。</div>
   <div class="card">
-    <p class="quote">2024 年，可可豆价格一度突破每吨 10,000 美元——原因是厄尔尼诺现象扰乱了南美农业生产。这意味着你爱吃的巧克力，成本可能比同重量的白银还贵（来源：https://endowus.com/zh-hk/insights/commodity-investing-guide-hong-kong）。下次咬巧克力时，可以想想：你吃的不是甜食，是全球天气的「期货报价」。</p>
+    <p class="quote">2024 年，可可豆价格一度突破每吨 10,000 美元——原因是厄尔尼诺现象扰乱了南美农业生产。这意味着你爱吃的巧克力，成本可能比同重量的白银还贵<a class="src" href="https://endowus.com/zh-hk/insights/commodity-investing-guide-hong-kong" target="_blank" rel="noopener noreferrer">查看来源</a>。下次咬巧克力时，可以想想：你吃的不是甜食，是全球天气的「期货报价」。</p>
   </div>
   <div class="verdict">
     <div class="vcell"><div class="vt">适不适合你</div><div class="vb">如果你喜欢看新闻、琢磨全球大事，且能忍受「账户上蹿下跳」，大宗商品会很有趣；如果你追求稳定、看到亏损就失眠，那更适合买指数基金 <span class="cool">（不适合）</span>。</div></div>

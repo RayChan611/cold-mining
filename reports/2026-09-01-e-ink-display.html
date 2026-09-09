@@ -79,6 +79,16 @@
   }
   .to-index:hover { background: #c8a866; color: #0a0a0a; }
 </style>
+
+<style id="fix-overflow-wrap">
+  /* 2026-09-04: 修复长 URL 撑破容器 */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
 </head>
 <body>
 <a class="to-index" href="../index.html">← 全部报告</a>
@@ -99,7 +109,7 @@
       <ul>
         <li><b>它是什么</b>：一种像纸质书一样靠反射环境光来显示的屏幕，不发光、不闪烁，俗称「电子纸」，最广为人知的应用是 Kindle 电纸书。</li>
         <li><b>谁在玩</b>：上游是几乎垄断的供应商元太科技（E Ink）；中游是文石、掌阅、汉王、Kindle（亚马逊）等品牌厂商；下游是喜欢护眼阅读、记笔记的人。</li>
-        <li><b>市场多大</b>：全球电子墨水电子阅读器市场预计从 2026 年的 12.4 亿美元增长到 2035 年的 14.5 亿美元，年复合增长率约 5.51%（来源：https://www.businessresearchinsights.com/zh/market-reports/e-ink-e-reader-market-122092）。</li>
+        <li><b>市场多大</b>：全球电子墨水电子阅读器市场预计从 2026 年的 12.4 亿美元增长到 2035 年的 14.5 亿美元，年复合增长率约 5.51%<a class="src" href="https://www.businessresearchinsights.com/zh/market-reports/e-ink-e-reader-market-122092" target="_blank" rel="noopener noreferrer">查看来源</a>。</li>
         <li><b>小白能玩吗</b>：门槛很低，几百块就能买台入门电纸书；但「玩透」需要理解它的局限——刷新慢、彩色弱，它不是平板电脑的替代品，而是互补品。</li>
       </ul>
     </div>
@@ -132,7 +142,7 @@
   <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
   <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
   <div class="card">
-    <p style="color:#c4c4c4;font-size:13.5px;">你小时候可能在玩具里见过「磁力画板」：用磁性笔一划，小铁粉就被吸上来，显出笔迹，再一推，画面又没了。电子墨水屏的原理有点像它的高级版——屏幕里密密麻麻排着上亿个「微胶囊」，每个胶囊里装着带正电的白色粒子和带负电的黑色粒子（或彩色粒子）。当你给它施加电场，黑粒子往上跑、白粒子往下沉，这一块就显示为黑色；反过来就显示为白色。它本身不发光，而是像纸一样靠反射外界的光线让你看到内容（来源：https://zhuanlan.zhihu.com/p/432549512）。<br><br>
+    <p style="color:#c4c4c4;font-size:13.5px;">你小时候可能在玩具里见过「磁力画板」：用磁性笔一划，小铁粉就被吸上来，显出笔迹，再一推，画面又没了。电子墨水屏的原理有点像它的高级版——屏幕里密密麻麻排着上亿个「微胶囊」，每个胶囊里装着带正电的白色粒子和带负电的黑色粒子（或彩色粒子）。当你给它施加电场，黑粒子往上跑、白粒子往下沉，这一块就显示为黑色；反过来就显示为白色。它本身不发光，而是像纸一样靠反射外界的光线让你看到内容<a class="src" href="https://zhuanlan.zhihu.com/p/432549512" target="_blank" rel="noopener noreferrer">查看来源</a>。<br><br>
     所以你盯它一小时，眼睛也不会觉得「被屏幕刺到」——因为它根本就不是「发光」的屏，而是「反射」的纸。这也是它最大的、也是唯一真正不可替代的优点。</p>
   </div>
   <div class="illus">
@@ -166,7 +176,7 @@
       <tbody>
         <tr><td>入门档</td><td class="up">¥300 – 800</td><td>6 英寸左右，纯阅读，品牌如 Kindle 青春版、掌阅入门款（据公开市场行情 [UNSOURCED]）</td></tr>
         <tr><td>进阶档</td><td>¥1,500 – 3,500</td><td>10 英寸以上，带手写笔，可做笔记，如文石、汉王、掌阅的智能本（据公开市场行情 [UNSOURCED]）</td></tr>
-        <tr><td>彩色 / 高端档</td><td class="down">¥3,500 – 6,000+</td><td>彩色墨水屏，覆盖网课、绘本等场景；文石 2023 年卖出超 20 万台彩墨产品，市占率达 68%（来源：http://www.eeo.com.cn/2024/0603/664628.shtml）</td></tr>
+        <tr><td>彩色 / 高端档</td><td class="down">¥3,500 – 6,000+</td><td>彩色墨水屏，覆盖网课、绘本等场景；文石 2023 年卖出超 20 万台彩墨产品，市占率达 68%<a class="src" href="http://www.eeo.com.cn/2024/0603/664628.shtml" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
       </tbody>
     </table>
   </div>
@@ -203,7 +213,7 @@
       <div class="ptxt">
         <span class="tag tag-root">垄断者</span>
         <h3>元太科技（E Ink）</h3>
-        <ul><li>全球电子纸供应商的「独苗」，占墨水屏成本超过六成（来源：http://www.eeo.com.cn/2024/0603/664628.shtml）</li><li>京东方、华星光电等面板巨头不进入这一领域，不是技术门槛高，而是市场规模太小、收益吸引力不足（来源：同上）</li><li>正在扩产 H5 新产线，主攻大尺寸、高刷新率电子纸，拓展商业广告等场景（来源：https://www.tmtpost.com/7497542.html）</li></ul>
+        <ul><li>全球电子纸供应商的「独苗」，占墨水屏成本超过六成<a class="src" href="http://www.eeo.com.cn/2024/0603/664628.shtml" target="_blank" rel="noopener noreferrer">查看来源</a></li><li>京东方、华星光电等面板巨头不进入这一领域，不是技术门槛高，而是市场规模太小、收益吸引力不足（来源：同上）</li><li>正在扩产 H5 新产线，主攻大尺寸、高刷新率电子纸，拓展商业广告等场景<a class="src" href="https://www.tmtpost.com/7497542.html" target="_blank" rel="noopener noreferrer">查看来源</a></li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -211,7 +221,7 @@
       <div class="ptxt">
         <span class="tag tag-direct">品牌</span>
         <h3>文石 / 掌阅 / 汉王</h3>
-        <ul><li>国产电纸书三巨头，2023 年电商销量普遍增长 80% 以上（来源：http://www.news.cn/tech/20230628/97583e63434143ef81a67f18cf438175/c.html）</li><li>文石是彩墨赛道龙头，2023 年彩墨产品卖出超 20 万台，市占率 68%（来源：http://www.eeo.com.cn/2024/0603/664628.shtml）</li><li>各自绑定不同的书城生态（掌阅书城、微信读书等），选谁主要看你习惯用哪个 App</li></ul>
+        <ul><li>国产电纸书三巨头，2023 年电商销量普遍增长 80% 以上<a class="src" href="http://www.news.cn/tech/20230628/97583e63434143ef81a67f18cf438175/c.html" target="_blank" rel="noopener noreferrer">查看来源</a></li><li>文石是彩墨赛道龙头，2023 年彩墨产品卖出超 20 万台，市占率 68%<a class="src" href="http://www.eeo.com.cn/2024/0603/664628.shtml" target="_blank" rel="noopener noreferrer">查看来源</a></li><li>各自绑定不同的书城生态（掌阅书城、微信读书等），选谁主要看你习惯用哪个 App</li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -219,7 +229,7 @@
       <div class="ptxt">
         <span class="tag tag-hot">话题</span>
         <h3>Kindle 退场 / 苹果传闻</h3>
-        <ul><li>Kindle 曾统治市场，近年在中国市场收缩，空出的份额被国产品牌接住（来源：http://www.eeo.com.cn/2024/0603/664628.shtml）</li><li>有传闻称苹果将与元太合作，推出用墨水屏做副屏的设备（来源：https://www.tmtpost.com/7497542.html）</li><li>「泡面盖」梗：Kindle 被买来后最常见的用途是盖泡面，这背后是墨水屏技术十年没大变化的无奈（来源：https://zhuanlan.zhihu.com/p/432549512）</li></ul>
+        <ul><li>Kindle 曾统治市场，近年在中国市场收缩，空出的份额被国产品牌接住<a class="src" href="http://www.eeo.com.cn/2024/0603/664628.shtml" target="_blank" rel="noopener noreferrer">查看来源</a></li><li>有传闻称苹果将与元太合作，推出用墨水屏做副屏的设备<a class="src" href="https://www.tmtpost.com/7497542.html" target="_blank" rel="noopener noreferrer">查看来源</a></li><li>「泡面盖」梗：Kindle 被买来后最常见的用途是盖泡面，这背后是墨水屏技术十年没大变化的无奈<a class="src" href="https://zhuanlan.zhihu.com/p/432549512" target="_blank" rel="noopener noreferrer">查看来源</a></li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -239,8 +249,8 @@
   <div class="sec-note">按步骤走，别一上来就梭哈。</div>
   <div class="tl">
     <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">想清楚用途：只看小说 → 6 寸入门款；要看 PDF 论文 / 做笔记 → 10 寸+手写。别指望一台设备通吃（据公开资料）。</div></div>
-    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">定预算：¥500 以内先买二手试水；确定自己「真的能适应刷新慢」再上高端。泡面盖的教训就是冲动消费（来源：https://zhuanlan.zhihu.com/p/432549512）。</div></div>
-    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">选生态：你平时用微信读书就选开放安卓系统的文石/汉王；用掌阅书城就选掌阅。Kindle 已淡出，谨慎入坑（来源：http://www.eeo.com.cn/2024/0603/664628.shtml）。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">定预算：¥500 以内先买二手试水；确定自己「真的能适应刷新慢」再上高端。泡面盖的教训就是冲动消费<a class="src" href="https://zhuanlan.zhihu.com/p/432549512" target="_blank" rel="noopener noreferrer">查看来源</a>。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">选生态：你平时用微信读书就选开放安卓系统的文石/汉王；用掌阅书城就选掌阅。Kindle 已淡出，谨慎入坑<a class="src" href="http://www.eeo.com.cn/2024/0603/664628.shtml" target="_blank" rel="noopener noreferrer">查看来源</a>。</div></div>
     <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">建立判断框架：你买的是「阅读/书写工具」，不是「娱乐平板」。用它来减少刷手机的时间，才算值回票价。</div></div>
   </div>
 </section>
@@ -250,8 +260,8 @@
   <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
   <div class="sec-note">外行最容易交学费的地方。</div>
   <div class="grid2">
-    <div class="card"><span class="tag tag-warn">坑 1</span><h3>以为能替代平板</h3><ul><li>墨水屏刷新慢、动画卡，刷视频基本没法看；彩色墨水屏颜色也偏淡，不是 iPad 那种鲜艳（来源：http://www.eeo.com.cn/2024/0603/664628.shtml）</li><li>避坑：当它是「电子纸」，不是「电子屏」</li></ul></div>
-    <div class="card"><span class="tag tag-warn">坑 2</span><h3>高价买「彩色」却失望</h3><ul><li>彩墨屏的色彩饱和度远低于手机，看绘本还行，看照片会怀疑人生；虽然彩色产品 2023 年增长了 70.6%，但那是基数低（来源：http://www.eeo.com.cn/2024/0603/664628.shtml）</li><li>避坑：买前找实体店看真机显示效果</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>以为能替代平板</h3><ul><li>墨水屏刷新慢、动画卡，刷视频基本没法看；彩色墨水屏颜色也偏淡，不是 iPad 那种鲜艳<a class="src" href="http://www.eeo.com.cn/2024/0603/664628.shtml" target="_blank" rel="noopener noreferrer">查看来源</a></li><li>避坑：当它是「电子纸」，不是「电子屏」</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>高价买「彩色」却失望</h3><ul><li>彩墨屏的色彩饱和度远低于手机，看绘本还行，看照片会怀疑人生；虽然彩色产品 2023 年增长了 70.6%，但那是基数低<a class="src" href="http://www.eeo.com.cn/2024/0603/664628.shtml" target="_blank" rel="noopener noreferrer">查看来源</a></li><li>避坑：买前找实体店看真机显示效果</li></ul></div>
     <div class="card"><span class="tag tag-warn">坑 3</span><h3>以为「墨水屏 = 护眼 = 随便看」</h3><ul><li>墨水屏不发光不闪烁，确实比 OLED 舒服，但它不是医疗器械；长时间阅读仍需要休息（据公开资料）</li><li>避坑：护眼是「减少伤害」，不是「零伤害」</li></ul></div>
     <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>先买最便宜的，用一个月。如果你连最便宜的都没坚持用，说明你不适合这个品类，省下几千块。</li></ul></div>
   </div>
@@ -279,11 +289,11 @@
     <table>
       <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
       <tbody>
-        <tr><td><b>微胶囊（Microcapsule）</b></td><td>电子墨水屏的基本单元，一颗颗装着黑白粒子的「小胶囊」，电场一变就翻面（来源：https://zhuanlan.zhihu.com/p/432549512）</td></tr>
+        <tr><td><b>微胶囊（Microcapsule）</b></td><td>电子墨水屏的基本单元，一颗颗装着黑白粒子的「小胶囊」，电场一变就翻面<a class="src" href="https://zhuanlan.zhihu.com/p/432549512" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
         <tr><td><b>电子纸（E-Paper）</b></td><td>电子墨水屏的正式品类名，强调它「像纸一样反射光」的特性</td></tr>
-        <tr><td><b>刷新率</b></td><td>屏幕每秒更新画面的次数。墨水屏通常只有十几到几十毫秒级响应，比手机慢得多；奥翼曾推出刷新 17ms 的彩色电子纸（来源：https://www.tmtpost.com/7497542.html）</td></tr>
+        <tr><td><b>刷新率</b></td><td>屏幕每秒更新画面的次数。墨水屏通常只有十几到几十毫秒级响应，比手机慢得多；奥翼曾推出刷新 17ms 的彩色电子纸<a class="src" href="https://www.tmtpost.com/7497542.html" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
         <tr><td><b>前光（Front Light）</b></td><td>墨水屏自带的「小台灯」，从屏幕边缘往表面打光，让你在暗处也能看，但它不是「背光」——光线不穿过显示屏进入眼睛</td></tr>
-        <tr><td><b>泡面盖</b></td><td>网络梗，指 Kindle 买来后因吃灰太久，最适合用来压泡面盖；背后是墨水屏技术更新缓慢的调侃（来源：https://zhuanlan.zhihu.com/p/432549512）</td></tr>
+        <tr><td><b>泡面盖</b></td><td>网络梗，指 Kindle 买来后因吃灰太久，最适合用来压泡面盖；背后是墨水屏技术更新缓慢的调侃<a class="src" href="https://zhuanlan.zhihu.com/p/432549512" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
       </tbody>
     </table>
   </div>
@@ -294,7 +304,7 @@
   <h2><span class="num">07</span>趣味小知识</h2>
   <div class="sec-note">聊天永远有料的包袱。</div>
   <div class="card">
-    <p class="quote">墨水屏断电后，画面不会消失——它和纸一样是「记忆」的。Kindle 关机后屏幕上的字依然清晰可见，这就是为什么它能当泡面盖：即使没电，封面还在（来源：https://zhuanlan.zhihu.com/p/432549512）。一块没有电的墨水屏，依然是一页「纸」。</p>
+    <p class="quote">墨水屏断电后，画面不会消失——它和纸一样是「记忆」的。Kindle 关机后屏幕上的字依然清晰可见，这就是为什么它能当泡面盖：即使没电，封面还在<a class="src" href="https://zhuanlan.zhihu.com/p/432549512" target="_blank" rel="noopener noreferrer">查看来源</a>。一块没有电的墨水屏，依然是一页「纸」。</p>
   </div>
   <div class="verdict">
     <div class="vcell"><div class="vt">适不适合你</div><div class="vb">适合：每天阅读超过 1 小时、眼睛容易酸的人，以及需要长时间读 PDF 做批注的学生/研究者。不适合：喜欢刷短视频、玩手游、追求屏幕鲜艳的人——那请直接买 iPad。</div></div>

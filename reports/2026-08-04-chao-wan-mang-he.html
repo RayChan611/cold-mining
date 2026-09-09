@@ -76,6 +76,16 @@
   }
   .to-index:hover { background: #c8a866; color: #0a0a0a; }
 </style>
+
+<style id="fix-overflow-wrap">
+  /* 2026-09-04: 修复长 URL 撑破容器 */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
 </head>
 <body>
 <a class="to-index" href="../index.html">← 全部报告</a>
@@ -94,9 +104,9 @@
   <div class="card hero">
     <div class="hero-txt">
       <ul>
-        <li><b>它是什么</b>：一种你付钱时不知道里面具体是哪款玩具的盒子，只有拆开才知道，充满惊喜和不确定性。它本质上是一种“潮流玩具”的销售方式，核心是IP设计和随机抽取 (来源：https://pdf.dfcfw.com/pdf/H3_AP202506111688924171_1.pdf)。</li>
-        <li><b>谁在玩</b>：主要是Z世代和千禧一代的年轻人，他们通过“秀”隐藏款来构建社交身份，获得圈层认同 (来源：https://www.fxbaogao.com/detail/4931033)。也有资深玩家和收藏家，甚至部分投机者会倒卖限量款。</li>
-        <li><b>市场多大</b>：2020年中国盲盒市场规模已达101亿元 (来源：http://www.cbndata.com/information/213782)；整个潮玩市场规模在2020年达到294.8亿元，预计到2026年将攀升至1101亿元，年均增速超20% (来源：http://paper.people.com.cn/rmrbhwb/pc/content/202504/16/content_30068209.html)。</li>
+        <li><b>它是什么</b>：一种你付钱时不知道里面具体是哪款玩具的盒子，只有拆开才知道，充满惊喜和不确定性。它本质上是一种“潮流玩具”的销售方式，核心是IP设计和随机抽取 <a class="src" href="https://pdf.dfcfw.com/pdf/H3_AP202506111688924171_1.pdf" target="_blank" rel="noopener noreferrer">查看来源</a>。</li>
+        <li><b>谁在玩</b>：主要是Z世代和千禧一代的年轻人，他们通过“秀”隐藏款来构建社交身份，获得圈层认同 <a class="src" href="https://www.fxbaogao.com/detail/4931033" target="_blank" rel="noopener noreferrer">查看来源</a>。也有资深玩家和收藏家，甚至部分投机者会倒卖限量款。</li>
+        <li><b>市场多大</b>：2020年中国盲盒市场规模已达101亿元 <a class="src" href="http://www.cbndata.com/information/213782" target="_blank" rel="noopener noreferrer">查看来源</a>；整个潮玩市场规模在2020年达到294.8亿元，预计到2026年将攀升至1101亿元，年均增速超20% <a class="src" href="http://paper.people.com.cn/rmrbhwb/pc/content/202504/16/content_30068209.html" target="_blank" rel="noopener noreferrer">查看来源</a>。</li>
         <li><b>小白能玩吗</b>：能，门槛很低，几十块钱就能买一个体验。但想“玩明白”或“收藏升值”，需要了解IP、款型、市场行情和风险，否则容易“上头”花冤枉钱。</li>
       </ul>
     </div>
@@ -120,7 +130,7 @@
   <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
   <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
   <div class="card">
-    <p style="color:#c4c4c4;font-size:13.5px;">它有点像小时候买“干脆面集水浒卡”，你付钱买一包面，但不知道里面是什么卡。盲盒也一样，花59-79元买一个盒子，里面装着一个小玩具，但盒子是密封的，你只能知道它属于哪个系列（比如“Molly的一天”），至于拆到的是“穿校服的Molly”还是“极稀有的隐藏款”，全凭运气。这种“未知”带来的刺激感，就是它最核心的魅力 (来源：https://pdf.dfcfw.com/pdf/H3_AP202506111688924171_1.pdf)。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;">它有点像小时候买“干脆面集水浒卡”，你付钱买一包面，但不知道里面是什么卡。盲盒也一样，花59-79元买一个盒子，里面装着一个小玩具，但盒子是密封的，你只能知道它属于哪个系列（比如“Molly的一天”），至于拆到的是“穿校服的Molly”还是“极稀有的隐藏款”，全凭运气。这种“未知”带来的刺激感，就是它最核心的魅力 <a class="src" href="https://pdf.dfcfw.com/pdf/H3_AP202506111688924171_1.pdf" target="_blank" rel="noopener noreferrer">查看来源</a>。</p>
   </div>
   <div class="illus">
     <!-- 价值链 / 结构 内联 SVG 图：从IP设计到消费者 -->
@@ -187,7 +197,7 @@
       <div class="ptxt">
         <span class="tag tag-root">ROOT</span>
         <h3>泡泡玛特 (POP MART)</h3>
-        <ul><li><b>角色</b>：国内潮玩盲盒的“带头大哥”，市占率领先，2020年上市时在潮玩行业市占率超8% (来源：http://www.cbndata.com/information/213782)。旗下拥有Molly、Dimoo、Labubu等超级IP。</li><li><b>意义</b>：小白入门首选，渠道多（线下门店、机器人商店、线上抽盒机），设计质量稳定。</li></ul>
+        <ul><li><b>角色</b>：国内潮玩盲盒的“带头大哥”，市占率领先，2020年上市时在潮玩行业市占率超8% <a class="src" href="http://www.cbndata.com/information/213782" target="_blank" rel="noopener noreferrer">查看来源</a>。旗下拥有Molly、Dimoo、Labubu等超级IP。</li><li><b>意义</b>：小白入门首选，渠道多（线下门店、机器人商店、线上抽盒机），设计质量稳定。</li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -195,7 +205,7 @@
       <div class="ptxt">
         <span class="tag tag-direct">平台 B</span>
         <h3>52Toys</h3>
-        <ul><li><b>角色</b>：国内潮玩另一大巨头，以其“猛兽匣”等原创变形机甲IP闻名，也推出众多知名IP联名盲盒 (来源：http://www.21jingji.com/article/20210111/herald/84d011218176834e9238f3ea14bbaea0.html)。</li><li><b>门槛</b>：设计风格偏硬核、科幻，与泡泡玛特的可爱软萌形成差异化，吸引特定粉丝群体。</li></ul>
+        <ul><li><b>角色</b>：国内潮玩另一大巨头，以其“猛兽匣”等原创变形机甲IP闻名，也推出众多知名IP联名盲盒 <a class="src" href="http://www.21jingji.com/article/20210111/herald/84d011218176834e9238f3ea14bbaea0.html" target="_blank" rel="noopener noreferrer">查看来源</a>。</li><li><b>门槛</b>：设计风格偏硬核、科幻，与泡泡玛特的可爱软萌形成差异化，吸引特定粉丝群体。</li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -236,7 +246,7 @@
   <div class="grid2">
     <div class="card"><span class="tag tag-warn">坑 1</span><h3>“上头”式抽盒，总想抽到隐藏款</h3><ul><li><b>为什么坑</b>：隐藏款概率极低，通常是1/144甚至更低。为了抽到隐藏款而不断买盒，花费远超一个隐藏款本身的价值。这是典型的“赌徒谬误”。</li><li><b>怎么避</b>：设定预算，比如每月最多买2-3个。想要隐藏款，直接去二手市场买，比盲目抽盒划算得多。</li></ul></div>
     <div class="card"><span class="tag tag-warn">坑 2</span><h3>迷信“摇盒”和“称重”攻略</h3><ul><li><b>为什么坑</b>：资深玩家确实能通过摇盒、听声音、称重量来推测内含的款式，但新手很难掌握，且很多商家和线上平台已消除这种信息差。盲目相信网上攻略，容易买错。</li><li><b>怎么避</b>：把“摇盒”当成一种娱乐，而不是必中的手段。真正想确保拿到某款，还是用“确认款”方式。</li></ul></div>
-    <div class="card"><span class="tag tag-warn">坑 3</span><h3>盲目追“限量”和“联名”</h3><ul><li><b>为什么坑</b>：限量款和联名款虽然稀缺，但它们的价格在二手市场波动很大，很多款热度一过就无人问津，高价买入可能砸手里。品牌方人为制造稀缺性是常见手段 (来源：https://www.fxbaogao.com/detail/4931033)。</li><li><b>怎么避</b>：只买你自己真正喜欢的IP和设计，而不是因为它“限量”。可以关注官方发售信息，原价抢到最好，抢不到就当省钱了。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>盲目追“限量”和“联名”</h3><ul><li><b>为什么坑</b>：限量款和联名款虽然稀缺，但它们的价格在二手市场波动很大，很多款热度一过就无人问津，高价买入可能砸手里。品牌方人为制造稀缺性是常见手段 <a class="src" href="https://www.fxbaogao.com/detail/4931033" target="_blank" rel="noopener noreferrer">查看来源</a>。</li><li><b>怎么避</b>：只买你自己真正喜欢的IP和设计，而不是因为它“限量”。可以关注官方发售信息，原价抢到最好，抢不到就当省钱了。</li></ul></div>
     <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li><b>“买前问自己：如果这个盒子永远不值钱，我还愿意为它付钱吗？”</b> 如果答案是“是”，那就买，因为你买的是快乐；如果答案是“否”，那就别买，因为你是在投机。</li></ul></div>
   </div>
   <div class="illus">
@@ -277,11 +287,11 @@
   <h2><span class="num">07</span>趣味小知识</h2>
   <div class="sec-note">聊天永远有料的包袱。</div>
   <div class="card">
-    <p class="quote">潮玩盲盒的“盲”字，其实源自日本扭蛋（Gacha）的“随机”概念，但把它发扬光大、做成百亿级生意的，是中国的泡泡玛特。2016年泡泡玛特与香港设计师Kenny Wong合作推出Molly星座系列，开启了国内潮玩盲盒的黄金时代 (来源：http://www.news.cn/tech/20231009/2f1267ca3d8d4a60b0871112405e8c44/202310092f1267ca3d8d4a60b0871112405e8c44_chaowanchanyeyanjiubaogao%EF%BC%88xiugaiban20231008%EF%BC%89.pdf)。</p>
+    <p class="quote">潮玩盲盒的“盲”字，其实源自日本扭蛋（Gacha）的“随机”概念，但把它发扬光大、做成百亿级生意的，是中国的泡泡玛特。2016年泡泡玛特与香港设计师Kenny Wong合作推出Molly星座系列，开启了国内潮玩盲盒的黄金时代 <a class="src" href="http://www.news.cn/tech/20231009/2f1267ca3d8d4a60b0871112405e8c44/202310092f1267ca3d8d4a60b0871112405e8c44_chaowanchanyeyanjiubaogao%EF%BC%88xiugaiban20231008%EF%BC%89.pdf" target="_blank" rel="noopener noreferrer">查看来源</a>。</p>
   </div>
   <div class="verdict">
     <div class="vcell"><div class="vt">适不适合你</div><div class="vb"><b>适合</b>：喜欢惊喜、愿意为设计和情绪价值付费、有预算控制能力的年轻人。<br><b>不适合</b>：容易上头、渴望通过它发财、或对随机性极度焦虑的投资者。</div></div>
-    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">“你买的不是一个小玩具，而是一份‘可能’的快乐，以及一个与他人分享的社交货币 (来源：https://www.fxbaogao.com/detail/4931033)。”</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">“你买的不是一个小玩具，而是一份‘可能’的快乐，以及一个与他人分享的社交货币 <a class="src" href="https://www.fxbaogao.com/detail/4931033" target="_blank" rel="noopener noreferrer">查看来源</a>。”</div></div>
   </div>
 </section>
 

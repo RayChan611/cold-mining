@@ -76,6 +76,16 @@
   }
   .to-index:hover { background: #c8a866; color: #0a0a0a; }
 </style>
+
+<style id="fix-overflow-wrap">
+  /* 2026-09-04: 修复长 URL 撑破容器 */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
 </head>
 <body>
 <a class="to-index" href="../../index.html">← 全部报告</a>
@@ -94,9 +104,9 @@
   <div class="card hero">
     <div class="hero-txt">
       <ul>
-        <li><b>它是什么</b>：REITs（房地产投资信托基金）就是“集资当房东”——大家凑钱买下商场、写字楼、高速公路等不动产，然后按份额分租金和升值收益，而且能像股票一样随时买卖。(来源：https://www.gsm.pku.edu.cn/exed/info/1015/2260.htm)</li>
-        <li><b>谁在玩</b>：普通散户（在交易所像买股票一样买）、机构投资者（保险、养老金）、以及基金管理人（如华夏基金、博时基金等）(来源：https://www.stcn.com/article/detail/3901673.html)</li>
-        <li><b>市场多大</b>：截至2021年底，全球上市REITs市值约2.9万亿美元，其中美国约2万亿美元，占全球68.4%；未来中国REITs市场规模有望达到十万亿级别。(来源：https://pdf.dfcfw.com/pdf/H3_AP202202151547124524_1.pdf)</li>
+        <li><b>它是什么</b>：REITs（房地产投资信托基金）就是“集资当房东”——大家凑钱买下商场、写字楼、高速公路等不动产，然后按份额分租金和升值收益，而且能像股票一样随时买卖。<a class="src" href="https://www.gsm.pku.edu.cn/exed/info/1015/2260.htm" target="_blank" rel="noopener noreferrer">查看来源</a></li>
+        <li><b>谁在玩</b>：普通散户（在交易所像买股票一样买）、机构投资者（保险、养老金）、以及基金管理人（如华夏基金、博时基金等）<a class="src" href="https://www.stcn.com/article/detail/3901673.html" target="_blank" rel="noopener noreferrer">查看来源</a></li>
+        <li><b>市场多大</b>：截至2021年底，全球上市REITs市值约2.9万亿美元，其中美国约2万亿美元，占全球68.4%；未来中国REITs市场规模有望达到十万亿级别。<a class="src" href="https://pdf.dfcfw.com/pdf/H3_AP202202151547124524_1.pdf" target="_blank" rel="noopener noreferrer">查看来源</a></li>
         <li><b>小白能玩吗</b>：能。中国公募REITs最低门槛通常只要几百元（场内一手约100份，单价从几元到十几元不等）[UNSOURCED]，但波动比债券大、比股票小，适合想“收租”又不想买房的人。</li>
       </ul>
     </div>
@@ -136,7 +146,7 @@
     <p style="color:#c4c4c4;font-size:13.5px;">
       想象一下，你和 999 个朋友凑钱买下一栋写字楼。你们不自己管理，而是雇了一个专业团队负责招租、维修、收租金。每个月扣除管理费后，剩下的租金按人头分给大家——这就是 REITs 的简化版。
       <br><br>
-      它有点像“买楼收租”和“买股票”的混血儿：<b>像股票</b>，因为它在交易所上市交易，价格实时波动，想卖就卖；<b>像收租</b>，因为它规定必须把大部分收益（中国要求至少 90% 的分配比例）分给投资者，让你定期拿到现金分红。(来源：https://www.gsm.pku.edu.cn/exed/info/1015/2260.htm)
+      它有点像“买楼收租”和“买股票”的混血儿：<b>像股票</b>，因为它在交易所上市交易，价格实时波动，想卖就卖；<b>像收租</b>，因为它规定必须把大部分收益（中国要求至少 90% 的分配比例）分给投资者，让你定期拿到现金分红。<a class="src" href="https://www.gsm.pku.edu.cn/exed/info/1015/2260.htm" target="_blank" rel="noopener noreferrer">查看来源</a>
       <br><br>
       和直接买房最大的区别是：<b>门槛极低</b>——买一套房要几十万首付，而买 REITs 可能几百块就能上车；<b>流动性极好</b>——房子挂牌半年卖不掉，REITs 在交易时间内随时能卖出。
     </p>
@@ -176,7 +186,7 @@
       <tbody>
         <tr><td>入门档</td><td class="up">约 ¥500 – 2,000</td><td>场内买 100 份（1 手）起步，以单价 5–20 元计，几百到几千元即可上车 [UNSOURCED]</td></tr>
         <tr><td>进阶档</td><td>¥5,000 – 50,000</td><td>买多手、做组合配置，覆盖不同资产类型（产业园、保障房、高速等）</td></tr>
-        <tr><td>机构档</td><td class="down">¥百万级以上</td><td>战略配售、Pre-REITs 基金等，面向机构投资者（来源：https://www.stcn.com/article/detail/3901673.html）</td></tr>
+        <tr><td>机构档</td><td class="down">¥百万级以上</td><td>战略配售、Pre-REITs 基金等，面向机构投资者<a class="src" href="https://www.stcn.com/article/detail/3901673.html" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
       </tbody>
     </table>
     <p class="src">注：中国公募 REITs 单价因产品而异，无统一价格，具体以交易所行情为准 [UNSOURCED]。</p>
@@ -196,7 +206,7 @@
       <text x="465" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">美国REITs</text>
       <text x="380" y="215" fill="#8a8a8a" font-size="11" text-anchor="middle">截至2021年12月31日（来源：东方财富研报）</text>
     </svg>
-    <div class="cap">全球 REITs 市值对比：美国占全球近七成（来源：https://pdf.dfcfw.com/pdf/H3_AP202202151547124524_1.pdf）</div>
+    <div class="cap">全球 REITs 市值对比：美国占全球近七成<a class="src" href="https://pdf.dfcfw.com/pdf/H3_AP202202151547124524_1.pdf" target="_blank" rel="noopener noreferrer">查看来源</a></div>
   </div>
 </section>
 
@@ -210,7 +220,7 @@
       <div class="ptxt">
         <span class="tag tag-root">规则制定者</span>
         <h3>监管机构</h3>
-        <ul><li>证监会、交易所负责审批和监管公募REITs发行；北大光华等学术机构持续推动制度建设 (来源：https://www.gsm.pku.edu.cn/exed/info/1015/2260.htm)</li><li>2025年商业不动产REITs试点启动，监管明确“严把发行上市” (来源：https://www.news.cn/fortune/20260105/61f9b29fe78b43309feda2745d9f62b8/c.html)</li></ul>
+        <ul><li>证监会、交易所负责审批和监管公募REITs发行；北大光华等学术机构持续推动制度建设 <a class="src" href="https://www.gsm.pku.edu.cn/exed/info/1015/2260.htm" target="_blank" rel="noopener noreferrer">查看来源</a></li><li>2025年商业不动产REITs试点启动，监管明确“严把发行上市” <a class="src" href="https://www.news.cn/fortune/20260105/61f9b29fe78b43309feda2745d9f62b8/c.html" target="_blank" rel="noopener noreferrer">查看来源</a></li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -218,7 +228,7 @@
       <div class="ptxt">
         <span class="tag tag-direct">基金管理人</span>
         <h3>基金公司</h3>
-        <ul><li>华夏基金、博时基金等头部机构布局REITs业务 (来源：https://www.stcn.com/article/detail/3901673.html)</li><li>招商基金联合深担集团发行Pre-REITs产品，构建“Pre-REITs→私募REITs→公募REITs”全链条 (来源：https://www.stcn.com/article/detail/3901673.html)</li></ul>
+        <ul><li>华夏基金、博时基金等头部机构布局REITs业务 <a class="src" href="https://www.stcn.com/article/detail/3901673.html" target="_blank" rel="noopener noreferrer">查看来源</a></li><li>招商基金联合深担集团发行Pre-REITs产品，构建“Pre-REITs→私募REITs→公募REITs”全链条 <a class="src" href="https://www.stcn.com/article/detail/3901673.html" target="_blank" rel="noopener noreferrer">查看来源</a></li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -226,7 +236,7 @@
       <div class="ptxt">
         <span class="tag tag-hot">底层资产方</span>
         <h3>不动产持有者</h3>
-        <ul><li>商业不动产（零售物业、办公楼）是REITs核心资产，进入“运营为王”时代 (来源：https://www.joneslanglasalle.com.cn/zh-cn/insights/operations-take-center-stage-in-chinas-commercial-reits)</li><li>保障房、新能源、算力等新资产类型不断纳入 (来源：https://www.stcn.com/article/detail/3901673.html)</li></ul>
+        <ul><li>商业不动产（零售物业、办公楼）是REITs核心资产，进入“运营为王”时代 <a class="src" href="https://www.joneslanglasalle.com.cn/zh-cn/insights/operations-take-center-stage-in-chinas-commercial-reits" target="_blank" rel="noopener noreferrer">查看来源</a></li><li>保障房、新能源、算力等新资产类型不断纳入 <a class="src" href="https://www.stcn.com/article/detail/3901673.html" target="_blank" rel="noopener noreferrer">查看来源</a></li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -246,9 +256,9 @@
   <div class="sec-note">按步骤走，别一上来就梭哈。</div>
   <div class="tl">
     <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body"><b>开个证券账户</b>（约 10 分钟线上搞定），存入几百到几千元即可开始。不需要专门开新户，现有股票账户就能交易 [UNSOURCED]。</div></div>
-    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body"><b>花 1 周“围观”</b>：在交易所官网或基金公司页面看 REITs 的季报、分红记录、底层资产类型。重点关注“区位优势”和“资产质量”——这是投资REITs的核心 (来源：https://www.bloombergchina.com/blog/bioutlook-reits)。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body"><b>花 1 周“围观”</b>：在交易所官网或基金公司页面看 REITs 的季报、分红记录、底层资产类型。重点关注“区位优势”和“资产质量”——这是投资REITs的核心 <a class="src" href="https://www.bloombergchina.com/blog/bioutlook-reits" target="_blank" rel="noopener noreferrer">查看来源</a>。</div></div>
     <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body"><b>小额试水</b>：用 500–1000 元买入 1–2 手，感受价格波动和分红节奏。注意 REITs 波动比债券大，别用生活费。</div></div>
-    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body"><b>建立判断框架</b>：学会看三个维度——底层资产类型（商业/基建/保障房）、杠杆率（中国管控较严）、分红收益率（来源：https://www.bloombergchina.com/blog/bioutlook-reits）。当你发现某只 REITs 的底层资产出租率下滑或租金下降，再考虑退出。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body"><b>建立判断框架</b>：学会看三个维度——底层资产类型（商业/基建/保障房）、杠杆率（中国管控较严）、分红收益率<a class="src" href="https://www.bloombergchina.com/blog/bioutlook-reits" target="_blank" rel="noopener noreferrer">查看来源</a>。当你发现某只 REITs 的底层资产出租率下滑或租金下降，再考虑退出。</div></div>
   </div>
 </section>
 
@@ -258,7 +268,7 @@
   <div class="sec-note">外行最容易交学费的地方。</div>
   <div class="grid2">
     <div class="card"><span class="tag tag-warn">坑 1</span><h3>把 REITs 当股票炒</h3><ul><li>REITs 的收益大头来自分红而非价差，频繁买卖不仅赚不到钱，还白白交手续费。正确姿势是长期持有吃分红。</li></ul></div>
-    <div class="card"><span class="tag tag-warn">坑 2</span><h3>只看分红率，不看底层资产</h3><ul><li>某只 REITs 分红率高达 8%，可能是因为底层资产在走下坡路（比如老旧商场空置率飙升）。要像买房子一样考察资产位置和质量 (来源：https://www.bloombergchina.com/blog/bioutlook-reits)。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>只看分红率，不看底层资产</h3><ul><li>某只 REITs 分红率高达 8%，可能是因为底层资产在走下坡路（比如老旧商场空置率飙升）。要像买房子一样考察资产位置和质量 <a class="src" href="https://www.bloombergchina.com/blog/bioutlook-reits" target="_blank" rel="noopener noreferrer">查看来源</a>。</li></ul></div>
     <div class="card"><span class="tag tag-warn">坑 3</span><h3>盲目追高“热门”REITs</h3><ul><li>上市初期可能被爆炒，溢价率过高时买入等于给别人的“接盘侠”。关注“折价/溢价率”，尽量在折价或平价的时点入手 [UNSOURCED]。</li></ul></div>
     <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li><b>“不懂底层资产，就不碰。”</b> 你买的不是一串代码，而是一栋楼、一条高速、一个产业园的租金收入。看不懂它靠什么赚钱，就别投。</li></ul></div>
   </div>
@@ -287,8 +297,8 @@
       <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
       <tbody>
         <tr><td><b>底层资产</b></td><td>REITs 实际持有的不动产，比如一座商场、一条高速路。它是收益的“源头活水”。</td></tr>
-        <tr><td><b>分红 / 分配率</b></td><td>REITs 每年把至少 90% 的可分配收益分给投资者，类似“房租分红”。(来源：https://www.gsm.pku.edu.cn/exed/info/1015/2260.htm)</td></tr>
-        <tr><td><b>Pre-REITs</b></td><td>在公募上市前，先通过私募基金收购和培育资产，等成熟后再装入公募REITs——相当于“孵化器” (来源：https://www.stcn.com/article/detail/3901673.html)。</td></tr>
+        <tr><td><b>分红 / 分配率</b></td><td>REITs 每年把至少 90% 的可分配收益分给投资者，类似“房租分红”。<a class="src" href="https://www.gsm.pku.edu.cn/exed/info/1015/2260.htm" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
+        <tr><td><b>Pre-REITs</b></td><td>在公募上市前，先通过私募基金收购和培育资产，等成熟后再装入公募REITs——相当于“孵化器” <a class="src" href="https://www.stcn.com/article/detail/3901673.html" target="_blank" rel="noopener noreferrer">查看来源</a>。</td></tr>
         <tr><td><b>溢价 / 折价</b></td><td>场内交易价格高于/低于基金净值。溢价买入不划算，折价买入相对便宜 [UNSOURCED]。</td></tr>
       </tbody>
     </table>
@@ -300,7 +310,7 @@
   <h2><span class="num">07</span>趣味小知识</h2>
   <div class="sec-note">聊天永远有料的包袱。</div>
   <div class="card">
-    <p class="quote">REITs 最早诞生于 1960 年的美国，最初是为了让普通老百姓也能投资大型商业地产。如今全球已有 44 个国家和地区推出 REITs 制度，而中国直到 2021 年才正式起步——晚了整整 60 年，但市场潜力巨大，未来有望达到十万亿级别。(来源：https://pdf.dfcfw.com/pdf/H3_AP202202151547124524_1.pdf)</p>
+    <p class="quote">REITs 最早诞生于 1960 年的美国，最初是为了让普通老百姓也能投资大型商业地产。如今全球已有 44 个国家和地区推出 REITs 制度，而中国直到 2021 年才正式起步——晚了整整 60 年，但市场潜力巨大，未来有望达到十万亿级别。<a class="src" href="https://pdf.dfcfw.com/pdf/H3_AP202202151547124524_1.pdf" target="_blank" rel="noopener noreferrer">查看来源</a></p>
   </div>
   <div class="verdict">
     <div class="vcell"><div class="vt">适不适合你</div><div class="vb">适合：想收租但买不起房、能承受比债券稍大波动、愿意长期持有的 <b>耐心型</b>投资者。不适合：想短期暴富、每天盯盘、不能忍受账面浮亏的 <b>刺激型</b>玩家。</div></div>

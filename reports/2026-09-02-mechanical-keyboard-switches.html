@@ -77,6 +77,16 @@
   }
   .to-index:hover { background: #c8a866; color: #0a0a0a; }
 </style>
+
+<style id="fix-overflow-wrap">
+  /* 2026-09-04: 修复长 URL 撑破容器 */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
 </head>
 <body>
 <a class="to-index" href="../index.html">← 全部报告</a>
@@ -95,9 +105,9 @@
   <div class="card hero">
     <div class="hero-txt">
       <ul>
-        <li><b>它是什么</b>：机械键盘的每个按键下面，都有一个独立的机械开关，这个开关就叫「轴体」。按下去时弹簧被压缩、金属触点接触、电脑收到信号，松手后弹簧回弹 (来源：https://zhuanlan.zhihu.com/p/2011360204441268896)。</li>
+        <li><b>它是什么</b>：机械键盘的每个按键下面，都有一个独立的机械开关，这个开关就叫「轴体」。按下去时弹簧被压缩、金属触点接触、电脑收到信号，松手后弹簧回弹 <a class="src" href="https://zhuanlan.zhihu.com/p/2011360204441268896" target="_blank" rel="noopener noreferrer">查看来源</a>。</li>
         <li><b>谁在玩</b>：电竞玩家、程序员、打字量大的办公人群，以及把键盘当玩具的「客制化」发烧友。</li>
-        <li><b>市场多大</b>：全球机械键盘市场规模预计从 2025 年的 13.7 亿美元，增长到 2034 年的 27.2 亿美元，年复合增长率约 7.97% (来源：https://www.theinsightpartners.com/zh-CN/reports/mechanical-keyboard-market)。</li>
+        <li><b>市场多大</b>：全球机械键盘市场规模预计从 2025 年的 13.7 亿美元，增长到 2034 年的 27.2 亿美元，年复合增长率约 7.97% <a class="src" href="https://www.theinsightpartners.com/zh-CN/reports/mechanical-keyboard-market" target="_blank" rel="noopener noreferrer">查看来源</a>。</li>
         <li><b>小白能玩吗</b>：能玩。从几百元的成品键盘到几千上万的客制化套件都有，入门门槛不高，但「手感玄学」水深，容易花冤枉钱。</li>
       </ul>
     </div>
@@ -132,8 +142,8 @@
   <div class="sec-note">它有点像按圆珠笔：按到一半有个「咔嗒」的段落感，也可能像按电梯按钮一样一路顺滑。</div>
   <div class="card">
     <p style="color:#c4c4c4;font-size:13.5px;">回忆一下你按圆珠笔的动作——按到一半时，会明显感到一个「咯噔」的阻力点，过了这个点笔芯才弹出来。这就是「段落感」。机械键盘轴体的核心差异，就在这个「咯噔」存在与否、明显与否。</p>
-    <p style="color:#c4c4c4;font-size:13.5px;margin-top:10px;">轴体本质上是一个精密的机械开关。常见的分类有三种：<b>线性轴</b>（一路顺滑无段落，像按电梯按钮，触发快，游戏玩家最爱）、<b>段落轴</b>（中间有明显「咔嗒」手感，像按圆珠笔，打字时能清楚感知触发点）、<b>静音轴</b>（在线性或段落基础上，通过结构设计减小撞击声）(来源：https://zhuanlan.zhihu.com/p/2011360204441268896)。海盗船 OPX 轴还采用了光学结构，用红外光束触发，寿命可达 1.5 亿次 (来源：https://help.corsair.com/hc/zh-cn/articles/12833125006477-键盘轴体-简介)。</p>
-    <p style="color:#c4c4c4;font-size:13.5px;margin-top:10px;">另外，触觉轴和段落轴常被混用，但严格说「段落」多指有明显「咔嗒」声的（如青轴），「触觉」则指有阻尼感但不一定有声音的（如茶轴）(来源：https://www.kingsresearch.com/zh/mechanical-keyboard-market-861)。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;margin-top:10px;">轴体本质上是一个精密的机械开关。常见的分类有三种：<b>线性轴</b>（一路顺滑无段落，像按电梯按钮，触发快，游戏玩家最爱）、<b>段落轴</b>（中间有明显「咔嗒」手感，像按圆珠笔，打字时能清楚感知触发点）、<b>静音轴</b>（在线性或段落基础上，通过结构设计减小撞击声）<a class="src" href="https://zhuanlan.zhihu.com/p/2011360204441268896" target="_blank" rel="noopener noreferrer">查看来源</a>。海盗船 OPX 轴还采用了光学结构，用红外光束触发，寿命可达 1.5 亿次 <a class="src" href="https://help.corsair.com/hc/zh-cn/articles/12833125006477-键盘轴体-简介" target="_blank" rel="noopener noreferrer">查看来源</a>。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;margin-top:10px;">另外，触觉轴和段落轴常被混用，但严格说「段落」多指有明显「咔嗒」声的（如青轴），「触觉」则指有阻尼感但不一定有声音的（如茶轴）<a class="src" href="https://www.kingsresearch.com/zh/mechanical-keyboard-market-861" target="_blank" rel="noopener noreferrer">查看来源</a>。</p>
   </div>
   <div class="illus">
     <svg viewBox="0 0 720 160" width="720" height="160" xmlns="http://www.w3.org/2000/svg">
@@ -167,13 +177,13 @@
   <h2><span class="num">02</span>市场多大 · 价格带</h2>
   <div class="sec-note">用真实数字说明蛋糕有多大、钱花在哪。来源内联标注。</div>
   <div class="card">
-    <p style="color:#c4c4c4;font-size:13.5px;margin-bottom:8px;">机械键盘比薄膜键盘更受欢迎，核心原因是：精准的打字体验、更长的使用寿命（机械轴点击寿命通常在 2000 万至 5000 万次之间，比薄膜键盘耐用得多）、按键开关即时响应以及更丰富的功能 (来源：http://www.cbndata.com/information/157456；https://www.theinsightpartners.com/zh-CN/reports/mechanical-keyboard-market)。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;margin-bottom:8px;">机械键盘比薄膜键盘更受欢迎，核心原因是：精准的打字体验、更长的使用寿命（机械轴点击寿命通常在 2000 万至 5000 万次之间，比薄膜键盘耐用得多）、按键开关即时响应以及更丰富的功能 <a class="src" href="http://www.cbndata.com/information/157456；https://www.theinsightpartners.com/zh-CN/reports/mechanical-keyboard-market" target="_blank" rel="noopener noreferrer">查看来源</a>。</p>
     <table>
       <thead><tr><th>档位</th><th>典型价格</th><th>说明</th></tr></thead>
       <tbody>
         <tr><td>入门成品</td><td class="up">¥200 – 600</td><td>国产轴体（如佳达隆、高特、TTC）的量产键盘，性价比高，适合第一次尝试 [UNSOURCED]</td></tr>
         <tr><td>进阶套件</td><td>¥800 – 2,500</td><td>客制化套件（不含轴和键帽），可自由选轴、调教手感 [UNSOURCED]</td></tr>
-        <tr><td>发烧客制化</td><td class="down">¥3,000 – 10,000+</td><td>限量套件、稀有轴体、手工键帽（个别键帽上万元），圈子不小但很垂直 (来源：http://www.cbndata.com/information/157456)</td></tr>
+        <tr><td>发烧客制化</td><td class="down">¥3,000 – 10,000+</td><td>限量套件、稀有轴体、手工键帽（个别键帽上万元），圈子不小但很垂直 <a class="src" href="http://www.cbndata.com/information/157456" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
       </tbody>
     </table>
   </div>
@@ -212,7 +222,7 @@
       <div class="ptxt">
         <span class="tag tag-root">经典</span>
         <h3>樱桃 MX（Cherry MX）</h3>
-        <ul><li>轴体界的「老字号」，不同颜色代表不同手感：青轴段落、红轴线性、茶轴中庸 (来源：https://help.corsair.com/hc/zh-cn/articles/12833125006477-键盘轴体-简介)。</li><li>很多玩家第一把机械键盘都是从 Cherry 轴开始。</li></ul>
+        <ul><li>轴体界的「老字号」，不同颜色代表不同手感：青轴段落、红轴线性、茶轴中庸 <a class="src" href="https://help.corsair.com/hc/zh-cn/articles/12833125006477-键盘轴体-简介" target="_blank" rel="noopener noreferrer">查看来源</a>。</li><li>很多玩家第一把机械键盘都是从 Cherry 轴开始。</li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -220,7 +230,7 @@
       <div class="ptxt">
         <span class="tag tag-direct">游戏</span>
         <h3>海盗船 OPX 光学轴</h3>
-        <ul><li>用红外光束触发，比传统金属触点更快，寿命高达 1.5 亿次 (来源：https://help.corsair.com/hc/zh-cn/articles/12833125006477-键盘轴体-简介)。</li><li>手感接近线性轴，触发轻，但容易误触。</li></ul>
+        <ul><li>用红外光束触发，比传统金属触点更快，寿命高达 1.5 亿次 <a class="src" href="https://help.corsair.com/hc/zh-cn/articles/12833125006477-键盘轴体-简介" target="_blank" rel="noopener noreferrer">查看来源</a>。</li><li>手感接近线性轴，触发轻，但容易误触。</li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -228,7 +238,7 @@
       <div class="ptxt">
         <span class="tag tag-hot">国货</span>
         <h3>国产轴体厂商</h3>
-        <ul><li>佳达隆、TTC、高特等品牌近年崛起，手感与寿命追平甚至超越 Cherry，价格更低 (来源：https://zhuanlan.zhihu.com/p/2011360204441268896)。</li><li>量产键盘和客制化圈子都大量采用，是小白入门的性价比之选。</li></ul>
+        <ul><li>佳达隆、TTC、高特等品牌近年崛起，手感与寿命追平甚至超越 Cherry，价格更低 <a class="src" href="https://zhuanlan.zhihu.com/p/2011360204441268896" target="_blank" rel="noopener noreferrer">查看来源</a>。</li><li>量产键盘和客制化圈子都大量采用，是小白入门的性价比之选。</li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -236,7 +246,7 @@
       <div class="ptxt">
         <span class="tag tag-step">入门</span>
         <h3>小白友好入口</h3>
-        <ul><li>先买一把百元级国产轴成品键盘（红轴或茶轴），感受线性 vs 段落的差异。</li><li>去 zFrontier（装备前线）或 B 站看轴体评测，再决定是否入客制化坑 (来源：https://m.zfrontier.com/mag/14)。</li></ul>
+        <ul><li>先买一把百元级国产轴成品键盘（红轴或茶轴），感受线性 vs 段落的差异。</li><li>去 zFrontier（装备前线）或 B 站看轴体评测，再决定是否入客制化坑 <a class="src" href="https://m.zfrontier.com/mag/14" target="_blank" rel="noopener noreferrer">查看来源</a>。</li></ul>
       </div>
     </div>
   </div>
@@ -259,9 +269,9 @@
   <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
   <div class="sec-note">外行最容易交学费的地方。</div>
   <div class="grid2">
-    <div class="card"><span class="tag tag-warn">坑 1</span><h3>「轴越贵手感越好」</h3><ul><li>手感和价格不直接挂钩。百元国产轴可能比某些天价稀有轴更适合你（来源：https://zhuanlan.zhihu.com/p/2011360204441268896）。</li><li>先试再买，别盲目追限量。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>「轴越贵手感越好」</h3><ul><li>手感和价格不直接挂钩。百元国产轴可能比某些天价稀有轴更适合你<a class="src" href="https://zhuanlan.zhihu.com/p/2011360204441268896" target="_blank" rel="noopener noreferrer">查看来源</a>。</li><li>先试再买，别盲目追限量。</li></ul></div>
     <div class="card"><span class="tag tag-warn">坑 2</span><h3>买了不可热插拔的键盘</h3><ul><li>焊死的轴体想换？要么用电烙铁（新手容易焊坏 PCB），要么再买一把键盘。</li><li>认准「热插拔」功能，改装成本低很多。</li></ul></div>
-    <div class="card"><span class="tag tag-warn">坑 3</span><h3>静音轴 ≠ 无声</h3><ul><li>静音轴只是减小了触底和回弹的撞击声，不是完全无声。在图书馆里，按键声依然可能打扰别人（来源：https://help.corsair.com/hc/zh-cn/articles/12833125006477-键盘轴体-简介）。</li><li>想要真安静，考虑薄膜键盘或静电容键盘。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>静音轴 ≠ 无声</h3><ul><li>静音轴只是减小了触底和回弹的撞击声，不是完全无声。在图书馆里，按键声依然可能打扰别人<a class="src" href="https://help.corsair.com/hc/zh-cn/articles/12833125006477-键盘轴体-简介" target="_blank" rel="noopener noreferrer">查看来源</a>。</li><li>想要真安静，考虑薄膜键盘或静电容键盘。</li></ul></div>
     <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>先买试轴器，再买键盘，最后才买「情怀」。手感是自己的手指说了算，不是评测视频说了算。</li></ul></div>
   </div>
   <div class="illus">
@@ -287,12 +297,12 @@
     <table>
       <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
       <tbody>
-        <tr><td><b>线性轴 / 红轴</b></td><td>按下去一路顺滑，没有「咯噔」，触发快，游戏玩家最爱 (来源：https://zhuanlan.zhihu.com/p/2011360204441268896)</td></tr>
-        <tr><td><b>段落轴 / 茶轴/青轴</b></td><td>按到一半有明显「咔嗒」感或声音，像按圆珠笔，打字有确认感 (来源：https://zhuanlan.zhihu.com/p/2011360204441268896)</td></tr>
+        <tr><td><b>线性轴 / 红轴</b></td><td>按下去一路顺滑，没有「咯噔」，触发快，游戏玩家最爱 <a class="src" href="https://zhuanlan.zhihu.com/p/2011360204441268896" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
+        <tr><td><b>段落轴 / 茶轴/青轴</b></td><td>按到一半有明显「咔嗒」感或声音，像按圆珠笔，打字有确认感 <a class="src" href="https://zhuanlan.zhihu.com/p/2011360204441268896" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
         <tr><td><b>触发压力（克数）</b></td><td>让按键「激活」需要多大的力。数字越小越轻，适合长时间打字；越大越重，防误触 [UNSOURCED]</td></tr>
         <tr><td><b>热插拔</b></td><td>不用电烙铁，直接用手拔插轴体就能换轴，改装神器 [UNSOURCED]</td></tr>
-        <tr><td><b>光学轴</b></td><td>用红外光束代替金属触点触发，寿命更长，响应更快 (来源：https://help.corsair.com/hc/zh-cn/articles/12833125006477-键盘轴体-简介)</td></tr>
-        <tr><td><b>静音轴</b></td><td>通过结构设计（如硅胶缓冲）减小触底撞击声，但不是无声 (来源：https://help.corsair.com/hc/zh-cn/articles/12833125006477-键盘轴体-简介)</td></tr>
+        <tr><td><b>光学轴</b></td><td>用红外光束代替金属触点触发，寿命更长，响应更快 <a class="src" href="https://help.corsair.com/hc/zh-cn/articles/12833125006477-键盘轴体-简介" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
+        <tr><td><b>静音轴</b></td><td>通过结构设计（如硅胶缓冲）减小触底撞击声，但不是无声 <a class="src" href="https://help.corsair.com/hc/zh-cn/articles/12833125006477-键盘轴体-简介" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
       </tbody>
     </table>
   </div>
@@ -303,7 +313,7 @@
   <h2><span class="num">07</span>趣味小知识</h2>
   <div class="sec-note">聊天永远有料的包袱。</div>
   <div class="card">
-    <p class="quote">机械键盘的「老祖宗」是 IBM Model M，采用屈蹲弹簧轴，1984 年问世，至今还有很多老玩家在二手平台（eBay）上淘「带 IBM logo 的原版」——因为后来 Unicomp 复刻版印不了 IBM 的标 (来源：https://m.zfrontier.com/mag/14)。</p>
+    <p class="quote">机械键盘的「老祖宗」是 IBM Model M，采用屈蹲弹簧轴，1984 年问世，至今还有很多老玩家在二手平台（eBay）上淘「带 IBM logo 的原版」——因为后来 Unicomp 复刻版印不了 IBM 的标 <a class="src" href="https://m.zfrontier.com/mag/14" target="_blank" rel="noopener noreferrer">查看来源</a>。</p>
   </div>
   <div class="verdict">
     <div class="vcell"><div class="vt">适不适合你</div><div class="vb">如果你每天打字超过两小时，或者爱玩游戏，机械键盘会明显提升体验；但如果你只偶尔用电脑，或者对声音敏感，可能 <span class="cool">薄膜键盘或静音轴</span> 更合适。</div></div>

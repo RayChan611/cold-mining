@@ -79,6 +79,16 @@
   }
   .to-index:hover { background: #c8a866; color: #0a0a0a; }
 </style>
+
+<style id="fix-overflow-wrap">
+  /* 2026-09-04: 修复长 URL 撑破容器 */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
 </head>
 <body>
 <a class="to-index" href="../../index.html">← 全部报告</a>
@@ -97,9 +107,9 @@
   <div class="card hero">
     <div class="hero-txt">
       <ul>
-        <li><b>它是什么</b>：央行在利率已降到接近零、传统降息失效时，通过大规模购买国债等资产向市场注入资金的非常规货币政策，目的是压低长期利率、提升流动性并刺激经济 (来源：https://research.titanfx.com/cn/glossary/what-is-quantitative-easing)</li>
-        <li><b>谁在玩</b>：各国中央银行（美联储、欧洲央行、日本央行等）主导，商业银行、金融机构是被动参与者，普通民众通过房贷利率、通胀、股市间接感受到它的存在 (来源：https://www.monetamarkets.com/cn/risk/qe-quantitative-easing)</li>
-        <li><b>规模多大</b>：美联储资产负债表从危机前不足约 1 万亿美元扩张至 2014 年左右的约 4.5 万亿美元（来源：https://longbridge.com/zh-CN/learn/quantitative-easing-100728）</li>
+        <li><b>它是什么</b>：央行在利率已降到接近零、传统降息失效时，通过大规模购买国债等资产向市场注入资金的非常规货币政策，目的是压低长期利率、提升流动性并刺激经济 <a class="src" href="https://research.titanfx.com/cn/glossary/what-is-quantitative-easing" target="_blank" rel="noopener noreferrer">查看来源</a></li>
+        <li><b>谁在玩</b>：各国中央银行（美联储、欧洲央行、日本央行等）主导，商业银行、金融机构是被动参与者，普通民众通过房贷利率、通胀、股市间接感受到它的存在 <a class="src" href="https://www.monetamarkets.com/cn/risk/qe-quantitative-easing" target="_blank" rel="noopener noreferrer">查看来源</a></li>
+        <li><b>规模多大</b>：美联储资产负债表从危机前不足约 1 万亿美元扩张至 2014 年左右的约 4.5 万亿美元<a class="src" href="https://longbridge.com/zh-CN/learn/quantitative-easing-100728" target="_blank" rel="noopener noreferrer">查看来源</a></li>
         <li><b>小白能玩吗</b>：不能直接「玩」，但你的房贷利率、存款收益、养老金和房租都受它影响，值得看懂</li>
       </ul>
     </div>
@@ -132,8 +142,8 @@
   <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
   <div class="card">
     <p style="color:#c4c4c4;font-size:13.5px;">想象你家小区突然停电，物业的常规办法是「调电压」（降息）。可电压已经调到最低了，灯还是不亮。这时物业主任决定直接挨家挨户塞钱，说「拿去花，别存着」——这就是量化宽松。<br><br>
-    央行的「塞钱」方式不是真的印钞票，而是<b>从商业银行手里买走国债、房贷债券等资产</b>，把钱打进银行在央行开的账户里。银行拿到钱后，就有更多资金去放贷给企业和个人，市场里的钱变多了，借贷变便宜，消费和投资就被拉起来了 (来源：https://zh.wikipedia.org/zh-hans/%E9%87%8F%E5%8C%96%E5%AF%AC%E9%86%AC)。<br><br>
-    注意一个关键区别：<b>「量化」指的是央行明确要创造指定金额的钱，「宽松」指的是通过增加银行准备金来缓解流动性压力、压低长期贷款利率</b> (来源：https://www.monetamarkets.com/cn/risk/qe-quantitative-easing)。简单说，就是央行给整个经济打了一针「肾上腺素」。</p>
+    央行的「塞钱」方式不是真的印钞票，而是<b>从商业银行手里买走国债、房贷债券等资产</b>，把钱打进银行在央行开的账户里。银行拿到钱后，就有更多资金去放贷给企业和个人，市场里的钱变多了，借贷变便宜，消费和投资就被拉起来了 <a class="src" href="https://zh.wikipedia.org/zh-hans/%E9%87%8F%E5%8C%96%E5%AF%AC%E9%86%AC" target="_blank" rel="noopener noreferrer">查看来源</a>。<br><br>
+    注意一个关键区别：<b>「量化」指的是央行明确要创造指定金额的钱，「宽松」指的是通过增加银行准备金来缓解流动性压力、压低长期贷款利率</b> <a class="src" href="https://www.monetamarkets.com/cn/risk/qe-quantitative-easing" target="_blank" rel="noopener noreferrer">查看来源</a>。简单说，就是央行给整个经济打了一针「肾上腺素」。</p>
   </div>
   <div class="illus">
     <!-- 结构图：QE 的传导链条 -->
@@ -168,7 +178,7 @@
       <thead><tr><th>时期</th><th>资产负债表规模</th><th>说明</th></tr></thead>
       <tbody>
         <tr><td>2008 金融危机前</td><td class="up">不足约 1 万亿美元</td><td>正常时期，央行资产规模较小</td></tr>
-        <tr><td>2014 年左右（QE 三轮后）</td><td>约 4.5 万亿美元</td><td>多轮 QE 后大幅扩张 (来源：https://longbridge.com/zh-CN/learn/quantitative-easing-100728)</td></tr>
+        <tr><td>2014 年左右（QE 三轮后）</td><td>约 4.5 万亿美元</td><td>多轮 QE 后大幅扩张 <a class="src" href="https://longbridge.com/zh-CN/learn/quantitative-easing-100728" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
         <tr><td>2020 年疫情后</td><td class="down">一度逼近 9 万亿美元</td><td>紧急 QE 再加码，规模再翻倍 [UNSOURCED]</td></tr>
       </tbody>
     </table>
@@ -192,7 +202,7 @@
       <text x="495" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">2020 疫情后</text>
       <text x="380" y="215" fill="#8a8a8a" font-size="11" text-anchor="middle">美联储资产负债表规模（美元）· 数据来源：长桥证券、据公开资料</text>
     </svg>
-    <div class="cap">美联储资产负债表从不足 1 万亿扩张至约 4.5 万亿（2014），疫情后再度翻倍 (来源：https://longbridge.com/zh-CN/learn/quantitative-easing-100728)</div>
+    <div class="cap">美联储资产负债表从不足 1 万亿扩张至约 4.5 万亿（2014），疫情后再度翻倍 <a class="src" href="https://longbridge.com/zh-CN/learn/quantitative-easing-100728" target="_blank" rel="noopener noreferrer">查看来源</a></div>
   </div>
 </section>
 
@@ -206,7 +216,7 @@
       <div class="ptxt">
         <span class="tag tag-root">ROOT</span>
         <h3>美联储（Fed）</h3>
-        <ul><li>全球 QE 的「总导演」，2008 年后率先大规模购债，三轮 QE 将资产负债表推至约 4.5 万亿美元 (来源：https://longbridge.com/zh-CN/learn/quantitative-easing-100728)</li></ul>
+        <ul><li>全球 QE 的「总导演」，2008 年后率先大规模购债，三轮 QE 将资产负债表推至约 4.5 万亿美元 <a class="src" href="https://longbridge.com/zh-CN/learn/quantitative-easing-100728" target="_blank" rel="noopener noreferrer">查看来源</a></li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -214,7 +224,7 @@
       <div class="ptxt">
         <span class="tag tag-direct">欧洲央行</span>
         <h3>欧洲央行（ECB）</h3>
-        <ul><li>欧元区的 QE 执行者，购债规模同样庞大，但受欧元区多国财政约束，操作更复杂 (来源：https://www.monetamarkets.com/cn/risk/qe-quantitative-easing)</li></ul>
+        <ul><li>欧元区的 QE 执行者，购债规模同样庞大，但受欧元区多国财政约束，操作更复杂 <a class="src" href="https://www.monetamarkets.com/cn/risk/qe-quantitative-easing" target="_blank" rel="noopener noreferrer">查看来源</a></li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -222,7 +232,7 @@
       <div class="ptxt">
         <span class="tag tag-hot">HOT</span>
         <h3>日本央行（BOJ）</h3>
-        <ul><li>QE 的「鼻祖」，2001 年首次尝试，2013 年后更是疯狂购债，长期利率被压在零附近 (来源：http://intl.ce.cn/zhuanti/data/lhks/index.shtml)</li></ul>
+        <ul><li>QE 的「鼻祖」，2001 年首次尝试，2013 年后更是疯狂购债，长期利率被压在零附近 <a class="src" href="http://intl.ce.cn/zhuanti/data/lhks/index.shtml" target="_blank" rel="noopener noreferrer">查看来源</a></li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -253,7 +263,7 @@
   <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
   <div class="sec-note">外行最容易交学费的地方。</div>
   <div class="grid2">
-    <div class="card"><span class="tag tag-warn">坑 1</span><h3>以为 QE = 疯狂印钞导致恶性通胀</h3><ul><li>实际上：QE 的钱先流入银行和金融市场，未必直接进入商品市场。2008 年后美国 QE 三轮，通胀长期低于 2% 目标。真正的通胀要等经济复苏、信贷扩张后才可能出现 (来源：https://zh.wikipedia.org/zh-hans/%E9%87%8F%E5%8C%96%E5%AF%AC%E9%86%AC)</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>以为 QE = 疯狂印钞导致恶性通胀</h3><ul><li>实际上：QE 的钱先流入银行和金融市场，未必直接进入商品市场。2008 年后美国 QE 三轮，通胀长期低于 2% 目标。真正的通胀要等经济复苏、信贷扩张后才可能出现 <a class="src" href="https://zh.wikipedia.org/zh-hans/%E9%87%8F%E5%8C%96%E5%AF%AC%E9%86%AC" target="_blank" rel="noopener noreferrer">查看来源</a></li></ul></div>
     <div class="card"><span class="tag tag-warn">坑 2</span><h3>以为 QE 对所有人都是好事</h3><ul><li>实际上：QE 压低利率，<b>储蓄者</b>的存款利息变薄；同时推高资产价格（股市、楼市），<b>有资产的人受益更多</b>，贫富差距可能被拉大 [UNSOURCED]</li></ul></div>
     <div class="card"><span class="tag tag-warn">坑 3</span><h3>以为 QE 一停 / 一缩表经济就完蛋</h3><ul><li>实际上：央行会「渐进式」操作，提前和市场沟通。2013 年美联储说「要缩表」引发「紧缩恐慌」，但实际执行时非常缓慢，市场很快适应</li></ul></div>
     <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>QE 是宏观背景，不是操作信号。别因为它就冲进股市或楼市，先看自己的现金流和风险承受能力。</li></ul></div>
@@ -282,11 +292,11 @@
     <table>
       <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
       <tbody>
-        <tr><td><b>公开市场操作</b></td><td>央行在市场上买卖债券，是最常规的货币政策工具；QE 是它的「加量加价」版 (来源：https://zh.wikipedia.org/zh-hans/%E9%87%8F%E5%8C%96%E5%AF%AC%E9%86%AC)</td></tr>
-        <tr><td><b>零利率下限</b></td><td>利率降到 0% 附近后没法再降了，传统降息手段失效，这时才轮到 QE 上场 (来源：https://research.titanfx.com/cn/glossary/what-is-quantitative-easing)</td></tr>
-        <tr><td><b>流动性陷阱</b></td><td>利率再低大家也不愿借钱消费，钱都趴在账上；QE 的目的就是打破这种僵局 (来源：http://cj.sina.cn/articles/view/7343580196/1b5b6242400101caag)</td></tr>
+        <tr><td><b>公开市场操作</b></td><td>央行在市场上买卖债券，是最常规的货币政策工具；QE 是它的「加量加价」版 <a class="src" href="https://zh.wikipedia.org/zh-hans/%E9%87%8F%E5%8C%96%E5%AF%AC%E9%86%AC" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
+        <tr><td><b>零利率下限</b></td><td>利率降到 0% 附近后没法再降了，传统降息手段失效，这时才轮到 QE 上场 <a class="src" href="https://research.titanfx.com/cn/glossary/what-is-quantitative-easing" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
+        <tr><td><b>流动性陷阱</b></td><td>利率再低大家也不愿借钱消费，钱都趴在账上；QE 的目的就是打破这种僵局 <a class="src" href="http://cj.sina.cn/articles/view/7343580196/1b5b6242400101caag" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
         <tr><td><b>缩表</b></td><td>QE 的反向操作，央行卖出资产收回市场上的钱，流动性收紧</td></tr>
-        <tr><td><b>MBS</b></td><td>房贷抵押支持证券，央行购买它可以压低按揭贷款利率，直接利好房地产市场 (来源：https://longbridge.com/zh-CN/learn/quantitative-easing-100728)</td></tr>
+        <tr><td><b>MBS</b></td><td>房贷抵押支持证券，央行购买它可以压低按揭贷款利率，直接利好房地产市场 <a class="src" href="https://longbridge.com/zh-CN/learn/quantitative-easing-100728" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
       </tbody>
     </table>
   </div>
@@ -297,7 +307,7 @@
   <h2><span class="num">07</span>趣味小知识</h2>
   <div class="sec-note">聊天永远有料的包袱。</div>
   <div class="card">
-    <p class="quote">日本是 QE 的「实验室小白鼠」：2001 年首次尝试 QE 时，全球央行都当它是异端。十几年后，日本央行持有的国债比例超过 50%，几乎买下了半个国家的债。而 2008 年金融危机后，当初嘲笑日本的欧美央行，一个个排队抄起了日本的作业 (来源：http://intl.ce.cn/zhuanti/data/lhks/index.shtml)</p>
+    <p class="quote">日本是 QE 的「实验室小白鼠」：2001 年首次尝试 QE 时，全球央行都当它是异端。十几年后，日本央行持有的国债比例超过 50%，几乎买下了半个国家的债。而 2008 年金融危机后，当初嘲笑日本的欧美央行，一个个排队抄起了日本的作业 <a class="src" href="http://intl.ce.cn/zhuanti/data/lhks/index.shtml" target="_blank" rel="noopener noreferrer">查看来源</a></p>
   </div>
   <div class="verdict">
     <div class="vcell"><div class="vt">适不适合你</div><div class="vb">如果你有房贷、存款或投资股票基金，<b>必须</b>懂 QE 的大方向；如果你是纯吃瓜群众，看懂它也能在新闻里少被忽悠。</div></div>

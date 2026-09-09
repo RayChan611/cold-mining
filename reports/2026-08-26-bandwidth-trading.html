@@ -79,6 +79,16 @@
   }
   .to-index:hover { background: #c8a866; color: #0a0a0a; }
 </style>
+
+<style id="fix-overflow-wrap">
+  /* 2026-09-04: 修复长 URL 撑破容器 */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
 </head>
 <body>
 <a class="to-index" href="../index.html">← 全部报告</a>
@@ -99,7 +109,7 @@
       <ul>
         <li><b>它是什么</b>：带宽交易，指的是互联网服务商之间把“网络传输容量”（即带宽）像大宗商品一样批量买卖——你买的是某条海底光缆或骨干网在特定时间段内的“运输能力”。</li>
         <li><b>谁在玩</b>：电信运营商、云厂商（AWS、阿里云等）、内容分发网络（CDN）、大型互联网公司、以及一小撮专门做带宽“倒爷”的中间商/经纪商。</li>
-        <li><b>市场多大</b>：带宽本身不直接有公开交易所报价，但承载它的在线交易平台市场 2025 年全球规模已达 108.2 亿美元，预计 2034 年增至 185.0 亿美元 (来源：https://www.fortunebusinessinsights.com/zh/online-trading-platform-market-104934)。带宽批发市场估计是它的数十倍以上，属千亿美元级“隐形市场” [UNSOURCED]。</li>
+        <li><b>市场多大</b>：带宽本身不直接有公开交易所报价，但承载它的在线交易平台市场 2025 年全球规模已达 108.2 亿美元，预计 2034 年增至 185.0 亿美元 <a class="src" href="https://www.fortunebusinessinsights.com/zh/online-trading-platform-market-104934" target="_blank" rel="noopener noreferrer">查看来源</a>。带宽批发市场估计是它的数十倍以上，属千亿美元级“隐形市场” [UNSOURCED]。</li>
         <li><b>小白能玩吗</b>：门槛极高——你既没有海底光缆，也买不起骨干网端口。但普通人可以通过投资相关上市公司（如运营商、云厂商）间接参与，或者干脆把它当冷知识了解。</li>
       </ul>
     </div>
@@ -125,7 +135,7 @@
   <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
   <div class="card">
     <p style="color:#c4c4c4;font-size:13.5px;">想象一下，你有一条从上海到洛杉矶的“数字高速公路”，这条路上能同时并排跑多少辆“数据卡车”，就是带宽（单位是 Gbps 或 Tbps）。带宽交易，就是有人把这条高速公路的“通行权”按年、按月甚至按小时租给别人。</p>
-    <p style="color:#c4c4c4;font-size:13.5px;margin-top:10px;">它有点像房地产：运营商是“开发商”，负责修路（铺设光缆）；云厂商和互联网公司是“租户”，按需租用容量。但跟房地产不同的是，带宽会“过期”——今晚 11 点的空闲带宽，到了明晚 11 点就一文不值，因为网络流量是实时流动的。所以这里诞生了“批发市场”：有人低价囤入空闲带宽，等高峰期（比如双十一晚 8 点）高价卖出。华为预测，2025 年全球将有 1000 亿联接，人均每日流量消耗达 1.7G——这意味着带宽需求还在疯涨，交易空间也水涨船高 (来源：https://www.huawei.com/cn/huaweitech/publication/75/mbb-open-interconnect-cn)。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;margin-top:10px;">它有点像房地产：运营商是“开发商”，负责修路（铺设光缆）；云厂商和互联网公司是“租户”，按需租用容量。但跟房地产不同的是，带宽会“过期”——今晚 11 点的空闲带宽，到了明晚 11 点就一文不值，因为网络流量是实时流动的。所以这里诞生了“批发市场”：有人低价囤入空闲带宽，等高峰期（比如双十一晚 8 点）高价卖出。华为预测，2025 年全球将有 1000 亿联接，人均每日流量消耗达 1.7G——这意味着带宽需求还在疯涨，交易空间也水涨船高 <a class="src" href="https://www.huawei.com/cn/huaweitech/publication/75/mbb-open-interconnect-cn" target="_blank" rel="noopener noreferrer">查看来源</a>。</p>
   </div>
   <div class="illus">
     <!-- 价值链 / 结构 图：从光缆到用户 -->
@@ -160,7 +170,7 @@
         <tr><td>高峰时段溢价</td><td class="down">可达平日的 3–10 倍</td><td>类似“峰谷电价”，晚高峰或大型活动期间现货价暴涨 [UNSOURCED]</td></tr>
       </tbody>
     </table>
-    <p class="src">注：带宽批发无公开统一报价，上述为行业经验区间，具体因地区、合约年限和 QoS 等级差异极大。在线交易平台市场规模作为参考：2025 年全球 108.2 亿美元，2034 年预计 185.0 亿美元 (来源：https://www.fortunebusinessinsights.com/zh/online-trading-platform-market-104934)。</p>
+    <p class="src">注：带宽批发无公开统一报价，上述为行业经验区间，具体因地区、合约年限和 QoS 等级差异极大。在线交易平台市场规模作为参考：2025 年全球 108.2 亿美元，2034 年预计 185.0 亿美元 <a class="src" href="https://www.fortunebusinessinsights.com/zh/online-trading-platform-market-104934" target="_blank" rel="noopener noreferrer">查看来源</a>。</p>
   </div>
   <div class="illus">
     <!-- 价格带柱状图 -->
@@ -230,7 +240,7 @@
   <div class="tl">
     <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">搞懂“流量”长什么样：安装 Wireshark 或 NetFlow 工具，观察自己家网络的流量曲线，理解高峰和低谷的节奏。成本：0 元。</div></div>
     <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">围观真实市场：去 Cloudflare Radar 或 Hurricane Electric 的 BGP 页面，看全球带宽的实时流向和拥堵情况。成本：0 元。</div></div>
-    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">建立判断框架：跟踪电信运营商财报中的“批发收入”和“互联成本”，理解带宽价格如何影响利润。推荐关注华为的《MBB 开放互联》报告 (来源：https://www.huawei.com/cn/huaweitech/publication/75/mbb-open-interconnect-cn)。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">建立判断框架：跟踪电信运营商财报中的“批发收入”和“互联成本”，理解带宽价格如何影响利润。推荐关注华为的《MBB 开放互联》报告 <a class="src" href="https://www.huawei.com/cn/huaweitech/publication/75/mbb-open-interconnect-cn" target="_blank" rel="noopener noreferrer">查看来源</a>。</div></div>
     <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">如果要真金白银参与：别直接买带宽，去买相关上市公司股票（运营商、云厂商、CDN）。记住：带宽交易是机构游戏，散户只能“借道”投资。</div></div>
   </div>
 </section>
@@ -283,7 +293,7 @@
   <h2><span class="num">07</span>趣味小知识</h2>
   <div class="sec-note">聊天永远有料的包袱。</div>
   <div class="card">
-    <p class="quote">2015 年天猫双十一全天交易额超 900 亿元，其中移动端占比 68%；2016 年除夕微信红包收发 80 亿次——这些天文数字背后，是无数带宽交易员在幕后疯狂调货，确保你剁手时网络不卡 (来源：https://www.huawei.com/cn/huaweitech/publication/75/mbb-open-interconnect-cn)。</p>
+    <p class="quote">2015 年天猫双十一全天交易额超 900 亿元，其中移动端占比 68%；2016 年除夕微信红包收发 80 亿次——这些天文数字背后，是无数带宽交易员在幕后疯狂调货，确保你剁手时网络不卡 <a class="src" href="https://www.huawei.com/cn/huaweitech/publication/75/mbb-open-interconnect-cn" target="_blank" rel="noopener noreferrer">查看来源</a>。</p>
   </div>
   <div class="verdict">
     <div class="vcell"><div class="vt">适不适合你</div><div class="vb">适合：对网络基础设施好奇、愿意研究长期趋势的人。不适合：想一夜暴富、手痒想“炒波段”的人——这里的水比股票深得多。</div></div>

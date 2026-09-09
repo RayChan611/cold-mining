@@ -79,6 +79,16 @@
   }
   .to-index:hover { background: #c8a866; color: #0a0a0a; }
 </style>
+
+<style id="fix-overflow-wrap">
+  /* 2026-09-04: 修复长 URL 撑破容器 */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
 </head>
 <body>
 <a class="to-index" href="../../index.html">← 全部报告</a>
@@ -97,7 +107,7 @@
   <div class="card hero">
     <div class="hero-txt">
       <ul>
-        <li><b>它是什么</b>：一份「未来的选择权合约」。花一笔小钱（权利金），买一个「在约定日期、按约定价格买卖某资产」的权利——但没义务。股票、ETF 都可以是它的标的物 (来源：https://www.njzq.com.cn/options/jczs.html)。</li>
+        <li><b>它是什么</b>：一份「未来的选择权合约」。花一笔小钱（权利金），买一个「在约定日期、按约定价格买卖某资产」的权利——但没义务。股票、ETF 都可以是它的标的物 <a class="src" href="https://www.njzq.com.cn/options/jczs.html" target="_blank" rel="noopener noreferrer">查看来源</a>。</li>
         <li><b>谁在玩</b>：机构用它对冲风险、做资产配置；专业散户用它博方向性收益或增强持仓收益；新手玩家主要以「买方」身份小仓位参与。</li>
         <li><b>市场多大</b>：以国内场内 ETF 期权为例，单张合约对应 10,000 份 ETF 份额（约数万元市值），权利金门槛从几十元到几千元不等 [UNSOURCED]。沪深交易所已上线多只 ETF 期权品种。</li>
         <li><b>小白能玩吗</b>：能，但有门槛——需要验资和期权知识测试（俗称「开户考试」）。最大亏损是权利金（买方向），但卖方向亏损理论上无上限，新手切忌一上来就做卖方。</li>
@@ -125,8 +135,8 @@
   <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
   <div class="card">
     <p style="color:#c4c4c4;font-size:13.5px;">想象你相中了一套房子，现在标价 500 万。你担心明年涨价，但又怕现在就买会砸在手里。这时你跟房主签了个「意向协议」：<b>付 5 万块诚意金</b>，换来一个权利——<b>一年后无论市场价多少，你都有权按 500 万买下它</b>；但你不承担义务，如果一年后房价跌到 400 万，你直接放弃这个权利，损失最多就是那 5 万块诚意金。</p>
-    <p style="color:#c4c4c4;font-size:13.5px;margin-top:10px;">这其实就是期权。那 5 万块是「权利金」，500 万是「行权价」，一年后是「到期日」。期权分两种基本类型：<b>看涨期权（认购期权）</b>给你「按约定价买入」的权利；<b>看跌期权（认沽期权）</b>给你「按约定价卖出」的权利 (来源：https://www.moomoo.com/hant/community/feed/understanding-the-market-getting-started-with-options-essential-strategies-for-116029800185861)。</p>
-    <p style="color:#c4c4c4;font-size:13.5px;margin-top:10px;">期权最妙的地方在于：<b>买方亏损有上限（最多赔光权利金），盈利理论上无上限；卖方反过来，收一笔权利金，但风险理论上无上限</b>。这就是为什么新手要从买方开始——「损失有限，收益上限很高」(来源：https://news.hstong.com/post/content/23072709532701635)。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;margin-top:10px;">这其实就是期权。那 5 万块是「权利金」，500 万是「行权价」，一年后是「到期日」。期权分两种基本类型：<b>看涨期权（认购期权）</b>给你「按约定价买入」的权利；<b>看跌期权（认沽期权）</b>给你「按约定价卖出」的权利 <a class="src" href="https://www.moomoo.com/hant/community/feed/understanding-the-market-getting-started-with-options-essential-strategies-for-116029800185861" target="_blank" rel="noopener noreferrer">查看来源</a>。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;margin-top:10px;">期权最妙的地方在于：<b>买方亏损有上限（最多赔光权利金），盈利理论上无上限；卖方反过来，收一笔权利金，但风险理论上无上限</b>。这就是为什么新手要从买方开始——「损失有限，收益上限很高」<a class="src" href="https://news.hstong.com/post/content/23072709532701635" target="_blank" rel="noopener noreferrer">查看来源</a>。</p>
   </div>
   <div class="illus">
     <!-- 结构图：期权四要素 -->
@@ -162,7 +172,7 @@
       <tbody>
         <tr><td>入门档</td><td class="up">几十元 – 数百元</td><td>深度虚值期权，离当前价格很远，赌一把「彩票」，大概率归零 (据公开资料)</td></tr>
         <tr><td>进阶档</td><td>数百元 – 数千元</td><td>平值或轻度实值期权，跟随标的涨跌敏感度高，是专业玩家主战场 [UNSOURCED]</td></tr>
-        <tr><td>机构档</td><td class="down">数万元 – 数十万元</td><td>深度实值期权或组合策略，用于对冲大额持仓风险，流动性较好，机构主导 (来源：https://www.ciccwm.com/geguqiquan/stockOptionEducation.html)</td></tr>
+        <tr><td>机构档</td><td class="down">数万元 – 数十万元</td><td>深度实值期权或组合策略，用于对冲大额持仓风险，流动性较好，机构主导 <a class="src" href="https://www.ciccwm.com/geguqiquan/stockOptionEducation.html" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
       </tbody>
     </table>
     <p class="src">注：权利金随行权价、到期时间、市场波动率实时变动，以上为定性区间，不构成报价参考。</p>
@@ -184,7 +194,7 @@
       <text x="360" y="170" fill="#e05050" font-size="11">卖方：风险无上限</text>
       <text x="380" y="210" fill="#8a8a8a" font-size="11" text-anchor="middle">同一条曲线，买卖双方互为镜像——这是期权最核心的不对称性</text>
     </svg>
-    <div class="cap">买入 vs 卖出看涨期权的盈亏对照（示意曲线，不反映具体数值）(来源：https://news.hstong.com/post/content/23072709532701635)</div>
+    <div class="cap">买入 vs 卖出看涨期权的盈亏对照（示意曲线，不反映具体数值）<a class="src" href="https://news.hstong.com/post/content/23072709532701635" target="_blank" rel="noopener noreferrer">查看来源</a></div>
   </div>
 </section>
 
@@ -198,7 +208,7 @@
       <div class="ptxt">
         <span class="tag tag-root">ROOT</span>
         <h3>交易所（沪/深）</h3>
-        <ul><li>制定合约规则、撮合交易。国内场内期权以 ETF 为标的（如 50ETF、300ETF），合约要素（行权价、到期日、合约单位）由交易所统一规范 (来源：https://www.njzq.com.cn/options/jczs.html)。</li></ul>
+        <ul><li>制定合约规则、撮合交易。国内场内期权以 ETF 为标的（如 50ETF、300ETF），合约要素（行权价、到期日、合约单位）由交易所统一规范 <a class="src" href="https://www.njzq.com.cn/options/jczs.html" target="_blank" rel="noopener noreferrer">查看来源</a>。</li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -206,7 +216,7 @@
       <div class="ptxt">
         <span class="tag tag-direct">券商</span>
         <h3>券商（富途、老虎、中金等）</h3>
-        <ul><li>提供交易通道与投资者教育。如富途牛牛内置期权链，支持 Covered Call 等策略可视化操作 (来源：https://www.futuhk.com/hans/blog/detail-options-tutorial-from-beginner-to-practical-fundamentals-trading-strategies-hands-on-skills-30-240405004)；老虎证券提供行权价、到期日等基础教学 (来源：https://www.itiger.com/au/hans/learn/detail/m83x5n6jvv9iaxrek8)。</li></ul>
+        <ul><li>提供交易通道与投资者教育。如富途牛牛内置期权链，支持 Covered Call 等策略可视化操作 <a class="src" href="https://www.futuhk.com/hans/blog/detail-options-tutorial-from-beginner-to-practical-fundamentals-trading-strategies-hands-on-skills-30-240405004" target="_blank" rel="noopener noreferrer">查看来源</a>；老虎证券提供行权价、到期日等基础教学 <a class="src" href="https://www.itiger.com/au/hans/learn/detail/m83x5n6jvv9iaxrek8" target="_blank" rel="noopener noreferrer">查看来源</a>。</li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -222,7 +232,7 @@
       <div class="ptxt">
         <span class="tag tag-step">入门</span>
         <h3>投资者教育专区</h3>
-        <ul><li>新手最该先去的 1-2 个地方：中金公司股票期权投教专区（策略入门）(来源：https://www.ciccwm.com/geguqiquan/stockOptionEducation.html)、南京证券期权基础知识页（合约要素表）(来源：https://www.njzq.com.cn/options/jczs.html)。</li></ul>
+        <ul><li>新手最该先去的 1-2 个地方：中金公司股票期权投教专区（策略入门）<a class="src" href="https://www.ciccwm.com/geguqiquan/stockOptionEducation.html" target="_blank" rel="noopener noreferrer">查看来源</a>、南京证券期权基础知识页（合约要素表）<a class="src" href="https://www.njzq.com.cn/options/jczs.html" target="_blank" rel="noopener noreferrer">查看来源</a>。</li></ul>
       </div>
     </div>
   </div>
@@ -234,9 +244,9 @@
   <div class="sec-note">按步骤走，别一上来就梭哈。</div>
   <div class="tl">
     <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body"><b>先过开户门槛</b>：国内期权账户需满足 50 万资产门槛 + 知识测试 + 模拟交易经验（据公开资料）。如果没有，可以用富途、老虎等互联网券商开户（门槛因地区而异，请以券商为准）。</div></div>
-    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body"><b>搞懂四个关键动作</b>：选标的（如 50ETF）、选方向（看涨买认购，看跌买认沽）、选行权价（离现价越近越贵）、选到期日（越远越贵）。先弄懂「买入开仓」和「卖出平仓」这两步 (来源：https://www.moomoo.com/hant/community/feed/understanding-the-market-getting-started-with-options-essential-strategies-for-116029800185861)。</div></div>
-    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body"><b>用「保险思维」做第一次交易</b>：假设你持有 100 股某股票，担心短期下跌，买入一张看跌期权做对冲——这就是 Covered Call / Protective Put 的雏形 (来源：https://www.futuhk.com/hans/blog/detail-options-tutorial-from-beginner-to-practical-fundamentals-trading-strategies-hands-on-skills-30-240405004)。用你能接受全部亏掉的钱试水。</div></div>
-    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body"><b>建立判断框架</b>：结合宏观经济、行业、基本面、技术面与市场情绪判断行情趋势，再选策略 (来源：https://www.njzq.com.cn/options/jczs.html)。别凭感觉下单，先写下一句话：「我认为 XX 在 XX 日前会涨/跌到 XX，所以我买 XX 期权。」</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body"><b>搞懂四个关键动作</b>：选标的（如 50ETF）、选方向（看涨买认购，看跌买认沽）、选行权价（离现价越近越贵）、选到期日（越远越贵）。先弄懂「买入开仓」和「卖出平仓」这两步 <a class="src" href="https://www.moomoo.com/hant/community/feed/understanding-the-market-getting-started-with-options-essential-strategies-for-116029800185861" target="_blank" rel="noopener noreferrer">查看来源</a>。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body"><b>用「保险思维」做第一次交易</b>：假设你持有 100 股某股票，担心短期下跌，买入一张看跌期权做对冲——这就是 Covered Call / Protective Put 的雏形 <a class="src" href="https://www.futuhk.com/hans/blog/detail-options-tutorial-from-beginner-to-practical-fundamentals-trading-strategies-hands-on-skills-30-240405004" target="_blank" rel="noopener noreferrer">查看来源</a>。用你能接受全部亏掉的钱试水。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body"><b>建立判断框架</b>：结合宏观经济、行业、基本面、技术面与市场情绪判断行情趋势，再选策略 <a class="src" href="https://www.njzq.com.cn/options/jczs.html" target="_blank" rel="noopener noreferrer">查看来源</a>。别凭感觉下单，先写下一句话：「我认为 XX 在 XX 日前会涨/跌到 XX，所以我买 XX 期权。」</div></div>
   </div>
 </section>
 
@@ -247,7 +257,7 @@
   <div class="grid2">
     <div class="card"><span class="tag tag-warn">坑 1</span><h3>时间价值在偷偷漏血</h3><ul><li>期权有「到期日」，每天都在贬值（时间价值衰减）。很多人买了期权放着不管，到期时即使方向对了，也可能因为时间损耗而不赚钱。避开方法：尽量别买太短期的合约，留出足够时间窗口 [UNSOURCED]。</li></ul></div>
     <div class="card"><span class="tag tag-warn">坑 2</span><h3>「彩票心理」买深度虚值</h3><ul><li>几块钱一张的深度虚值期权看起来很便宜，但大概率到期归零。这不是投资，是买彩票。避开方法：用「如果亏光也不影响生活」的资金参与，且控制仓位。</li></ul></div>
-    <div class="card"><span class="tag tag-warn">坑 3</span><h3>一上来就做卖方</h3><ul><li>卖方收权利金「躺着赚钱」很诱人，但风险理论上无上限。新手在没搞懂保证金和风险之前做卖方，一次极端行情可能亏掉本金。避开方法：前 6 个月只做买方，或只用 Covered Call 这种有持仓保护的卖方策略 (来源：https://www.futuhk.com/hans/blog/detail-options-tutorial-from-beginner-to-practical-fundamentals-trading-strategies-hands-on-skills-30-240405004)。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>一上来就做卖方</h3><ul><li>卖方收权利金「躺着赚钱」很诱人，但风险理论上无上限。新手在没搞懂保证金和风险之前做卖方，一次极端行情可能亏掉本金。避开方法：前 6 个月只做买方，或只用 Covered Call 这种有持仓保护的卖方策略 <a class="src" href="https://www.futuhk.com/hans/blog/detail-options-tutorial-from-beginner-to-practical-fundamentals-trading-strategies-hands-on-skills-30-240405004" target="_blank" rel="noopener noreferrer">查看来源</a>。</li></ul></div>
     <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>期权是保险，不是彩票。每次下单前问自己：「如果这笔权利金全亏光，我能不能接受？」答案是否定的，就不要做。</li></ul></div>
   </div>
   <div class="illus">
@@ -274,11 +284,11 @@
     <table>
       <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
       <tbody>
-        <tr><td><b>权利金</b></td><td>买一张期权要付的「入场费」，也是卖方的「保险费收入」 (来源：https://www.itiger.com/au/hans/learn/detail/m83x5n6jvv9iaxrek8)</td></tr>
-        <tr><td><b>行权价</b></td><td>约定好的买卖价格。看涨期权的行权价越低越贵，看跌期权反之 (来源：https://www.itiger.com/au/hans/learn/detail/m83x5n6jvv9iaxrek8)</td></tr>
-        <tr><td><b>到期日</b></td><td>权利最后有效的那一天。过了这一天，价外期权直接变废纸 (来源：https://www.itiger.com/au/hans/learn/detail/m83x5n6jvv9iaxrek8)</td></tr>
+        <tr><td><b>权利金</b></td><td>买一张期权要付的「入场费」，也是卖方的「保险费收入」 <a class="src" href="https://www.itiger.com/au/hans/learn/detail/m83x5n6jvv9iaxrek8" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
+        <tr><td><b>行权价</b></td><td>约定好的买卖价格。看涨期权的行权价越低越贵，看跌期权反之 <a class="src" href="https://www.itiger.com/au/hans/learn/detail/m83x5n6jvv9iaxrek8" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
+        <tr><td><b>到期日</b></td><td>权利最后有效的那一天。过了这一天，价外期权直接变废纸 <a class="src" href="https://www.itiger.com/au/hans/learn/detail/m83x5n6jvv9iaxrek8" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
         <tr><td><b>价内 / 价外</b></td><td>价内 = 现在行权能赚钱；价外 = 现在行权会亏钱。价外期权便宜，但归零概率高 [UNSOURCED]</td></tr>
-        <tr><td><b>Covered Call</b></td><td>持有股票 + 卖出看涨期权，收权利金增强收益，但要放弃一部分上涨空间 (来源：https://www.futuhk.com/hans/blog/detail-options-tutorial-from-beginner-to-practical-fundamentals-trading-strategies-hands-on-skills-30-240405004)</td></tr>
+        <tr><td><b>Covered Call</b></td><td>持有股票 + 卖出看涨期权，收权利金增强收益，但要放弃一部分上涨空间 <a class="src" href="https://www.futuhk.com/hans/blog/detail-options-tutorial-from-beginner-to-practical-fundamentals-trading-strategies-hands-on-skills-30-240405004" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
       </tbody>
     </table>
   </div>

@@ -79,6 +79,16 @@
   }
   .to-index:hover { background: #c8a866; color: #0a0a0a; }
 </style>
+
+<style id="fix-overflow-wrap">
+  /* 2026-09-04: 修复长 URL 撑破容器 */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
 </head>
 <body>
 <a class="to-index" href="../index.html">← 全部报告</a>
@@ -99,7 +109,7 @@
       <ul>
         <li><b>它是什么</b>：把每年允许捕捞的总鱼量，像股票一样分成「份额」分给渔民或渔船，每人只能捞自己那份，捞完就收工。</li>
         <li><b>谁在玩</b>：各国渔业管理部门（如美国 NOAA）、渔民合作社、环保组织（如美国环保协会 EDF）、以及全球约 12 个占据 70% 捕捞量的主要渔业国家。</li>
-        <li><b>市场多大</b>：全球商业捕鱼业 2017 年市场规模约 2409.9 亿美元，预计 2026 年达 4385.9 亿美元；亚太渔业和水产养殖市场 2025 年约 167.8 亿美元，2032 年预计 321.7 亿美元 (来源：https://www.databridgemarketresearch.com/zh/reports/asia-pacific-fishery-and-aquaculture-market；http://www.21jingji.com/article/20220505/herald/e5f0c30ee3cc39dcb8edd1828b004350.html)。</li>
+        <li><b>市场多大</b>：全球商业捕鱼业 2017 年市场规模约 2409.9 亿美元，预计 2026 年达 4385.9 亿美元；亚太渔业和水产养殖市场 2025 年约 167.8 亿美元，2032 年预计 321.7 亿美元 <a class="src" href="https://www.databridgemarketresearch.com/zh/reports/asia-pacific-fishery-and-aquaculture-market；http://www.21jingji.com/article/20220505/herald/e5f0c30ee3cc39dcb8edd1828b004350.html" target="_blank" rel="noopener noreferrer">查看来源</a>。</li>
         <li><b>小白能玩吗</b>：作为个人投资者基本无法直接「买配额」，但你可以通过关注海鲜品牌是否来自可持续渔业、支持相关环保倡议来间接参与。</li>
       </ul>
     </div>
@@ -132,7 +142,7 @@
   <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
   <div class="card">
     <p style="color:#c4c4c4;font-size:13.5px;">想象一下，你家门口有个大池塘，里面养了一万条鱼。如果全村人都在疯狂捞鱼，今天你捞 100 条，明天他捞 200 条，很快池塘就空了。但如果村委会说：「今年一共只能捞 3000 条，咱们按人头分，每家最多捞 300 条，谁捞完谁休息。」——这就是渔业配额。</p>
-    <p style="color:#c4c4c4;font-size:13.5px;margin-top:10px;">它有点像「碳排放配额」：政府先定一个总量（总可捕量，TAC），再把这个总量像切蛋糕一样切成份额，分配给个人、合作社或社区。拿到份额的人不能超过自己那份去捞，否则违规受罚 (来源：https://www.fisheries.noaa.gov/national/sustainable-fisheries/catch-shares)。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;margin-top:10px;">它有点像「碳排放配额」：政府先定一个总量（总可捕量，TAC），再把这个总量像切蛋糕一样切成份额，分配给个人、合作社或社区。拿到份额的人不能超过自己那份去捞，否则违规受罚 <a class="src" href="https://www.fisheries.noaa.gov/national/sustainable-fisheries/catch-shares" target="_blank" rel="noopener noreferrer">查看来源</a>。</p>
   </div>
   <div class="illus">
     <!-- 价值链：从科学评估到配额分配到市场 -->
@@ -166,8 +176,8 @@
     <table>
       <thead><tr><th>档位</th><th>规模 / 金额</th><th>说明</th></tr></thead>
       <tbody>
-        <tr><td>全球商业捕鱼</td><td class="up">2409.9 亿美元（2017）→ 预计 4385.9 亿美元（2026）</td><td>涵盖金枪鱼、鲑鱼等野生捕捞 (来源：http://www.21jingji.com/article/20220505/herald/e5f0c30ee3cc39dcb8edd1828b004350.html)</td></tr>
-        <tr><td>亚太渔业+水产养殖</td><td>167.8 亿美元（2025）→ 预计 321.7 亿美元（2032）</td><td>年复合增长率 8.60%，主要玩家包括 Nireus、Pentair 等 (来源：https://www.databridgemarketresearch.com/zh/reports/asia-pacific-fishery-and-aquaculture-market)</td></tr>
+        <tr><td>全球商业捕鱼</td><td class="up">2409.9 亿美元（2017）→ 预计 4385.9 亿美元（2026）</td><td>涵盖金枪鱼、鲑鱼等野生捕捞 <a class="src" href="http://www.21jingji.com/article/20220505/herald/e5f0c30ee3cc39dcb8edd1828b004350.html" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
+        <tr><td>亚太渔业+水产养殖</td><td>167.8 亿美元（2025）→ 预计 321.7 亿美元（2032）</td><td>年复合增长率 8.60%，主要玩家包括 Nireus、Pentair 等 <a class="src" href="https://www.databridgemarketresearch.com/zh/reports/asia-pacific-fishery-and-aquaculture-market" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
         <tr><td>配额交易价值</td><td class="down">[UNSOURCED]</td><td>配额本身可交易，但全球没有统一市场，价格因鱼种、海域、年份差异极大</td></tr>
       </tbody>
     </table>
@@ -186,7 +196,7 @@
       <text x="480" y="45" fill="#e8e8e8" font-size="13" font-weight="700" text-anchor="middle">4385亿</text>
       <text x="480" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">2026年（预测）</text>
       <!-- 单位 -->
-      <text x="380" y="215" fill="#8a8a8a" font-size="11" text-anchor="middle">单位：亿美元 · 全球商业捕鱼业市场规模 (来源：http://www.21jingji.com/article/20220505/herald/e5f0c30ee3cc39dcb8edd1828b004350.html)</text>
+      <text x="380" y="215" fill="#8a8a8a" font-size="11" text-anchor="middle">单位：亿美元 · 全球商业捕鱼业市场规模 <a class="src" href="http://www.21jingji.com/article/20220505/herald/e5f0c30ee3cc39dcb8edd1828b004350.html" target="_blank" rel="noopener noreferrer">查看来源</a></text>
     </svg>
     <div class="cap">全球商业捕鱼业市场规模对比</div>
   </div>
@@ -202,7 +212,7 @@
       <div class="ptxt">
         <span class="tag tag-root">ROOT</span>
         <h3>美国国家海洋渔业局（NOAA Fisheries）</h3>
-        <ul><li>全球最成熟的捕捞份额体系管理者之一，明确将「catch share」定义为把总可捕量分配给个人、合作社、社区等实体 (来源：https://www.fisheries.noaa.gov/national/sustainable-fisheries/catch-shares)</li></ul>
+        <ul><li>全球最成熟的捕捞份额体系管理者之一，明确将「catch share」定义为把总可捕量分配给个人、合作社、社区等实体 <a class="src" href="https://www.fisheries.noaa.gov/national/sustainable-fisheries/catch-shares" target="_blank" rel="noopener noreferrer">查看来源</a></li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -210,7 +220,7 @@
       <div class="ptxt">
         <span class="tag tag-direct">推动者</span>
         <h3>美国环保协会（EDF）</h3>
-        <ul><li>促成墨西哥湾红鲷渔业改革，被誉为「捕捞份额最成功案例」；他们游说渔民与保育者合作，设定年度最大可捕量 (来源：http://www.chinaeol.net/zyzx/sjhjzz/zzlm/lskp/201804/W020180903670655495866.pdf)</li></ul>
+        <ul><li>促成墨西哥湾红鲷渔业改革，被誉为「捕捞份额最成功案例」；他们游说渔民与保育者合作，设定年度最大可捕量 <a class="src" href="http://www.chinaeol.net/zyzx/sjhjzz/zzlm/lskp/201804/W020180903670655495866.pdf" target="_blank" rel="noopener noreferrer">查看来源</a></li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -218,7 +228,7 @@
       <div class="ptxt">
         <span class="tag tag-hot">HOT</span>
         <h3>中国渔业企业</h3>
-        <ul><li>中国水产品产量、贸易额、消费量均居世界前列；2021 年渔业经济持续回暖，水产品进出口贸易量额双增 (来源：https://www.weihengag.com/home/article/detail/id/19888)</li></ul>
+        <ul><li>中国水产品产量、贸易额、消费量均居世界前列；2021 年渔业经济持续回暖，水产品进出口贸易量额双增 <a class="src" href="https://www.weihengag.com/home/article/detail/id/19888" target="_blank" rel="noopener noreferrer">查看来源</a></li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -238,7 +248,7 @@
   <div class="sec-note">按步骤走，别一上来就梭哈。</div>
   <div class="tl">
     <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">先理解「公地悲剧」：看一部纪录片（如《渔业阴谋》），了解为什么没有配额时鱼会被捞光。</div></div>
-    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">围观真实案例：搜索「墨西哥湾红鲷鱼配额」——这是被反复引用的成功故事，看它如何从崩溃边缘被救回 (来源：http://www.chinaeol.net/zyzx/sjhjzz/zzlm/lskp/201804/W020180903670655495866.pdf)。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">围观真实案例：搜索「墨西哥湾红鲷鱼配额」——这是被反复引用的成功故事，看它如何从崩溃边缘被救回 <a class="src" href="http://www.chinaeol.net/zyzx/sjhjzz/zzlm/lskp/201804/W020180903670655495866.pdf" target="_blank" rel="noopener noreferrer">查看来源</a>。</div></div>
     <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">建立判断框架：学会看海鲜标签——MSC 认证、FAO 报告、以及「总可捕量 TAC」这个关键词，用它来筛选新闻。</div></div>
     <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">行动参与：不一定要投钱。在超市选有可持续认证的海鲜、给相关环保组织捐款、或向代表你选区的议员写信支持配额政策。</div></div>
   </div>
@@ -249,7 +259,7 @@
   <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
   <div class="sec-note">外行最容易交学费的地方。</div>
   <div class="grid2">
-    <div class="card"><span class="tag tag-warn">坑 1</span><h3>以为「配额 = 绝对保护」</h3><ul><li>配额只是工具，若执法不严或数据不准，照样可能过度捕捞。墨西哥湾红鲷成功的关键是「渔民+保育者合作」，不是配额本身 (来源：http://www.chinaeol.net/zyzx/sjhjzz/zzlm/lskp/201804/W020180903670655495866.pdf)。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>以为「配额 = 绝对保护」</h3><ul><li>配额只是工具，若执法不严或数据不准，照样可能过度捕捞。墨西哥湾红鲷成功的关键是「渔民+保育者合作」，不是配额本身 <a class="src" href="http://www.chinaeol.net/zyzx/sjhjzz/zzlm/lskp/201804/W020180903670655495866.pdf" target="_blank" rel="noopener noreferrer">查看来源</a>。</li></ul></div>
     <div class="card"><span class="tag tag-warn">坑 2</span><h3>忽视「分配公平」问题</h3><ul><li>配额给谁？大企业可能买断小渔民的份额，导致「富人捞鱼、穷人失业」——这是配额制度被批评最多的地方。</li></ul></div>
     <div class="card"><span class="tag tag-warn">坑 3</span><h3>被「可持续」标签忽悠</h3><ul><li>不是所有带小鱼标志的海鲜都真的可持续。要查认证机构的背景和标准，有些认证被批评「太宽松」。</li></ul></div>
     <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>没有「完美的管理工具」，只有「适合特定渔场的方案」。别把配额当万能药，它是工具箱里的一件工具。</li></ul></div>
@@ -279,9 +289,9 @@
       <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
       <tbody>
         <tr><td><b>TAC（总可捕量）</b></td><td>政府科学家算出来的「今年最多能捞多少鱼」的总数。</td></tr>
-        <tr><td><b>Catch Share（捕捞份额）</b></td><td>把 TAC 切成一份份的「配额」，分配给个人、合作社或社区，谁也不能超过自己的份额 (来源：https://www.fisheries.noaa.gov/national/sustainable-fisheries/catch-shares)。</td></tr>
+        <tr><td><b>Catch Share（捕捞份额）</b></td><td>把 TAC 切成一份份的「配额」，分配给个人、合作社或社区，谁也不能超过自己的份额 <a class="src" href="https://www.fisheries.noaa.gov/national/sustainable-fisheries/catch-shares" target="_blank" rel="noopener noreferrer">查看来源</a>。</td></tr>
         <tr><td><b>公地悲剧</b></td><td>公共资源（比如大海里的鱼）没人管时，每个人都会拼命捞，最后大家一起没鱼吃。</td></tr>
-        <tr><td><b>增殖放流</b></td><td>往海里投放鱼苗来补充鱼群，但专家建议「快放快收」，放流生命周期短、见效快的品种 (来源：https://www.cae.cn/cae/html/main/col95/2020-06/15/20200615174246490486052_1.html)。</td></tr>
+        <tr><td><b>增殖放流</b></td><td>往海里投放鱼苗来补充鱼群，但专家建议「快放快收」，放流生命周期短、见效快的品种 <a class="src" href="https://www.cae.cn/cae/html/main/col95/2020-06/15/20200615174246490486052_1.html" target="_blank" rel="noopener noreferrer">查看来源</a>。</td></tr>
       </tbody>
     </table>
   </div>
@@ -292,7 +302,7 @@
   <h2><span class="num">07</span>趣味小知识</h2>
   <div class="sec-note">聊天永远有料的包袱。</div>
   <div class="card">
-    <p class="quote">墨西哥湾的红鲷鱼曾因过度捕捞「整个种群接近崩溃边缘」，后来通过配额管理被成功救回——现在它成了全球渔业管理的「明星案例」。而这一切，靠的是渔民和环保主义者坐下来谈，而不是互相骂街 (来源：http://www.chinaeol.net/zyzx/sjhjzz/zzlm/lskp/201804/W020180903670655495866.pdf)。</p>
+    <p class="quote">墨西哥湾的红鲷鱼曾因过度捕捞「整个种群接近崩溃边缘」，后来通过配额管理被成功救回——现在它成了全球渔业管理的「明星案例」。而这一切，靠的是渔民和环保主义者坐下来谈，而不是互相骂街 <a class="src" href="http://www.chinaeol.net/zyzx/sjhjzz/zzlm/lskp/201804/W020180903670655495866.pdf" target="_blank" rel="noopener noreferrer">查看来源</a>。</p>
   </div>
   <div class="verdict">
     <div class="vcell"><div class="vt">适不适合你</div><div class="vb">适合关心环保、爱吃海鲜、或者对「公共资源管理」感兴趣的思考者；不适合想快速赚钱的人——配额不是股票。</div></div>

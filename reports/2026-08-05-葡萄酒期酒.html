@@ -79,6 +79,16 @@
   }
   .to-index:hover { background: #c8a866; color: #0a0a0a; }
 </style>
+
+<style id="fix-overflow-wrap">
+  /* 2026-09-04: 修复长 URL 撑破容器 */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
 </head>
 <body>
 <a class="to-index" href="../index.html">← 全部报告</a>
@@ -99,7 +109,7 @@
       <ul>
         <li><b>它是什么</b>：简单说，就是「预售」。葡萄酒还在橡木桶里陈年、还没装瓶时，就被买家以预定价格买下。等几年后酒正式装瓶发货，买的其实是一张等待升值的“酒票”。</li>
         <li><b>谁在玩</b>：主要是富裕的葡萄酒爱好者、专业藏家、投资机构，以及部分希望“尝鲜”的入门级买家（通过小份额基金或平台）。</li>
-        <li><b>市场多大</b>：全球葡萄酒市场在2020年估值约3395.3亿美元，预计到2028年将达到4567.6亿美元（来源：https://www.fortunebusinessinsights.com/zh/wine-market-102836）。期酒交易是其中极高端、流动性很强的细分环节，仅在波尔多，期酒活动就能吸引数十亿欧元的资金承诺。</li>
+        <li><b>市场多大</b>：全球葡萄酒市场在2020年估值约3395.3亿美元，预计到2028年将达到4567.6亿美元<a class="src" href="https://www.fortunebusinessinsights.com/zh/wine-market-102836" target="_blank" rel="noopener noreferrer">查看来源</a>。期酒交易是其中极高端、流动性很强的细分环节，仅在波尔多，期酒活动就能吸引数十亿欧元的资金承诺。</li>
         <li><b>小白能玩吗</b>：门槛很高，但并非完全没门路。直接买一整桶（约300瓶）至少几十万人民币打底；但通过基金、众筹平台或购买“小份额”可以低至几千元起步。风险在于：酒可能没酿好、市场跌价、流动性差（卖不掉）。</li>
       </ul>
     </div>
@@ -179,7 +189,7 @@
       <text x="495" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">顶级</text>
       <text x="380" y="215" fill="#8a8a8a" font-size="11" text-anchor="middle">柱状图示意：价格区间（非精确值）</text>
     </svg>
-    <div class="cap">价格带示意：入门级几十万瓶，顶级级只占全球产量极小部分。（来源：https://www.fortunebusinessinsights.com/zh/wine-market-102836）</div>
+    <div class="cap">价格带示意：入门级几十万瓶，顶级级只占全球产量极小部分。<a class="src" href="https://www.fortunebusinessinsights.com/zh/wine-market-102836" target="_blank" rel="noopener noreferrer">查看来源</a></div>
   </div>
 </section>
 

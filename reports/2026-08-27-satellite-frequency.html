@@ -79,6 +79,16 @@
   }
   .to-index:hover { background: #c8a866; color: #0a0a0a; }
 </style>
+
+<style id="fix-overflow-wrap">
+  /* 2026-09-04: 修复长 URL 撑破容器 */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
 </head>
 <body>
 <a class="to-index" href="../index.html">← 全部报告</a>
@@ -97,9 +107,9 @@
   <div class="card hero">
     <div class="hero-txt">
       <ul>
-        <li><b>它是什么</b>：卫星和地面站之间通信用的「电磁波通道」，由国际电信联盟（ITU）划分给各国，再由国家分给企业（来源：https://m.cls.cn/detail/1460883）。</li>
+        <li><b>它是什么</b>：卫星和地面站之间通信用的「电磁波通道」，由国际电信联盟（ITU）划分给各国，再由国家分给企业<a class="src" href="https://m.cls.cn/detail/1460883" target="_blank" rel="noopener noreferrer">查看来源</a>。</li>
         <li><b>谁在玩</b>：国家（ITU 成员国）、SpaceX/OneWeb 等巨型星座运营商、传统广电与电信巨头，以及所有依赖卫星的行业。</li>
-        <li><b>市场多大</b>：2023 年全球卫星通信市场规模约 318.7 亿美元，预计 2031 年增至 693.1 亿美元，年复合增长率 10.2%（来源：https://www.theinsightpartners.com/zh-CN/reports/satellite-communication-market）。</li>
+        <li><b>市场多大</b>：2023 年全球卫星通信市场规模约 318.7 亿美元，预计 2031 年增至 693.1 亿美元，年复合增长率 10.2%<a class="src" href="https://www.theinsightpartners.com/zh-CN/reports/satellite-communication-market" target="_blank" rel="noopener noreferrer">查看来源</a>。</li>
         <li><b>小白能玩吗</b>：不能直接「买频率」，但可以通过买相关股票、关注行业动态间接参与；门槛极高，普通人重在理解逻辑。</li>
       </ul>
     </div>
@@ -131,8 +141,8 @@
   <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
   <div class="card">
     <p style="color:#c4c4c4;font-size:13.5px;">想象一条八车道的超级高速公路。卫星频率就是这条路上划分好的车道：有的车道留给货车（广播），有的留给跑车（宽带互联网），有的留给救护车（紧急通信）。问题是，太空里没有交通警察，所以全世界必须提前商量好谁走哪条道——这个「商量」的机构叫国际电信联盟（ITU）。<br><br>
-    但车道是有限的。随着 SpaceX 的 Starlink 计划发射上万颗卫星，每条「车道」都挤满了车。传统上被认为「宽敞」的 Ku 和 Ka 频段，如今也变得拥堵不堪，尤其是低轨卫星星座之间的频率协调难度越来越大（来源：https://m.cls.cn/detail/1460883）。<br><br>
-    更麻烦的是，有些「车道」天生就高级。比如 1.5GHz 和 2GHz 附近的 L、S 频段，被称为卫星移动通信的「黄金频段」，因为它们穿透云层和雨衰的能力强，特别适合手机直连卫星。可惜这些频段早就被气象卫星、射电天文和地面移动通信占得满满当当，新玩家想挤进去几乎不可能（来源：https://m.cls.cn/detail/1460883）。</p>
+    但车道是有限的。随着 SpaceX 的 Starlink 计划发射上万颗卫星，每条「车道」都挤满了车。传统上被认为「宽敞」的 Ku 和 Ka 频段，如今也变得拥堵不堪，尤其是低轨卫星星座之间的频率协调难度越来越大<a class="src" href="https://m.cls.cn/detail/1460883" target="_blank" rel="noopener noreferrer">查看来源</a>。<br><br>
+    更麻烦的是，有些「车道」天生就高级。比如 1.5GHz 和 2GHz 附近的 L、S 频段，被称为卫星移动通信的「黄金频段」，因为它们穿透云层和雨衰的能力强，特别适合手机直连卫星。可惜这些频段早就被气象卫星、射电天文和地面移动通信占得满满当当，新玩家想挤进去几乎不可能<a class="src" href="https://m.cls.cn/detail/1460883" target="_blank" rel="noopener noreferrer">查看来源</a>。</p>
   </div>
   <div class="illus">
     <!-- 结构图：频率分配的三层体系 -->
@@ -150,7 +160,7 @@
       <text x="615" y="74" fill="#8a8a8a" font-size="10" text-anchor="middle">申请并使用频率</text>
       <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
     </svg>
-    <div class="cap">频率分配链条：ITU → 国家 → 企业（来源：https://m.cls.cn/detail/1460883）</div>
+    <div class="cap">频率分配链条：ITU → 国家 → 企业<a class="src" href="https://m.cls.cn/detail/1460883" target="_blank" rel="noopener noreferrer">查看来源</a></div>
   </div>
 </section>
 
@@ -162,10 +172,10 @@
     <table>
       <thead><tr><th>频段</th><th>用途</th><th>拥挤程度</th></tr></thead>
       <tbody>
-        <tr><td><b>L / S 频段</b>（1.5/2GHz）</td><td class="up">卫星移动通信「黄金频段」</td><td>极度稀缺，几乎无法申请（来源：https://m.cls.cn/detail/1460883）</td></tr>
+        <tr><td><b>L / S 频段</b>（1.5/2GHz）</td><td class="up">卫星移动通信「黄金频段」</td><td>极度稀缺，几乎无法申请<a class="src" href="https://m.cls.cn/detail/1460883" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
         <tr><td><b>C 频段</b>（4-8GHz）</td><td>传统广播电视、VSAT</td><td>较拥挤，但相对成熟</td></tr>
-        <tr><td><b>Ku 频段</b>（12-18GHz）</td><td>NGSO 宽带星座主力</td><td class="down">竞争激烈，OneWeb 声称拥有独家使用权（来源：https://m.cls.cn/detail/1460883）</td></tr>
-        <tr><td><b>Ka 频段</b>（26.5-40GHz）</td><td>低轨卫星通信核心通道</td><td>成为新宠，但协调难度大（来源：https://m.cls.cn/detail/1460883）</td></tr>
+        <tr><td><b>Ku 频段</b>（12-18GHz）</td><td>NGSO 宽带星座主力</td><td class="down">竞争激烈，OneWeb 声称拥有独家使用权<a class="src" href="https://m.cls.cn/detail/1460883" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
+        <tr><td><b>Ka 频段</b>（26.5-40GHz）</td><td>低轨卫星通信核心通道</td><td>成为新宠，但协调难度大<a class="src" href="https://m.cls.cn/detail/1460883" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
       </tbody>
     </table>
   </div>
@@ -187,7 +197,7 @@
       <text x="500" y="215" fill="#8a8a8a" font-size="11" text-anchor="middle">单位：亿美元 · CAGR 10.2%</text>
       <defs><marker id="ar3" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
     </svg>
-    <div class="cap">全球卫星通信市场规模：2023 vs 2031 预测（来源：https://www.theinsightpartners.com/zh-CN/reports/satellite-communication-market）</div>
+    <div class="cap">全球卫星通信市场规模：2023 vs 2031 预测<a class="src" href="https://www.theinsightpartners.com/zh-CN/reports/satellite-communication-market" target="_blank" rel="noopener noreferrer">查看来源</a></div>
   </div>
 </section>
 
@@ -201,7 +211,7 @@
       <div class="ptxt">
         <span class="tag tag-root">ROOT</span>
         <h3>国际电信联盟（ITU）</h3>
-        <ul><li>频率分配的「全球裁判」，决定哪个国家能用哪段频率</li><li>各国在 ITU 框架下申请，再在境内自主分配（来源：https://m.cls.cn/detail/1460883）</li></ul>
+        <ul><li>频率分配的「全球裁判」，决定哪个国家能用哪段频率</li><li>各国在 ITU 框架下申请，再在境内自主分配<a class="src" href="https://m.cls.cn/detail/1460883" target="_blank" rel="noopener noreferrer">查看来源</a></li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -209,7 +219,7 @@
       <div class="ptxt">
         <span class="tag tag-direct">星座巨头</span>
         <h3>SpaceX / OneWeb</h3>
-        <ul><li>Starlink 已发射数千颗低轨卫星，是 Ka/Ku 频段最大用户</li><li>OneWeb 声称拥有 Ku 频段独家频谱使用权，排他性极强（来源：https://m.cls.cn/detail/1460883）</li></ul>
+        <ul><li>Starlink 已发射数千颗低轨卫星，是 Ka/Ku 频段最大用户</li><li>OneWeb 声称拥有 Ku 频段独家频谱使用权，排他性极强<a class="src" href="https://m.cls.cn/detail/1460883" target="_blank" rel="noopener noreferrer">查看来源</a></li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -217,7 +227,7 @@
       <div class="ptxt">
         <span class="tag tag-hot">HOT</span>
         <h3>老牌玩家：Inmarsat / 铱星 / Viasat</h3>
-        <ul><li>手握 L/S 频段等「黄金资源」，专注海事、航空、应急通信</li><li>2023 年卫星通信服务市场价值约 319.47 亿美元（来源：https://www.marketreportsworld.com/zh/market-reports/satellite-communication-services-market-14728767）</li></ul>
+        <ul><li>手握 L/S 频段等「黄金资源」，专注海事、航空、应急通信</li><li>2023 年卫星通信服务市场价值约 319.47 亿美元<a class="src" href="https://www.marketreportsworld.com/zh/market-reports/satellite-communication-services-market-14728767" target="_blank" rel="noopener noreferrer">查看来源</a></li></ul>
       </div>
     </div>
     <div class="card pcard">
@@ -225,7 +235,7 @@
       <div class="ptxt">
         <span class="tag tag-step">入门</span>
         <h3>小白友好入口</h3>
-        <ul><li>关注 ITU 官网的频谱分配公告，了解最新动态</li><li>阅读券商研报（如财联社的《卫星互联网十问十答》）建立基础认知（来源：https://m.cls.cn/detail/1460883）</li></ul>
+        <ul><li>关注 ITU 官网的频谱分配公告，了解最新动态</li><li>阅读券商研报（如财联社的《卫星互联网十问十答》）建立基础认知<a class="src" href="https://m.cls.cn/detail/1460883" target="_blank" rel="noopener noreferrer">查看来源</a></li></ul>
       </div>
     </div>
   </div>
@@ -236,9 +246,9 @@
   <h2><span class="num">04</span>小白如何起步</h2>
   <div class="sec-note">按步骤走，别一上来就梭哈。</div>
   <div class="tl">
-    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">搞清楚频率≠频谱资源：频率是「使用权」而非「所有权」，ITU 分配后还要协调避免干扰。先理解这个底层逻辑，再谈其他（来源：https://m.cls.cn/detail/1460883）。</div></div>
+    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">搞清楚频率≠频谱资源：频率是「使用权」而非「所有权」，ITU 分配后还要协调避免干扰。先理解这个底层逻辑，再谈其他<a class="src" href="https://m.cls.cn/detail/1460883" target="_blank" rel="noopener noreferrer">查看来源</a>。</div></div>
     <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">围观巨头动向：SpaceX 的发射计划、OneWeb 的频谱诉讼、各国 5G 与卫星的频段争夺，这些新闻就是最好的学习材料。</div></div>
-    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">建立判断框架：关注三个维度——频段物理特性（穿透力/带宽）、政治协调难度、商业需求爆发点。Ka 频段之所以火，就是因为三者兼备（来源：https://m.cls.cn/detail/1460883）。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">建立判断框架：关注三个维度——频段物理特性（穿透力/带宽）、政治协调难度、商业需求爆发点。Ka 频段之所以火，就是因为三者兼备<a class="src" href="https://m.cls.cn/detail/1460883" target="_blank" rel="noopener noreferrer">查看来源</a>。</div></div>
     <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">谨慎参与投资：如果想投资卫星互联网，建议从 ETF 或龙头股开始，不要因为「频率稀缺」的故事就重仓单一概念股。市场有风险，决策需谨慎。</div></div>
   </div>
 </section>
@@ -248,9 +258,9 @@
   <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
   <div class="sec-note">外行最容易交学费的地方。</div>
   <div class="grid2">
-    <div class="card"><span class="tag tag-warn">坑 1</span><h3>以为「频率=无限资源」</h3><ul><li>实际上频率是稀缺的，尤其 L/S 频段已几乎被占满，新玩家很难挤进去（来源：https://m.cls.cn/detail/1460883）</li><li>避坑：看到「频率无限」的说法直接拉黑</li></ul></div>
-    <div class="card"><span class="tag tag-warn">坑 2</span><h3>低估「协调难度」</h3><ul><li>Ku/Ka 频段虽热门，但 GEO 卫星资料数量庞大，NGSO 星座之间排他性严重，协调是持久战（来源：https://m.cls.cn/detail/1460883）</li><li>避坑：别以为「申请了就能用」，实际协调可能耗时数年</li></ul></div>
-    <div class="card"><span class="tag tag-warn">坑 3</span><h3>混淆「卫星通信」和「卫星数据」</h3><ul><li>卫星通信是传输管道，卫星数据服务（如 Planet Labs 的 AI 图像分析）是内容应用，两者市场逻辑完全不同（来源：https://straitsresearch.com/zh/report/satellite-data-services-market）</li><li>避坑：投资前先分清你买的到底是「卖水」还是「淘金」</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>以为「频率=无限资源」</h3><ul><li>实际上频率是稀缺的，尤其 L/S 频段已几乎被占满，新玩家很难挤进去<a class="src" href="https://m.cls.cn/detail/1460883" target="_blank" rel="noopener noreferrer">查看来源</a></li><li>避坑：看到「频率无限」的说法直接拉黑</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>低估「协调难度」</h3><ul><li>Ku/Ka 频段虽热门，但 GEO 卫星资料数量庞大，NGSO 星座之间排他性严重，协调是持久战<a class="src" href="https://m.cls.cn/detail/1460883" target="_blank" rel="noopener noreferrer">查看来源</a></li><li>避坑：别以为「申请了就能用」，实际协调可能耗时数年</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>混淆「卫星通信」和「卫星数据」</h3><ul><li>卫星通信是传输管道，卫星数据服务（如 Planet Labs 的 AI 图像分析）是内容应用，两者市场逻辑完全不同<a class="src" href="https://straitsresearch.com/zh/report/satellite-data-services-market" target="_blank" rel="noopener noreferrer">查看来源</a></li><li>避坑：投资前先分清你买的到底是「卖水」还是「淘金」</li></ul></div>
     <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>频率是「政治+物理」的双重游戏，任何只看技术不看国际协调的判断都是耍流氓。</li></ul></div>
   </div>
   <div class="illus">
@@ -265,7 +275,7 @@
       <text x="550" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">「频段再宽，协调不好就是废的」</text>
       <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
     </svg>
-    <div class="cap">误区 vs 真相（来源：https://m.cls.cn/detail/1460883）</div>
+    <div class="cap">误区 vs 真相<a class="src" href="https://m.cls.cn/detail/1460883" target="_blank" rel="noopener noreferrer">查看来源</a></div>
   </div>
 </section>
 
@@ -280,7 +290,7 @@
         <tr><td><b>ITU</b></td><td>国际电信联盟，联合国的「频率裁判」，负责给全世界的无线电频段划分「车道」</td></tr>
         <tr><td><b>NGSO</b></td><td>非地球静止轨道，指低轨卫星星座（如 Starlink），区别于传统的高轨同步卫星</td></tr>
         <tr><td><b>GEO</b></td><td>地球静止轨道，卫星固定在赤道上空 3.6 万公里处，传统通信卫星的「停车位」</td></tr>
-        <tr><td><b>Ka/Ku 频段</b></td><td>两种高频段，带宽大、速率高，但雨衰明显；是低轨宽带星座的主力频段（来源：https://m.cls.cn/detail/1460883）</td></tr>
+        <tr><td><b>Ka/Ku 频段</b></td><td>两种高频段，带宽大、速率高，但雨衰明显；是低轨宽带星座的主力频段<a class="src" href="https://m.cls.cn/detail/1460883" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
         <tr><td><b>频率协调</b></td><td>多个卫星系统之间避免信号干扰的「谈判」过程，是星座部署中最耗时的一环</td></tr>
       </tbody>
     </table>
@@ -292,7 +302,7 @@
   <h2><span class="num">07</span>趣味小知识</h2>
   <div class="sec-note">聊天永远有料的包袱。</div>
   <div class="card">
-    <p class="quote">你知道吗？L 频段（1.5GHz）之所以被称为「黄金频段」，是因为它既能穿透云层和雨雪，又不需要太大的天线——你的手机如果能直连卫星，用的就是这类频段。可惜这些「黄金车道」早被气象卫星和射电天文台占了，新玩家连排队的机会都没有（来源：https://m.cls.cn/detail/1460883）。</p>
+    <p class="quote">你知道吗？L 频段（1.5GHz）之所以被称为「黄金频段」，是因为它既能穿透云层和雨雪，又不需要太大的天线——你的手机如果能直连卫星，用的就是这类频段。可惜这些「黄金车道」早被气象卫星和射电天文台占了，新玩家连排队的机会都没有<a class="src" href="https://m.cls.cn/detail/1460883" target="_blank" rel="noopener noreferrer">查看来源</a>。</p>
   </div>
   <div class="verdict">
     <div class="vcell"><div class="vt">适不适合你</div><div class="vb">适合：对航天/通信感兴趣、愿意花时间研究国际政治与技术交叉的人。<span class="hot">不适合</span>：想快速赚钱、不愿读长文的人。</div></div>
