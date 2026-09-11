@@ -237,3 +237,13 @@
 [cold_mining] git push ok=True info=To github.com:RayChan611/cold-mining.git
    98fa131..8f90627  main -> main
 [cold_mining] feishu code=0 link=https://raychan611.github.io/cold-mining/reports/2026-09-10-carbon-credit-101.html
+[cold_mining] line=cold topic=水权 slug=water-rights
+[cold_mining] tavily hits=2354
+[cold_mining] AI error: HTTPError('429 Client Error: Too Many Requests for url: https://ark.cn-beijing.volces.com/api/coding/v3/chat/completions')
+[cold_mining] attempt=0 html_len=0 svg=0
+[cold_mining] attempt=1 html_len=18556 svg=8
+[cold_mining] wrote /home/ubuntu/cold-mining/reports/2026-09-11-water-rights.html
+[cold_mining] index+log updated
+[cold_mining] git push ok=True info=To github.com:RayChan611/cold-mining.git
+   8f90627..de7a406  main -> main
+[cold_mining] feishu code=0 link=https://raychan611.github.io/cold-mining/reports/2026-09-11-water-rights.html
