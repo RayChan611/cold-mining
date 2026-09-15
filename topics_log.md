@@ -40,3 +40,4 @@
 | 2026-09-10 | 碳信用：给地球的「减碳额度」，一场正在进行的绿色大交易 | reports/2026-09-10-carbon-credit-101.html |
 | 2026-09-11 | 水权：看不见的“水银行”，怎么让每一滴水都活起来 | reports/2026-09-11-water-rights.html |
 | 2026-09-14 | 卫星频率：天上那条看不见的「高速公路」，凭什么这么值钱 | reports/2026-09-14-satellite-frequency.html |
+| 2026-09-15 | 稀土：被当成“土”卖的战略金属，到底牛在哪 | reports/2026-09-15-rare-earth-elements.html |
