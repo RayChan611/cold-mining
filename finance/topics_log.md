@@ -35,3 +35,4 @@
 | 2026-09-09 | 定投：给普通人的“懒人理财”入门指南 | reports/2026-09-09-ding-tou.html |
 | 2026-09-11 | 资产配置与再平衡：别把鸡蛋放一个篮子，也别让篮子自己乱跑 | reports/2026-09-11-asset-allocation-and-rebalancing.html |
 | 2026-09-14 | 风险平价：把钱分给不同的「风险」，而不是不同的「资产」 | reports/2026-09-14-risk-parity.html |
+| 2026-09-15 | 一朵花引发的疯狂：郁金香狂热入门报告 | reports/2026-09-15-tulip-mania.html |
