@@ -41,3 +41,4 @@
 | 2026-09-11 | 水权：看不见的“水银行”，怎么让每一滴水都活起来 | reports/2026-09-11-water-rights.html |
 | 2026-09-14 | 卫星频率：天上那条看不见的「高速公路」，凭什么这么值钱 | reports/2026-09-14-satellite-frequency.html |
 | 2026-09-15 | 稀土：被当成“土”卖的战略金属，到底牛在哪 | reports/2026-09-15-rare-earth-elements.html |
+| 2026-09-16 | 拍卖行捡漏：普通人如何用「信息差」低价买到好东西 | reports/2026-09-16-auction-bargain-hunting.html |
