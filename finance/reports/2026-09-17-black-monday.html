@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 黑色星期一</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05080; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+
+<style id=cold-mining-responsive-20260904>
+  /* 长 URL 兜底换行（防止撑破容器） */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb, .sec-note {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 金融史</div>
+  <h1>黑色星期一：当股市一天蒸发掉一个“小国家”</h1>
+  <div class="sub">用 10 分钟搞清楚：历史上那些“跌到熔断”的日子到底发生了什么，以及它跟你有啥关系</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。投资/收藏有风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：这是金融史上最戏剧性的“一天跌没一年涨幅”现象。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：股市在一天之内出现恐慌性暴跌，跌幅远超正常波动，通常伴随“熔断”“千点跳水”等新闻标题。</li>
+        <li><b>谁在玩</b>：机构投资者（对冲基金、养老金）、量化交易程序、散户，以及被“强制平仓”的杠杆玩家。</li>
+        <li><b>市场多大</b>：1987年10月19日，道琼斯工业指数单日下跌 22.6%，市值一天蒸发约 5000 亿美元（相当于当时美国 GDP 的 1/8）[UNSOURCED]。</li>
+        <li><b>小白能玩吗</b>：不能“玩”，但必须“懂”——因为你的养老金、房贷利率、甚至工作，都跟它间接相连。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <!-- 首屏概念图：跌落的K线 + 日历 -->
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <rect x="14" y="20" width="132" height="110" rx="10" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <line x1="30" y1="40" x2="30" y2="110" stroke="#2a2a2a" stroke-width="1.5"/>
+        <line x1="30" y1="110" x2="140" y2="110" stroke="#2a2a2a" stroke-width="1.5"/>
+        <polyline points="34,42 58,50 78,62 98,84 118,100 136,110" fill="none" stroke="#e05050" stroke-width="2.5"/>
+        <circle cx="136" cy="110" r="4" fill="#e05050"/>
+        <rect x="110" y="36" width="30" height="18" rx="3" fill="#1f1f1f" stroke="#c8a866" stroke-width="1"/>
+        <text x="125" y="48" fill="#c8a866" font-size="9" text-anchor="middle">10月</text>
+        <line x1="30" y1="80" x2="140" y2="80" stroke="#2a2a2a" stroke-width="0.8" stroke-dasharray="4 4"/>
+        <text x="80" y="140" fill="#8a8a8a" font-size="10" text-anchor="middle">黑色星期一 · 概念示意</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">想象你走进一家商场，所有商品标价牌每小时都在变。早上你看到一台电视标价 100 元，中午变成 80，下午变成 60，收盘前突然有人大喊“清仓甩卖”，价格瞬间跌到 40——而且没人知道为什么，只是大家都在跑，你也跟着跑。这就是“黑色星期一”。<br><br>
+    金融学上，这叫“恐慌性抛售”（panic selling）。它不是某个公司出了坏消息，而是整个市场集体失去信心，形成“下跌 → 恐慌 → 更多人卖 → 更下跌”的死亡螺旋。1987 年的那次之所以出名，是因为当时刚刚普及的“程序化交易”（电脑自动下单）第一次展示了它的威力：机器比人跑得快得多，也冷血得多。</p>
+  </div>
+  <div class="illus">
+    <!-- 价值链 / 结构：从“正常交易”到“恐慌螺旋” -->
+    <svg viewBox="0 0 720 120" width="720" height="120" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="40" width="180" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="100" y="63" fill="#e8e8e8" font-size="12" text-anchor="middle">正常交易</text>
+      <text x="100" y="78" fill="#9a9a9a" font-size="10" text-anchor="middle">买 / 卖 / 撮合</text>
+      <path d="M195 62 H235" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="245" y="40" width="180" height="44" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="335" y="63" fill="#e8e8e8" font-size="12" text-anchor="middle">触发因素</text>
+      <text x="335" y="78" fill="#9a9a9a" font-size="10" text-anchor="middle">坏消息 / 程序抛售</text>
+      <path d="M430 62 H470" stroke="#e05050" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="480" y="40" width="180" height="44" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="570" y="63" fill="#e8e8e8" font-size="12" text-anchor="middle">恐慌螺旋</text>
+      <text x="570" y="78" fill="#9a9a9a" font-size="10" text-anchor="middle">跌 → 卖 → 更跌</text>
+      <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">黑色星期一的“死亡螺旋”路径：从正常交易到恐慌性抛售</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 历史对比 -->
+<section>
+  <h2><span class="num">02</span>历史上的“黑色星期一”们</h2>
+  <div class="sec-note">用真实数字说明“跌起来有多狠”。以下为历次著名暴跌的单日跌幅对比。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>日期</th><th>指数 / 市场</th><th>单日跌幅</th><th>背景</th></tr></thead>
+      <tbody>
+        <tr><td>1929-10-28</td><td>道琼斯</td><td class="down">-13.5%</td><td>大萧条前夜</td></tr>
+        <tr><td>1987-10-19</td><td>道琼斯</td><td class="down">-22.6%</td><td>程序化交易首秀 [UNSOURCED]</td></tr>
+        <tr><td>2008-09-29</td><td>道琼斯</td><td class="down">-7.0%</td><td>雷曼兄弟倒闭引发</td></tr>
+        <tr><td>2020-03-16</td><td>标普500</td><td class="down">-12.0%</td><td>新冠疫情全球爆发 [UNSOURCED]</td></tr>
+        <tr><td>2024-08-05</td><td>日经225</td><td class="down">-12.4%</td><td>日元套利交易平仓 [UNSOURCED]</td></tr>
+      </tbody>
+    </table>
+    <p class="src">注：以上数据为历次著名单日跌幅，具体数值取自公开报道，部分为近似值 [UNSOURCED]。</p>
+  </div>
+  <div class="illus">
+    <!-- 数据图：历次暴跌柱状对比 -->
+    <svg viewBox="0 0 720 220" width="720" height="220" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <!-- 1929 -->
+      <rect x="90" y="100" width="80" height="80" fill="#c8a866"/>
+      <text x="130" y="93" fill="#e8e8e8" font-size="11" text-anchor="middle">-13.5%</text>
+      <text x="130" y="198" fill="#9a9a9a" font-size="10" text-anchor="middle">1929</text>
+      <!-- 1987 -->
+      <rect x="230" y="30" width="80" height="150" fill="#e05050"/>
+      <text x="270" y="23" fill="#e05050" font-size="11" text-anchor="middle">-22.6%</text>
+      <text x="270" y="198" fill="#9a9a9a" font-size="10" text-anchor="middle">1987</text>
+      <!-- 2008 -->
+      <rect x="370" y="130" width="80" height="50" fill="#c8a866"/>
+      <text x="410" y="123" fill="#e8e8e8" font-size="11" text-anchor="middle">-7.0%</text>
+      <text x="410" y="198" fill="#9a9a9a" font-size="10" text-anchor="middle">2008</text>
+      <!-- 2020 -->
+      <rect x="510" y="95" width="80" height="85" fill="#c8a866"/>
+      <text x="550" y="88" fill="#e8e8e8" font-size="11" text-anchor="middle">-12.0%</text>
+      <text x="550" y="198" fill="#9a9a9a" font-size="10" text-anchor="middle">2020</text>
+      <!-- 2024 -->
+      <rect x="620" y="98" width="60" height="82" fill="#c8a866"/>
+      <text x="650" y="91" fill="#e8e8e8" font-size="11" text-anchor="middle">-12.4%</text>
+      <text x="650" y="198" fill="#9a9a9a" font-size="10" text-anchor="middle">2024</text>
+      <text x="360" y="215" fill="#8a8a8a" font-size="11" text-anchor="middle">历次著名暴跌单日跌幅对比（%），数据为公开报道近似值 [UNSOURCED]</text>
+    </svg>
+    <div class="cap">对比：1987 年的 -22.6% 至今仍是道指单日最大跌幅纪录</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 角色 -->
+<section>
+  <h2><span class="num">03</span>关键角色：谁在推动黑色星期一</h2>
+  <div class="sec-note">不是一个人在战斗——每个角色都有自己的“使命”和“锅”。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 4v16M15 4v16M4 9h16M4 15h16"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">中枢</span>
+        <h3>交易所 / 监管机构</h3>
+        <ul><li>制定熔断规则，关键时刻“拔电源”</li><li>1987年后引入“熔断机制”防止再崩 [UNSOURCED]</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><path d="M12 2v20M17 7H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">加速器</span>
+        <h3>程序化交易 / 量化基金</h3>
+        <ul><li>电脑自动下单，速度远超人类</li><li>1987年首次大规模亮相，被指“火上浇油” [UNSOURCED]</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1M12 13v3M10 19h4"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">燃料</span>
+        <h3>杠杆散户 / 追涨杀跌者</h3>
+        <ul><li>借钱炒股，跌了被强制平仓</li><li>恐慌时最容易“割肉”离场</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">抄底者</span>
+        <h3>价值投资者 / 逆向思维者</h3>
+        <ul><li>别人恐惧我贪婪</li><li>巴菲特名言：“在别人贪婪时恐惧，在别人恐惧时贪婪” [UNSOURCED]</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何理解与应对 -->
+<section>
+  <h2><span class="num">04</span>小白如何理解与应对</h2>
+  <div class="sec-note">你不是专业投资者，但你可以学会不被恐慌卷走。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">认识“波动”和“风险”的区别。波动是价格上上下下，风险是永久损失本金。黑色星期一是波动，不是世界末日。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">别借钱投资。杠杆是黑色星期一里最惨的受害者——不是被跌死的，是被“平仓”打死的。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">看长期。1987 年暴跌后，道指用了不到两年就收复失地并创新高 [UNSOURCED]。历史多次证明，长期持有比频繁操作更靠谱。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">留足现金。暴跌时手里有现金的人，才有资格“抄底”。平时满仓的人，只能干瞪眼。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不交学费</h2>
+  <div class="sec-note">外行最容易踩的坑，以及对应的保命心法。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>“这次不一样”</h3><ul><li>每次暴跌都有人喊“这次是结构性崩盘”，但历史每次都涨回来了</li><li>应对：不预测，只应对</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>“跌了赶紧跑”</h3><ul><li>恐慌性卖出往往卖在最低点</li><li>应对：提前设定好止损线，别临时起意</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>“杠杆梭哈”</h3><ul><li>借钱炒股 = 亏不起</li><li>应对：永远只用闲钱投资</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>“如果你不能承受 50% 的下跌，就不要持有 100% 的仓位。”</li><li>——投资大师查理·芒格 [UNSOURCED]</li></ul></div>
+  </div>
+  <div class="illus">
+    <!-- 误区 vs 真相 -->
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="58" fill="#e05050" font-size="13" text-anchor="middle">误区</text>
+      <text x="180" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">“黑色星期一 = 经济要完蛋”</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="400" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="58" fill="#50b070" font-size="13" text-anchor="middle">真相</text>
+      <text x="550" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">“只是价格重估，经济基本面没变”</text>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相：黑色星期一不等于经济危机，更多时候是“情绪危机”</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>熔断机制</b></td><td>股市跌太狠时，交易所强制暂停交易 15 分钟，让大家冷静一下，别一起跑。</td></tr>
+        <tr><td><b>程序化交易</b></td><td>电脑按预设规则自动买卖，速度快到人类还没反应过来就卖完了。</td></tr>
+        <tr><td><b>恐慌性抛售</b></td><td>不管价格多少，只求赶紧卖掉离场——结果越卖越跌，越跌越卖。</td></tr>
+        <tr><td><b>强制平仓</b></td><td>你借钱炒股，跌到一定程度，券商直接帮你卖掉，不问你愿不愿意。</td></tr>
+        <tr><td><b>套利交易平仓</b></td><td>借低息货币（如日元）买高息资产，一旦汇率或利率变动，大家同时平仓，引发连锁暴跌。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">1987 年黑色星期一那天，纽约证券交易所的成交量达到 6.04 亿股，是当时历史最高纪录——但更夸张的是，很多交易员根本不知道发生了什么，因为电脑下单的速度远超人类理解速度。事后调查发现，当天有大量程序化交易指令来自同一批量化模型，它们像一群“机器人恐慌”一样同时逃跑 [UNSOURCED]。</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">如果你是长期投资者，黑色星期一其实是“打折日”；如果你是杠杆玩家，那就是“绞刑日”。<span class="cool">适合</span> 有耐心的人，<span class="hot">不适合</span> 借钱炒股的人。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">“市场从恐慌到恢复，只需要时间；而从贪婪到破产，只需要杠杆。”——改编自巴菲特 [UNSOURCED]</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：公开市场历史数据、新闻报道、维基百科“黑色星期一”词条等。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
