@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 老相机行情</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  /* 图文并茂：插图与线稿图标 */
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+
+  /* 汇总入口：左上角悬浮返回总库 */
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+
+<style id=cold-mining-responsive-20260904>
+  /* 长 URL 兜底换行（防止撑破容器） */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb, .sec-note {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 老相机行情</div>
+  <h1>老相机行情：为什么十年前被扔进抽屉的电子垃圾，现在能卖出天价？</h1>
+  <div class="sub">一句话副标题：用大白话讲清楚「老相机收藏」为什么有人玩、怎么入门、哪里是坑</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。投资/收藏有风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：这个领域是干什么的、谁在玩、值不值得普通人关注。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：一台旧相机卖出新相机几倍价钱的「二手硬件收藏」市场，核心是胶片机、限量版数码机与经典镜头。</li>
+        <li><b>谁在玩</b>：怀旧摄影爱好者、网红博主、炒货商人和极少数「接盘侠」。近年 Z 世代为内容创作入场，带火了「CCD 老数码相机」这个分支。</li>
+        <li><b>市场多大</b>：全球数码相机市场整体在增长，2023 年销量比前一年增长约 25%，无反相机增长约 31%（来源：<a class="src" href="https://www.news.cn/fortune/20240919/f5595a2f4f584dc389b74e5e2a652ef0/c.html" target="_blank" rel="noopener noreferrer">新华网</a>）。但「老相机」没有官方统计，属于灰色地带，主要靠闲鱼、eBay 和二手店成交 [UNSOURCED]。</li>
+        <li><b>小白能玩吗</b>：门槛低（几百块就能买台 CCD 老数码），但水很深——翻新机、拆修机、炒高价泡沫都常见，建议当消费品不当投资品。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <!-- 首屏概念图：一台老式胶片相机 + 价格标签 -->
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <!-- 机身 -->
+        <rect x="28" y="56" width="104" height="58" rx="8" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <!-- 镜头 -->
+        <circle cx="62" cy="85" r="22" fill="#101010" stroke="#c8a866" stroke-width="2"/>
+        <circle cx="62" cy="85" r="12" fill="#1f1f1f" stroke="#8a8a8a" stroke-width="1.5"/>
+        <circle cx="62" cy="85" r="4" fill="#c8a866"/>
+        <!-- 取景器凸起 -->
+        <rect x="78" y="40" width="38" height="20" rx="4" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+        <!-- 顶部转盘 -->
+        <rect x="34" y="44" width="18" height="16" rx="3" fill="#1f1f1f" stroke="#c8a866" stroke-width="1.5"/>
+        <!-- 快门按钮 -->
+        <circle cx="54" cy="46" r="4" fill="#c8a866"/>
+        <!-- 标注线：价格标签 -->
+        <line x1="112" y1="88" x2="128" y2="64" stroke="#e05050" stroke-width="1.5" stroke-dasharray="3,3"/>
+        <text x="128" y="58" fill="#e05050" font-size="11" font-family="monospace">¥9999</text>
+        <text x="80" y="134" fill="#8a8a8a" font-size="9" text-anchor="middle">老相机 · 二手行情</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">老相机行情 ≈ <b>「旧手机回收」的文艺升级版</b>。区别在于：旧手机回收靠拆零件卖钱，而老相机靠的是「情怀 + 稀缺 + 社交货币」三样东西定价。<br><br>
+    想象一下：你 2005 年买的 800 万像素佳能卡片机，当年也就值 2000 块，扔抽屉里吃灰十年。现在因为短视频博主一句「CCD 拍人有胶片感」，同款在二手平台能挂 1500 块——<b>比当年新机还贵</b>。这不是手机那种「越老越贬值」，而是像球鞋、盲盒一样的「潮流反向炒作」。<br><br>
+    更深一层，它跟「黑胶唱片复兴」「复古胶片复兴」是同一件事：年轻人没经历过那个时代，反而觉得「旧」=「有味道」。需求被网红经济点燃后，产能早就停了（厂商不产 CCD 传感器了），供给有限 → 价格被炒高。正如新华网报道所写：自媒体热潮的兴起和年轻人入局，使得市场对某些相机的需求量大，<b>但产能小、行情不稳定常常引发「一机难求」</b>（来源：<a class="src" href="https://www.news.cn/fortune/20240919/f5595a2f4f584dc389b74e5e2a652ef0/c.html" target="_blank" rel="noopener noreferrer">新华网</a>）。</p>
+  </div>
+  <div class="illus">
+    <!-- 价值链 / 结构 图：从「旧物」到「天价」的三环节流程 -->
+    <svg viewBox="0 0 720 120" width="720" height="120" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="40" width="180" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="100" y="61" fill="#e8e8e8" font-size="12" text-anchor="middle">旧物回收</text>
+      <text x="100" y="76" fill="#8a8a8a" font-size="10" text-anchor="middle">闲鱼 / 古玩城 几十元</text>
+      <path d="M195 62 H235" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="245" y="40" width="180" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="335" y="61" fill="#e8e8e8" font-size="12" text-anchor="middle">网红炒作</text>
+      <text x="335" y="76" fill="#8a8a8a" font-size="10" text-anchor="middle">短视频 / 小红书 带火</text>
+      <path d="M430 62 H470" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="480" y="40" width="180" height="44" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="570" y="61" fill="#e8e8e8" font-size="12" text-anchor="middle">高价转卖</text>
+      <text x="570" y="76" fill="#e05050" font-size="10" text-anchor="middle">翻倍甚至 10 倍</text>
+      <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">老相机从「电子垃圾」到「天价收藏品」的典型流转路径</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 价格带</h2>
+  <div class="sec-note">用真实数字说明蛋糕有多大、钱集中在哪。来源内联标注。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>档位</th><th>典型价格</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>CCD 老数码卡片机</td><td class="up">¥200 – 2,000</td><td>Z 世代最爱的「复古氛围感」入门机，量大、价低，但翻新机泛滥（据公开资料）</td></tr>
+        <tr><td>经典胶片单反 / 旁轴</td><td>¥1,000 – 20,000</td><td>尼康 FM2、佳能 AE-1 等「人手一台」的经典款，成色好能卖到中档价位 [UNSOURCED]</td></tr>
+        <tr><td>限量版 / 徕卡 / 哈苏</td><td class="down">¥50,000 – 300,000+</td><td>真正的收藏级硬通货，限量编号、原盒原配件能大幅溢价 [UNSOURCED]</td></tr>
+      </tbody>
+    </table>
+    <p class="quote">注：老相机无官方统计口径，以上为闲鱼、eBay 常见挂价区间，仅供参考 [UNSOURCED]。</p>
+  </div>
+  <div class="illus">
+    <!-- 价格带柱状图 -->
+    <svg viewBox="0 0 720 220" width="720" height="220" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <!-- 入门档：200-2000，对数刻度近似 -->
+      <rect x="110" y="160" width="90" height="20" fill="#c8a866"/>
+      <!-- 进阶档：1000-20000 -->
+      <rect x="280" y="110" width="90" height="70" fill="#c8a866"/>
+      <!-- 收藏档：50000-300000 -->
+      <rect x="450" y="30" width="90" height="150" fill="#e05050"/>
+      <text x="155" y="198" fill="#9a9a9a" font-size="11" text-anchor="middle">CCD卡片机</text>
+      <text x="325" y="198" fill="#9a9a9a" font-size="11" text-anchor="middle">经典胶片机</text>
+      <text x="495" y="198" fill="#9a9a9a" font-size="11" text-anchor="middle">限量收藏级</text>
+      <text x="380" y="215" fill="#8a8a8a" font-size="11" text-anchor="middle">价格带示意（对数刻度，非精确值）</text>
+    </svg>
+    <div class="cap">老相机三个主流价格带（纵轴为挂价高低示意）</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台 -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在制定规则、谁在赚钱、小白该去哪个平台。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">ROOT</span>
+        <h3>佳能 / 尼康 / 徕卡</h3>
+        <ul><li>老相机的「原厂」与品牌背书方。佳能、尼康等巨头仍在生产无反新机（来源：<a class="src" href="https://www.news.cn/fortune/20240919/f5595a2f4f584dc389b74e5e2a652ef0/c.html" target="_blank" rel="noopener noreferrer">新华网</a>），但老型号早已停产，存量有限 → 稀缺性源头。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">平台 B</span>
+        <h3>闲鱼 / eBay</h3>
+        <ul><li>最大的二手交易集散地。闲鱼是国内老相机「一机难求」的策源地，价格波动剧烈（来源：<a class="src" href="https://www.news.cn/fortune/20240919/f5595a2f4f584dc389b74e5e2a652ef0/c.html" target="_blank" rel="noopener noreferrer">新华网</a>）。门槛极低，但假货、翻新机多。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">HOT</span>
+        <h3>小红书 / 抖音博主</h3>
+        <ul><li>行情「点火器」。博主一句「CCD 氛围感神器」就能让某型号价格翻倍，是典型网红经济驱动（来源：<a class="src" href="https://www.news.cn/fortune/20240919/f5595a2f4f584dc389b74e5e2a652ef0/c.html" target="_blank" rel="noopener noreferrer">新华网</a>）。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>线下二手相机店 / 摄影器材城</h3>
+        <ul><li>北京五棵松、上海星光等摄影器材城，可上手试机、验货，适合小白避坑。贵一点但买放心 [UNSOURCED]。</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就梭哈。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">先定预算和目的：只想拍「氛围感人像」就花 300-800 块买台 CCD 卡片机（如索尼 T 系、佳能 IXUS 系）；想要收藏就盯胶片单反。别一上来就追徕卡。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">去线下店或闲鱼「围观」：看同一型号的 3-5 个挂价，记住「最低价 + 最高价」。别急买，先在摄影论坛（如色影无忌、豆瓣胶片小组）看别人怎么验机 [UNSOURCED]。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">小额试水：买台 200-400 块的「配件机」（功能不全但能亮灯），练手拆装和验机。花几百块交学费，远好过直接砸 5000 块买台翻新徕卡。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">建立判断框架：查「快门次数」「是否拆修」「传感器坏点」「霉斑」。这些是定价核心。当你能一眼看出「翻新机」，才有资格谈「捡漏」 [UNSOURCED]。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>「翻新当原装」</h3><ul><li>很多老相机被拆修过、换过零件，但挂「原装无修」卖高价。避坑方法：看螺丝是否有拧痕、快门帘是否有油渍、序列号是否涂改 [UNSOURCED]。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>「网红同款」溢价泡沫</h3><ul><li>博主一推荐，价格立刻跳涨 50%-100%。避坑方法：追热门前先看闲鱼「成交价」而非「挂价」，很多挂高价根本卖不掉（来源：<a class="src" href="https://www.news.cn/fortune/20240919/f5595a2f4f584dc389b74e5e2a652ef0/c.html" target="_blank" rel="noopener noreferrer">新华网</a>提到行情不稳定）。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>「电子元件老化」</h3><ul><li>老相机电容老化、排线断裂是常态。买 CCD 机时务必试拍 50 张以上，看有没有黑屏、横纹。很多「收藏级」根本拍不了几张 [UNSOURCED]。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>「当消费品不当投资品」。买老相机是为了拍出喜欢的照片、享受把玩机械的快乐——想靠它发财，不如去买指数基金。真要保值，只买徕卡 M 系和哈苏 V 系 [UNSOURCED]。</li></ul></div>
+  </div>
+  <div class="illus">
+    <!-- 误区 vs 真相 对比图 -->
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="58" fill="#e05050" font-size="13" text-anchor="middle">误区：老相机一定升值</text>
+      <text x="180" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">「情怀无价 = 挂高价有人买」</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="400" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="58" fill="#50b070" font-size="13" text-anchor="middle">真相：绝大多数在贬值</text>
+      <text x="550" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">只有顶级经典款 / 限量款才保值</text>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相：不是所有老相机都是「理财产品」</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>CCD</b></td><td>老式数码相机的传感器，被炒成「胶片感神器」，其实当年因为耗电大、高感差被淘汰 [UNSOURCED]</td></tr>
+        <tr><td><b>快门次数</b></td><td>相当于相机「里程表」，数字越低越值钱，但很多人会清零造假 [UNSOURCED]</td></tr>
+        <tr><td><b>黄斑对焦</b></td><td>旁轴相机的对焦方式，取景器里有个黄点重影，叠上就对上焦了，老玩家觉得很优雅 [UNSOURCED]</td></tr>
+        <tr><td><b>胶片机 vs 数码机</b></td><td>胶片机用胶卷，有「颗粒感」；老数码机用 CCD，有「电子味」。目前被炒得最凶的是老数码 CCD 机 [UNSOURCED]</td></tr>
+        <tr><td><b>原盒原配件</b></td><td>带包装盒、充电器、说明书的老相机能多卖 20%-50%，收藏圈最看这个 [UNSOURCED]</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">你知道现在被炒到 2000 多块的佳能 IXUS 系列 CCD 老相机，当年是「女生入门机」吗？它甚至没有取景器，只能靠屏幕「盲拍」 [UNSOURCED]。更讽刺的是，当年它因为「屏幕太小看不见拍什么」被嫌弃，如今却因为「屏幕像素低，拍出来自带朦胧美」被追捧——<b>同一个缺点，换个时代就成了卖点</b>。</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">适合：喜欢复古拍照、享受机械把玩感、愿意花几百块买个「小玩具」的人。不适合：想靠倒卖发财、追求画质锐利、没耐心验机的人。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">老相机行情是一场「旧物 + 网红 + 稀缺」的化学反应——<br><span class="hot">别把情怀当投资</span>，<br>但可以用它买一份「按快门的仪式感」。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：新华网《网红经济"激活"相机市场》报道、The Insight Partners 数码相机市场报告、CBNData 运动相机行业分析、钛媒体全景相机报道等公开资料。<br>
+  本内容为 AI 整理的研究草稿，非投资建议。老相机行情无官方统计口径，具体价格请以实际成交为准。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
