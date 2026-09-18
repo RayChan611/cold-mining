@@ -38,3 +38,4 @@
 | 2026-09-15 | 一朵花引发的疯狂：郁金香狂热入门报告 | reports/2026-09-15-tulip-mania.html |
 | 2026-09-16 | 南海泡沫：三百年前那场让牛顿也栽跟头的全民炒股利器 | reports/2026-09-16-south-sea-bubble.html |
 | 2026-09-17 | 黑色星期一：当股市一天蒸发掉一个“小国家” | reports/2026-09-17-black-monday.html |
+| 2026-09-18 | 指数基金：用一篮子股票，躺着分享经济增长 | reports/2026-09-18-index-fund-guide.html |
