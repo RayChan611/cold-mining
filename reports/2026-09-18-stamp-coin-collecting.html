@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 邮票与钱币收藏</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+
+<style id=cold-mining-responsive-20260904>
+  /* 长 URL 兜底换行（防止撑破容器） */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb, .sec-note {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 收藏品入门</div>
+  <h1>邮票与钱币收藏：方寸之间的宝藏与陷阱</h1>
+  <div class="sub">用大白话讲清楚：为什么一张纸片能值一套房，以及普通人怎么开始玩而不被坑</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。投资/收藏有风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：这个领域是干什么的、谁在玩、值不值得普通人关注。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：收藏「国家/地区官方发行的小型印刷品（邮票）和金属货币（钱币）」，主要图的是历史价值、艺术价值和稀缺性。</li>
+        <li><b>谁在玩</b>：从「爷爷辈老藏家」到 90 后、00 后都有；近年更出现了把邮票/钱币变成「电子盘」线上交易的玩家（据公开资料）。</li>
+        <li><b>市场多大</b>：中国邮币卡市场年交易规模达数千亿元级 [UNSOURCED]；单件珍品可拍出数十万至数百万元（如「全国山河一片红」邮票曾拍出 730 万港元 <a class="src" href="https://finance.huanqiu.com/article/9CaKrnJM8Sk" target="_blank" rel="noopener noreferrer">查看来源</a>）。</li>
+        <li><b>小白能玩吗</b>：能，但别把它当「理财」。入门门槛低（几十元就能买一枚），但水很深——假货多、价格波动大、流动性差（想卖时不一定有人接盘）。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <!-- 概念图：一枚邮票和一枚钱币的抽象线稿 -->
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <!-- 邮票（左侧，带锯齿边） -->
+        <rect x="18" y="22" width="58" height="70" rx="4" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <!-- 邮票锯齿（简化成小短线） -->
+        <path d="M18 30 l-4 2 M18 42 l-4 2 M18 54 l-4 2 M18 66 l-4 2 M18 78 l-4 2" stroke="#c8a866" stroke-width="1.5"/>
+        <path d="M76 30 l4 2 M76 42 l4 2 M76 54 l4 2 M76 66 l4 2 M76 78 l4 2" stroke="#c8a866" stroke-width="1.5"/>
+        <path d="M26 22 l2 -4 M38 22 l2 -4 M50 22 l2 -4 M62 22 l2 -4" stroke="#c8a866" stroke-width="1.5"/>
+        <path d="M26 92 l2 4 M38 92 l2 4 M50 92 l2 4 M62 92 l2 4" stroke="#c8a866" stroke-width="1.5"/>
+        <!-- 邮票内框 -->
+        <rect x="24" y="28" width="46" height="56" rx="2" fill="none" stroke="#8a8a8a" stroke-width="1"/>
+        <!-- 邮票上的山形图案 -->
+        <path d="M28 76 L38 50 L46 64 L52 44 L64 76 Z" fill="none" stroke="#c8a866" stroke-width="1.5"/>
+        <text x="47" y="86" fill="#8a8a8a" font-size="7" text-anchor="middle">CHINA 80</text>
+        <!-- 钱币（右侧，圆形） -->
+        <circle cx="116" cy="56" r="32" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <circle cx="116" cy="56" r="26" fill="none" stroke="#8a8a8a" stroke-width="1.5"/>
+        <text x="116" y="62" fill="#c8a866" font-size="16" text-anchor="middle">¥</text>
+        <!-- 下方文字 -->
+        <text x="80" y="126" fill="#8a8a8a" font-size="10" text-anchor="middle">邮票 + 钱币</text>
+        <text x="80" y="140" fill="#6a6a6a" font-size="9" text-anchor="middle">方寸之间，大有乾坤</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">
+      想象一下，你小时候收集过「干脆面里的水浒卡」——邮票和钱币收藏就是这个逻辑的「成人版」。只不过，这些卡片不再是随零食附赠的，而是由国家邮政局和央行发行的「官方卡片」，每一张都印着那个年代的审美、政治符号和工艺水平。<br/><br/>
+      它有点像「买限量版球鞋」：官方发行量有限，热门款式价格翻倍，但如果你只是自己穿（自己收藏），它就是个爱好；如果你想转手赚钱，就得研究「尺码（品相）」「配色（版别）」「市场热度（行情）」。区别在于，球鞋会旧，而一枚品相完好的 1950 年代硬币，可能比它刚发行时贵几百倍。<br/><br/>
+      更要命的是，这行还有一个「电子盘」玩法——近几年随着「互联网+」的发展，钱币和邮票被搬上交易所像股票一样交易，被称为「钱邮电子盘」，让原本冷门的收藏品投资变得「飞入寻常百姓家」 <a class="src" href="https://finance.huanqiu.com/article/9CaKrnJM8Sk" target="_blank" rel="noopener noreferrer">查看来源</a>。
+    </p>
+  </div>
+  <div class="illus">
+    <!-- 价值链线稿：发行 → 流通/沉淀 → 交易/收藏 -->
+    <svg viewBox="0 0 720 120" width="720" height="120" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="40" width="180" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="100" y="59" fill="#e8e8e8" font-size="12" text-anchor="middle">国家发行</text>
+      <text x="100" y="75" fill="#8a8a8a" font-size="10" text-anchor="middle">邮政局 / 央行</text>
+      <path d="M195 62 H235" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="245" y="40" width="180" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="335" y="59" fill="#e8e8e8" font-size="12" text-anchor="middle">市场流通 / 沉淀</text>
+      <text x="335" y="75" fill="#8a8a8a" font-size="10" text-anchor="middle">邮市 / 币商 / 藏家</text>
+      <path d="M430 62 H470" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="480" y="40" width="180" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="570" y="59" fill="#e8e8e8" font-size="12" text-anchor="middle">交易 / 变现</text>
+      <text x="570" y="75" fill="#8a8a8a" font-size="10" text-anchor="middle">拍卖行 / 电子盘 / 私下交易</text>
+      <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">邮币收藏的价值流转路径：官方发行 → 沉淀在藏家手中 → 通过多种渠道交易变现</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 价格带</h2>
+  <div class="sec-note">用真实数字说明蛋糕有多大、钱集中在哪。来源内联标注。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>档位</th><th>典型价格</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>入门档</td><td class="up">¥5 – 500</td><td>普通纪念币、近年邮票年册、散装外币（如朝鲜、越南纪念钞）</td></tr>
+        <tr><td>进阶档</td><td>¥1,000 – 50,000</td><td>1980 年代「猴票」单枚（当前市价约 ¥10,000+ [UNSOURCED]）、发行量小的金银纪念币</td></tr>
+        <tr><td>极品档</td><td class="down">¥100,000+</td><td>「全国山河一片红」邮票（撤销发行）曾拍出 730 万港元 <a class="src" href="https://finance.huanqiu.com/article/9CaKrnJM8Sk" target="_blank" rel="noopener noreferrer">查看来源</a>；部分第一版人民币纸币可达数十万元</td></tr>
+      </tbody>
+    </table>
+    <p style="color:#6a6a6a;font-size:11.5px;margin-top:8px;">注：入门档的「¥5」指纪念币面值或低价邮票；极品档为拍卖成交价，非普通市场价。电子盘上部分品种价格波幅极大，如「南京文交所」等平台曾出现过单日涨跌超 10% 的行情 (来源：<a class="src" href="https://finance.huanqiu.com/article/9CaKrnJM8Sk" target="_blank" rel="noopener noreferrer">查看来源</a>)。</p>
+  </div>
+  <div class="illus">
+    <!-- 价格带柱状图 -->
+    <svg viewBox="0 0 720 220" width="720" height="220" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <!-- 入门档（¥5-500）几乎贴着横轴 -->
+      <rect x="110" y="172" width="90" height="8" fill="#50b070"/>
+      <!-- 进阶档（¥1,000-50,000）刻度低 -->
+      <rect x="280" y="120" width="90" height="60" fill="#c8a866"/>
+      <!-- 极品档（¥100,000+）超长 -->
+      <rect x="450" y="20" width="90" height="160" fill="#e05050"/>
+      <text x="155" y="196" fill="#9a9a9a" font-size="11" text-anchor="middle">入门 ¥5-500</text>
+      <text x="325" y="196" fill="#9a9a9a" font-size="11" text-anchor="middle">进阶 ¥1k-5w</text>
+      <text x="495" y="196" fill="#9a9a9a" font-size="11" text-anchor="middle">极品 ¥10w+</text>
+      <!-- 标注猴票和一片红 -->
+      <line x1="325" y1="118" x2="260" y2="100" stroke="#c8a866" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="140" y="96" fill="#c8a866" font-size="10" text-anchor="end">猴票单枚约 ¥10,000+ [UNSOURCED]</text>
+      <line x1="495" y1="18" x2="590" y2="40" stroke="#e05050" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="600" y="44" fill="#e05050" font-size="10" text-anchor="start">「一片红」730万港元</text>
+      <text x="380" y="215" fill="#8a8a8a" font-size="11" text-anchor="middle">价格带示意（对数感，非严格比例）· 来源见上表</text>
+    </svg>
+    <div class="cap">价格带示意：极少数珍品占据了绝大部分市场价值</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台 -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在制定规则、谁在赚钱、小白该去哪个平台。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">ROOT</span>
+        <h3>国家邮政局 & 中国人民银行</h3>
+        <ul><li>唯一的「官方发行方」，决定了邮票和纪念币的发行量、题材、面值。</li><li>发行量是收藏市场的「第一指挥棒」——发行越少，炒作空间越大（据公开资料）。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">EXCHANGE</span>
+        <h3>钱邮电子盘（如南京文交所等）</h3>
+        <ul><li>把邮票/钱币像股票一样放到线上交易，24 小时或收盘竞价。</li><li>2015 年前后火爆，号称让「钱邮投资走近寻常百姓」 <a class="src" href="https://finance.huanqiu.com/article/9CaKrnJM8Sk" target="_blank" rel="noopener noreferrer">查看来源</a>。</li><li>风险极高：部分平台曾现暴涨暴跌、甚至关停跑路 [UNSOURCED]。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">HOT</span>
+        <h3>拍卖行（嘉德、保利、Spink 等）</h3>
+        <ul><li>珍品邮票/钱币的主要成交渠道，负责鉴定、估价、公开竞价。</li><li>「全国山河一片红」等天价拍品多出自拍卖行（来源：环球网报道 <a class="src" href="https://finance.huanqiu.com/article/9CaKrnJM8Sk" target="_blank" rel="noopener noreferrer">查看来源</a>）。</li><li>对小白来说：围观涨知识，参拍需缴纳保证金。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>线下邮币卡市场 / 评级公司</h3>
+        <ul><li>各地都有「邮币卡市场」（如北京马甸、上海卢工），是小白看实物、学鉴定的最佳场所。</li><li>评级公司（如 PCGS、NGC、源泰评级）提供真伪鉴定和品相打分，是二手交易的「信用中介」。</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就梭哈。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">花 ¥100-300 买一本「近年邮票年册」或一套普通纪念币——先感受纸张/金属的质感，搞清楚自己到底喜不喜欢。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">去线下邮市逛 2-3 次，只看不买，听摊主怎么聊「品相」「版别」「发行量」；回来用「一尘网」「赵涌在线」查历史成交价。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">锁定一个细分领域（比如「1980-1990 年 JT 邮票」或「生肖纪念币」），只研究这一个方向的行情、专家和圈子。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">小额试水：买评级币/评级邮票（有第三方鉴定背书），考虑「拿 5 年」的心态入手，别指望短期翻倍。设置自己的「预算红线」。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3假货 / 二胶票 / 修补票</h3><ul><li>邮票怕假、怕「二胶」（洗过再刷胶）、怕修补（补色/补齿）；钱币怕改刻、怕高仿。避坑第一守则：认准评级公司的封装盒，别贪图「裸票裸币」便宜。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>听「故事」追热点</h3><ul><li>「这个品种要涨」「有庄家拉升」——电子盘时代这类话术害人无数。任何收藏品，买之前问自己：如果卖不出去，我是否依然喜欢它？（来源：环球网报道指出电子盘让「钱邮投资走近寻常百姓」，但过热背后风险同样巨大 <a class="src" href="https://finance.huanqiu.com/article/9CaKrnJM8Sk" target="_blank" rel="noopener noreferrer">查看来源</a>）</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>品相认知不足</h3><ul><li>同样一枚猴票，全品相和微黄的价格能差 30% 以上 [UNSOURCED]。新手常把「看着差不多」当成「同品相」。学习看「背胶」「齿孔」「光泽」是基本功。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>「只买看得懂的，只用闲钱买，做好拿五年的准备。」——收藏品的流动性远低于股票，急用钱时贱卖是最大的亏损来源。</li></ul></div>
+  </div>
+  <div class="illus">
+    <!-- 误区 vs 真相 对比图 -->
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="58" fill="#e05050" font-size="13" text-anchor="middle">误区：越老越值钱</text>
+      <text x="180" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">「这枚是 1960 年的，肯定贵」</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="400" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="58" fill="#50b070" font-size="13" text-anchor="middle">真相：稀缺性 + 品相 + 需求</text>
+      <text x="550" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">发行量小、存世完好、有人追捧才值钱</text>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相：老 ≠ 贵，稀缺 + 品相 + 需求才是硬道理</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>品相</b></td><td>东西保存的好坏程度。全品 = 完美，微黄 = 略发黄，差品 = 有折痕污渍。品相差一级，价格差一截。</td></tr>
+        <tr><td><b>版别 / 版式</b></td><td>同一种邮票/钱币的细微差异（比如影写版 vs 胶版），稀有的版别往往贵很多。</td></tr>
+        <tr><td><b>评级币 / 评级票</b></td><td>第三方专业机构鉴定真伪、打分（如 68 分），然后封装在透明盒子里。相当于「官方验过货的」，小白友好。</td></tr>
+        <tr><td><b>电子盘</b></td><td>把邮币卡像股票一样在线上交易的场所。2015 年前后火爆，但也出过不少风险事件 <a class="src" href="https://finance.huanqiu.com/article/9CaKrnJM8Sk" target="_blank" rel="noopener noreferrer">查看来源</a>。</td></tr>
+        <tr><td><b>发行量</b></td><td>官方印了多少。发行量越少，理论上越稀缺——但还要看「存世量」（实际保存下来多少）。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">1980 年发行的「猴票」（庚申年猴）是中国第一枚生肖邮票，发行量约 500 万枚，当时一枚只要 8 分钱。到了 2017 年前后，单枚全品相猴票市价约 1.2 万元人民币，37 年涨了 15 万倍 [UNSOURCED]——但注意，这是「有价无市」的标杆价，实际成交要看品相和市场行情。另一个冷知识：「全国山河一片红」是因为地图绘制错误被紧急撤销发行的，反而成了收藏界传奇，拍出 730 万港元 <a class="src" href="https://finance.huanqiu.com/article/9CaKrnJM8Sk" target="_blank" rel="noopener noreferrer">查看来源</a>。</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">适合：喜欢历史、有耐心、能接受「买完可能变废纸」的人。<span class="hot">不适合</span>：想短期赚钱、心态急、把生活费拿来梭哈的人。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">邮票和钱币是「带着文化密码的纸片与金属」，<span class="cool">先当爱好，再谈投资</span>，方寸之间才有真乐趣。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：环球网财经报道（https://finance.huanqiu.com/article/9CaKrnJM8Sk）、公开拍卖记录 [UNSOURCED] 等。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
