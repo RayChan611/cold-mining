@@ -44,3 +44,4 @@
 | 2026-09-16 | 拍卖行捡漏：普通人如何用「信息差」低价买到好东西 | reports/2026-09-16-auction-bargain-hunting.html |
 | 2026-09-17 | 老相机行情：为什么十年前被扔进抽屉的「电子垃圾」，现在能卖出天价？ | reports/2026-09-17-old-camera-market.html |
 | 2026-09-18 | 邮票与钱币收藏：方寸之间的宝藏与陷阱 | reports/2026-09-18-stamp-coin-collecting.html |
+| 2026-09-21 | 域名投资：把互联网的“门牌号”变成资产 | reports/2026-09-21-domain-investing.html |

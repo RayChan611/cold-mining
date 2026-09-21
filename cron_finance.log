@@ -275,3 +275,11 @@
 [cold_mining] git push ok=True info=To github.com:RayChan611/cold-mining.git
    0589e75..c6d1742  main -> main
 [cold_mining] feishu code=0 link=https://raychan611.github.io/cold-mining/finance/reports/2026-09-17-black-monday.html
+[cold_mining] line=finance topic=指数基金 slug=index-fund
+[cold_mining] tavily hits=2479
+[cold_mining] attempt=0 html_len=18321 svg=8
+[cold_mining] wrote /home/ubuntu/cold-mining/finance/reports/2026-09-18-index-fund-guide.html
+[cold_mining] index+log updated
+[cold_mining] git push ok=True info=To github.com:RayChan611/cold-mining.git
+   da54008..8c353ee  main -> main
+[cold_mining] feishu code=0 link=https://raychan611.github.io/cold-mining/finance/reports/2026-09-18-index-fund-guide.html
