@@ -40,3 +40,4 @@
 | 2026-09-17 | 黑色星期一：当股市一天蒸发掉一个“小国家” | reports/2026-09-17-black-monday.html |
 | 2026-09-18 | 指数基金：用一篮子股票，躺着分享经济增长 | reports/2026-09-18-index-fund-guide.html |
 | 2026-09-21 | 汇率到底是什么：让钱变成另一种钱的那把尺子 | reports/2026-09-21-exchange-rate.html |
+| 2026-09-22 | GDP / CPI / PPI：三个词看懂宏观经济的三张体检报告单 | reports/2026-09-22-gdp-cpi-ppi-explained.html |

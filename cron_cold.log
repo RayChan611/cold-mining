@@ -295,3 +295,12 @@
 [cold_mining] git push ok=True info=To github.com:RayChan611/cold-mining.git
    8c353ee..c4cbf73  main -> main
 [cold_mining] feishu code=0 link=https://raychan611.github.io/cold-mining/reports/2026-09-21-domain-investing.html
+[cold_mining] line=cold topic=威士忌投资 slug=whisky-invest
+[cold_mining] tavily hits=2457
+[cold_mining] attempt=0 html_len=0 svg=0
+[cold_mining] attempt=1 html_len=18029 svg=8
+[cold_mining] wrote /home/ubuntu/cold-mining/reports/2026-09-22-whisky-investment.html
+[cold_mining] index+log updated
+[cold_mining] git push ok=True info=To github.com:RayChan611/cold-mining.git
+   2508533..0f8d899  main -> main
+[cold_mining] feishu code=0 link=https://raychan611.github.io/cold-mining/reports/2026-09-22-whisky-investment.html
