@@ -41,3 +41,4 @@
 | 2026-09-18 | 指数基金：用一篮子股票，躺着分享经济增长 | reports/2026-09-18-index-fund-guide.html |
 | 2026-09-21 | 汇率到底是什么：让钱变成另一种钱的那把尺子 | reports/2026-09-21-exchange-rate.html |
 | 2026-09-22 | GDP / CPI / PPI：三个词看懂宏观经济的三张体检报告单 | reports/2026-09-22-gdp-cpi-ppi-explained.html |
+| 2026-09-23 | 货币政策：央行手中的"经济方向盘"——大白话入门指南 | reports/2026-09-23-monetary-policy.html |

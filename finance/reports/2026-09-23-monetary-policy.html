@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 货币政策入门</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  /* 图文并茂：插图与线稿图标 */
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+
+  /* 汇总入口：左上角悬浮返回总库 */
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+
+<style id=cold-mining-responsive-20260904>
+  /* 长 URL 兜底换行（防止撑破容器） */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb, .sec-note {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 宏观经济</div>
+  <h1>货币政策：央行手中的"经济方向盘"</h1>
+  <div class="sub">一句话副标题：为什么你存钱的利息、买房贷款的成本，都听一个国家机构指挥？</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。投资/收藏有风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：这个领域是干什么的、谁在玩、值不值得普通人关注。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：一个国家的"央行"（货币权威机构）通过调节货币供应量、利率等手段，来影响整个经济活动的措施。通俗说，就是给经济"踩油门"或"踩刹车" (来源：<a class="src" href="https://zh.wikipedia.org/zh-hans/货币政策" target="_blank" rel="noopener noreferrer">维基百科-货币政策</a>)。</li>
+        <li><b>谁在玩</b>：各国的中央银行。比如美国的联邦储备系统（Fed）、欧洲央行（ECB）、中国人民银行等 (来源：<a class="src" href="https://research.titanfx.com/zh-hant/glossary/what-is-monetary-policy" target="_blank" rel="noopener noreferrer">Titan FX 研究</a>)。</li>
+        <li><b>影响多大</b>：影响每个人的生活——房贷利率、存款利息、物价、就业率都受它调控 (来源：<a class="src" href="https://www.imf.org/zh/about/factsheets/sheets/2023/monetary-policy-and-central-banking" target="_blank" rel="noopener noreferrer">国际货币基金组织 IMF</a>)。</li>
+        <li><b>小白能玩吗</b>：不直接参与，但必须懂。看懂央行的动作，你就能预判"钱该放在哪"。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <!-- 首屏概念图：方向盘 + 经济仪表盘 -->
+      <svg viewBox="0 0 200 200" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+        <!-- 方向盘 -->
+        <circle cx="100" cy="85" r="45" fill="none" stroke="#c8a866" stroke-width="5"/>
+        <circle cx="100" cy="85" r="10" fill="#141414" stroke="#c8a866" stroke-width="3"/>
+        <path d="M100 40 L100 70 M100 130 L100 110 M55 85 L80 85 M120 85 L145 85" stroke="#c8a866" stroke-width="5"/>
+        <!-- 仪表盘指针 -->
+        <path d="M100 155 L100 175" stroke="#e05050" stroke-width="3"/>
+        <path d="M100 175 A25 25 0 0 1 125 175" fill="none" stroke="#2a2a2a" stroke-width="2"/>
+        <text x="100" y="195" fill="#8a8a8a" font-size="9" text-anchor="middle">经济方向盘</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">
+      想象一个国家是一个巨大的浴缸，水就是市场上的钱。央行是那个管水龙头的人。经济太冷（衰退、失业高），央行就多放水（降息、印钞），让钱流进市场，刺激消费和投资；经济太热（通货膨胀、物价飞涨），央行就关小水龙头（加息、收紧货币），把多余的水抽走，让物价降下来。核心目标只有一个：<b>保持物价稳定</b>——多数国家把目标通胀率设在 1%-3% (来源：<a class="src" href="https://zh.wikipedia.org/zh-hans/货币政策" target="_blank" rel="noopener noreferrer">维基百科-货币政策</a>)。
+    </p>
+  </div>
+  <div class="illus">
+    <!-- 传导机制图：央行 → 利率/供应量 → 经济活动 -->
+    <svg viewBox="0 0 720 150" width="720" height="150" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="50" width="160" height="50" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="90" y="72" fill="#e8e8e8" font-size="11" text-anchor="middle" font-weight="bold">央行工具</text>
+      <text x="90" y="90" fill="#9a9a9a" font-size="9" text-anchor="middle">利率 / 准备金率 / 公开市场</text>
+      <path d="M175 75 H215" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="225" y="50" width="160" height="50" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="305" y="72" fill="#e8e8e8" font-size="11" text-anchor="middle" font-weight="bold">中间桥梁</text>
+      <text x="305" y="90" fill="#9a9a9a" font-size="9" text-anchor="middle">商业银行信贷 / 市场利率</text>
+      <path d="M390 75 H430" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="440" y="50" width="200" height="50" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="540" y="72" fill="#e8e8e8" font-size="11" text-anchor="middle" font-weight="bold">最终目标</text>
+      <text x="540" y="90" fill="#9a9a9a" font-size="9" text-anchor="middle">就业率↑ 物价稳定 生产量↑</text>
+      <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+      <text x="360" y="135" fill="#8a8a8a" font-size="10" text-anchor="middle">货币政策传导机制 (来源：IMF)</text>
+    </svg>
+    <div class="cap">图1：央行的动作如何一步步传导到你的钱包 (来源：<a class="src" href="https://www.imf.org/zh/about/factsheets/sheets/2023/monetary-policy-and-central-banking" target="_blank" rel="noopener noreferrer">IMF - 货币政策与中央银行业务</a>)</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 政策类型</h2>
+  <div class="sec-note">用真实数字说明政策有哪些档位、分别什么时候用。来源内联标注。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>政策方向</th><th>典型操作</th><th>适用场景</th></tr></thead>
+      <tbody>
+        <tr><td>宽松（激进的）</td><td class="up">降息 / 降准 / 买入国债</td><td>经济衰退、失业率高，为促进经济增长而调节利率 (来源：<a class="src" href="https://zh.wikipedia.org/zh-hans/货币政策" target="_blank" rel="noopener noreferrer">维基百科-货币政策</a>)</td></tr>
+        <tr><td>中性</td><td>保持基准利率不变</td><td>经济平稳运行，既不刺激也不收紧 (来源：同上)</td></tr>
+        <tr><td>紧缩</td><td class="down">加息 / 提高准备金率</td><td>通胀过高（物价飞涨），需给经济降温 (来源：<a class="src" href="https://baike.baidu.com/item/货币政策" target="_blank" rel="noopener noreferrer">百度百科-货币政策</a>)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="illus">
+    <!-- 数据图：利率升降对经济影响的柱状对比 -->
+    <svg viewBox="0 0 720 220" width="720" height="220" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <!-- 宽松 -->
+      <rect x="110" y="50" width="100" height="130" fill="#50b070" opacity="0.8"/>
+      <text x="160" y="42" fill="#50b070" font-size="11" text-anchor="middle">宽松</text>
+      <text x="160" y="170" fill="#c4c4c4" font-size="9" text-anchor="middle">刺激贷款/投资</text>
+      <!-- 中性 -->
+      <rect x="310" y="90" width="100" height="90" fill="#c8a866" opacity="0.8"/>
+      <text x="360" y="82" fill="#c8a866" font-size="11" text-anchor="middle">中性</text>
+      <text x="360" y="170" fill="#c4c4c4" font-size="9" text-anchor="middle">维持平稳</text>
+      <!-- 紧缩 -->
+      <rect x="510" y="130" width="100" height="50" fill="#e05050" opacity="0.8"/>
+      <text x="560" y="122" fill="#e05050" font-size="11" text-anchor="middle">紧缩</text>
+      <text x="560" y="170" fill="#c4c4c4" font-size="9" text-anchor="middle">抑制通胀/降温</text>
+      <text x="380" y="210" fill="#8a8a8a" font-size="10" text-anchor="middle">政策取向 vs 经济刺激力度（示意对比，非精确数据）</text>
+    </svg>
+    <div class="cap">图2：三种政策取向与刺激力度对比（示意）</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台（玩家卡片用线稿 SVG 小图标，不用 emoji） -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 机构</h2>
+  <div class="sec-note">谁在制定规则、谁在执行、普通人该关注谁。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">CORE</span>
+        <h3>美国联邦储备系统（Fed）</h3>
+        <ul><li>全球最有影响力的央行，奉行"双重任务"：同时关注通胀与失业率 (来源：<a class="src" href="https://research.titanfx.com/zh-hant/glossary/what-is-monetary-policy" target="_blank" rel="noopener noreferrer">Titan FX 研究</a>)。</li><li>它一加息，全球资金都会跟着动，你的投资组合也躲不开。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">ECB</span>
+        <h3>欧洲央行（ECB）</h3>
+        <ul><li>欧元区货币政策核心，目标更聚焦于通胀稳定 (来源：<a class="src" href="https://research.titanfx.com/zh-hant/glossary/what-is-monetary-policy" target="_blank" rel="noopener noreferrer">Titan FX 研究</a>)。</li><li>管着20个国家的共同货币，协调难度巨大。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">PBoC</span>
+        <h3>中国人民银行（PBoC）</h3>
+        <ul><li>中国央行，近年从"总量目标"转向"流动性状态"管理，通过降准、公开市场国债买卖等工具调节长期资金 (来源：<a class="src" href="http://www.imi.ruc.edu.cn/IMIsd/9184b941af364372b0d32d32a46bb851.htm" target="_blank" rel="noopener noreferrer">国际货币网</a>)。</li><li>普通人最该盯的国内政策风向标。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>普通人的关注入口</h3>
+        <ul><li>不用盯所有央行，只看本国央行 + 美联储的月度/季度会议纪要即可。</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就梭哈。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">建立基础认知：看懂"通胀率"和"利率"两个词。知道央行目标通胀率一般是 1%-3% (来源：<a class="src" href="https://zh.wikipedia.org/zh-hans/货币政策" target="_blank" rel="noopener noreferrer">维基百科-货币政策</a>)。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">关注央行公告：央行每次议息会议后都会发布声明，只看"加息/降息/不变"三个词就够了，其他是噪音。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">观察身边：央行加息后，房贷利率、消费贷利率会跟着涨，存款利息也涨——这就是传导机制 (来源：<a class="src" href="https://www.imf.org/zh/about/factsheets/sheets/2023/monetary-policy-and-central-banking" target="_blank" rel="noopener noreferrer">IMF</a>)。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">形成判断框架：央行"放水"时，钱存银行会贬值，该考虑抗通胀资产；央行"收水"时，现金更值钱，别乱加杠杆。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑（可加一张「误区 vs 真相」插图） -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>把"降准"当"放水"就梭哈</h3><ul><li>降准（降低存款准备金率）确实释放长期资金，但不等于马上通胀，中间传导有时滞 (来源：<a class="src" href="http://www.imi.ruc.edu.cn/IMIsd/9184b941af364372b0d32d32a46bb851.htm" target="_blank" rel="noopener noreferrer">国际货币网</a>)。</li><li>正确做法：观察后续几个月实际信贷数据，别听风就是雨。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>以为央行只控通胀</h3><ul><li>美国央行还要管就业，双重任务使其决策更灵活，也更难预测 (来源：<a class="src" href="https://research.titanfx.com/zh-hant/glossary/what-is-monetary-policy" target="_blank" rel="noopener noreferrer">Titan FX 研究</a>)。</li><li>正确做法：别只看通胀一个指标，要综合看就业、GDP 等。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>把"央行加息"当股市末日</h3><ul><li>加息确实压制高估值资产，但对银行、保险等板块有时反而是利好。</li><li>正确做法：理解"预期差"——市场已消化的预期比动作本身更重要。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>货币政策是宏观的"天气预告"，不是你的"个股操作指令"——别因为它调整就频繁交易。</li></ul></div>
+  </div>
+  <div class="illus">
+    <!-- 误区 vs 真相 对比图 -->
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="58" fill="#e05050" font-size="13" text-anchor="middle">误区</text>
+      <text x="180" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">"央行降息 = 股市必涨"</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="400" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="58" fill="#50b070" font-size="13" text-anchor="middle">真相</text>
+      <text x="550" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">取决于市场是否已提前消化该预期</text>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">图3：关于降息最常见的误区</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>基准利率</b></td><td>央行给商业银行的"批发价"，所有贷款利率都跟着它动 (来源：<a class="src" href="https://zh.wikipedia.org/zh-hans/货币政策" target="_blank" rel="noopener noreferrer">维基百科-货币政策</a>)。</td></tr>
+        <tr><td><b>存款准备金率</b></td><td>银行每收到100元存款，必须锁进央行金库的比例。降准 = 放更多钱出来 (来源：<a class="src" href="http://www.imi.ruc.edu.cn/IMIsd/9184b941af364372b0d32d32a46bb851.htm" target="_blank" rel="noopener noreferrer">国际货币网</a>)。</td></tr>
+        <tr><td><b>公开市场操作</b></td><td>央行在市场上买卖国债，买入 = 投钱，卖出 = 收钱 (来源：<a class="src" href="https://www.imf.org/zh/about/factsheets/sheets/2023/monetary-policy-and-central-banking" target="_blank" rel="noopener noreferrer">IMF</a>)。</td></tr>
+        <tr><td><b>传导机制</b></td><td>央行动一下，经过银行、贷款、消费，最后落到就业和物价的链条 (来源：<a class="src" href="https://zh.wikipedia.org/zh-hans/货币政策" target="_blank" rel="noopener noreferrer">维基百科-货币政策</a>)。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">你知道吗？美联储在 2008 年金融危机后曾把利率降到接近 0%，还搞了"量化宽松"（QE）——相当于直接开直升机撒钱买国债。最夸张的是，日本央行为了刺激经济，一度实行负利率——银行把钱存央行不仅没利息，还得倒贴钱！[UNSOURCED]</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">如果你对"为什么钱越来越不值钱"好奇，或者有房贷、在炒股，那货币政策你必须懂；如果你是纯现金持有者（不存银行、不投资），那影响相对较小。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">货币政策不是让你预测未来，而是让你在央行转向时，<span class="cool">别站错队</span>。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：维基百科-货币政策、百度百科-货币政策、Titan FX 研究、国际货币基金组织（IMF）、国际货币网（人大IMI）。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
