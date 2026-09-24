@@ -46,3 +46,4 @@
 | 2026-09-18 | 邮票与钱币收藏：方寸之间的宝藏与陷阱 | reports/2026-09-18-stamp-coin-collecting.html |
 | 2026-09-21 | 域名投资：把互联网的“门牌号”变成资产 | reports/2026-09-21-domain-investing.html |
 | 2026-09-22 | 威士忌投资入门：别把酒柜当成提款机 | reports/2026-09-22-whisky-investment.html |
+| 2026-09-24 | 潮玩盲盒：为什么年轻人愿意为「拆盒那一秒」反复买单？ | reports/2026-09-24-chao-wan-mang-he.html |

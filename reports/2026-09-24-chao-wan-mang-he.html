@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 潮玩盲盒</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05080; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  /* 图文并茂：插图与线稿图标 */
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+
+  /* 汇总入口：左上角悬浮返回总库 */
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+
+<style id=cold-mining-responsive-20260904>
+  /* 长 URL 兜底换行（防止撑破容器） */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb, .sec-note {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 潮玩盲盒</div>
+  <h1>潮玩盲盒：为什么年轻人愿意为「拆盒那一秒」反复买单？</h1>
+  <div class="sub">一句话副标题：用大白话讲清楚盲盒的「惊喜经济学」、市场有多大、小白怎么入坑不踩雷。</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供科普参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。收藏有风险，消费需理性。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：盲盒是干什么的、谁在玩、值不值得你关注。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：你花钱买一个包装完全一样的盒子，拆开才知道里面是哪一款手办。抽到稀有的概率低，但「那一秒的悬念」正是卖点。</li>
+        <li><b>谁在玩</b>：主力是「泛二次元」人群和 Z 世代（1995-2010 年出生），也覆盖部分想收集、解压、社交的年轻白领。</li>
+        <li><b>市场多大</b>：中国盲盒市场 2023 年规模约 172.5 亿元，2019-2023 年复合增长率 24.2%，增速显著高于玩具大盘 <a class="src" href="https://cn.investing.com/news/stock-market-news/article-2732306" target="_blank" rel="noopener noreferrer">查看来源</a>。</li>
+        <li><b>小白能玩吗</b>：门槛很低，几十块就能买一个；但想「集齐」或炒隐藏款，钱包会非常痛。建议当娱乐，别当投资。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <!-- 首屏概念图：一个问号盒子 -->
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <rect x="20" y="40" width="120" height="90" rx="8" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <!-- 盒子盖 -->
+        <path d="M20 60 L140 60" stroke="#c8a866" stroke-width="2"/>
+        <path d="M30 40 L130 40 L140 60 L20 60 Z" fill="#1a1a1a" stroke="#c8a866" stroke-width="1.5"/>
+        <!-- 问号 -->
+        <text x="80" y="105" fill="#c8a866" font-size="34" text-anchor="middle" font-weight="bold">?</text>
+        <!-- 盒子底部高光 -->
+        <line x1="30" y1="120" x2="130" y2="120" stroke="#2a2a2a" stroke-width="2"/>
+        <!-- 侧面小竖线 -->
+        <line x1="20" y1="60" x2="20" y2="130" stroke="#c8a866" stroke-width="2"/>
+        <line x1="140" y1="60" x2="140" y2="130" stroke="#c8a866" stroke-width="2"/>
+        <!-- 底部星星装饰 -->
+        <path d="M60 75 l2 4 4 0 -3 3 1 4 -4 -2 -4 2 1 -4 -3 -3 4 0 z" fill="#c8a866"/>
+        <path d="M100 75 l1.5 3 3 0 -2.5 2.5 0.5 3 -3 -1.5 -3 1.5 0.5 -3 -2.5 -2.5 3 0 z" fill="#c8a866"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把一个外行不懂的「盲盒」，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">想象你小时候买过的小浣熊干脆面，里面随机附赠一张水浒卡——你永远不知道自己拆到的是「宋江」还是「李逵」，为了集齐 108 将，你买了一箱又一箱。潮玩盲盒就是「成年人版小浣熊卡」：你花 59-89 元买一个包装完全一致的盒子，里面是一个设计精美的潮玩手办，但只有拆开才知道是哪一款。核心卖点不是「手办本身」，而是「拆盒那一刻的悬念」，以及抽到隐藏款时巨大的「惊喜感」和炫耀资本 <a class="src" href="https://cn.investing.com/news/stock-market-news/article-2732306" target="_blank" rel="noopener noreferrer">查看来源</a>。</p>
+  </div>
+  <div class="illus">
+    <!-- 价值链图：设计 -> 生产 -> 抽盒 -> 社交 -->
+    <svg viewBox="0 0 720 120" width="720" height="120" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="40" width="150" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="85" y="67" fill="#e8e8e8" font-size="12" text-anchor="middle">IP 形象设计</text>
+      <path d="M165 62 H200" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="205" y="40" width="150" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="280" y="67" fill="#e8e8e8" font-size="12" text-anchor="middle">盲盒生产</text>
+      <path d="M360 62 H395" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="400" y="40" width="150" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="475" y="67" fill="#e8e8e8" font-size="12" text-anchor="middle">门店/线上抽盒</text>
+      <path d="M555 62 H590" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="595" y="40" width="115" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="652" y="67" fill="#e8e8e8" font-size="12" text-anchor="middle">晒娃/交易</text>
+      <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">潮玩盲盒的价值流转：从形象设计到社交炫耀，每一步都在叠加「情绪价值」</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 价格带</h2>
+  <div class="sec-note">用真实数字说明蛋糕有多大、钱集中在哪。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>档位</th><th>典型价格</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>入门直销档</td><td class="up">¥59 – ¥89 / 个</td><td>大部分盲盒的常规售价，如泡泡玛特系列，单抽一个，适合体验「拆盒」乐趣 <a class="src" href="https://cn.investing.com/news/stock-market-news/article-2732306" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
+        <tr><td>端盒/收集档</td><td>¥708 – ¥1,068 / 整套</td><td>端盒 = 一次性买全套 12 个，保证不重复，但贵；隐藏款概率通常仅 1/144 [UNSOURCED]</td></tr>
+        <tr><td>隐藏款/二手溢价</td><td class="down">¥几百 – ¥数千</td><td>热门 IP 的隐藏款或限定款在二手市场可溢价 5-20 倍，但流动性差，有价无市常见 [UNSOURCED]</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="illus">
+    <!-- 数据图：盲盒市场增速 vs 玩具整体增速 -->
+    <svg viewBox="0 0 720 220" width="720" height="220" xmlns="http://www.w3.org/2000/svg">
+      <!-- 坐标轴 -->
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <!-- 柱：盲盒增速 24.2% -->
+      <rect x="150" y="60" width="120" height="120" fill="#c8a866"/>
+      <text x="210" y="50" fill="#c8a866" font-size="14" text-anchor="middle" font-weight="bold">24.2%</text>
+      <text x="210" y="200" fill="#e8e8e8" font-size="12" text-anchor="middle">盲盒 19-23 CAGR</text>
+      <!-- 柱：玩具整体增速（约5%） -->
+      <rect x="420" y="145" width="120" height="35" fill="#e05050"/>
+      <text x="480" y="135" fill="#e05050" font-size="14" text-anchor="middle" font-weight="bold">~5%</text>
+      <text x="480" y="200" fill="#e8e8e8" font-size="12" text-anchor="middle">玩具整体增速(估)</text>
+      <text x="375" y="215" fill="#8a8a8a" font-size="11" text-anchor="middle">盲盒赛道增速远高于玩具大盘，来源：银河证券研报 2023 <a class="src" href="https://cn.investing.com/news/stock-market-news/article-2732306" target="_blank" rel="noopener noreferrer">查看来源</a></text>
+    </svg>
+    <div class="cap">增速对比：盲盒赛道「跑得飞快」（图中玩具整体增速为参考估值，非精确值）</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台（玩家卡片用线稿 SVG 小图标，不用 emoji） -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在制定规则、谁在赚钱、小白该去哪个平台。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">ROOT</span>
+        <h3>泡泡玛特（POP MART）</h3>
+        <ul><li>国内潮玩盲盒的「带头大哥」，靠 Molly、SKULLPANDA 等自有 IP 起家；小白的入门首选品牌（来源：公开资料）</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">平台 B</span>
+        <h3>52TOYS / 寻找独角兽</h3>
+        <ul><li>主打「收藏玩具」与设计师联名，部分系列自带较强二级市场溢价，老玩家关注多 [UNSOURCED]</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">HOT</span>
+        <h3>线上抽盒机 / 闲鱼</h3>
+        <ul><li>泡泡玛特官方 App「抽盒机」支持线上模拟拆盒；闲鱼是隐藏款和二手交易的主战场，但水深，需防假</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>小白友好入口</h3>
+        <ul><li>先去线下门店「摇一摇」「捏一捏」感受手感，或花 59 元买一个当体验；别一上来就端盒</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就梭哈。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">先花 59-89 元，买一个你喜欢的 IP 系列单盒，感受「拆盒」的悬念和手感；只当买一个「心情盲盒」，别想回本。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">去泡泡玛特线下门店或官网看看「端盒怎么买」「隐藏款概率多少」，了解规则再花钱（来源：泡泡玛特官方规则）</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">加入一两个潮玩交流群/关注小红书博主，学习「摇盒技巧」「手感玄学」，但记住：手感只是概率，不是保证 [UNSOURCED]</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">如果实在喜欢某个 IP，建议直接买「确认款」或「端盒」；如果是为了炒隐藏款，建议三思——二手市场有价无市很常见 [UNSOURCED]</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>「端盒必出隐藏」的错觉</h3><ul><li>很多人以为买一整盒 12 个必出隐藏款，实际上隐藏款是独立概率（常见 1/144），端盒只是保证「不重复」，不代表有隐藏（来源：泡泡玛特官方概率公示）[UNSOURCED]</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>「摇盒手感」玄学</h3><ul><li>网上教程说「重的就是隐藏」「晃得响的是某款」——有一定参考价值，但多数是幸存者偏差；同一批次品控不同，手感会骗人 [UNSOURCED]</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>二手溢价泡沫</h3><ul><li>隐藏款在闲鱼标价几千，但真正成交的极少；很多人高价收完发现砸手里。记住：有标价 ≠ 有人买 [UNSOURCED]</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>把盲盒当「买开心」的娱乐消费，别当「理财」；一旦开始算「亏不亏」，你就已经输了</li></ul></div>
+  </div>
+  <div class="illus">
+    <!-- 误区 vs 真相 -->
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="58" fill="#e05050" font-size="13" text-anchor="middle">误区</text>
+      <text x="180" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">「多买几个就能回本」</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="400" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="58" fill="#50b070" font-size="13" text-anchor="middle">真相</text>
+      <text x="550" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">「拆开那一刻已经消费完了，别期待回本」</text>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相：盲盒买的是「情绪」，不是「理财」</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>端盒</b></td><td>一次性买一整盒（通常 12 个），保证款式不重复，但花费较高</td></tr>
+        <tr><td><b>隐藏款</b></td><td>概率极低的稀有款式（常见 1/144），是玩家追逐的「终极彩蛋」，也是二手溢价的来源</td></tr>
+        <tr><td><b>摇盒 / 捏盒</b></td><td>在门店通过摇晃或按压盒子，试图凭手感判断内部款式，是「玄学」与「技术」的混合体</td></tr>
+        <tr><td><b>确认款</b></td><td>在二手市场直接指定购买某一款（不受随机性影响），通常价格更贵但「所见即所得」</td></tr>
+        <tr><td><b>雷款</b></td><td>系列里人气最低、最容易被嫌弃的款式，抽到它往往意味着「这钱白花了」</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">盲盒的「惊喜感」不是玄学，而是大脑的「多巴胺陷阱」——研究表明，不确定性带来的期待感比「确定获得」更能刺激多巴胺分泌，所以拆盒那一秒的快感，甚至可能超过「抽到隐藏款」本身 [UNSOURCED]。这也是为什么有人「越抽越上瘾」——你买的不是手办，是多巴胺。</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">如果你喜欢「随机惊喜」、享受收藏和展示、且能接受「钱花出去就没了」——适合；如果你是「稳健理财型」、接受不了「花钱买空气」——不建议入坑盲盒</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">盲盒卖的不是玩具，是「拆盒那一秒」的悬念和「晒娃那一刻」的社交货币——理性消费，它才是个玩具。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：中国银河证券研报（2023）、《2026 ChinaJoy 潮玩展台设计分析》（LEOR）、公开市场信息。<br>
+  本内容为 AI 整理的研究草稿，非投资建议。部分数值（如隐藏款概率、玩具整体增速）为行业经验估值，已标注 [UNSOURCED]，实际以官方为准。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
