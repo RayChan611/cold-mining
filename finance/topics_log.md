@@ -43,3 +43,4 @@
 | 2026-09-22 | GDP / CPI / PPI：三个词看懂宏观经济的三张体检报告单 | reports/2026-09-22-gdp-cpi-ppi-explained.html |
 | 2026-09-23 | 货币政策：央行手中的"经济方向盘"——大白话入门指南 | reports/2026-09-23-monetary-policy.html |
 | 2026-09-24 | 美联储：印钞机还是金融钟表匠？给外行的中央银行入门指南 | reports/2026-09-24-federal-reserve-for-beginners.html |
+| 2026-09-25 | 收益率曲线：一条线的形状，如何提前剧透经济的命运 | reports/2026-09-25-yield-curve.html |
