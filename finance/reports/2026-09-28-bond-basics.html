@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 债券入门</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+
+<style id=cold-mining-responsive-20260904>
+  /* 长 URL 兜底换行（防止撑破容器） */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb, .sec-note {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 债券入门</div>
+  <h1>债券入门：把钱借给国家或公司，赚利息的「欠条」生意</h1>
+  <div class="sub">用大白话讲清楚债券是什么、怎么买、怎么不踩坑——它其实是普通人最容易上手的理财工具之一。</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。投资/收藏有风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：债券是干什么的、谁在玩、值不值得普通人关注。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：债券就是一张标准化的「欠条」——你借钱给政府或公司，对方承诺到期还本付息。</li>
+        <li><b>谁在玩</b>：央行、商业银行、保险公司、基金公司是主力；普通散户通过银行柜台或交易所也能买（来源：<a class="src" href="https://www.boc.cn/custserv/cs7/cs76/200808/t20080815_1282.html" target="_blank" rel="noopener noreferrer">中国银行</a>）。</li>
+        <li><b>市场多大</b>：中国债券市场规模超过 150 万亿元人民币，是全球第二大债券市场 [UNSOURCED]，其中仅城投债存量就达到数十万亿级别（来源：<a class="src" href="https://www.investor.org.cn/xxzx/tjzl/tjnrgmjytx/bk/kj/jyxl_3458/202303/P020230301563171574266.pdf" target="_blank" rel="noopener noreferrer">中国投资者网</a>）。</li>
+        <li><b>小白能玩吗</b>：能。国债 100 元起就能买，比股票门槛低得多；但公司债风险更高，需要先学会看信用评级。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <!-- 债券概念插画：一张欠条 -->
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <rect x="20" y="18" width="120" height="76" rx="6" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <text x="38" y="46" fill="#e8e8e8" font-size="14" font-weight="bold" font-family="serif">债券</text>
+        <text x="38" y="66" fill="#c8a866" font-size="11" font-family="monospace">借款人承诺</text>
+        <text x="38" y="82" fill="#c8a866" font-size="11" font-family="monospace">到期还本付息</text>
+        <line x1="30" y1="52" x2="130" y2="52" stroke="#2a2a2a" stroke-width="1"/>
+        <circle cx="38" cy="108" r="4" fill="#e05050"/>
+        <circle cx="56" cy="108" r="4" fill="#c8a866"/>
+        <circle cx="74" cy="108" r="4" fill="#50b070"/>
+        <text x="95" y="112" fill="#8a8a8a" font-size="11">利息</text>
+        <path d="M40 130 H120" stroke="#c8a866" stroke-width="2" stroke-dasharray="4 3"/>
+        <text x="80" y="146" fill="#9a9a9a" font-size="10" text-anchor="middle">到期时本金还给你</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">债券像什么？—— 像你把钱借给朋友时签的借条，只不过这张借条可以拿到市场上转卖。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">你借钱给朋友，朋友写张借条：「今借到 XXX 人民币 10,000 元，年利息 5%，一年后归还本息。」债券就是这个逻辑的「工业化版本」：借款方变成国家或大公司，借条变成标准化的、可以在交易所买卖的证券。政府债券就是各级政府（中央或地方）为了修路、建学校等大型项目借钱而发行的债券（来源：<a class="src" href="https://www.rbcgam.com/zh/ca/learn-plan/investment-strategies/bond-basics/detail" target="_blank" rel="noopener noreferrer">RBC Global Asset Management</a>）。公司债券则是公司向公众借钱。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;margin-top:8px;">债券和股票最大的区别是：股票是「入伙」，你成为公司股东、赚钱分红、亏钱共担；债券是「借钱」，不管公司赚不赚钱，到期都得还你钱（除非公司破产）。这也是为什么债券常被称为「固定收益」——利息是提前约定好的。</p>
+  </div>
+  <div class="illus">
+    <!-- 债券发行到交易的流转图 -->
+    <svg viewBox="0 0 720 120" width="720" height="120" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="40" width="170" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="95" y="58" fill="#e8e8e8" font-size="12" text-anchor="middle">发行人</text>
+      <text x="95" y="74" fill="#9a9a9a" font-size="10" text-anchor="middle">政府 / 公司</text>
+      <path d="M185 62 H225" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="235" y="40" width="170" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="320" y="58" fill="#e8e8e8" font-size="12" text-anchor="middle">承销商 / 交易所</text>
+      <text x="320" y="74" fill="#9a9a9a" font-size="10" text-anchor="middle">银行 / 券商</text>
+      <path d="M410 62 H450" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="460" y="40" width="170" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="545" y="58" fill="#e8e8e8" font-size="12" text-anchor="middle">投资者</text>
+      <text x="545" y="74" fill="#9a9a9a" font-size="10" text-anchor="middle">机构 / 个人</text>
+      <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">债券流转路径：发行人 → 承销商/交易所 → 投资者</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 价格带</h2>
+  <div class="sec-note">债券不是「小众玩意儿」——它是全球最大的资本市场，规模远超股市。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>债券类型</th><th>最低门槛</th><th>发行主体</th><th>交易场所</th></tr></thead>
+      <tbody>
+        <tr><td>国债（记账式）</td><td class="up">100 元起</td><td>中央政府</td><td>银行间市场、交易所</td></tr>
+        <tr><td>储蓄式国债</td><td>100 元起</td><td>中央政府</td><td>商业银行柜台（不可流通转让）</td></tr>
+        <tr><td>地方政府债</td><td>100 元起</td><td>地方政府</td><td>银行间市场、交易所</td></tr>
+        <tr><td>政策性金融债</td><td>100 元起</td><td>国开行 / 政策性银行</td><td>银行间市场</td></tr>
+        <tr><td>公司信用债</td><td class="down">100 元起（但风险更高）</td><td>企业 / 城投平台</td><td>银行间市场、交易所</td></tr>
+      </tbody>
+    </table>
+    <p class="src">数据来源：<a class="src" href="https://www.nanhuafunds.com/contents/2022/12/22-99a345a760d54b90a542f96a36f57401.html" target="_blank" rel="noopener noreferrer">南华基金</a>；<a class="src" href="https://www.boc.cn/custserv/cs7/cs76/200808/t20080815_1282.html" target="_blank" rel="noopener noreferrer">中国银行</a></p>
+  </div>
+  <div class="illus">
+    <!-- 中国债券市场规模柱状图 -->
+    <svg viewBox="0 0 720 220" width="720" height="220" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <rect x="110" y="60" width="90" height="120" fill="#c8a866"/>
+      <rect x="280" y="110" width="90" height="70" fill="#c8a866"/>
+      <rect x="450" y="150" width="90" height="30" fill="#e05050"/>
+      <text x="155" y="50" fill="#e8e8e8" font-size="12" text-anchor="middle">国债</text>
+      <text x="155" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">~50 万亿 [UNSOURCED]</text>
+      <text x="325" y="100" fill="#e8e8e8" font-size="12" text-anchor="middle">地方债</text>
+      <text x="325" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">~30 万亿 [UNSOURCED]</text>
+      <text x="495" y="140" fill="#e8e8e8" font-size="12" text-anchor="middle">信用债</text>
+      <text x="495" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">~10 万亿+ (来源：中国投资者网)</text>
+      <text x="380" y="215" fill="#8a8a8a" font-size="11" text-anchor="middle">注：具体数值为约数，仅作量级示意；城投债存量可参见中国投资者网热力图</text>
+    </svg>
+    <div class="cap">中国债券市场各类型规模量级示意（约数，具体以官方数据为准）</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台 -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在发行债券、谁在交易、普通人该从哪里入手。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">发行人</span>
+        <h3>政府与央行</h3>
+        <ul><li>国债由中央政府发行，地方政府债由地方政府发行（来源：<a class="src" href="https://www.nanhuafunds.com/contents/2022/12/22-99a345a760d54b90a542f96a36f57401.html" target="_blank" rel="noopener noreferrer">南华基金</a>）。</li><li>政策性金融债由国开行等三家政策性银行发行。</li><li>对小白来说，国债是最安全的起点。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h4"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">交易场所</span>
+        <h3>银行间市场 + 交易所</h3>
+        <ul><li>中国债券主要在两个地方交易：银行间市场（机构为主）和交易所（个人可参与）（来源：<a class="src" href="https://www.nanhuafunds.com/contents/2022/12/22-99a345a760d54b90a542f96a36f57401.html" target="_blank" rel="noopener noreferrer">南华基金</a>）。</li><li>个人投资者可通过证券账户在交易所买卖债券。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">主力</span>
+        <h3>商业银行与基金</h3>
+        <ul><li>银行是债券市场的最大买家，同时通过柜台向个人销售储蓄式国债（来源：<a class="src" href="https://www.boc.cn/custserv/cs7/cs76/200808/t20080815_1282.html" target="_blank" rel="noopener noreferrer">中国银行</a>）。</li><li>公募基金（如债券基金）是普通人间接参与债券市场的好工具。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>小白友好入口</h3>
+        <ul><li>银行柜台买储蓄式国债（最简单，但不可转让）。</li><li>证券账户买记账式国债 / 交易所债券（需开通）。</li><li>支付宝 / 天天基金等平台买债券基金（零门槛）。</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就梭哈。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">先分清「借给谁」：国债 = 借给国家（风险极低）；公司债 = 借给企业（风险看信用）。新手从国债或国债基金开始。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">用 100~1000 元试水：去银行柜台或手机银行买储蓄式国债（来源：<a class="src" href="https://www.boc.cn/custserv/cs7/cs76/200808/t20080815_1282.html" target="_blank" rel="noopener noreferrer">中国银行</a>），或直接在支付宝买一只债券基金。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">学会看两个关键数字：<b>票面利率</b>（你每年拿多少利息）和 <b>到期收益率</b>（按当前价格买入持有到期的实际回报）。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">理解「价格会波动」：债券可以在到期前卖出，价格会随利率变化——利率上升，旧债券价格下跌（来源：<a class="src" href="https://www.rbcgam.com/zh/ca/learn-plan/investment-strategies/bond-basics/detail" target="_blank" rel="noopener noreferrer">RBC Global Asset Management</a>）。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>把债券当成「稳赚不赔」</h3><ul><li>国债确实几乎零风险，但公司债可能违约——尤其信用评级低的「垃圾债」。城投债在部分地区隐含的违约风险也值得警惕（来源：<a class="src" href="https://www.investor.org.cn/xxzx/tjzl/tjnrgmjytx/bk/kj/jyxl_3458/202303/P020230301563171574266.pdf" target="_blank" rel="noopener noreferrer">中国投资者网</a>）。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>忽视利率风险</h3><ul><li>利率上升时，你手里利率 2% 的旧债就没人要，只能降价卖——可能亏本金（来源：<a class="src" href="https://www.rbcgam.com/zh/ca/learn-plan/investment-strategies/bond-basics/detail" target="_blank" rel="noopener noreferrer">RBC</a>）。持有到期才能拿回全额本金。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>买不懂的「高息债」</h3><ul><li>利息越高，风险越大。年化 8% 以上的公司债，违约概率可能高得吓人。新手别碰。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>「不知道借给谁的钱，别借。」——先看发行主体（是谁）、再看信用评级（靠不靠谱）、最后才看利率（给多少）。</li></ul></div>
+  </div>
+  <div class="illus">
+    <!-- 误区 vs 真相 对比图 -->
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="58" fill="#e05050" font-size="13" text-anchor="middle">误区</text>
+      <text x="180" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">「债券 = 保本，不会亏」</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="400" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="58" fill="#50b070" font-size="13" text-anchor="middle">真相</text>
+      <text x="550" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">「只有持有到期 + 不违约才保本」</text>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相：债券不是「无风险」的代名词</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>票面利率</b></td><td>发行时约定的年利息比例，比如面值 100 元、票面利率 3%，每年拿 3 元。</td></tr>
+        <tr><td><b>到期收益率</b></td><td>按当前市场价格买入并持有到期的实际年化回报，比票面利率更真实。</td></tr>
+        <tr><td><b>久期</b></td><td>衡量债券价格对利率敏感度的指标——久期越长，利率一变价格波动越大。</td></tr>
+        <tr><td><b>信用评级</b></td><td>评级机构对发行人还钱能力的打分，AAA 最高，C/D 接近违约。</td></tr>
+        <tr><td><b>违约</b></td><td>发行人到期不还钱，债券变废纸（或部分兑付）。</td></tr>
+        <tr><td><b>城投债</b></td><td>地方融资平台发行的债券，隐含地方政府信用，但并非正式担保（来源：<a class="src" href="https://www.investor.org.cn/xxzx/tjzl/tjnrgmjytx/bk/kj/jyxl_3458/202303/P020230301563171574266.pdf" target="_blank" rel="noopener noreferrer">中国投资者网</a>）。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">债券市场的规模比股票市场大得多——全球债券市场规模超过 130 万亿美元 [UNSOURCED]。你每天用的余额宝，底层资产很大一部分就是债券。换句话说，你可能已经在不知不觉中当了「债主」。</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">适合：求稳、不想每天盯盘、有闲钱放着不用的普通人。<span class="hot">不适合</span>：追求高收益、能承受大波动、想短期暴富的激进型玩家。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">「债券不是让你发财的工具，而是让你<span class="cool">不破产</span>的底座。」</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：<a class="src" href="https://www.nanhuafunds.com/contents/2022/12/22-99a345a760d54b90a542f96a36f57401.html" target="_blank" rel="noopener noreferrer">南华基金「债券入门 300 问」</a>、<a class="src" href="https://www.rbcgam.com/zh/ca/learn-plan/investment-strategies/bond-basics/detail" target="_blank" rel="noopener noreferrer">RBC Global Asset Management</a>、<a class="src" href="https://www.boc.cn/custserv/cs7/cs76/200808/t20080815_1282.html" target="_blank" rel="noopener noreferrer">中国银行</a>、<a class="src" href="https://www.investor.org.cn/xxzx/tjzl/tjnrgmjytx/bk/kj/jyxl_3458/202303/P020230301563171574266.pdf" target="_blank" rel="noopener noreferrer">中国投资者网</a>。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
