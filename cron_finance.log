@@ -323,3 +323,11 @@
 [cold_mining] git push ok=True info=To github.com:RayChan611/cold-mining.git
    debe2a6..be38431  main -> main
 [cold_mining] feishu code=0 link=https://raychan611.github.io/cold-mining/finance/reports/2026-09-25-yield-curve.html
+[cold_mining] line=finance topic=债券入门 slug=bond
+[cold_mining] tavily hits=2325
+[cold_mining] attempt=0 html_len=19915 svg=8
+[cold_mining] wrote /home/ubuntu/cold-mining/finance/reports/2026-09-28-bond-basics.html
+[cold_mining] index+log updated
+[cold_mining] git push ok=True info=To github.com:RayChan611/cold-mining.git
+   7af27d2..b5bd00e  main -> main
+[cold_mining] feishu code=0 link=https://raychan611.github.io/cold-mining/finance/reports/2026-09-28-bond-basics.html
