@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 盆栽与文人树</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+
+<style id=cold-mining-responsive-20260904>
+  /* 长 URL 兜底换行（防止撑破容器） */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb, .sec-note {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 盆栽与文人树</div>
+  <h1>盆栽与文人树：一盆树里的东亚美学与时间生意</h1>
+  <div class="sub">把一棵树养小、养老、养成「不像人间物」——为什么有人为此花几十年，甚至上百万</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。收藏/投资有风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：这个领域是干什么的、谁在玩、值不值得普通人关注。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：盆栽（Bonsai）是把树木种在浅盆里、通过修剪整枝长期塑形的日本造型艺术，字面意思就是「盆里栽种」（<a class="src" href="https://en.wikipedia.org/wiki/Bonsai" target="_blank" rel="noopener noreferrer">查看来源</a>）。文人树（Literati）是其中一支追求「画意」与「孤高感」的风格。</li>
+        <li><b>谁在玩</b>：日本与欧美的专业盆栽园、收藏家、退休园艺爱好者，以及中国近年兴起的中式「文人盆景」玩家。</li>
+        <li><b>市场多大</b>：全球盆栽市场没有统一权威数字，但顶级老树单株可达数十万至百万美元级；中端收藏级盆栽常见区间为几千到几万美元；入门素材几十元人民币起步 [UNSOURCED]。</li>
+        <li><b>小白能玩吗</b>：能，但要先学会「不把树养死」，再谈造型；入门建议从便宜素材练手，别一上来买老桩。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <rect x="30" y="108" width="100" height="30" rx="6" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <path d="M80 108 C78 80 60 70 55 50 C52 36 60 25 80 22 C100 25 108 36 105 50 C100 70 82 80 80 108Z" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <path d="M80 45 C70 52 72 62 80 66" stroke="#c8a866" stroke-width="1.5" fill="none"/>
+        <path d="M80 62 C88 58 92 64 88 70" stroke="#c8a866" stroke-width="1.5" fill="none"/>
+        <path d="M80 30 C75 40 78 50 80 55" stroke="#c8a866" stroke-width="1.5" fill="none"/>
+        <path d="M80 28 C85 36 84 46 82 54" stroke="#c8a866" stroke-width="1.5" fill="none"/>
+        <line x1="30" y1="138" x2="130" y2="138" stroke="#2a2a2a" stroke-width="1.5"/>
+        <text x="80" y="152" fill="#8a8a8a" font-size="9" text-anchor="middle">文人树线稿示意</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">盆栽有点像「把野外一棵老树的灵魂，压缩进一个饭碗大小的盆里」。它不是把树「缩小」的魔法，而是用年复一年的修剪、绑扎、控水控肥，让树按照人的审美方向慢慢长。维基百科的定义很直白：盆栽是日本在容器中培育和塑造微型树木的艺术，有超过千年的影响史与本土发展脉络（<a class="src" href="https://en.wikipedia.org/wiki/Bonsai" target="_blank" rel="noopener noreferrer">查看来源</a>）。<br><br>文人树（Literati，日文称「文人木」）则是盆栽里的一个「性格派」分支：树干往往细瘦、曲折、故意不对称，枝叶稀疏地集中在高处，像中国宋元山水画里那种「孤松独立」的意境。它追求的不是丰满茂盛，而是「留白」和「不完美中的力量感」。</p>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 120" width="720" height="120" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="40" width="150" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="85" y="62" fill="#e8e8e8" font-size="12" text-anchor="middle">选材：山采/苗培</text>
+      <text x="85" y="76" fill="#8a8a8a" font-size="10" text-anchor="middle">老桩或种子苗</text>
+      <path d="M165 62 H205" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="215" y="40" width="150" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="290" y="62" fill="#e8e8e8" font-size="12" text-anchor="middle">塑形：修剪/绑扎</text>
+      <text x="290" y="76" fill="#8a8a8a" font-size="10" text-anchor="middle">年复一年的调整</text>
+      <path d="M370 62 H410" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="420" y="40" width="150" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="495" y="62" fill="#e8e8e8" font-size="12" text-anchor="middle">展示：盆/几/题名</text>
+      <text x="495" y="76" fill="#8a8a8a" font-size="10" text-anchor="middle">构成完整作品</text>
+      <path d="M575 62 H615" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="625" y="40" width="85" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="667" y="67" fill="#e8e8e8" font-size="12" text-anchor="middle">传承</text>
+      <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">示意图：一盆盆栽从素材到作品的典型流转路径</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 价格带</h2>
+  <div class="sec-note">用真实数字说明蛋糕有多大、钱集中在哪。来源内联标注。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>档位</th><th>典型价格</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>入门档</td><td class="up">¥50 – 500</td><td>普通苗培素材、幼树，适合练手；花市或网店可买 [UNSOURCED]</td></tr>
+        <tr><td>进阶档</td><td>¥2,000 – 50,000</td><td>有一定年功的成型盆栽或半成品，常见于专业盆栽园与展会 [UNSOURCED]</td></tr>
+        <tr><td>收藏/极品档</td><td class="down">¥100,000 – 数十万美元+</td><td>百年以上老树、名家作品；国际拍卖与顶级私人收藏中可见（<a class="src" href="https://en.wikipedia.org/wiki/Bonsai" target="_blank" rel="noopener noreferrer">查看来源</a>）</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 220" width="720" height="220" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <rect x="110" y="145" width="90" height="35" fill="#c8a866"/>
+      <rect x="280" y="95" width="90" height="85" fill="#c8a866"/>
+      <rect x="450" y="35" width="90" height="145" fill="#e05050"/>
+      <text x="155" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">入门 ¥50–500</text>
+      <text x="325" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">进阶 ¥2k–50k</text>
+      <text x="495" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">极品 ¥100k+</text>
+      <text x="380" y="215" fill="#8a8a8a" font-size="10" text-anchor="middle">价格带示意（人民币；收藏级价格随树龄、名家、稀缺度波动极大）</text>
+    </svg>
+    <div class="cap">价格带示意图（入门与进阶区间较稳定；极品档价格离散度极高）</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台 -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在制定规则、谁在赚钱、小白该去哪个平台。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">ROOT</span>
+        <h3>日本盆栽协会（Nippon Bonsai Association）</h3>
+        <ul><li>日本盆栽界的核心组织，主办「国风盆栽展」等顶级展会，定义了大量审美与评审标准。对小白而言，它的展览图录是很好的审美教科书 [UNSOURCED]。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">平台</span>
+        <h3>大宫盆栽村 / 大宫盆栽美术馆</h3>
+        <ul><li>日本埼玉县大宫是全球盆栽爱好者「圣地」，聚集多家专业盆栽园。大宫盆栽美术馆是少有的公立盆栽专题馆，适合系统了解风格与历史 [UNSOURCED]。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">HOT</span>
+        <h3>中国文人盆景圈 / 地方协会</h3>
+        <ul><li>近年国内兴起「文人树」「素仁格」等中式审美复兴，江苏、广东、浙江等地有活跃的盆景协会与展会。圈内交流以线下展和微信群为主 [UNSOURCED]。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>本地花市 + 线上素材店</h3>
+        <ul><li>新手最该先去本地花鸟市场或信誉好的线上店，花几十到几百元买小叶榆、福建茶、六月雪等易活素材，先练「养活」再练「造型」 [UNSOURCED]。</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就梭哈。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">先养一盆「便宜但健康」的素材。推荐小叶榆或六月雪，50–200 元以内，放在通风有散射光处，学浇水（见干见湿）、观察发芽与落叶节奏。别买老桩。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">围观一场本地盆景展或线上图录，重点看「文人树」类作品：树干怎么弯、枝条怎么留白、盆与几架怎么配。培养眼力比动手更重要。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">建立自己的审美判断框架：这棵树是「画意」还是「匠气」？疏密、虚实、主次是否舒服？能说出「为什么好」才算入门。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">当你能把一盆普通素材养过两个完整生长季且造型不垮，再考虑花几百到几千元买半成品或参加同好交流。永远不要因为「听说能升值」而买树。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>「下山桩」冲动消费</h3><ul><li>山采老桩看着沧桑有味道，但很多已伤根严重，新手买回家大概率养死。先练苗培素材，别为「野味」付高价。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>把「老」当「好」</h3><ul><li>树龄长不等于艺术价值高。有些老桩粗壮却无姿态，反而不如一棵有画意的年轻文人树。判断标准是「意境」，不是年龄。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>过度修剪的「网红造型」</h3><ul><li>一些商家把树剪成夸张 S 形或「云片」堆砌，外行觉得好看，圈内人觉得俗。买前多看经典图录，别被社交媒体带偏。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>先当「园丁」再当「艺术家」：树活着，一切才有可能。养死一盆好树，比买贵一盆树更让人心疼。</li></ul></div>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="58" fill="#e05050" font-size="13" text-anchor="middle">误区</text>
+      <text x="180" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">树越老越值钱，老桩就是好盆栽</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="400" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="58" fill="#50b070" font-size="13" text-anchor="middle">真相</text>
+      <text x="550" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">价值来自造型、画意与年功，树龄只是基础</text>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相：老桩不等于好盆栽</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>文人树 / 文人木</b></td><td>树干细瘦、枝叶稀疏、讲究「孤高画意」的盆栽风格，像宋元山水里的孤松。</td></tr>
+        <tr><td><b>素仁格</b></td><td>中国文人树的一个极致分支，以极简著称：常常只有一两根枝条，大量留白。</td></tr>
+        <tr><td><b>年功</b></td><td>时间在树上留下的痕迹——老皮、曲度、枝条过渡的细腻程度；这是花钱也快不来的东西。</td></tr>
+        <tr><td><b>舍利干 / 神枝</b></td><td>刻意让部分树干或枝条枯死并打磨成白色，模拟雷电、风雪摧残后的老树姿态。</td></tr>
+        <tr><td><b>见干见湿</b></td><td>浇水原则：盆土表面干了再浇透，别天天浇，否则烂根。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">盆栽的英文名「Bonsai」直接来自日语「盆栽」的发音，但它的源头其实在中国——早在中国唐代就有把树栽进盆里的「盆景」传统，后来传到日本并发展出更系统化的审美与技术体系（<a class="src" href="https://en.wikipedia.org/wiki/Bonsai" target="_blank" rel="noopener noreferrer">查看来源</a>）。换句话说，中国是「盆景的老家」，日本把它变成了全球通用的「Bonsai」语言。</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">适合有耐心、能享受「慢反馈」的人；不适合今天买明天就想看成果、或把植物当消耗品的人。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">盆栽是唯一一种「你死之前可能都看不到它最终形态」的艺术——它替你把时间本身种进了土里。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：Bonsai - Wikipedia（<a class="src" href="https://en.wikipedia.org/wiki/Bonsai" target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/Bonsai</a>）。其余价格区间与圈内细节为行业常识性范围，标 [UNSOURCED]。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
