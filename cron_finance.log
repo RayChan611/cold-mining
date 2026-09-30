@@ -339,3 +339,11 @@
 [cold_mining] git push ok=True info=To github.com:RayChan611/cold-mining.git
    b5bd00e..56fa03e  main -> main
 [cold_mining] feishu code=0 link=https://raychan611.github.io/cold-mining/finance/reports/2026-09-29-etf-beginner-guide.html
+[cold_mining] line=finance topic=REITs 入门 slug=reit
+[cold_mining] tavily hits=2198
+[cold_mining] attempt=0 html_len=20649 svg=8
+[cold_mining] wrote /home/ubuntu/cold-mining/finance/reports/2026-09-30-reits-basics.html
+[cold_mining] index+log updated
+[cold_mining] git push ok=True info=To github.com:RayChan611/cold-mining.git
+   7ea20a3..9e025ee  main -> main
+[cold_mining] feishu code=0 link=https://raychan611.github.io/cold-mining/finance/reports/2026-09-30-reits-basics.html
