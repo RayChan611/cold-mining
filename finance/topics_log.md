@@ -46,3 +46,4 @@
 | 2026-09-25 | 收益率曲线：一条线的形状，如何提前剧透经济的命运 | reports/2026-09-25-yield-curve.html |
 | 2026-09-28 | 债券入门：把钱借给国家或公司，赚利息的「欠条」生意 | reports/2026-09-28-bond-basics.html |
 | 2026-09-29 | ETF 入门：把一篮子股票装进口袋的懒人投资法 | reports/2026-09-29-etf-beginner-guide.html |
+| 2026-09-30 | 基础设施公募REITs入门：把高速公路、产业园变成能收租的“股票” | reports/2026-09-30-reits-basics.html |

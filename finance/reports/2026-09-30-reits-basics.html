@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · REITs 入门</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+
+<style id=cold-mining-responsive-20260904>
+  /* 长 URL 兜底换行（防止撑破容器） */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb, .sec-note {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · REITs 入门</div>
+  <h1>基础设施公募REITs：把高速公路、产业园变成能收租的“股票”</h1>
+  <div class="sub">用大白话讲清楚：REITs 是什么、凭什么能分红、普通人怎么参与、坑在哪里</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。投资/收藏有风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：这个领域是干什么的、谁在玩、值不值得普通人关注。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：把高速公路、产业园、仓储物流等不动产打包成一份份“股票”，在证券交易所买卖，收益主要来自这些资产产生的租金、过路费等现金流。</li>
+        <li><b>谁在玩</b>：机构投资者（险资、银行理财、基金公司）打底，普通散户通过股票账户参与，原始权益人（如高速公路公司、园区开发商）负责供资产。</li>
+        <li><b>市场多大</b>：截至 2018 年 6 月中国类 REITs 总规模 764.83 亿元，北大光华课题组预测中国公募 REITs 未来市场规模可达 4 万亿至 12 万亿元（<a class="src" href="https://www.gsm.pku.edu.cn/thought_leadership/info/1072/1291.htm" target="_blank" rel="noopener noreferrer">查看来源</a>）。</li>
+        <li><b>小白能玩吗</b>：门槛低（百元级），但有价格波动和底层资产风险，适合想收稳定分红、又能承受短期浮亏的人。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <rect x="20" y="20" width="120" height="90" rx="10" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <rect x="30" y="30" width="100" height="16" rx="3" fill="#1f1f1f" stroke="#2a2a2a"/>
+        <text x="80" y="42" fill="#e8e8e8" font-size="9" text-anchor="middle">高速公路</text>
+        <rect x="30" y="52" width="100" height="16" rx="3" fill="#1f1f1f" stroke="#2a2a2a"/>
+        <text x="80" y="64" fill="#e8e8e8" font-size="9" text-anchor="middle">产业园区</text>
+        <rect x="30" y="74" width="100" height="16" rx="3" fill="#1f1f1f" stroke="#2a2a2a"/>
+        <text x="80" y="86" fill="#e8e8e8" font-size="9" text-anchor="middle">仓储物流</text>
+        <path d="M20 110 L50 118 L80 112 L110 120 L140 114" stroke="#c8a866" stroke-width="2" fill="none"/>
+        <text x="80" y="136" fill="#c8a866" font-size="11" text-anchor="middle" font-family="monospace">REITs 份额</text>
+        <text x="80" y="152" fill="#8a8a8a" font-size="9" text-anchor="middle">不动产 → 上市证券</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">REITs（Real Estate Investment Trusts，不动产投资信托基金）可以理解为<b>“不动产的 IPO”</b>：以前你想拥有一段高速公路或一栋产业园大楼，得掏出几十亿真金白银；现在有人把这些资产切成几亿份，每份可能只要几块钱，你在股票软件里点一下买入，就成了这个资产的“迷你房东”。它和买股票最大的区别在于：<b>REITs 的主要收益不靠股价涨跌，而是靠底层资产日常产生的现金流</b>——比如高速公路收的过路费、园区租户交的租金（<a class="src" href="http://www.csrc.gov.cn/xiamen/c105634/c2359048/content.shtml" target="_blank" rel="noopener noreferrer">查看来源</a>）。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;margin-top:10px;">证监会厦门监管局的投教资料里说得很直白：REITs 是“通过证券化方式将具有持续、稳定收益的不动产资产或权益转化为流动性较强的上市证券的标准化金融产品”（<a class="src" href="http://www.csrc.gov.cn/xiamen/c105634/c2359048/content.shtml" target="_blank" rel="noopener noreferrer">查看来源</a>）。换句话说，它把“死”的楼和路，变成了“活”的可以随时买卖的证券。</p>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 170" width="720" height="170" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="55" width="160" height="60" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="90" y="80" fill="#e8e8e8" font-size="12" text-anchor="middle">不动产资产</text>
+      <text x="90" y="98" fill="#9a9a9a" font-size="10" text-anchor="middle">高速 / 园区 / 仓储</text>
+      <path d="M175 85 H215" stroke="#c8a866" stroke-width="2" marker-end="url(#ar1)"/>
+      <rect x="225" y="55" width="160" height="60" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="305" y="80" fill="#e8e8e8" font-size="12" text-anchor="middle">证券化切割</text>
+      <text x="305" y="98" fill="#9a9a9a" font-size="10" text-anchor="middle">切成 N 份份额</text>
+      <path d="M390 85 H430" stroke="#c8a866" stroke-width="2" marker-end="url(#ar1)"/>
+      <rect x="440" y="55" width="160" height="60" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="520" y="80" fill="#e8e8e8" font-size="12" text-anchor="middle">交易所上市</text>
+      <text x="520" y="98" fill="#9a9a9a" font-size="10" text-anchor="middle">像股票一样买卖</text>
+      <path d="M640 85 H680" stroke="#c8a866" stroke-width="2" marker-end="url(#ar1)"/>
+      <rect x="690" y="55" width="20" height="60" rx="4" fill="#1f1f1f" stroke="#2a2a2a"/>
+      <text x="360" y="150" fill="#8a8a8a" font-size="11" text-anchor="middle">REITs 的典型运作架构：不动产 → 证券化份额 → 上市流通</text>
+      <defs><marker id="ar1" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">示意图：REITs 的核心逻辑——把重资产变成轻份额（据证监会投教资料与西南证券研报整理）</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 底层资产类型</h2>
+  <div class="sec-note">用真实数字说明蛋糕有多大、底层资产长什么样。来源内联标注。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>资产类型</th><th>主要收入来源</th><th>风险收益特征</th></tr></thead>
+      <tbody>
+        <tr><td><b>交通基础设施</b>（高速公路等）</td><td>过路费，单价通常政府定价，车流量受沿线经济与路网变化影响</td><td>现金流可预测性强、抗周期能力突出，波动相对较低</td></tr>
+        <tr><td><b>产业园区</b></td><td>租金 + 物业管理费，受出租率与租金水平影响</td><td>与宏观经济、园区定位、产业景气相关</td></tr>
+        <tr><td><b>商业不动产</b>（消费类）</td><td>租金，受消费景气度、区域经济活力、出租率影响</td><td>收益弹性与风险均高于基础设施类</td></tr>
+        <tr><td><b>仓储物流 / 能源等</b></td><td>仓储租金、能源收入等</td><td>多为政策支持方向，现金流较稳定</td></tr>
+      </tbody>
+    </table>
+    <p style="color:#8a8a8a;font-size:12px;margin-top:8px;">来源：基础设施类与商业不动产类的风险收益特征对比见 <a class="src" href="https://www.chnfund.com/article/AR7a031b6a-d4fb-a02d-18df-3a1e0b5d8512" target="_blank" rel="noopener noreferrer">查看来源</a>；高速公路与产业园的收入结构见 <a class="src" href="https://www.cls.cn/detail/1550216" target="_blank" rel="noopener noreferrer">查看来源</a>。</p>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 260" width="720" height="260" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="200" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="200" x2="690" y2="200" stroke="#2a2a2a" stroke-width="1.5"/>
+      <rect x="100" y="100" width="100" height="100" fill="#c8a866"/>
+      <text x="150" y="92" fill="#e8e8e8" font-size="11" text-anchor="middle">交通</text>
+      <text x="150" y="218" fill="#9a9a9a" font-size="11" text-anchor="middle">抗周期强</text>
+      <rect x="260" y="120" width="100" height="80" fill="#c8a866"/>
+      <text x="310" y="112" fill="#e8e8e8" font-size="11" text-anchor="middle">产业园</text>
+      <text x="310" y="218" fill="#9a9a9a" font-size="11" text-anchor="middle">看经济</text>
+      <rect x="420" y="70" width="100" height="130" fill="#e05050"/>
+      <text x="470" y="62" fill="#e8e8e8" font-size="11" text-anchor="middle">商业不动产</text>
+      <text x="470" y="218" fill="#9a9a9a" font-size="11" text-anchor="middle">弹性大风险高</text>
+      <rect x="580" y="130" width="100" height="70" fill="#c8a866"/>
+      <text x="630" y="122" fill="#e8e8e8" font-size="11" text-anchor="middle">仓储能源</text>
+      <text x="630" y="218" fill="#9a9a9a" font-size="11" text-anchor="middle">政策支持</text>
+      <text x="375" y="242" fill="#8a8a8a" font-size="11" text-anchor="middle">示意：不同底层资产的现金流稳定性与风险弹性对比（据中国基金报报道整理）</text>
+    </svg>
+    <div class="cap">不同底层资产类型的风险收益特征对比（示意柱高代表风险弹性，越高越“刺激”）</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台 -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在供资产、谁在管钱、普通人从哪个入口参与。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">原始权益人</span>
+        <h3>资产提供方</h3>
+        <ul><li>高速公路公司、园区开发商等持有重资产的企业，把资产卖给 REITs 实现“轻资产化”，同时往往保留部分份额继续享受收益。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M4 12h4M16 12h4M12 4v4M12 16v4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">基金管理人</span>
+        <h3>公募基金公司</h3>
+        <ul><li>发行并管理 REITs 产品，负责信息披露、持有人大会等，是产品的“大管家”。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">运营管理机构</span>
+        <h3>实际“收租人”</h3>
+        <ul><li>负责底层资产的日常运营——收过路费、招租、维修保养。运营好坏直接决定分红多少，有些产品还设置“基准收益+超额收益”激励运营方（<a class="src" href="https://www.stcn.com/article/detail/3538516.html" target="_blank" rel="noopener noreferrer">查看来源</a>）。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">散户入口</span>
+        <h3>证券账户直接买</h3>
+        <ul><li>开通股票账户即可认购或买卖，门槛低至百元级。认购期在券商 App 或基金销售平台参与，上市后像股票一样交易。</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就梭哈。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步 · 搞清楚钱从哪来</div><div class="tl-body">先弄明白你要买的这只 REITs 底层是什么资产：是高速公路收过路费，还是园区收租金？收入来源越“刚性”（如政府定价的过路费），现金流通常越可预测（<a class="src" href="https://www.cls.cn/detail/1550216" target="_blank" rel="noopener noreferrer">查看来源</a>）。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步 · 看折现率与分红</div><div class="tl-body">折现率就是把未来现金流折算成现价的“折扣率”，它反映了投资者期望的回报率。同一资产，折现率越高，现值越低、潜在回报空间越大，但也意味着市场认为风险更高（<a class="src" href="https://www.cls.cn/detail/1550216" target="_blank" rel="noopener noreferrer">查看来源</a>）。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步 · 穿透到底层资产</div><div class="tl-body">不要只看产品名称，要穿透看底层：出租率多少？租金单价趋势？区域经济怎么样？盈米东方金匠投顾团队建议“穿透至底层资产的基本面”（<a class="src" href="https://www.chnfund.com/article/AR7a031b6a-d4fb-a02d-18df-3a1e0b5d8512" target="_blank" rel="noopener noreferrer">查看来源</a>）。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步 · 用闲钱小额试水</div><div class="tl-body">REITs 价格短期会波动，且与股票市场有联动。用不影响生活的闲钱买入，先感受分红节奏和波动幅度，再考虑是否加仓。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>把 REITs 当“稳赚不赔的债券”</h3><ul><li>REITs 是上市证券，价格会波动，短期受股票市场影响较大。长期价格才与不动产价值关联紧密（<a class="src" href="https://www.gsm.pku.edu.cn/thought_leadership/info/1072/1291.htm" target="_blank" rel="noopener noreferrer">查看来源</a>）。别拿养老钱满仓梭哈。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>只看分红率，不看底层风险</h3><ul><li>商业不动产 REITs 受出租率、租金水平波动影响大，收益弹性与风险均高于基础设施类（<a class="src" href="https://www.chnfund.com/article/AR7a031b6a-d4fb-a02d-18df-3a1e0b5d8512" target="_blank" rel="noopener noreferrer">查看来源</a>）。高分红可能对应高波动，要匹配自己的承受力。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>忽视车流量 / 出租率等“命门”指标</h3><ul><li>高速公路看车流量（受沿线经济、路网变化影响），园区看出租率和租金水平（受宏观与产业影响）。这些指标一旦恶化，分红就会缩水（<a class="src" href="https://www.cls.cn/detail/1550216" target="_blank" rel="noopener noreferrer">查看来源</a>）。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>买 REITs 是买“资产的现金流”，不是买“代码的涨跌”。先问自己：这个资产十年后还能不能持续收钱？</li></ul></div>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="58" fill="#e05050" font-size="13" text-anchor="middle">误区：REITs 就是稳赚不赔的“理财”</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar3)"/>
+      <rect x="400" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="52" fill="#50b070" font-size="13" text-anchor="middle">真相：它是“现金流证券”</text>
+      <text x="550" y="74" fill="#c4c4c4" font-size="11" text-anchor="middle">价格会波动，长期看资产质量</text>
+      <defs><marker id="ar3" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相：REITs 不是“保本理财”，而是可交易的现金流资产</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>底层资产</b></td><td>REITs 背后真正赚钱的那栋楼、那条路、那个园区。买 REITs 本质是买它的现金流。</td></tr>
+        <tr><td><b>分红 / 派息</b></td><td>REITs 把底层资产赚到的钱定期分给份额持有人，类似于房东收租后分给你。</td></tr>
+        <tr><td><b>折现率</b></td><td>把未来现金流折算成现价用的“折扣率”，反映投资者要求的回报率。折现率越高，现值越低，也意味着市场认为风险越大。</td></tr>
+        <tr><td><b>出租率</b></td><td>园区、商业类 REITs 的核心指标：有多少面积租出去了。出租率下滑，分红就危险。</td></tr>
+        <tr><td><b>车流量</b></td><td>高速公路类 REITs 的命门指标，受沿线经济、路网变化影响（<a class="src" href="https://www.cls.cn/detail/1550216" target="_blank" rel="noopener noreferrer">查看来源</a>）。</td></tr>
+        <tr><td><b>扩募</b></td><td>REITs 上市后收购新资产、扩大规模，类似上市公司增发并购。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">REITs 市场的价格变动，往往先于真实不动产市场——它可以成为不动产价格的“锚”。也就是说，你在股票软件里看到的 REITs 价格波动，可能比你家附近房价的涨跌更早“预告”了市场对不动产的判断（<a class="src" href="https://www.gsm.pku.edu.cn/thought_leadership/info/1072/1291.htm" target="_blank" rel="noopener noreferrer">查看来源</a>）。</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">适合想每年收点“租金式分红”、能承受短期波动、不想自己买房收租的人；不适合追求短期暴利或完全不能接受浮亏的人。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">REITs 让你用一杯咖啡的钱，当上高速公路和产业园的“迷你房东”。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：证监会厦门监管局《基础设施公募REITs投教第一期：基础知识》（<a class="src" href="http://www.csrc.gov.cn/xiamen/c105634/c2359048/content.shtml" target="_blank" rel="noopener noreferrer">查看来源</a>）、西南证券《基础设施REITs 启航，驶向万亿蓝海》（<a class="src" href="https://pdf.dfcfw.com/pdf/H3_AP202202151547124524_1.pdf" target="_blank" rel="noopener noreferrer">查看来源</a>）、北大光华思想力《中国公募REITs发展研究——投资者的视角》（<a class="src" href="https://www.gsm.pku.edu.cn/thought_leadership/info/1072/1291.htm" target="_blank" rel="noopener noreferrer">查看来源</a>）、财联社《REITs系列（四）| REITs的底层资产如何估值定价？》（<a class="src" href="https://www.cls.cn/detail/1550216" target="_blank" rel="noopener noreferrer">查看来源</a>）、中国基金报《商业不动产REITs要来了》（<a class="src" href="https://www.chnfund.com/article/AR7a031b6a-d4fb-a02d-18df-3a1e0b5d8512" target="_blank" rel="noopener noreferrer">查看来源</a>）、证券时报《市场首单消费类机构间REITs落地 引领商业地产“活水”新路径》（<a class="src" href="https://www.stcn.com/article/detail/3538516.html" target="_blank" rel="noopener noreferrer">查看来源</a>）。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
