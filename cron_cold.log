@@ -346,3 +346,11 @@
 [cold_mining] git push ok=True info=To github.com:RayChan611/cold-mining.git
    56fa03e..7ea20a3  main -> main
 [cold_mining] feishu code=0 link=https://raychan611.github.io/cold-mining/reports/2026-09-30-bonsai-and-literati-tree.html
+[cold_mining] line=cold topic=老海报与电影海报收藏 key=vintage-poster
+[cold_mining] tavily hits=2483
+[cold_mining] attempt=0 html_len=16520 svg=8
+[cold_mining] wrote /home/ubuntu/cold-mining/reports/2026-10-01-vintage-poster-movie-poster-collecting.html
+[cold_mining] index+log+used 已更新（key=vintage-poster）
+[cold_mining] git push ok=True info=To github.com:RayChan611/cold-mining.git
+   ef82525..169b744  main -> main
+[cold_mining] feishu code=0 link=https://raychan611.github.io/cold-mining/reports/2026-10-01-vintage-poster-movie-poster-collecting.html
