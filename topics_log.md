@@ -34,3 +34,4 @@
 | 2026-09-28 | 模块合成器：把音乐「拆成零件」再自己组装，为什么有人为它着迷？ | reports/2026-09-28-modular-synth-intro.html |
 | 2026-09-30 | 盆栽与文人树：一盆树里的东亚美学与时间生意 | reports/2026-09-30-bonsai-and-literati-tree.html |
 | 2026-10-01 | 老海报与电影海报收藏：一张纸凭什么能换一辆车？ | reports/2026-10-01-vintage-poster-movie-poster-collecting.html |
+| 2026-10-02 | 铁皮玩具与怀旧玩具入门：一块会生锈的铁皮，凭什么让人掏几万块？ | reports/2026-10-02-vintage-tin-toys-and-nostalgic-toys.html |
