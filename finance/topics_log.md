@@ -39,3 +39,4 @@
 | 2026-09-29 | ETF 入门：把一篮子股票装进口袋的懒人投资法 | reports/2026-09-29-etf-beginner-guide.html |
 | 2026-09-30 | 基础设施公募REITs入门：把高速公路、产业园变成能收租的“股票” | reports/2026-09-30-reits-basics.html |
 | 2026-10-01 | 期货入门：一张「未来价格」的赌约，是怎么变成万亿级市场的？ | reports/2026-10-01-futures-intro-for-beginners.html |
+| 2026-10-02 | 融资融券：向券商“借鸡生蛋”，还是“借刀”割自己？——一份外行也能读懂的入门研究报告 | reports/2026-10-02-margin-trading-short-selling.html |

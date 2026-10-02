@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 融资融券</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+
+<style id=cold-mining-responsive-20260904>
+  /* 长 URL 兜底换行（防止撑破容器） */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb, .sec-note {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 证券信用交易</div>
+  <h1>融资融券：向券商“借鸡生蛋”，还是“借刀”割自己？</h1>
+  <div class="sub">一份外行也能读懂的入门研究报告：它为什么是股市里的“放大器”，又是怎么把账户逼到强平的。</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。融资融券风险极高，可能损失超过本金，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：融资融券是干什么的、谁在玩、值不值得普通人关注。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：向券商借钱买股票（融资）或借股票来卖（融券），本质是一种加了杠杆的信用交易。</li>
+        <li><b>谁在玩</b>：有一定资产门槛的中大户散户、专业机构、对冲基金；普通小散多数只够围观。</li>
+        <li><b>门槛多高</b>：行业通行要求开通前 20 个交易日日均资产不低于 50 万元，且有半年以上交易经验 [UNSOURCED]。</li>
+        <li><b>小白能玩吗</b>：能开户≠能驾驭。它会同时放大收益与亏损，甚至可能倒欠券商钱，不建议新手一上来就碰。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <!-- 首屏概念图：借钱买股票 vs 借股票卖出 -->
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="12" width="140" height="62" rx="10" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <rect x="22" y="24" width="36" height="22" rx="5" fill="#1f1f1f" stroke="#c8a866" stroke-width="1.5"/>
+        <text x="40" y="39" fill="#c8a866" font-size="11" text-anchor="middle">💰</text>
+        <path d="M62 35 H88" stroke="#c8a866" stroke-width="2" marker-end="url(#ar0)"/>
+        <rect x="92" y="24" width="42" height="22" rx="5" fill="#1f1f1f" stroke="#e8e8e8" stroke-width="1.5"/>
+        <text x="113" y="39" fill="#e8e8e8" font-size="11" text-anchor="middle">📈</text>
+        <text x="80" y="62" fill="#8a8a8a" font-size="9" text-anchor="middle">融资：借钱买股票</text>
+        <rect x="10" y="86" width="140" height="62" rx="10" fill="#141414" stroke="#e05050" stroke-width="2"/>
+        <rect x="92" y="98" width="42" height="22" rx="5" fill="#1f1f1f" stroke="#e8e8e8" stroke-width="1.5"/>
+        <text x="113" y="113" fill="#e8e8e8" font-size="11" text-anchor="middle">📉</text>
+        <path d="M88 109 H62" stroke="#e05050" stroke-width="2" marker-end="url(#ar0)"/>
+        <rect x="22" y="98" width="36" height="22" rx="5" fill="#1f1f1f" stroke="#e05050" stroke-width="1.5"/>
+        <text x="40" y="113" fill="#e05050" font-size="11" text-anchor="middle">📊</text>
+        <text x="80" y="136" fill="#8a8a8a" font-size="9" text-anchor="middle">融券：借股票卖出</text>
+        <defs><marker id="ar0" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">融资融券，说白了就是<b>「找券商借东西来炒股」</b>。融资是<b>借钱买股票</b>，赌它涨；融券是<b>借股票来卖</b>，赌它跌。汇丰前海的定义很直白：投资者以资金或证券为担保，向证券公司借入资金或证券进行证券投资的行为（来源：<a class="src" href="https://www.hsbcqh.com.cn/zh-cn/margin-financing-basic-knowledge" target="_blank" rel="noopener noreferrer">https://www.hsbcqh.com.cn/zh-cn/margin-financing-basic-knowledge</a>）。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;margin-top:10px;">打个比方：融资就像你手里有 10 万块，但你觉得某只股票马上要涨，于是把 10 万块当“押金”押给券商，券商再借你 10 万，你总共用 20 万去买。如果股票涨了 10%，你赚的是 20 万的 10%——2 万块，相当于你本金 10 万赚了 20%。但反过来，跌 10%，你就亏 2 万，本金只剩 8 万，亏损率也是 20%。<b>杠杆把盈亏都放大了。</b></p>
+    <p style="color:#c4c4c4;font-size:13.5px;margin-top:10px;">融券更“反直觉”一点——你先向券商借来股票，立刻卖掉换现金，等股价跌了再买回来还给券商，赚中间的差价。中银证券举过例子：你手里长期持有某股票 A，现价 10 元/股，预期要跌，就融券卖出 1 万股拿到 10 万现金；等跌到 8 元/股时，花 8 万买回 1 万股还券，净赚 2 万（不考虑手续费和利息）（来源：<a class="src" href="https://www.bocichina.com/main/a/20240906/493868.shtml" target="_blank" rel="noopener noreferrer">https://www.bocichina.com/main/a/20240906/493868.shtml</a>）。</p>
+  </div>
+  <div class="illus">
+    <!-- 融资融券业务流转图 -->
+    <svg viewBox="0 0 720 120" width="720" height="120" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="40" width="160" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="90" y="67" fill="#e8e8e8" font-size="12" text-anchor="middle">投资者</text>
+      <path d="M175 62 H215" stroke="#c8a866" stroke-width="2" marker-end="url(#ar1)"/>
+      <rect x="225" y="40" width="160" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="305" y="67" fill="#e8e8e8" font-size="12" text-anchor="middle">提供担保物</text>
+      <path d="M390 62 H430" stroke="#c8a866" stroke-width="2" marker-end="url(#ar1)"/>
+      <rect x="440" y="40" width="160" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="520" y="67" fill="#e8e8e8" font-size="12" text-anchor="middle">券商借资金/证券</text>
+      <path d="M520 84 V100 H90 V84" stroke="#e05050" stroke-width="1.5" stroke-dasharray="3 3" fill="none"/>
+      <text x="305" y="112" fill="#e05050" font-size="11" text-anchor="middle">到期还钱/还券 + 利息/费用</text>
+      <defs><marker id="ar1" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">示意图：融资融券的核心流转路径</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>门槛与成本 · 钱从哪来</h2>
+  <div class="sec-note">外行最该关心的不是“规模多大”，而是“我够不够格、要花多少钱”。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>项目</th><th>典型标准</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>开通门槛</td><td class="up">50 万资产</td><td>前 20 个交易日日均资产不低于 50 万元，半年以上交易经验 [UNSOURCED]</td></tr>
+        <tr><td>融资利率</td><td class="up">常见 6%–8% 年化</td><td>按日计息，随借随还，各券商不同 [UNSOURCED]</td></tr>
+        <tr><td>融券费率</td><td>一般高于融资利率</td><td>年化 8%–11% 区间常见，券源越稀缺越贵 [UNSOURCED]</td></tr>
+        <tr><td>保证金比例</td><td class="down">融资 80%–100%，融券 50%–100%</td><td>不同标的证券标准不同，由券商根据风险评估设定 [UNSOURCED]</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="illus">
+    <!-- 保证金与杠杆关系柱状图 -->
+    <svg viewBox="0 0 720 220" width="720" height="220" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <rect x="120" y="130" width="100" height="50" fill="#c8a866"/>
+      <rect x="290" y="80" width="100" height="100" fill="#c8a866"/>
+      <rect x="460" y="40" width="100" height="140" fill="#e05050"/>
+      <text x="170" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">保证金 80%</text>
+      <text x="340" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">保证金 50%</text>
+      <text x="510" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">保证金 25%</text>
+      <text x="170" y="122" fill="#e8e8e8" font-size="11" text-anchor="middle">杠杆约 1.25x</text>
+      <text x="340" y="72" fill="#e8e8e8" font-size="11" text-anchor="middle">杠杆约 2x</text>
+      <text x="510" y="32" fill="#e05050" font-size="11" text-anchor="middle">杠杆约 4x</text>
+      <text x="375" y="218" fill="#8a8a8a" font-size="11" text-anchor="middle">示意：保证金越低，杠杆越高，风险越大 [UNSOURCED]</text>
+    </svg>
+    <div class="cap">保证金比例与杠杆的对应关系示意（非精确数值）</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台 -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在制定规则、谁在赚钱、散户处在什么位置。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">ROOT</span>
+        <h3>券商（证券公司）</h3>
+        <ul><li>规则制定者和“贷款人”：决定你能借多少、用什么抵押、利率多高。汇丰前海、中银证券、渤海证券、中金财富等都有融资融券业务（来源：<a class="src" href="https://www.ciccwm.com/ciccwmweb/stock_business/margin_requirement/margin_requirement_nav.html" target="_blank" rel="noopener noreferrer">https://www.ciccwm.com/ciccwmweb/stock_business/margin_requirement/margin_requirement_nav.html</a>）。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">监管</span>
+        <h3>证监会 &amp; 交易所</h3>
+        <ul><li>定大框架的人。融资融券 2010 年 3 月 31 日正式开通，上交所、深交所同日启动试点（来源：<a class="src" href="https://www.ciccwm.com/ciccwmweb/stock_business/margin_requirement/margin_requirement_nav.html" target="_blank" rel="noopener noreferrer">https://www.ciccwm.com/ciccwmweb/stock_business/margin_requirement/margin_requirement_nav.html</a>）。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">HOT</span>
+        <h3>融资客 / 融券客</h3>
+        <ul><li>真正在场上玩的人。融资客偏多头，融券客偏空头。融券还能用来对冲手中持仓的下跌风险（来源：<a class="src" href="https://www.csrc.gov.cn/jiangxi/c105770/c1324289/content.shtml" target="_blank" rel="noopener noreferrer">https://www.csrc.gov.cn/jiangxi/c105770/c1324289/content.shtml</a>）。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>“围观群众”</h3>
+        <ul><li>没到 50 万门槛的普通人。可以看融资融券余额、两融余额变化来判断市场情绪，但不要借钱硬上。</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就梭哈。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步 · 先搞懂规则</div><div class="tl-body">读券商的风险揭示书和业务合同，重点看“维持担保比例”“强制平仓线”这两件事。汇丰前海特别提醒：参与前应仔细阅读合同和风险揭示书（来源：<a class="src" href="https://www.hsbcqh.com.cn/zh-cn/margin-financing-basic-knowledge" target="_blank" rel="noopener noreferrer">https://www.hsbcqh.com.cn/zh-cn/margin-financing-basic-knowledge</a>）。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步 · 用小钱模拟心态</div><div class="tl-body">先问自己：如果这只股票明天跌 20%，我能接受吗？杠杆会把亏损放大，心态不稳的人别碰。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步 · 建立“担保物”意识</div><div class="tl-body">你押给券商的不只是钱，股票也可以。渤海证券的公式显示，保证金可用余额 = 现金 + 证券市值×折算率——不是所有股票都能打满抵押（来源：<a class="src" href="https://www.bhzq.com/main/a/20240530/4896.shtml" target="_blank" rel="noopener noreferrer">https://www.bhzq.com/main/a/20240530/4896.shtml</a>）。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步 · 只借你能亏得起的钱</div><div class="tl-body">融资融券的极限损失可以超过本金。如果连“本金亏光”都无法承受，这个工具不适合你。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>强平线：跌到一定程度，券商替你卖</h3><ul><li>当你的担保物价值跌到券商设定的“最低维持担保比例”以下，券商会强制平仓，不等你反应。亏损可能立刻变成永久损失。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>利息天天滚，越拖越贵</h3><ul><li>融资融券按日计息，不是到期才还。拖得越久，利息越吃本金，尤其融资利率 6%–8% 看着不高，但加上杠杆亏损，体验完全不同。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>融不到券：想借的股票没有</h3><ul><li>融券不是你想融就能融，券源由券商提供，热门做空标的常常“一券难求”。渤海证券明确：标的证券必须在券商公布的范围内（来源：<a class="src" href="https://www.bhzq.com/main/a/20240530/4896.shtml" target="_blank" rel="noopener noreferrer">https://www.bhzq.com/main/a/20240530/4896.shtml</a>）。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li><b>先还债，再想赚。</b>任何时候都保证自己还有现金能补保证金，而不是满仓杠杆。</li></ul></div>
+  </div>
+  <div class="illus">
+    <!-- 误区 vs 真相 对比图 -->
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="58" fill="#e05050" font-size="13" text-anchor="middle">误区</text>
+      <text x="180" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">“融资融券就是借钱免费炒股”</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="400" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="58" fill="#50b070" font-size="13" text-anchor="middle">真相</text>
+      <text x="550" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">要付利息，亏损也会放大，还可能被强平</text>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>担保物</b></td><td>你押给券商的“人质”——现金或股票，用来保证你能还钱还券。</td></tr>
+        <tr><td><b>维持担保比例</b></td><td>你的总资产（含借来的）除以总负债。低于券商规定的线（常见 130%），就会被要求补钱或强平 [UNSOURCED]。</td></tr>
+        <tr><td><b>强制平仓</b></td><td>券商不等你同意，直接卖掉你的担保物来还债。这是融资融券最狠的一刀。</td></tr>
+        <tr><td><b>标的证券</b></td><td>监管和券商允许拿来融资买入或融券卖出的那一篮子股票，不是所有股票都能玩。</td></tr>
+        <tr><td><b>折算率</b></td><td>你拿股票当抵押时，券商只按市值的一定比例（如 60%）算担保价值，不是 100% 认。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">“融券卖出的钱，不能乱花。”江西证监局明确：融券卖出所得资金除买券还券外，不得作其他用途（来源：<a class="src" href="https://www.csrc.gov.cn/jiangxi/c105770/c1324289/content.shtml" target="_blank" rel="noopener noreferrer">https://www.csrc.gov.cn/jiangxi/c105770/c1324289/content.shtml</a>）。你以为借股票卖完就能拿现金跑路？不存在的，钱被锁着，只能用来还券。</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">适合：有 50 万以上资产、有足够风险承受力、真正理解杠杆的人。不适合：本金不足、心态易崩、连股票基础知识都没过关的外行。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">融资融券是股市的<b class="hot">“放大器”</b>——它不改变你判断的对错，只改变你犯错时<b class="hot">有多疼</b>。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：汇丰前海《基础知识·融资融券》、中银证券《融资融券业务举例》、渤海证券《融资融券业务基础知识》、中金财富《融资融券业务介绍》、江西证监局《融资融券系列之五：如何进行融资融券交易(融券业务介绍)》、18.cn《融资融券指南》。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
