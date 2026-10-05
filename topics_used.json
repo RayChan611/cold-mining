@@ -1,6 +1,8 @@
 {
   "cold": {
     "keys": [
+      "antique-radio",
+      "antique-radios",
       "auction-bargain",
       "auction-bargain-hunting",
       "bandwidth-trade",
@@ -57,6 +59,7 @@
     ],
     "labels": [
       "卫星频率",
+      "古董收音机",
       "古董表",
       "域名投资",
       "威士忌投资",

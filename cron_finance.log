@@ -355,3 +355,11 @@
 [cold_mining] git push ok=True info=To github.com:RayChan611/cold-mining.git
    169b744..285cf1f  main -> main
 [cold_mining] feishu code=0 link=https://raychan611.github.io/cold-mining/finance/reports/2026-10-01-futures-intro-for-beginners.html
+[cold_mining] line=finance topic=融资融券 key=margin-trading
+[cold_mining] tavily hits=2154
+[cold_mining] attempt=0 html_len=19770 svg=8
+[cold_mining] wrote /home/ubuntu/cold-mining/finance/reports/2026-10-02-margin-trading-short-selling.html
+[cold_mining] index+log+used 已更新（key=margin-trading）
+[cold_mining] git push ok=True info=To github.com:RayChan611/cold-mining.git
+   909f02d..8a4069b  main -> main
+[cold_mining] feishu code=0 link=https://raychan611.github.io/cold-mining/finance/reports/2026-10-02-margin-trading-short-selling.html

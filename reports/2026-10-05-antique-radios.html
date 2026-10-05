@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 古董收音机</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+
+<style id=cold-mining-responsive-20260904>
+  /* 长 URL 兜底换行（防止撑破容器） */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb, .sec-note {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 古董收音机</div>
+  <h1>古董收音机：一台会响的木头盒子，凭什么比新出的智能手机还贵？</h1>
+  <div class="sub">从「爷爷的收音机」到拍卖行里的万元级藏品，这玩意儿玩的到底是什么？</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。投资/收藏有风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：这个领域是干什么的、谁在玩、值不值得普通人关注。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：收藏、修复、把玩 20 世纪初期到 1970 年代的老式收音机——尤其是电子管（真空管）时代那些用木头外壳、黄铜旋钮、织物喇叭布做成的「会发声的家具」。</li>
+        <li><b>谁在玩</b>：一群对电子管声音着迷的老无线电爱好者（业余无线电社群）、复古工业设计迷、喜欢动手修东西的「技术宅」，以及少量把它当古董家具买的室内设计师。</li>
+        <li><b>市场多大</b>：全球古董收音机交易没有统一统计，但家庭娱乐产品整体市场在 2034 年预计规模可达数百亿美元量级（含音响设备等）<a class="src" href="https://www.zionmarketresearch.com/zh-cn/report/home-entertainment-product-market" target="_blank" rel="noopener noreferrer">查看来源</a>；古董收音机是其中极小但极其稳固的「长尾收藏」。</li>
+        <li><b>小白能玩吗</b>：能。入门门槛低（几百元就能买到一台能响的 1950 年代电子管机），但水深：修过没修过、零件是不是原装、外壳有没有开裂，价格能差十倍。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <rect x="20" y="18" width="120" height="100" rx="12" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <rect x="36" y="34" width="88" height="46" rx="4" fill="#101010" stroke="#2a2a2a"/>
+        <circle cx="80" cy="57" r="14" fill="none" stroke="#c8a866" stroke-width="1.5"/>
+        <circle cx="80" cy="57" r="6" fill="#c8a866"/>
+        <path d="M80 57 L96 49" stroke="#c8a866" stroke-width="1.5"/>
+        <circle cx="44" cy="92" r="6" fill="#1f1f1f" stroke="#d4d4d4" stroke-width="1.5"/>
+        <circle cx="80" cy="92" r="6" fill="#1f1f1f" stroke="#d4d4d4" stroke-width="1.5"/>
+        <circle cx="116" cy="92" r="6" fill="#1f1f1f" stroke="#d4d4d4" stroke-width="1.5"/>
+        <path d="M30 128 H130" stroke="#2a2a2a" stroke-width="2"/>
+        <text x="80" y="142" fill="#8a8a8a" font-size="10" text-anchor="middle">古董收音机 · 概念插画</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">古董收音机有点像「爷爷的旧家具」和「电子管功放」的结合体。它和现代收音机最大的区别在于：现代收音机是一块芯片解决问题，而古董收音机里面是一堆会发光的玻璃管子（电子管），通电后慢慢亮起来，声音从木头箱子里「暖洋洋地」飘出来。收藏它的核心逻辑不是「听广播」（虽然很多人确实在听），而是三个字：<b>设计、工艺、稀缺性</b>。1930-1950 年代的收音机设计正逢「工业设计的黄金时代」——流线型外壳、黄铜指针、圆形刻度盘、木纹贴面，放在今天看依然不过时。据公开资料，美国在 1930 年代曾有超过 500 家收音机制造商，二战期间大量停产转产军品，战后能完好保留下来的民用机就成了稀罕物。</p>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 140" width="720" height="140" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="45" width="180" height="50" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="100" y="75" fill="#e8e8e8" font-size="13" text-anchor="middle">电子管电路</text>
+      <path d="M195 70 H235" stroke="#c8a866" stroke-width="2" marker-end="url(#ar3)"/>
+      <rect x="245" y="45" width="180" height="50" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="335" y="75" fill="#e8e8e8" font-size="13" text-anchor="middle">木质/塑料外壳</text>
+      <path d="M430 70 H470" stroke="#c8a866" stroke-width="2" marker-end="url(#ar3)"/>
+      <rect x="480" y="45" width="180" height="50" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="570" y="75" fill="#e8e8e8" font-size="13" text-anchor="middle">刻度盘 + 扬声器</text>
+      <text x="360" y="30" fill="#8a8a8a" font-size="11" text-anchor="middle">一台古董收音机的「三件套」</text>
+      <defs><marker id="ar3" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">示意图：古董收音机的构成逻辑（据公开资料整理）</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 价格带</h2>
+  <div class="sec-note">用真实数字说明蛋糕有多大、钱集中在哪。来源内联标注。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>档位</th><th>典型价格</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>入门档</td><td class="up">¥200 – 800</td><td>1950-60 年代国产或东欧产电子管机，能响但品相一般，外壳可能有磨损；适合当「会响的摆件」练手（据公开交易平台行情）</td></tr>
+        <tr><td>进阶档</td><td>¥1,500 – 8,000</td><td>1930-40 年代美国或德国品牌机（如 Zenith、Philco、Telefunken），原装度高、外壳完整、刻度盘清晰、能正常收台（[UNSOURCED] 综合海外拍卖平台行情）</td></tr>
+        <tr><td>极品档</td><td class="down">¥20,000 – 200,000+</td><td>极稀有型号或设计经典款（如 1930 年代 Catalin 塑料外壳收音机、高保真电子管收扩机），品相全新、带原装包装和说明书的「博物馆级」藏品（据海外拍卖记录，具体成交价因型号差异极大）</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 220" width="720" height="220" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <rect x="110" y="150" width="90" height="30" fill="#c8a866"/>
+      <text x="155" y="145" fill="#c8a866" font-size="11" text-anchor="middle">低</text>
+      <rect x="280" y="100" width="90" height="80" fill="#c8a866"/>
+      <text x="325" y="95" fill="#c8a866" font-size="11" text-anchor="middle">中</text>
+      <rect x="450" y="30" width="90" height="150" fill="#e05050"/>
+      <text x="495" y="25" fill="#e05050" font-size="11" text-anchor="middle">高</text>
+      <text x="155" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">入门档</text>
+      <text x="325" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">进阶档</text>
+      <text x="495" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">极品档</text>
+      <text x="380" y="215" fill="#8a8a8a" font-size="11" text-anchor="middle">价格带示意（据公开拍卖与交易平台行情，非精确统计）</text>
+    </svg>
+    <div class="cap">古董收音机价格带示意（据公开资料整理）</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台 -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在制定规则、谁在赚钱、小白该去哪个平台。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">源头</span>
+        <h3>eBay / Etsy 海外拍卖</h3>
+        <ul><li>全球古董收音机最大的交易池，美国、德国卖家为主。极品机型多在 eBay 拍卖成交。小白可先浏览已成交记录（Sold Listings）建立价格感。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">国内平台</span>
+        <h3>闲鱼 / 7788 收藏网</h3>
+        <ul><li>国内交易主要发生在闲鱼和 7788 收藏网（后者偏专业收藏品）。价格比海外低，但假货、拼装机、翻新机也多，需要仔细辨别。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">社群</span>
+        <h3>无线电爱好者论坛 / 微信群</h3>
+        <ul><li>国内有「矿石收音机论坛」「电子管技术论坛」等老牌社区，是学习修理、辨别真伪、交换零件的主阵地。很多老师傅在这里免费答疑。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>本地旧货市场 / 跳蚤市场</h3>
+        <ul><li>北京潘家园、上海虬江路（已拆迁，现分散至各旧货市场）、广州陶街等。可以现场看实物、听声音、砍价，最适合小白第一次「上手」。</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就梭哈。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">先看，别买。在 eBay 搜「vintage tube radio」，筛选「Sold Items」，看 50 台已成交的机器，建立「什么牌子值钱、什么品相值钱」的直觉。预算 0 元。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">花 300-500 元，在闲鱼或本地旧货市场买一台 1950-60 年代国产电子管收音机（如红灯、熊猫、上海牌），要求：能通电、能收到中波台、外壳没有严重开裂。把它放在家里当「会响的摆件」用两周。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">加入「电子管技术论坛」或类似社群，把机器内部拍清楚发帖请教。学会认三个东西：电子管型号（如 6P1、6A2）、整流方式、扬声器是否原装。这是判断价值的基础功。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">等你对至少 3 个品牌（如 Zenith、Philco、国产红灯）的典型型号、常见故障、合理价格区间心中有数后，再考虑进阶收藏。记住：修过的机器价格通常只有原装未修的一半甚至更低，除非修复者是业内公认的高手。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>「能响」不等于「原装」</h3><ul><li>很多卖家把坏掉的电子管收音机塞进一个现代蓝牙音箱，或者换掉原装变压器和喇叭，机器能响但已经没有任何收藏价值。避坑：拆开看内部，原装零件通常有品牌钢印、日期码、老化痕迹。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>「老」不等于「值钱」</h3><ul><li>1920 年代的老机器有些存世量大、设计平庸，几百块都没人要；反而 1950 年代某些设计独特的小众型号能卖几万。避坑：稀缺性和设计感比「年头」重要得多。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>外壳「美容」冒充原漆</h3><ul><li>有人用现代木器漆重刷外壳，或者用翻新贴皮盖住开裂。避坑：看螺丝孔周围有没有漆面堆积、闻有没有刺鼻的新漆味、用紫外灯看新旧漆的荧光反应不同。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>买你「愿意每天看到它」的机器。古董收音机的流动性很差，你买回来很可能要陪它很多年。如果只是因为「听说能升值」而买，大概率会砸在手里。</li></ul></div>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="56" fill="#e05050" font-size="13" text-anchor="middle">误区：「能响就是好机器」</text>
+      <text x="180" y="78" fill="#c4c4c4" font-size="11" text-anchor="middle">被换过喇叭、塞了蓝牙板，照样能响</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar4)"/>
+      <rect x="400" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="56" fill="#50b070" font-size="13" text-anchor="middle">真相：价值在「原装度 + 设计」</text>
+      <text x="550" y="78" fill="#c4c4c4" font-size="11" text-anchor="middle">能响只是底线，原装零件和稀有型号才保值</text>
+      <defs><marker id="ar4" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相（据公开资料整理）</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>电子管（胆管）</b></td><td>一种玻璃真空管，通电后里面的灯丝发光，用来放大信号。相当于「收音机的心脏」，是古董机和现代机的分水岭。</td></tr>
+        <tr><td><b>矿石收音机</b></td><td>最古老的收音机类型，不需要电源，靠天线接收电波能量直接驱动耳机发声。结构极简单，是很多发烧友的「入门玩具」。</td></tr>
+        <tr><td><b>刻度盘（Dial）</b></td><td>收音机正面显示频率的圆形或弧形窗口，通常带指针和印着数字/城市名的玻璃面板，是古董收音机最有视觉魅力的部分。</td></tr>
+        <tr><td><b>Catalin 收音机</b></td><td>1930-40 年代用酚醛树脂（Catalin）做外壳的彩色收音机，颜色鲜艳如糖果，存世极少，是拍卖行的常客，极品单台可卖数万美元 [UNSOURCED]。</td></tr>
+        <tr><td><b>中波（AM）/ 短波（SW）</b></td><td>古董收音机主要收听的波段。中波是本地广播，短波可以收到远距离甚至国外电台（在当年是「连接世界」的窗口）。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">二战期间，美国和德国的民用收音机生产几乎停摆，工厂全部转产军用通信设备。战争结束后，大量战前设计图纸被销毁或遗失，导致某些 1930 年代经典机型的原厂零件至今无法复刻——你手上那台 1938 年的 Zenith，可能连官方图纸都找不到，只能靠老师傅「照猫画虎」修。据公开资料，美国 1930 年代曾有 500 多家收音机厂，今天还能在收藏市场见到的品牌不到十分之一。</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">适合：喜欢动手、喜欢复古设计、享受「等待电子管慢慢亮起来」这种慢节奏的人。不适合：想快速转手赚钱、对电气安全零概念、家里没地方放大件物品的人。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">古董收音机收藏的尽头，不是「升值」，而是<b class="cool">在客厅里听见 70 年前的声音</b>。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：Zion Market Research 家庭娱乐产品市场规模报告（<a class="src" href="https://www.zionmarketresearch.com/zh-cn/report/home-entertainment-product-market" target="_blank" rel="noopener noreferrer">查看来源</a>）、eBay 已成交记录（公开数据）、7788 收藏网公开行情、电子管技术论坛公开讨论。部分价格区间为综合公开交易平台行情估算，标 [UNSOURCED] 处为无法精确核实的范围。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html

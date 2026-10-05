@@ -35,3 +35,4 @@
 | 2026-09-30 | 盆栽与文人树：一盆树里的东亚美学与时间生意 | reports/2026-09-30-bonsai-and-literati-tree.html |
 | 2026-10-01 | 老海报与电影海报收藏：一张纸凭什么能换一辆车？ | reports/2026-10-01-vintage-poster-movie-poster-collecting.html |
 | 2026-10-02 | 铁皮玩具与怀旧玩具入门：一块会生锈的铁皮，凭什么让人掏几万块？ | reports/2026-10-02-vintage-tin-toys-and-nostalgic-toys.html |
+| 2026-10-05 | 古董收音机：一台会响的木头盒子，凭什么比新出的智能手机还贵？ | reports/2026-10-05-antique-radios.html |
