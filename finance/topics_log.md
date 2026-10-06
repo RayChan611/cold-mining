@@ -41,3 +41,4 @@
 | 2026-10-01 | 期货入门：一张「未来价格」的赌约，是怎么变成万亿级市场的？ | reports/2026-10-01-futures-intro-for-beginners.html |
 | 2026-10-02 | 融资融券：向券商“借鸡生蛋”，还是“借刀”割自己？——一份外行也能读懂的入门研究报告 | reports/2026-10-02-margin-trading-short-selling.html |
 | 2026-10-05 | 打新与新股上市：中签率堪比彩票的“抢鲜”游戏 | reports/2026-10-05-ipo-and-new-stock-listing.html |
+| 2026-10-06 | 拆股：股价从1000元变100元，你的钱真的变多了吗？ | reports/2026-10-06-stock-split-basics.html |
