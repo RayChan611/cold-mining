@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 分红与股息策略</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+
+<style id=cold-mining-responsive-20260904>
+  /* 长 URL 兜底换行（防止撑破容器） */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb, .sec-note {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../index.html">← 返回汇总</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 分红与股息策略</div>
+  <h1>分红与股息策略：一家公司每年从利润里给你“发红包”的生意</h1>
+  <div class="sub">不靠股价上涨也能赚钱的「收租」思路——看懂公司如何把利润分给你，以及怎么避坑</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。投资/收藏有风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：分红是干什么的、谁在玩、值不值得普通人关注。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：上市公司把一年赚到的利润，按你持有的股份比例，直接分给你一部分现金——相当于你作为“小股东”收到的“红包”。</li>
+        <li><b>谁在玩</b>：追求稳定现金流的退休族、想“躺着收租”的长期投资者、以及大量机构资金（保险、养老金）。</li>
+        <li><b>市场多大</b>：AT&amp;T 和美国银行等成熟企业的股息率在 2023 年约 3%–7%，与标普 500 长期平均股息率相当（来源：<a class="src" href="https://www.etoro.com/zh/investing/what-are-dividends" target="_blank" rel="noopener noreferrer">eToro</a>）。</li>
+        <li><b>小白能玩吗</b>：能，但别只盯着“股息率高”就冲——高股息背后可能是股价已经跌了很多，或者是公司硬撑着分红。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <rect x="20" y="24" width="120" height="82" rx="10" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <circle cx="36" cy="44" r="4" fill="#e05050"/><circle cx="50" cy="44" r="4" fill="#c8a866"/><circle cx="64" cy="44" r="4" fill="#50b070"/>
+        <rect x="34" y="58" width="92" height="12" rx="4" fill="#1f1f1f" stroke="#2a2a2a"/>
+        <text x="80" y="68" fill="#c8a866" font-size="10" font-family="monospace" text-anchor="middle">annual profit</text>
+        <rect x="34" y="76" width="92" height="12" rx="4" fill="#1f1f1f" stroke="#2a2a2a"/>
+        <text x="80" y="86" fill="#e8e8e8" font-size="10" font-family="monospace" text-anchor="middle">cash dividend</text>
+        <path d="M20 106 H140" stroke="#2a2a2a" stroke-width="2"/>
+        <path d="M44 112 L54 128 M44 112 L34 128 M54 128 L44 112" fill="none" stroke="#c8a866" stroke-width="1.5"/>
+        <text x="80" y="128" fill="#9a9a9a" font-size="10" text-anchor="middle">Dividend</text>
+        <text x="80" y="144" fill="#8a8a8a" font-size="9" text-anchor="middle">公司把利润分给股东</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">假设你和几个朋友合伙开了一家奶茶店。年底一盘账，赚了 100 万。大家商量：留 40 万再开一家新店，剩下 60 万按各自出资比例分掉——你投了 10% 的股份，就拿到 6 万现金。<b>分红（股息）就是这么一回事：上市公司把利润的一部分按持股比例发给股东。</b>它不是“额外赚到的钱”，而是公司替你赚的钱里，拿出来直接给你花的那部分。股票本身可能涨也可能跌，但分红是公司实打实打进你账户的现金。</p>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 120" width="720" height="120" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="40" width="170" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="95" y="60" fill="#e8e8e8" font-size="12" text-anchor="middle">公司赚钱</text>
+      <text x="95" y="76" fill="#8a8a8a" font-size="10" text-anchor="middle">净利润</text>
+      <path d="M185 62 H220" stroke="#c8a866" stroke-width="2" marker-end="url(#ar1)"/>
+      <rect x="230" y="40" width="170" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="315" y="60" fill="#e8e8e8" font-size="12" text-anchor="middle">董事会决定</text>
+      <text x="315" y="76" fill="#8a8a8a" font-size="10" text-anchor="middle">分多少，留多少</text>
+      <path d="M405 62 H440" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="450" y="40" width="170" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="535" y="60" fill="#e8e8e8" font-size="12" text-anchor="middle">按持股比例分钱</text>
+      <text x="535" y="76" fill="#8a8a8a" font-size="10" text-anchor="middle">现金到账</text>
+      <defs>
+        <marker id="ar1" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker>
+        <marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker>
+      </defs>
+    </svg>
+    <div class="cap">分红的核心链路：公司赚钱 → 董事会决定分多少 → 按持股比例发到股东账户</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 股息率档位</h2>
+  <div class="sec-note">用真实数字说明不同股息率意味着什么。来源内联标注。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>档位</th><th>典型股息率</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>入门 / 稳健档</td><td class="up">2% – 3%</td><td>美股标普 500 长期平均股息率约在这个区间（来源：<a class="src" href="https://www.etoro.com/zh/investing/what-are-dividends" target="_blank" rel="noopener noreferrer">eToro</a>）。</td></tr>
+        <tr><td>进阶 / 高息档</td><td>3% – 7%</td><td>如 AT&amp;T、美国银行等成熟公司 2023 年落在此区间（来源：<a class="src" href="https://www.etoro.com/zh/investing/what-are-dividends" target="_blank" rel="noopener noreferrer">eToro</a>）。</td></tr>
+        <tr><td>危险 / 超高息档</td><td class="down">8% 以上</td><td>往往意味着市场预期分红难持续，或股价已大跌。需重点核查公司财务（据公开资料）。</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 220" width="720" height="220" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <rect x="110" y="140" width="90" height="40" fill="#50b070"/>
+      <rect x="280" y="100" width="90" height="80" fill="#c8a866"/>
+      <rect x="450" y="40" width="90" height="140" fill="#e05050"/>
+      <text x="155" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">稳健 2–3%</text>
+      <text x="325" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">高息 3–7%</text>
+      <text x="495" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">超高 8%+</text>
+      <text x="380" y="215" fill="#8a8a8a" font-size="11" text-anchor="middle">股息率越高，越需要问一句：这分红还能撑多久？（来源：eToro / 据公开资料）</text>
+    </svg>
+    <div class="cap">股息率档位示意：不是越高越好，超高股息率常常是“股价大跌”的副产品</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台（玩家卡片用线稿 SVG 小图标，不用 emoji） -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在制定“分红规则”、谁在帮你收钱、小白该去哪个平台看数据。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">ROOT</span>
+        <h3>上市公司董事会</h3>
+        <ul><li>每个季度/年度决定“分不分、分多少”。分红政策是公司治理的镜子：利润再投资 vs 回报股东，是它反复权衡的事（据公开资料）。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">平台 B</span>
+        <h3>券商 / 交易平台</h3>
+        <ul><li>moomoo 等平台提供实时股息数据和提醒，并支持股息再投资计划（DRIP），让分红自动买更多股票（来源：<a class="src" href="https://www.moomoo.com/us/hant/learn/how-to-invest-in-dividend-stocks" target="_blank" rel="noopener noreferrer">moomoo</a>）。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">HOT</span>
+        <h3>红利指数基金 / ETF</h3>
+        <ul><li>一篮子高股息股票的组合，一键分散风险。红利策略近年火，底层逻辑依赖“低利率环境延续”（来源：<a class="src" href="https://podcasts.apple.com/jo/podcast/3089-%E4%B8%8A%E5%B8%82%E5%85%AC%E5%8F%B8-%E4%B8%89%E8%8A%B1%E6%99%BA%E6%8E%A7-%E5%80%BC%E5%BE%97%E5%A4%9A%E5%B0%91%E5%B8%82%E5%80%BC/id981048088?l=ar" target="_blank" rel="noopener noreferrer">雪球播客</a>）。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>小白友好入口</h3>
+        <ul><li>先看公司财报中的“股息历史”与“派息比率”，再对比同行业。moomoo 等平台的新手引导页是低门槛起点（来源：<a class="src" href="https://www.moomoo.com/us/hant/learn/how-to-invest-in-dividend-stocks" target="_blank" rel="noopener noreferrer">moomoo</a>）。</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就梭哈。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步 · 分清两种“赚”</div><div class="tl-body">股价上涨叫“资本利得”，分红叫“股息收入”。分红策略的核心不是赌股价，而是看公司能不能持续稳定地发钱。先用这句话建立底层认知。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步 · 查公司的派息历史</div><div class="tl-body">去券商平台或财报页，看这家公司过去 5–10 年是否每年都分红、金额是升是降。moomoo 的股息股票入门指南建议持续跟踪派息历史、财务报告和市场状况（来源：<a class="src" href="https://www.moomoo.com/us/hant/learn/how-to-invest-in-dividend-stocks" target="_blank" rel="noopener noreferrer">moomoo</a>）。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步 · 看“派息比率”</div><div class="tl-body">派息比率 = 每股分红 ÷ 每股盈利。低于 40%–60% 通常较健康；超过 80% 甚至 100%，说明公司在把几乎所有利润都分出去，抗风险能力下降（据公开资料）。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步 · 决定“拿现金”还是“再投资”</div><div class="tl-body">很多券商提供股息再投资计划（DRIP），自动把分红买成更多股票，长期看能滚雪球（来源：<a class="src" href="https://www.moomoo.com/us/hant/learn/how-to-invest-in-dividend-stocks" target="_blank" rel="noopener noreferrer">moomoo</a>）。如果你不需要现金流，DRIP 是省心的复利工具。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑（可加一张「误区 vs 真相」插图） -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>只看股息率，不看公司质地</h3><ul><li>股息率高可能因为股价已经崩了。评估公司要看财务状况、增长潜力和股息可持续性（来源：<a class="src" href="https://zforex.com/cn/blog/stocks/understanding-stock-dividends" target="_blank" rel="noopener noreferrer">zForex</a>）。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>忽略股息税</h3><ul><li>中国 A 股：持股超 1 年免个税；1 个月以内 20%；1 个月到 1 年 10%（来源：<a class="src" href="https://www.etoro.com/zh/investing/what-are-dividends" target="_blank" rel="noopener noreferrer">eToro</a>）。短线炒一把就跑，分红扣税可能让你白忙。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>把“分红”当成“额外收益”</h3><ul><li>分红是从公司净资产里分出来的，除息日股价会相应下调。它不是天上掉馅饼，而是你持有的资产换个形式回到你手里（据公开资料）。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>你买的是“能持续赚钱的公司”，不是“某一次高分红”。红利策略的钱大部分来自长期分红本身，而非股价大涨（来源：<a class="src" href="https://podcasts.apple.com/jo/podcast/3089-%E4%B8%8A%E5%B8%82%E5%85%AC%E5%8F%B8-%E4%B8%89%E8%8A%B1%E6%99%BA%E6%8E%A7-%E5%80%BC%E5%BE%97%E5%A4%9A%E5%B0%91%E5%B8%82%E5%80%BC/id981048088?l=ar" target="_blank" rel="noopener noreferrer">雪球播客</a>）。</li></ul></div>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="58" fill="#e05050" font-size="13" text-anchor="middle">误区</text>
+      <text x="180" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">股息率越高越好，闭眼买</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar3)"/>
+      <rect x="400" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="58" fill="#50b070" font-size="13" text-anchor="middle">真相</text>
+      <text x="550" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">先看公司能否持续赚钱、分红是否可持续</text>
+      <defs><marker id="ar3" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相：股息率是“结果”，不是“原因”——先看公司质地</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>股息率</b></td><td>一年分红 ÷ 当前股价。相当于你投入的本金一年能“收租”多少比例。</td></tr>
+        <tr><td><b>派息比率</b></td><td>每股分红 ÷ 每股盈利。公司把赚的钱拿出多少比例分给股东。超过 80% 要警惕。</td></tr>
+        <tr><td><b>除息日</b></td><td>这一天买入股票的人，赶不上本次分红。想拿分红，必须在除息日前一天收盘时持有。</td></tr>
+        <tr><td><b>DRIP</b></td><td>股息再投资计划。分红不取现，自动帮你买成更多股票，长期滚复利。</td></tr>
+        <tr><td><b>全收益指数</b></td><td>把分红再投资也算进去的指数。只看价格指数会严重低估红利的长期回报（来源：<a class="src" href="https://podcasts.apple.com/jo/podcast/3089-%E4%B8%8A%E5%B8%82%E5%85%AC%E5%8F%B8-%E4%B8%89%E8%8A%B1%E6%99%BA%E6%8E%A7-%E5%80%BC%E5%BE%97%E5%A4%9A%E5%B0%91%E5%B8%82%E5%80%BC/id981048088?l=ar" target="_blank" rel="noopener noreferrer">雪球播客</a>）。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">很多人以为红利策略赚的是“股价上涨”，其实它的大头藏在分红再投资里——只看价格指数会让你严重低估红利资产的长期回报。价格指数和全收益指数之间，差出来的就是“分红的钱”长期滚出的复利（来源：<a class="src" href="https://podcasts.apple.com/jo/podcast/3089-%E4%B8%8A%E5%B8%82%E5%85%AC%E5%8F%B8-%E4%B8%89%E8%8A%B1%E6%99%BA%E6%8E%A7-%E5%80%BC%E5%BE%97%E5%A4%9A%E5%B0%91%E5%B8%82%E5%80%BC/id981048088?l=ar" target="_blank" rel="noopener noreferrer">雪球播客</a>）。</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">适合：想要稳定现金流、能拿 3–5 年以上、厌恶追涨杀跌的人。不适合：想靠短期价差暴富、或急需流动性的人。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">分红不是“额外收入”，而是公司替你赚的钱里，选择先放进你口袋的那一部分——长期看，能持续分红的公司才是真朋友。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：moomoo 股息投资指南（<a class="src" href="https://www.moomoo.com/us/hant/learn/how-to-invest-in-dividend-stocks" target="_blank" rel="noopener noreferrer">链接</a>）、eToro 股息介绍（<a class="src" href="https://www.etoro.com/zh/investing/what-are-dividends" target="_blank" rel="noopener noreferrer">链接</a>）、zForex 股票分红（<a class="src" href="https://zforex.com/cn/blog/stocks/understanding-stock-dividends" target="_blank" rel="noopener noreferrer">链接</a>）、雪球播客（<a class="src" href="https://podcasts.apple.com/jo/podcast/3089-%E4%B8%8A%E5%B8%82%E5%85%AC%E5%8F%B8-%E4%B8%89%E8%8A%B1%E6%99%BA%E6%8E%A7-%E5%80%BC%E5%BE%97%E5%A4%9A%E5%B0%91%E5%B8%82%E5%80%BC/id981048088?l=ar" target="_blank" rel="noopener noreferrer">链接</a>）。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html

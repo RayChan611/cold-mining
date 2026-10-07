@@ -378,3 +378,11 @@
 [cold_mining] git push ok=True info=To github.com:RayChan611/cold-mining.git
    6609e08..c013ad5  main -> main
 [cold_mining] feishu code=0 link=https://raychan611.github.io/cold-mining/reports/2026-10-06-pocket-watch.html
+[cold_mining] line=cold topic=古地图收藏 key=antique-map
+[cold_mining] tavily hits=2226
+[cold_mining] attempt=0 html_len=17248 svg=8
+[cold_mining] wrote /home/ubuntu/cold-mining/reports/2026-10-07-antique-map-collecting.html
+[cold_mining] index+log+used 已更新（key=antique-map）
+[cold_mining] git push ok=True info=To github.com:RayChan611/cold-mining.git
+   d65528a..9213113  main -> main
+[cold_mining] feishu code=0 link=https://raychan611.github.io/cold-mining/reports/2026-10-07-antique-map-collecting.html
