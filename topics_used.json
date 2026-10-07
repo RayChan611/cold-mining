@@ -1,6 +1,8 @@
 {
   "cold": {
     "keys": [
+      "antique-map",
+      "antique-map-collecting",
       "antique-radio",
       "antique-radios",
       "auction-bargain",
@@ -60,6 +62,7 @@
     ],
     "labels": [
       "卫星频率",
+      "古地图收藏",
       "古董收音机",
       "古董表",
       "域名投资",

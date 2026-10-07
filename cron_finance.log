@@ -371,3 +371,11 @@
 [cold_mining] git push ok=True info=To github.com:RayChan611/cold-mining.git
    c9cbd2a..6609e08  main -> main
 [cold_mining] feishu code=0 link=https://raychan611.github.io/cold-mining/finance/reports/2026-10-05-ipo-and-new-stock-listing.html
+[cold_mining] line=finance topic=拆股 key=stock-split
+[cold_mining] tavily hits=2351
+[cold_mining] attempt=0 html_len=17187 svg=8
+[cold_mining] wrote /home/ubuntu/cold-mining/finance/reports/2026-10-06-stock-split-basics.html
+[cold_mining] index+log+used 已更新（key=stock-split）
+[cold_mining] git push ok=True info=To github.com:RayChan611/cold-mining.git
+   c013ad5..d65528a  main -> main
+[cold_mining] feishu code=0 link=https://raychan611.github.io/cold-mining/finance/reports/2026-10-06-stock-split-basics.html

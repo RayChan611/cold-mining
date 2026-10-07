@@ -37,3 +37,4 @@
 | 2026-10-02 | 铁皮玩具与怀旧玩具入门：一块会生锈的铁皮，凭什么让人掏几万块？ | reports/2026-10-02-vintage-tin-toys-and-nostalgic-toys.html |
 | 2026-10-05 | 古董收音机：一台会响的木头盒子，凭什么比新出的智能手机还贵？ | reports/2026-10-05-antique-radios.html |
 | 2026-10-06 | 怀表：一台戴在胸口的小型机械剧场，凭什么三百年后还在转？ | reports/2026-10-06-pocket-watch.html |
+| 2026-10-07 | 古地图收藏入门：一张几百年前的“世界地图”，凭什么拍出百万美元？ | reports/2026-10-07-antique-map-collecting.html |

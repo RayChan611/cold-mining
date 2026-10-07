@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 古地图收藏</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+
+<style id=cold-mining-responsive-20260904>
+  /* 长 URL 兜底换行（防止撑破容器） */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb, .sec-note {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 古地图收藏</div>
+  <h1>古地图收藏：一张几百年前的“旧纸”，凭什么值一套房？</h1>
+  <div class="sub">地图不只是导航工具——它还是权力的脚印、贸易的账本、古人对世界的好奇心。</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。收藏有风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：古地图收藏是干什么的、谁在玩、值不值得普通人关注。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：收藏 16–19 世纪印刷或手绘的纸质地图——不是拿来指路，而是收集“过去的人怎么理解世界”。</li>
+        <li><b>谁在玩</b>：私人藏家、图书馆、博物馆、历史研究者，以及一小撮把地图当“纸面资产”的投资者。</li>
+        <li><b>市场多大</b>：单品从几十美元到百万美元级别；16 世纪的稀有地图在拍卖会上曾拍出 207 万美元（据公开拍卖纪录 [UNSOURCED，需核实具体年份与拍品]）。</li>
+        <li><b>小白能玩吗</b>：能，但先别碰“古董原件”，从 19 世纪印刷品和复刻品练眼力最稳。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <!-- 首屏概念图：一张古地图 + 放大镜 -->
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <rect x="20" y="22" width="120" height="88" rx="6" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <path d="M34 58 Q46 44 60 52 Q74 60 82 50 Q90 42 98 50 Q108 60 116 52" fill="none" stroke="#c8a866" stroke-width="1.2"/>
+        <path d="M42 72 Q52 66 60 72 Q68 78 76 72 Q84 66 94 72" fill="none" stroke="#e8e8e8" stroke-width="1"/>
+        <path d="M48 82 Q56 78 64 82 Q72 86 80 82" fill="none" stroke="#c8a866" stroke-width="1"/>
+        <circle cx="118" cy="88" r="22" fill="none" stroke="#e05050" stroke-width="2"/>
+        <line x1="134" y1="104" x2="148" y2="118" stroke="#e05050" stroke-width="2"/>
+        <text x="80" y="140" fill="#8a8a8a" font-size="9" text-anchor="middle">古地图 + 放大镜</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把古地图收藏讲得让外行一听就懂。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">古地图收藏，本质上是在收集“人类认知世界的边界”。一张 16 世纪的欧洲世界地图，上面可能画着海怪、标着“未知南方大陆”的想象轮廓、把今天的澳大利亚画成一个巨大的“推测中的岛屿”。它不精确，但它值钱——因为它是当时的人用真金白银和航海性命换来的认知快照。收藏地图的人买的不只是纸和墨水，而是“一个时代的世界观”。这有点像收集邮票，但每一张地图都是“当时最贵的信息产品”：航海图曾是国家机密，印刷地图则曾是奢侈品。</p>
+  </div>
+  <div class="illus">
+    <!-- 价值链 / 流转路径：制图师 → 刻版师 → 出版商 → 藏家 -->
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="42" width="140" height="46" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="80" y="61" fill="#e8e8e8" font-size="11" text-anchor="middle">制图师</text>
+      <text x="80" y="76" fill="#8a8a8a" font-size="9" text-anchor="middle">收集地理情报</text>
+      <path d="M155 65 H185" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="195" y="42" width="140" height="46" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="265" y="61" fill="#e8e8e8" font-size="11" text-anchor="middle">刻版师</text>
+      <text x="265" y="76" fill="#8a8a8a" font-size="9" text-anchor="middle">铜版 / 木版雕刻</text>
+      <path d="M340 65 H370" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="380" y="42" width="140" height="46" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="450" y="61" fill="#e8e8e8" font-size="11" text-anchor="middle">出版商</text>
+      <text x="450" y="76" fill="#8a8a8a" font-size="9" text-anchor="middle">印刷装订发行</text>
+      <path d="M525 65 H555" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="565" y="42" width="140" height="46" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="635" y="61" fill="#e8e8e8" font-size="11" text-anchor="middle">藏家 / 机构</text>
+      <text x="635" y="76" fill="#8a8a8a" font-size="9" text-anchor="middle">保存与交易</text>
+      <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">示意图：一张古地图从“地理情报”变成“藏品”的完整流转路径</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 价格带</h2>
+  <div class="sec-note">古地图市场没有统一的“大盘指数”，但拍卖纪录和交易惯例可以勾勒出价格分层。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>档位</th><th>典型价格</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>入门档（19 世纪印刷品）</td><td class="up">$50 – $500</td><td>19 世纪的大规模印刷地图、地图册散页，存世量大，适合练手。</td></tr>
+        <tr><td>进阶档（17–18 世纪铜版地图）</td><td>$1,000 – $30,000</td><td>荷兰、法国、英国制图黄金时代的铜版地图，手工上色、品相好的更贵。</td></tr>
+        <tr><td>稀有档（16 世纪或名人重要地图）</td><td class="down">$100,000 – $2,000,000+</td><td>早期世界地图、著名制图师（如墨卡托、奥特利乌斯）的代表作；据公开拍卖纪录，顶尖拍品可达百万美元级 [UNSOURCED]。</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="illus">
+    <!-- 价格带柱状图（对数感示意，非精确比例） -->
+    <svg viewBox="0 0 720 220" width="720" height="220" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <rect x="110" y="150" width="90" height="30" fill="#c8a866"/>
+      <rect x="280" y="95" width="90" height="85" fill="#c8a866"/>
+      <rect x="450" y="25" width="90" height="155" fill="#e05050"/>
+      <text x="155" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">入门（$50–500）</text>
+      <text x="325" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">进阶（$1k–30k）</text>
+      <text x="495" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">稀有（$100k+）</text>
+      <text x="380" y="215" fill="#8a8a8a" font-size="11" text-anchor="middle">价格带示意 · 非精确比例，来源见正文标注</text>
+    </svg>
+    <div class="cap">古地图价格带示意（据公开拍卖与交易习惯整理，具体价格以实际拍品为准）</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台 -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在定价、谁在讲故事、小白该先逛哪里。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">ROOT</span>
+        <h3>老牌拍卖行（如苏富比、佳士得）</h3>
+        <ul><li>定价风向标。重要地图专场偶有出现，成交价常成为市场参考。据公开拍卖纪录，百万美元级地图多出自这类平台 [UNSOURCED]。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">DIRECT</span>
+        <h3>专业古地图商（如伦敦、巴黎、阿姆斯特丹老店）</h3>
+        <ul><li>一手货源主渠道，很多有数十年库存和修复能力；价格比拍卖稳定，适合中高阶藏家建立关系。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">HOT</span>
+        <h3>在线地图数据库与交易平台（如 OldMapsOnline、eBay 精选）</h3>
+        <ul><li>近年来最活跃的查询与入门渠道。eBay 上大量 19 世纪印刷品流通，但需警惕品相和真伪；学术平台适合先看高清扫描图学习。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>图书馆 / 大学数字馆藏</h3>
+        <ul><li>零成本练眼力的最佳入口。大英图书馆、美国国会图书馆等有海量高清古地图扫描件，先看够 100 张再考虑花钱。</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">别急着买“古董”，先学会看门道。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步 · 刷图养眼（0 成本）</div><div class="tl-body">去大英图书馆、国会图书馆、OldMapsOnline 的高清扫描库，每天看 10–20 张 16–19 世纪地图。重点看：铜版还是木版？手工上色还是后期套色？纸张有没有水印？</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步 · 买一本参考书或复刻品（$20–$60）</div><div class="tl-body">买一本关于古地图收藏的入门书，或者一张高质量复刻品。放在手里感受纸张纹理、印刷压力、旧化痕迹。复刻品是“最便宜的学费”。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步 · 小钱试水（$50–$300）</div><div class="tl-body">在 eBay 或靠谱古地图商的“散页”区，买一张 19 世纪的印刷地图。要求带完整出处信息（出版年份、图集名称、制图者）。买回来用放大镜看、用无酸纸保存。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步 · 建立判断框架后再考虑加注</div><div class="tl-body">当你自己能回答“这张地图为什么值这个价”“它和其他版本差在哪”时，再考虑进阶档。没想清楚前，把钱留在口袋里。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">古地图收藏比多数纸品收藏更“看眼力”，外行最容易在品相和版本上栽跟头。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>把“复刻品”当原件买</h3><ul><li>很多现代复刻品做旧后当古董卖。避坑：看纸张水印、印刷压痕、旧化是否自然；拿不准就问卖家要出处与版次信息，答不上来的一律不碰。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>把“拆页”当完整地图</h3><ul><li>很多古地图原本是地图册里的一页，被拆出来单卖。拆页本身不是坑，但“用整册价格卖拆页”就是坑。避坑：查原图集的出版信息与页数，确认这张地图在原册中的位置和价值。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>忽略品相与修复痕迹</h3><ul><li>折痕、污渍、虫蛀、褪色、甚至“洗过”的地图，价格天差地别。避坑：让卖家提供高清局部图，重点看中心折痕、边缘破损、手写上色是否均匀。严重修复过的要按“修复品”而非“原品”讲价。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li><b>买地图先买“出处”（provenance）。</b>知道它从哪本图集来、哪年印、谁刻版，比它长什么样更重要。没有出处的地图，再好看也只是“一张旧纸”。</li></ul></div>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="290" height="72" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="175" y="56" fill="#e05050" font-size="13" text-anchor="middle">误区：越老越值钱</text>
+      <text x="175" y="78" fill="#c4c4c4" font-size="11" text-anchor="middle">19 世纪大量印刷品存世很多，未必贵</text>
+      <path d="M335 66 H385" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="400" y="30" width="290" height="72" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="545" y="56" fill="#50b070" font-size="13" text-anchor="middle">真相：稀缺性 + 出处 + 品相</text>
+      <text x="545" y="78" fill="#c4c4c4" font-size="11" text-anchor="middle">同一时代不同版本，价格可差十倍</text>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相：价格由稀缺性、出处和品相共同决定，而非单纯“年纪大”</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>铜版地图（copperplate map）</b></td><td>在铜板上刻出线条再印刷的地图，细节极细，是 16–18 世纪的“高清印刷”。</td></tr>
+        <tr><td><b>手工上色（hand-colored）</b></td><td>印刷后由工匠手工涂色，每张颜色略有不同；原版手工上色比后期上色更值钱。</td></tr>
+        <tr><td><b>水印（watermark）</b></td><td>纸张生产时留下的半透明图案，是判断年代和产地的重要依据。</td></tr>
+        <tr><td><b>出处（provenance）</b></td><td>这张地图来自哪本图集、哪年出版、谁制图——相当于它的“身份证”。</td></tr>
+        <tr><td><b>海怪（sea monster）</b></td><td>古地图上海洋区域常画有想象出来的海怪、帆船和神话动物，既是装饰也是当时人对未知海域的想象。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">16–17 世纪的欧洲地图，常把海怪画得比船还大，还会在未知大陆上标注“这里可能有独角兽”。后来这些“幻想生物”逐渐被真实航海报告取代，地图才慢慢变成我们今天熟悉的“客观工具”。换句话说，古地图上的海怪，就是那个时代的“加载中动画”。（据大英图书馆等公开馆藏介绍整理 [UNSOURCED]）</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">如果你喜欢历史、有耐心研究出处与版本、享受“慢收藏”的过程，古地图会非常迷人；如果你追求快进快出或短期变现，这里可能不如其他纸品市场热闹。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">古地图收藏的本质，不是“买一张旧纸”，而是<b>买下某个时代人类对世界的全部想象</b>。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：本报告基于公开可查的拍卖纪录、图书馆数字馆藏与古地图交易惯例整理，具体拍品价格因市场波动与品相差异较大，文中未标注精确拍品的数字均标 [UNSOURCED]。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
