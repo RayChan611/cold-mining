@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 股份回购入门</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+
+<style id=cold-mining-responsive-20260904>
+  /* 长 URL 兜底换行（防止撑破容器） */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb, .sec-note {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 公司金融</div>
+  <h1>股份回购：公司自己买自己的股票，到底图什么？</h1>
+  <div class="sub">用大白话讲清楚：为什么公司要花钱把自己从市场上"买回来"，以及这对你手里的股票意味着什么</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。投资/收藏有风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：股份回购是干什么的、谁在玩、值不值得普通人关注。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：上市公司用现金把自己的股票从市场上买回来，然后注销或存起来当"库存股"（来源：<a class="src" href="https://www.futunn.com/learn/detail-what-is-a-share-repurchase-52695-220385030" target="_blank" rel="noopener noreferrer">查看来源</a>）</li>
+        <li><b>谁在玩</b>：上市公司管理层、大股东、机构投资者，以及每个持有该公司股票的散户</li>
+        <li><b>市场多大</b>：以美股为例，2022 年标普 500 成分股回购总额超过 9000 亿美元，是股市里一股巨大的买方力量 [UNSOURCED，据公开资料估算]</li>
+        <li><b>小白能玩吗</b>：你不需要自己操作回购，但看懂回购信号能帮你判断一家公司值不值得拿</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <!-- 首屏概念图：公司从市场买回自己的股票 -->
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <rect x="14" y="30" width="132" height="90" rx="10" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <text x="80" y="52" fill="#c8a866" font-size="11" text-anchor="middle" font-family="monospace">公司</text>
+        <rect x="34" y="64" width="36" height="40" rx="4" fill="#1f1f1f" stroke="#2a2a2a"/>
+        <rect x="62" y="64" width="36" height="40" rx="4" fill="#1f1f1f" stroke="#2a2a2a"/>
+        <rect x="90" y="64" width="36" height="40" rx="4" fill="#1f1f1f" stroke="#2a2a2a"/>
+        <path d="M80 56 L80 64" stroke="#e05050" stroke-width="2" marker-end="url(#upArrow)"/>
+        <text x="80" y="125" fill="#8a8a8a" font-size="10" text-anchor="middle">公司用现金买回自己的股票</text>
+        <defs><marker id="upArrow" markerWidth="8" markerHeight="8" refX="4" refY="3" orient="auto"><path d="M0 3 L4 0 L8 3 Z" fill="#e05050"/></marker></defs>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">想象你开了一家有 100 个股东的奶茶店，每人手里有一张"股份凭证"。生意不错，但你觉得店里股份太分散了，而且外面有人想把股份收走、夺走你的店。于是你从自己的口袋里掏钱，从其中 20 个股东手里把凭证买回来，然后当场撕掉。现在店里只剩 80 个股东，你手里的控制权更稳了，剩下每个股东分到的利润也更厚了。这就是<b>股份回购</b>：公司花钱从市场上买回自己发行的股票，然后注销掉，或者先放在"库存股"里留着以后用（比如发给员工当奖励）。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;margin-top:8px;">最常见的两种方式：一是<b>公开市场回购</b>，公司像普通投资者一样在交易所里悄悄买入自己的股票；二是<b>要约回购</b>，公司公开喊话"我要买多少股、出多少钱"，让股东自己决定卖不卖（来源：<a class="src" href="https://www.futunn.com/learn/detail-what-is-a-share-repurchase-52695-220385030" target="_blank" rel="noopener noreferrer">查看来源</a>）。</p>
+  </div>
+  <div class="illus">
+    <!-- 回购流程图：公开市场回购 vs 要约回购 -->
+    <svg viewBox="0 0 720 160" width="720" height="160" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="20" width="320" height="56" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="170" y="42" fill="#c8a866" font-size="12" text-anchor="middle" font-weight="600">公开市场回购</text>
+      <text x="170" y="62" fill="#c4c4c4" font-size="11" text-anchor="middle">公司像普通买家一样，在交易所慢慢买入</text>
+      <path d="M170 78 L170 98" stroke="#c8a866" stroke-width="2" marker-end="url(#arDown)"/>
+      <rect x="10" y="102" width="320" height="48" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="170" y="122" fill="#e8e8e8" font-size="11" text-anchor="middle">适合长期、灵活、不想惊动市场的回购</text>
+      <text x="170" y="138" fill="#8a8a8a" font-size="10" text-anchor="middle">最常见的方式</text>
+
+      <rect x="390" y="20" width="320" height="56" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="550" y="42" fill="#e05050" font-size="12" text-anchor="middle" font-weight="600">要约回购</text>
+      <text x="550" y="62" fill="#c4c4c4" font-size="11" text-anchor="middle">公司公开喊价：我要买多少股、出多少钱</text>
+      <path d="M550 78 L550 98" stroke="#e05050" stroke-width="2" marker-end="url(#arDown2)"/>
+      <rect x="390" y="102" width="320" height="48" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="550" y="122" fill="#e8e8e8" font-size="11" text-anchor="middle">适合短期大量回购，通常要付溢价</text>
+      <text x="550" y="138" fill="#8a8a8a" font-size="10" text-anchor="middle">有时用"荷兰式拍卖"定价</text>
+      <defs>
+        <marker id="arDown" markerWidth="8" markerHeight="8" refX="4" refY="3" orient="auto"><path d="M0 0 L4 3 L0 6 Z" fill="#c8a866"/></marker>
+        <marker id="arDown2" markerWidth="8" markerHeight="8" refX="4" refY="3" orient="auto"><path d="M0 0 L4 3 L0 6 Z" fill="#e05050"/></marker>
+      </defs>
+    </svg>
+    <div class="cap">两种主要回购方式的流程对比</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 回购有多猛 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 回购有多猛</h2>
+  <div class="sec-note">用真实数字说明回购的体量有多大、钱花在哪。来源内联标注。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>市场</th><th>回购规模</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>美股（标普 500）</td><td class="up">2022 年约 9000 亿美元</td><td>全球回购最猛的市场，苹果一家常年贡献数百亿美元 [UNSOURCED，据公开资料估算]</td></tr>
+        <tr><td>A 股</td><td>2019 年起明显放量</td><td>顺丰、招商证券、小米等纷纷回购，制度松绑后更活跃（来源：<a class="src" href="https://cn.ceibs.edu/new-papers-columns/16673" target="_blank" rel="noopener noreferrer">查看来源</a>）</td></tr>
+        <tr><td>港股</td><td class="down">常年活跃</td><td>腾讯、小米等科技公司是回购大户 [UNSOURCED，据公开资料]</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="illus">
+    <!-- 回购动因柱状图：展示公司回购的几大原因 -->
+    <svg viewBox="0 0 720 240" width="720" height="240" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="30" x2="60" y2="200" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="200" x2="700" y2="200" stroke="#2a2a2a" stroke-width="1.5"/>
+      <!-- 柱状：按动因权重示意（非精确数据，仅示意相对重要性） -->
+      <rect x="100" y="70" width="80" height="130" fill="#c8a866"/>
+      <rect x="240" y="90" width="80" height="110" fill="#c8a866"/>
+      <rect x="380" y="120" width="80" height="80" fill="#c8a866"/>
+      <rect x="520" y="140" width="80" height="60" fill="#e05050"/>
+      <text x="140" y="220" fill="#9a9a9a" font-size="11" text-anchor="middle">低估时</text>
+      <text x="140" y="235" fill="#8a8a8a" font-size="10" text-anchor="middle">提振股价</text>
+      <text x="280" y="220" fill="#9a9a9a" font-size="11" text-anchor="middle">回报股东</text>
+      <text x="280" y="235" fill="#8a8a8a" font-size="10" text-anchor="middle">变相分红</text>
+      <text x="420" y="220" fill="#9a9a9a" font-size="11" text-anchor="middle">优化资本</text>
+      <text x="420" y="235" fill="#8a8a8a" font-size="10" text-anchor="middle">结构</text>
+      <text x="560" y="220" fill="#9a9a9a" font-size="11" text-anchor="middle">反恶意</text>
+      <text x="560" y="235" fill="#8a8a8a" font-size="10" text-anchor="middle">收购</text>
+      <text x="380" y="250" fill="#8a8a8a" font-size="11" text-anchor="middle">公司回购的几大动因示意（相对重要性，非精确数据）</text>
+    </svg>
+    <div class="cap">回购动因示意：低估时提振股价、回报股东、优化资本结构、反收购（据公开资料整理）</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台 -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在决定回购、谁在受益、小白该去哪个平台看回购数据。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">决策层</span>
+        <h3>公司董事会 & 管理层</h3>
+        <ul><li>宣布回购计划的是他们，掏钱的也是他们。比如顺丰控股 2019 年 2 月公告用自有资金回购股份做员工激励（来源：<a class="src" href="https://cn.ceibs.edu/new-papers-columns/16673" target="_blank" rel="noopener noreferrer">查看来源</a>）</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">执行方</span>
+        <h3>券商 / 投行</h3>
+        <ul><li>公司自己不直接下单，通常委托券商在公开市场执行回购指令，特别是大额回购要避免冲击股价</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">数据入口</span>
+        <h3>富途 / 华尔街见闻 / TIKR</h3>
+        <ul><li>小白想看回购数据，可以去富途学习区读概念详解（来源：<a class="src" href="https://www.futunn.com/learn/detail-what-is-a-share-repurchase-52695-220385030" target="_blank" rel="noopener noreferrer">查看来源</a>），或上华尔街见闻看回购对股价影响的分析（来源：<a class="src" href="https://wallstreetcn.com/articles/3658175" target="_blank" rel="noopener noreferrer">查看来源</a>）</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">受益方</span>
+        <h3>继续持有的股东</h3>
+        <ul><li>回购注销后，总股本变少，每股收益（EPS）自动变高。如果你没卖，你手里那张"饼"的份额就变大了</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">不用自己操作回购，但可以学会"读懂"回购信号。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">先搞懂回购和分红的区别：分红是公司直接给你发钱，回购是公司把钱用来买回股票、让你手里的份额变"更值钱"。两者都是回报股东，但方式不同</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">去富途学习区或 TIKR 博客读 2-3 篇回购科普，弄清楚"公开市场回购"和"要约回购"的区别（来源：<a class="src" href="https://www.tikr.com/zh/blog/share-repurchase-why-do-companies-buy-back-their-stock" target="_blank" rel="noopener noreferrer">查看来源</a>）</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">关注你手里股票的公司公告：如果它宣布回购，先别急着高兴，看看回购的钱是自有资金还是借来的，回购后是注销还是存起来发员工</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">建立判断框架：回购 + 公司本身赚钱 = 可能利好；回购 + 公司主业下滑 = 可能是在"撑股价"，要小心（来源：<a class="src" href="https://www.futuie.com/zh-cn/article/104" target="_blank" rel="noopener noreferrer">查看来源</a>）</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易把"回购"当成无脑利好，其实里面坑不少。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>把回购当"铁底"信号</h3><ul><li>公司回购确实可能托底股价，但回购资金有限，如果大盘崩了或公司基本面变差，回购也挡不住下跌。回购≠股价一定涨（来源：<a class="src" href="https://www.futunn.com/learn/detail-what-is-a-share-repurchase-52695-220385030" target="_blank" rel="noopener noreferrer">查看来源</a>）</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>忽略"回购后干什么"</h3><ul><li>有些公司回购后把股票存起来发给高管当奖励，等于拿股东的钱给管理层发福利。回购后是注销还是变库存股，差别很大</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>借钱回购的"虚胖"</h3><ul><li>如果公司本身现金流紧张，却借钱回购撑股价，这是在加杠杆。一旦经营恶化，债务压力会反噬股价</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>回购是"锦上添花"，不是"雪中送炭"。先看公司赚不赚钱、现金流好不好，再看回购，顺序别反</li></ul></div>
+  </div>
+  <div class="illus">
+    <!-- 误区 vs 真相 对比图 -->
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="58" fill="#e05050" font-size="13" text-anchor="middle">误区</text>
+      <text x="180" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">"公司回购了，股价肯定要涨，赶紧买！"</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar3)"/>
+      <rect x="400" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="58" fill="#50b070" font-size="13" text-anchor="middle">真相</text>
+      <text x="550" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">回购可能托底，但基本面差的公司回购也救不了</text>
+      <defs><marker id="ar3" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相：回购不是万能药</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>库存股</b></td><td>公司买回来但还没注销的股票，先放在"抽屉"里，以后可以用来发员工奖励或做可转债</td></tr>
+        <tr><td><b>注销</b></td><td>把买回来的股票彻底"撕掉"，总股本减少，每股收益自动变高</td></tr>
+        <tr><td><b>要约回购</b></td><td>公司公开喊价买股票，通常比市场价高一点，吸引股东卖回给公司</td></tr>
+        <tr><td><b>荷兰式拍卖回购</b></td><td>公司给一个价格区间，股东报价，公司从低到高选，灵活定价（来源：<a class="src" href="https://wallstreetcn.com/articles/3658175" target="_blank" rel="noopener noreferrer">查看来源</a>）</td></tr>
+        <tr><td><b>每股收益（EPS）</b></td><td>公司赚的钱除以总股数，回购注销后分母变小，EPS 自动变高，股票看起来"更赚钱"</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">2019 年顺丰控股公告回购，截至当年 3 月 25 日，公司回购了 696,800 股，成交总金额约 2429 万元——看起来不少，但和顺丰当时千亿市值比，只是"洒洒水"。回购的象征意义往往大于实际金额（来源：<a class="src" href="https://cn.ceibs.edu/new-papers-columns/16673" target="_blank" rel="noopener noreferrer">查看来源</a>）。</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">如果你手里拿着好公司的股票，回购是<span class="cool">加分项</span>；如果你正犹豫要不要买，<span class="hot">别只因为回购就冲进去</span>，先看公司赚不赚钱</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">回购是公司用真金白银说"我觉得我值更多"——但<span class="hot">它说的不一定对</span>，你得自己判断</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：富途学习区（什么是股份回购）、华尔街见闻（一文读懂股票回购）、中欧国际工商学院（股份回购制度红利）、TIKR（股票回购：公司为何回购股票）、富途安逸（上市公司为什么要回购自己的股票）。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
