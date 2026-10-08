@@ -38,3 +38,4 @@
 | 2026-10-05 | 古董收音机：一台会响的木头盒子，凭什么比新出的智能手机还贵？ | reports/2026-10-05-antique-radios.html |
 | 2026-10-06 | 怀表：一台戴在胸口的小型机械剧场，凭什么三百年后还在转？ | reports/2026-10-06-pocket-watch.html |
 | 2026-10-07 | 古地图收藏入门：一张几百年前的“世界地图”，凭什么拍出百万美元？ | reports/2026-10-07-antique-map-collecting.html |
+| 2026-10-08 | 旧书与初版书：一本泛黄的书，凭什么比新书贵一百倍？ | reports/2026-10-08-old-books-first-editions.html |
