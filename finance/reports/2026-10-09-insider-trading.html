@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 内幕交易</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+
+<style id=cold-mining-responsive-20260904>
+  /* 长 URL 兜底换行（防止撑破容器） */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb, .sec-note {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 金融犯罪边缘</div>
+  <h1>内幕交易：为什么「先知先觉」炒股会坐牢？</h1>
+  <div class="sub">用大白话讲清楚：什么是内幕交易、谁在被抓、普通人离它有多远</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或法律建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。投资有风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：内幕交易是干什么的、谁在玩、值不值得普通人关注。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：在掌握「还没公开、但一旦公开就会让股价大动」的消息时，提前买卖股票赚钱——本质上是用信息差作弊。</li>
+        <li><b>谁在玩</b>：公司高管、大股东、投行人士、律师会计师，以及他们的亲戚朋友，甚至「偶然听到消息」的普通人。</li>
+        <li><b>代价多大</b>：中国最高十年有期徒刑，美国最高 20 年监禁 + 数百万美元罚款，还可能被终身禁入证券市场。</li>
+        <li><b>小白能碰吗</b>：不能。不是「能不能赚钱」的问题，是「会不会进去」的问题。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <rect x="14" y="34" width="132" height="78" rx="10" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <circle cx="30" cy="50" r="4" fill="#e05050"/><circle cx="44" cy="50" r="4" fill="#c8a866"/><circle cx="58" cy="50" r="4" fill="#50b070"/>
+        <rect x="28" y="66" width="104" height="14" rx="4" fill="#1f1f1f" stroke="#2a2a2a"/>
+        <text x="34" y="77" fill="#c8a866" font-size="11" font-family="monospace">INSIDE INFO</text>
+        <path d="M14 112 H146" stroke="#2a2a2a" stroke-width="2"/>
+        <text x="80" y="132" fill="#8a8a8a" font-size="10" text-anchor="middle">内幕交易概念图：信息差 = 不公平</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">内幕交易，说白了就是<b>「考试前偷看了答案」</b>。你提前知道某家公司马上要发布一个重大利好消息——比如研制出了划时代的新药、被巨头高价收购、业绩暴增——于是在消息公布前低价买入股票，等消息一公布、股价大涨后卖出，赚取差价。这套操作听起来像「信息就是金钱」，但在绝大多数国家的证券法里，它是犯罪。<br><br>维基百科的定义很干脆：内幕交易是指<b>「于获悉未公开且后来证实足以影响股票或其他有价证券市价的消息后，进行交易，并有成比例的获利发生的行为」</b>。三个要件缺一不可：① 你拿到了未公开消息；② 这消息确实能影响股价；③ 你交易后赚了钱（或避免了亏损）。<a class="src" href="https://zh.wikipedia.org/zh-hans/内线交易" target="_blank" rel="noopener noreferrer">查看来源</a><br><br>有趣的是，内幕交易并非天生「非法」。在某些经济学家看来，让内部人交易反而能让股价更快反映真实价值。但世界各国的共识是：<b>这破坏了市场公平</b>——如果总有人能提前看答案，谁还愿意跟你同桌考试？<a class="src" href="https://zh.wikipedia.org/zh-hans/内线交易" target="_blank" rel="noopener noreferrer">查看来源</a></p>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="40" width="200" height="50" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="110" y="62" fill="#e8e8e8" font-size="12" text-anchor="middle">未公开重大消息</text>
+      <text x="110" y="79" fill="#8a8a8a" font-size="10" text-anchor="middle">（只有内部人知道）</text>
+      <path d="M215 65 H255" stroke="#c8a866" stroke-width="2" marker-end="url(#arA)"/>
+      <rect x="265" y="40" width="200" height="50" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="365" y="62" fill="#e8e8e8" font-size="12" text-anchor="middle">提前买卖股票</text>
+      <text x="365" y="79" fill="#e05050" font-size="10" text-anchor="middle">（抢跑 = 犯罪）</text>
+      <path d="M470 65 H510" stroke="#c8a866" stroke-width="2" marker-end="url(#arA)"/>
+      <rect x="520" y="40" width="190" height="50" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="615" y="62" fill="#e8e8e8" font-size="12" text-anchor="middle">消息公开后获利</text>
+      <text x="615" y="79" fill="#50b070" font-size="10" text-anchor="middle">（违法所得 + 刑罚）</text>
+      <defs><marker id="arA" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">内幕交易三环节：获取未公开消息 → 抢先交易 → 消息公开后获利</div>
+  </div>
+</section>
+
+<!-- 02 法律后果 / 惩罚力度 -->
+<section>
+  <h2><span class="num">02</span>代价多大 · 法律后果</h2>
+  <div class="sec-note">这块蛋糕不是「赚多少」的问题，而是「判多狠」的问题。来源内联标注。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>地区</th><th>刑事处罚</th><th>民事 / 行政处罚</th></tr></thead>
+      <tbody>
+        <tr><td><b>中国大陆</b></td><td class="down">最高 10 年有期徒刑</td><td>没收违法所得，并处 1–5 倍罚款；证监会可终身市场禁入</td></tr>
+        <tr><td><b>美国</b></td><td class="down">最高 20 年监禁（证券欺诈）</td><td>SEC 可追缴非法所得 + 最高 3 倍民事罚款；集体诉讼赔偿</td></tr>
+        <tr><td><b>中国香港</b></td><td class="down">最高 10 年监禁</td><td>证监会可取消董事资格、追缴利润、罚款</td></tr>
+        <tr><td><b>中国台湾</b></td><td class="down">最高 10 年有期徒刑</td><td>赔偿受损投资者，罚金最高 2 亿新台币 [UNSOURCED]</td></tr>
+      </tbody>
+    </table>
+    <p style="color:#8a8a8a;font-size:12px;margin-top:8px;">注：各地法律细节和量刑标准不同，具体以当地最新法规为准。中国大陆《刑法》第 180 条规定了内幕交易、泄露内幕信息罪。<a class="src" href="https://baike.baidu.com/item/内幕交易/272627" target="_blank" rel="noopener noreferrer">查看来源</a></p>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 220" width="720" height="220" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <rect x="110" y="150" width="90" height="30" fill="#c8a866"/>
+      <rect x="280" y="120" width="90" height="60" fill="#c8a866"/>
+      <rect x="450" y="60" width="90" height="120" fill="#e05050"/>
+      <text x="155" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">行政处罚</text>
+      <text x="325" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">刑事轻判</text>
+      <text x="495" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">刑事重判</text>
+      <text x="380" y="215" fill="#8a8a8a" font-size="11" text-anchor="middle">惩罚阶梯示意：内幕交易的代价随情节严重程度上升</text>
+    </svg>
+    <div class="cap">内幕交易的法律代价阶梯（示意，具体量刑以司法实践为准）</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 角色 -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 角色</h2>
+  <div class="sec-note">谁在触碰红线、谁在抓人、谁最容易被「拉下水」。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">ROOT</span>
+        <h3>公司内部人（高管 / 董事 / 大股东）</h3>
+        <ul><li>最典型的「内幕信息源头」。他们天然知道公司要并购、业绩暴增或暴雷，法律对他们交易自家股票有严格限制和披露义务。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">执法者</span>
+        <h3>证监会 / SEC / 交易所监察</h3>
+        <ul><li>负责盯盘、查异常交易、调取通讯记录。中国证监会、美国 SEC、香港证监会都在用大数据监控「精准埋伏」的账户。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">HOT</span>
+        <h3>「信息二道贩子」</h3>
+        <ul><li>投行、律师、会计师、印刷厂员工、甚至司机和清洁工。他们不是消息源头，但经手过程中能接触到核心信息，是实际案件中的高发人群。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">最容易踩线</span>
+        <h3>「偶然听到消息」的普通人</h3>
+        <ul><li>在电梯里听到 CEO 打电话、在饭局上听到并购传闻，然后去买了股票——在法律上同样可能构成内幕交易。不知道消息来源不构成免责。</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 如何识别 & 防范 -->
+<section>
+  <h2><span class="num">04</span>如何识别可疑内幕交易 · 如何自保</h2>
+  <div class="sec-note">按步骤走，别稀里糊涂成了「接盘侠」或「共犯」。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">信号 1</div><div class="tl-body"><b>股价在重大公告前异常波动</b>。如果一家公司突然在没有公开消息的情况下放量大涨，随后几天就发布重大利好——这背后可能有人提前抢跑。监管机构会追踪这类「精准交易」。<a class="src" href="https://research.titanfx.com/cn/glossary/what-is-insider-trading" target="_blank" rel="noopener noreferrer">查看来源</a></div></div>
+    <div class="tl-item"><div class="tl-time">信号 2</div><div class="tl-body"><b>高管集中减持或增持</b>。内部人的交易行为需要公开披露。如果 CEO 在公司暴雷前突然大量卖出股票，或者在利好公布前大量买入，这就是典型的内幕交易特征。</div></div>
+    <div class="tl-item"><div class="tl-time">信号 3</div><div class="tl-body"><b>「朋友的朋友」给你推荐股票</b>。如果有人神秘兮兮地说「我有内部消息，赶紧买」，请立刻警惕——这不仅可能是骗局，而且你一旦买入，就可能成为内幕交易的共犯。</div></div>
+    <div class="tl-item"><div class="tl-time">自保原则</div><div class="tl-body"><b>只根据公开信息做投资决策</b>。如果你无法在财报、公告、新闻中找到买入理由，那就别买。听到「内部消息」最好的反应是：走开，并且别告诉任何人。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不踩线</h2>
+  <div class="sec-note">外行最容易稀里糊涂犯法或被骗的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>「我就听了一耳朵，不算内幕交易吧？」</h3><ul><li><b>算。</b>法律不关心你怎么得到的消息，只关心你知不知道这是「未公开重大信息」。电梯里听到、饭局上听到、甚至微信群里看到的，都可能构成内幕交易。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>「我亏了钱，就不算犯罪了吧？」</h3><ul><li><b>照样算。</b>内幕交易的构成要件是「交易 + 未公开消息」，不是「赚钱」。亏了钱只能说明你操作差，不影响定罪，甚至可能「赔了夫人又折兵」。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>「用家人的账户买，就查不到我了吧？」</h3><ul><li><b>太天真。</b>监管机构会追踪关联账户、通讯记录、资金流向。用老婆、岳母、远房表弟的账户操作，恰恰是内幕交易案件的经典「自杀式操作」。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li><b>「如果你不能公开解释你为什么买这只股票，那就别买。」</b>这条原则能帮你避开 99% 的法律风险。</li></ul></div>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="58" fill="#e05050" font-size="13" text-anchor="middle">误区：没赚钱就不算犯罪</text>
+      <text x="180" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">「我亏了，所以没事吧？」</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#arB)"/>
+      <rect x="400" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="58" fill="#50b070" font-size="13" text-anchor="middle">真相：交易行为本身就违法</text>
+      <text x="550" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">有没有获利只影响量刑，不影响定罪</text>
+      <defs><marker id="arB" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相：内幕交易的核心是「利用未公开信息交易」，不是「赚没赚钱」</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>内幕信息</b></td><td>还没公开、但一旦公开就会让股价大幅波动的消息，比如并购、业绩暴雷、新产品获批。</td></tr>
+        <tr><td><b>内幕人（Insider）</b></td><td>能接触到内幕信息的人：公司高管、大股东、投行、律师、会计师，甚至他们的近亲属。</td></tr>
+        <tr><td><b>信息不对称</b></td><td>有人知道得多、有人知道得少。内幕交易就是利用这种不对称来「割韭菜」。</td></tr>
+        <tr><td><b>抢跑（Front-running）</b></td><td>在别人还不知道的消息公布前，自己先动手交易。内幕交易的本质就是抢跑。</td></tr>
+        <tr><td><b>市场禁入</b></td><td>监管机构禁止某人终身或在一定期限内从事证券交易或担任上市公司高管。比罚款更狠的「职业死刑」。</td></tr>
+        <tr><td><b>10b-5 规则</b></td><td>美国证券法中反欺诈的「万能条款」，大多数内幕交易案件都依据这条起诉。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">内幕交易最经典的「笨贼」案例之一：美国一位名叫拉杰·拉贾拉特南的对冲基金大亨，通过一个庞大的「内幕消息网络」获取科技公司机密，最终被 FBI 监听电话实锤，2011 年被判 11 年监禁——这也是美国历史上对内幕交易判处的最长刑期之一。讽刺的是，他管理的帆船集团曾是全球最成功的对冲基金之一。<a class="src" href="https://zh.wikipedia.org/zh-hans/内线交易" target="_blank" rel="noopener noreferrer">查看来源</a></p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">普通投资者<b>完全不适合</b>也<b>完全不需要</b>碰内幕交易。你离它最近的距离，应该是「识别并远离」。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">「在股市里，<span class="hot">最快的赚钱方式</span>，往往也是<span class="cool">最快的坐牢方式</span>。」</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：维基百科「内线交易」词条、Titan FX 内线交易入门、百度百科「内幕交易」词条、公开司法案例报道。本内容为 AI 整理的研究草稿，非投资或法律建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
