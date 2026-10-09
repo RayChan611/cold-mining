@@ -387,3 +387,12 @@
 [cold_mining] git push ok=True info=To github.com:RayChan611/cold-mining.git
    9213113..7baf971  main -> main
 [cold_mining] feishu code=0 link=https://raychan611.github.io/cold-mining/finance/reports/2026-10-07-fen-hong-yu-gu-xi-ce-lve.html
+[cold_mining] line=finance topic=股份回购 key=share-buyback
+[cold_mining] tavily hits=2198
+[cold_mining] attempt=0 html_len=0 svg=0
+[cold_mining] attempt=1 html_len=19335 svg=8
+[cold_mining] wrote /home/ubuntu/cold-mining/finance/reports/2026-10-08-share-buyback-basics.html
+[cold_mining] index+log+used 已更新（key=share-buyback）
+[cold_mining] git push ok=True info=To github.com:RayChan611/cold-mining.git
+   9f59e4d..af03b04  main -> main
+[cold_mining] feishu code=0 link=https://raychan611.github.io/cold-mining/finance/reports/2026-10-08-share-buyback-basics.html

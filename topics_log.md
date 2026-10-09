@@ -39,3 +39,4 @@
 | 2026-10-06 | 怀表：一台戴在胸口的小型机械剧场，凭什么三百年后还在转？ | reports/2026-10-06-pocket-watch.html |
 | 2026-10-07 | 古地图收藏入门：一张几百年前的“世界地图”，凭什么拍出百万美元？ | reports/2026-10-07-antique-map-collecting.html |
 | 2026-10-08 | 旧书与初版书：一本泛黄的书，凭什么比新书贵一百倍？ | reports/2026-10-08-old-books-first-editions.html |
+| 2026-10-09 | 漫画原稿与签名本：一张画在纸上的“底片”，凭什么比整套漫画还贵？ | reports/2026-10-09-manga-original-art-signed-books.html |

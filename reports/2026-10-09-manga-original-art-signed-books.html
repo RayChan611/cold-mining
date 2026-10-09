@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 漫画原稿与签名本</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  /* 图文并茂：插图与线稿图标 */
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+
+  /* 汇总入口：左上角悬浮返回总库 */
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+
+<style id=cold-mining-responsive-20260904>
+  /* 长 URL 兜底换行（防止撑破容器） */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb, .sec-note {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 漫画原稿与签名本</div>
+  <h1>漫画原稿与签名本：一张画在纸上的“底片”，凭什么比整套漫画还贵？</h1>
+  <div class="sub">用大白话讲清楚：为什么漫画家亲手画的那张纸，不是印刷品，而是一种“孤品资产”。</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。收藏有风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：这个领域是干什么的、谁在玩、值不值得普通人关注。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：漫画家在纸上手绘的原始画稿（原稿）与亲笔签名的漫画单行本（签名本），是漫画的“底片”与“亲签瞬间”。</li>
+        <li><b>谁在玩</b>：核心漫迷、二次元收藏家、画廊与拍卖行、部分机构投资者。</li>
+        <li><b>市场多大</b>：全球漫画市场预计从 2026 年的 125.3 亿美元增至 2034 年的 568.6 亿美元（复合年增长率 20.81%）；原稿与签名本作为头部衍生品，单价从几千元到数百万元不等 <a class="src" href="https://www.fortunebusinessinsights.com/zh/manga-market-116455" target="_blank" rel="noopener noreferrer">查看来源</a>。</li>
+        <li><b>小白能玩吗</b>：能，但要从“看懂一张纸”开始，别急着买“大师真迹”。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <!-- 首屏概念图：一张漫画原稿纸 + 签名笔 -->
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <rect x="18" y="20" width="124" height="124" rx="6" fill="#101010" stroke="#c8a866" stroke-width="2"/>
+        <rect x="30" y="32" width="100" height="70" rx="3" fill="#141414" stroke="#2a2a2a" stroke-width="1"/>
+        <path d="M38 66 Q52 44 70 58 T110 48" fill="none" stroke="#c8a866" stroke-width="1.6"/>
+        <circle cx="60" cy="42" r="6" fill="none" stroke="#c8a866" stroke-width="1.4"/>
+        <path d="M58 42 L62 46 M62 42 L58 46" stroke="#c8a866" stroke-width="1.2"/>
+        <text x="42" y="88" fill="#e05050" font-size="10" font-family="monospace">SIGNED</text>
+        <path d="M30 110 L112 110" stroke="#2a2a2a" stroke-width="1.5" stroke-dasharray="3 3"/>
+        <text x="80" y="122" fill="#8a8a8a" font-size="9" text-anchor="middle">原稿纸 · 签名笔</text>
+        <path d="M132 40 L140 33 L146 39 L138 46 Z" fill="#c8a866" opacity="0.8"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">漫画原稿有点像“电影胶片的原始底片”——你买到的单行本是“放映版”，人人都能买；但原稿是漫画家用蘸水笔、网点纸、修正液在 B4 原稿纸上亲手画出来的唯一一张。签名本则像“歌手在专辑上亲签”——印刷品本身不值钱，值钱的是那个“人在场证明”和“独一无二的手迹”。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;margin-top:8px;">关键区别在于：<b>原稿是“孤品”，签名本是“限量确权”</b>。原稿每张全世界只有一份（除非作者画重复的）；签名本可能签了几十本，但每本上的笔迹、日期、甚至随手涂鸦都不同。外行常误以为“画得越精细越值钱”，其实在收藏圈里，<b>“是否出自作者之手”和“是否被印刷过”</b>才是核心。</p>
+  </div>
+  <div class="illus">
+    <!-- 价值链 / 结构图：原稿从漫画家到藏家的流转路径 -->
+    <svg viewBox="0 0 720 120" width="720" height="120" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="38" width="150" height="48" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="85" y="58" fill="#e8e8e8" font-size="11" text-anchor="middle">漫画家手绘</text>
+      <text x="85" y="74" fill="#8a8a8a" font-size="10" text-anchor="middle">原稿纸/笔/网点</text>
+      <path d="M165 62 H205" stroke="#c8a866" stroke-width="2" marker-end="url(#arA)"/>
+      <rect x="215" y="38" width="150" height="48" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="290" y="58" fill="#e8e8e8" font-size="11" text-anchor="middle">编辑部/出版社</text>
+      <text x="290" y="74" fill="#8a8a8a" font-size="10" text-anchor="middle">扫描制版印刷</text>
+      <path d="M370 62 H410" stroke="#c8a866" stroke-width="2" marker-end="url(#arA)"/>
+      <rect x="420" y="38" width="150" height="48" rx="8" fill="#141414" stroke="#e8e8e8" stroke-width="1.5"/>
+      <text x="495" y="58" fill="#e8e8e8" font-size="11" text-anchor="middle">原稿流出</text>
+      <text x="495" y="74" fill="#8a8a8a" font-size="10" text-anchor="middle">画廊/拍卖/私下</text>
+      <path d="M575 62 H615" stroke="#c8a866" stroke-width="2" marker-end="url(#arA)"/>
+      <rect x="625" y="38" width="90" height="48" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="670" y="58" fill="#50b070" font-size="11" text-anchor="middle">藏家</text>
+      <text x="670" y="74" fill="#8a8a8a" font-size="10" text-anchor="middle">签名/证书</text>
+      <defs><marker id="arA" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">示意图：漫画原稿从创作到收藏的典型流转路径（据公开资料整理）</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 价格带</h2>
+  <div class="sec-note">用真实数字说明蛋糕有多大、钱集中在哪。来源内联标注。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>档位</th><th>典型价格（人民币）</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>入门档</td><td class="up">¥500 – ¥3,000</td><td>当代中坚漫画家的签名单行本、复制原稿（非手绘）或小作品原稿</td></tr>
+        <tr><td>进阶档</td><td>¥5,000 – ¥50,000</td><td>知名漫画家手绘原稿（单页）、早期代表作签名本、带有签绘（随手画）的签名本</td></tr>
+        <tr><td>极品档</td><td class="down">¥100,000 – ¥1,000,000+</td><td>经典作品关键页原稿（如《龙珠》《灌篮高手》名场面）、大师签绘+原稿组合；部分拍卖纪录可达数百万元 [UNSOURCED]</td></tr>
+      </tbody>
+    </table>
+    <p style="color:#8a8a8a;font-size:12px;margin-top:8px;">全球漫画市场大盘参照：2026 年预计 125.3 亿美元，2034 年预计 568.6 亿美元，复合年增长率 20.81% <a class="src" href="https://www.fortunebusinessinsights.com/zh/manga-market-116455" target="_blank" rel="noopener noreferrer">查看来源</a>。原稿与签名本属于其中的“头部稀缺层”，价格天花板远高于普通印刷品。</p>
+  </div>
+  <div class="illus">
+    <!-- 价格带柱状图：三档价格对比 -->
+    <svg viewBox="0 0 720 220" width="720" height="220" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <rect x="110" y="145" width="90" height="35" fill="#50b070"/>
+      <rect x="280" y="105" width="90" height="75" fill="#c8a866"/>
+      <rect x="450" y="40" width="90" height="140" fill="#e05050"/>
+      <text x="155" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">入门 ¥500-3k</text>
+      <text x="325" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">进阶 ¥5k-50k</text>
+      <text x="495" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">极品 ¥100k+</text>
+      <text x="380" y="215" fill="#8a8a8a" font-size="11" text-anchor="middle">价格带示意（据公开市场区间整理，非精确报价）</text>
+    </svg>
+    <div class="cap">漫画原稿与签名本价格带示意（区间为综合公开资料，非精确报价）</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台（玩家卡片用线稿 SVG 小图标，不用 emoji） -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在制定规则、谁在赚钱、小白该去哪个平台。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">ROOT</span>
+        <h3>漫画出版社 / 编辑部</h3>
+        <ul><li>原稿的第一手来源。集英社、讲谈社、小学馆等掌握大量名作原稿；国内如《漫友》、翻翻动漫等也会留存原稿。它们通常不直接卖原稿，但部分官方展或签售会流出。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">平台</span>
+        <h3>拍卖行 / 画廊</h3>
+        <ul><li>高端原稿与签名本的主要交易渠道。日本有 Mandarake（まんだらけ）等二手动漫专门店与线上拍卖；国内有嘉德、保利等偶尔上拍漫画原稿。费用：佣金约 10%–20%。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">HOT</span>
+        <h3>线上收藏平台 / 二手市场</h3>
+        <ul><li>日本雅虎拍卖、Mercari、eBay 是原稿和签名本高频交易地；国内有闲鱼、微店、漫展签售会后的转卖。活跃度高，但真假混杂，新手慎入。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>漫展签售会 / 官方直营</h3>
+        <ul><li>小白最该先去的：作者本人签售、原稿展、官方复制原稿店（如日本“原画展”周边）。价格透明、来源可靠，是建立眼力与热爱的起点。</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就梭哈。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">先看真东西：去漫展原稿展、官方复制原稿展或拍卖预展，用肉眼感受原稿的<B>纸纹、笔触、网点纸边缘、修正液痕迹</B>。花 0 元，只花时间。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">从“便宜但有意义”的签名本开始：找一本你真正喜欢的漫画家的亲签单行本，预算 ¥500–¥2,000。重点看签名是否自然、有没有日期或签绘、是否附购买凭证。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">建立判断框架：<b>画家地位 &gt; 作品经典度 &gt; 页面关键性 &gt; 保存品相 &gt; 来源证明</b>。一张名作高潮页原稿，可能比同作者几十张普通页更值钱。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">小额试水原稿：准备 ¥3,000–¥10,000，在可信平台或画廊买一张当代中坚漫画家手绘原稿。要问清楚：是否为手绘、是否被印刷过、有无作者签名或证书。记住：<b>买你愿意挂在墙上的那张</b>。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑（可加一张「误区 vs 真相」插图） -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>“复制原稿”当“原稿”卖</h3><ul><li>日本“复制原稿”是官方印刷品，成本几十元；手绘原稿是独一无二的。外行最常把前者当后者买。怎么避：看纸背有没有笔压痕迹、网点是否印刷网点、价格是否异常便宜。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>假签名本 / 代签</h3><ul><li>有些签名是印刷上去的（“印刷签名”），或由助手代签。怎么避：看笔迹是否有墨水堆积、是否有签字笔压力、是否与已知真迹一致；优先买带现场照片或证书的。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>“大师原稿”只凭卖家一张嘴</h3><ul><li>没有来源证明、没有作者签名、没有出版记录对照的“原稿”，很可能是同人仿作或废稿。怎么避：要求提供刊登出处（哪本杂志哪一页）、原稿尺寸（B4/A4）、创作年代与工具信息。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li><b>先买“喜欢”，再谈“升值”。</b>如果你不喜欢那张画，它一旦跌价就是纯粹的损失；如果你喜欢，至少它还能陪你在墙上发光。</li></ul></div>
+  </div>
+  <div class="illus">
+    <!-- 误区 vs 真相 对比图 -->
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="58" fill="#e05050" font-size="13" text-anchor="middle">误区：越精细越值钱</text>
+      <text x="180" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">画得满不等于真迹</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#arB)"/>
+      <rect x="400" y="30" width="290" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="545" y="58" fill="#50b070" font-size="13" text-anchor="middle">真相：来源 + 作者 + 关键页</text>
+      <text x="545" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">三要素决定价值</text>
+      <defs><marker id="arB" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相：原稿收藏中，精细度远不如“真、名、稀”重要</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>原稿（げんこう）</b></td><td>漫画家手绘的原始画纸，是印刷前的“底片”，每张只有一份。</td></tr>
+        <tr><td><b>复制原稿</b></td><td>官方用原稿扫描后印刷的复制品，有收藏价值但不是孤品，价格通常只有原稿的 1/10 或更低。</td></tr>
+        <tr><td><b>签绘（サイン色紙）</b></td><td>作者在色纸或书上随手画的小画+签名，比单纯签名贵，因为多了一份“画”的功力。</td></tr>
+        <tr><td><b>网点纸（トーン）</b></td><td>贴在原稿上表现阴影/层次的半透明胶纸，原稿上能看到贴纸边缘与刮除痕迹。</td></tr>
+        <tr><td><b>笔压</b></td><td>手绘时笔尖在纸上留下的凹痕，是辨别真伪的重要依据之一。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">有些日本漫画家会把原稿“送”给助手当谢礼，结果几十年后助手把原稿拿出来拍卖，价格比当年助手一整年的工资还高。漫画家本人都没想到，自己随手送出去的纸，后来成了别人的首付 [UNSOURCED]。</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">如果你喜欢漫画、愿意花时间看真东西、不指望快进快出，<span class="cool">很适合</span>；如果你只想“炒一波”，<span class="hot">别碰原稿</span>，流动性比股票差太多。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">“你买到的不是一张纸，是创作者在那个瞬间留下的唯一手迹。”</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：Fortune Business Insights《漫画市场规模、份额、趋势和增长预测》（2026–2034）；界面新闻《国内付费漫画市场》；中华人民共和国文化和旅游部《新媒体漫画商业化从免费起步》；中国二次元内容行业白皮书等公开资料。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
