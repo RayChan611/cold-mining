@@ -402,3 +402,11 @@
 [cold_mining] git push ok=True info=To github.com:RayChan611/cold-mining.git
    af03b04..b8a3cce  main -> main
 [cold_mining] feishu code=0 link=https://raychan611.github.io/cold-mining/reports/2026-10-09-manga-original-art-signed-books.html
+[cold_mining] line=cold topic=化石与菊石 key=fossil-ammonite
+[cold_mining] tavily hits=2320
+[cold_mining] attempt=0 html_len=17737 svg=8
+[cold_mining] wrote /home/ubuntu/cold-mining/reports/2026-10-12-fossil-and-ammonite.html
+[cold_mining] index+log+used 已更新（key=fossil-ammonite）
+[cold_mining] git push ok=True info=To github.com:RayChan611/cold-mining.git
+   c53519b..3940951  main -> main
+[cold_mining] feishu code=0 link=https://raychan611.github.io/cold-mining/reports/2026-10-12-fossil-and-ammonite.html

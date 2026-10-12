@@ -45,3 +45,4 @@
 | 2026-10-07 | 分红与股息策略：一家公司每年从利润里给你“发红包”的生意 | reports/2026-10-07-fen-hong-yu-gu-xi-ce-lve.html |
 | 2026-10-08 | 股份回购：公司自己买自己的股票，到底图什么？ | reports/2026-10-08-share-buyback-basics.html |
 | 2026-10-09 | 内幕交易：为什么「先知先觉」炒股会坐牢？——一份给外行的入门研究报告 | reports/2026-10-09-insider-trading.html |
+| 2026-10-12 | 暗池交易：大资金在“地下停车场”里悄悄换手，散户为何看不到？ | reports/2026-10-12-dark-pool-trading.html |
