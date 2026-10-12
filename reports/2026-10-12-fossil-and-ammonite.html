@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 化石与菊石</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+
+<style id=cold-mining-responsive-20260904>
+  /* 长 URL 兜底换行（防止撑破容器） */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb, .sec-note {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 古生物收藏</div>
+  <h1>化石与菊石：一块石头凭什么记录几亿年的地球日记</h1>
+  <div class="sub">用大白话讲清楚：为什么一块「带螺纹的石头」能让科学家和收藏家同时上头，以及普通人怎么入门不被坑。</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。化石收藏有风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：化石是什么、菊石是什么、谁在玩、小白能不能碰。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：化石是古生物留下的「遗体、遗物或遗迹」，菊石是一种已灭绝的、长着螺旋外壳的头足类（乌贼的远古亲戚），它们的壳常变成化石。</li>
+        <li><b>谁在玩</b>：古生物学家、自然博物馆、化石猎人、矿物宝石展商、普通收藏爱好者。</li>
+        <li><b>市场多大</b>：从几十元的普通切片到几十万元的「彩斑菊石」，价差可达一万倍；顶级加拿大彩斑菊石可媲美宝石。</li>
+        <li><b>小白能玩吗</b>：能，但先学「看真假」再掏钱。市场里修复品、仿制品远比想象中多。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <!-- 菊石螺旋壳线稿 -->
+        <path d="M80 80 Q80 55 105 55 Q130 55 130 80 Q130 105 105 105 Q80 105 80 80" fill="none" stroke="#c8a866" stroke-width="2.2"/>
+        <path d="M80 80 Q80 62 98 62 Q115 62 115 80 Q115 98 98 98 Q80 98 80 80" fill="none" stroke="#c8a866" stroke-width="1.6"/>
+        <path d="M80 80 Q80 70 90 70 Q100 70 100 80 Q100 90 90 90 Q80 90 80 80" fill="none" stroke="#c8a866" stroke-width="1.2"/>
+        <line x1="130" y1="80" x2="152" y2="80" stroke="#c8a866" stroke-width="1.4" stroke-dasharray="3 2"/>
+        <text x="80" y="137" fill="#8a8a8a" font-size="10" text-anchor="middle">菊石螺旋壳 · 俯视</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把「化石」和「菊石」两个词拆开，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">
+      <b>化石</b>就像地球的「老照片」：一只生物死后，尸体被泥沙快速埋住，经过几百万到几亿年的挤压、矿物替换，慢慢变成石头里的一道印子或立体结构。它不一定是骨头——贝壳、牙齿、树叶脉络、甚至脚印和粪便都能变成化石。<br><br>
+      <b>菊石</b>是一种已经灭绝的海洋软体动物，长得像今天海里的鹦鹉螺，属于头足类（和乌贼、章鱼、鱿鱼是亲戚）。它们活着的时候背着螺旋形的壳在海里漂，死后壳沉到海底，被埋住，很多就变成了化石。因为菊石数量多、演化快、分布广，科学家把它当「地层身份证」——看到某种菊石，就知道这层岩石大概是什么年代的。
+    </p>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 120" width="720" height="120" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="40" width="160" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="90" y="62" fill="#e8e8e8" font-size="11" text-anchor="middle">生物死亡</text>
+      <text x="90" y="77" fill="#8a8a8a" font-size="9" text-anchor="middle">沉入海底 / 泥沙</text>
+      <path d="M175 62 H215" stroke="#c8a866" stroke-width="2" marker-end="url(#ar3)"/>
+      <rect x="230" y="40" width="160" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="310" y="62" fill="#e8e8e8" font-size="11" text-anchor="middle">快速埋藏</text>
+      <text x="310" y="77" fill="#8a8a8a" font-size="9" text-anchor="middle">隔绝氧气，不易腐烂</text>
+      <path d="M395 62 H435" stroke="#c8a866" stroke-width="2" marker-end="url(#ar3)"/>
+      <rect x="450" y="40" width="160" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="530" y="62" fill="#e8e8e8" font-size="11" text-anchor="middle">矿物替换</text>
+      <text x="530" y="77" fill="#8a8a8a" font-size="9" text-anchor="middle">变成石头里的印痕</text>
+      <path d="M615 62 H655" stroke="#c8a866" stroke-width="2" marker-end="url(#ar3)"/>
+      <rect x="660" y="40" width="50" height="44" rx="8" fill="#1f1f1f" stroke="#2a2a2a" stroke-width="1"/>
+      <text x="685" y="67" fill="#c8a866" font-size="10" text-anchor="middle">化石</text>
+      <defs><marker id="ar3" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">化石形成的简化链条：死亡 → 快速埋藏 → 矿物替换 → 化石</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 价格带</h2>
+  <div class="sec-note">化石收藏没有统一交易所，价格取决于类群、保存完整度、产地和「颜色」。来源内联标注。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>档位</th><th>典型价格</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>入门档</td><td class="up">¥20 – ¥300</td><td>普通菊石切片、小型贝类化石、摩洛哥三叶虫碎片，适合练手。据公开市场行情。</td></tr>
+        <tr><td>进阶档</td><td>¥500 – ¥20,000</td><td>完整度高的大型菊石、带原生壳的标本、修复较少的恐龙牙齿等。[UNSOURCED]</td></tr>
+        <tr><td>极品档</td><td class="down">¥50,000 – 数百万</td><td>加拿大「彩斑菊石」（Ammonite）因外壳矿物化后呈现虹彩，可作宝石级首饰原料。奇美博物馆藏有一件加拿大彩斑菊石，年代为白垩纪，距今约 9900 万年（来源：<a class="src" href="http://cm.chimeimuseum.org/wSite/ct?mp=chimei&xItem=18582&ctNode=302&idPath=20_244" target="_blank" rel="noopener noreferrer">奇美博物馆数位典藏</a>）。极品彩斑菊石的国际拍卖价可达数万美元甚至更高 [UNSOURCED]。</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 220" width="720" height="220" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <rect x="110" y="130" width="90" height="50" fill="#50b070"/>
+      <rect x="280" y="80" width="90" height="100" fill="#c8a866"/>
+      <rect x="450" y="20" width="90" height="160" fill="#e05050"/>
+      <text x="155" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">入门 ¥20–300</text>
+      <text x="325" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">进阶 ¥500–2万</text>
+      <text x="495" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">极品 ¥5万+</text>
+      <text x="380" y="215" fill="#8a8a8a" font-size="11" text-anchor="middle">价格带示意（对数感，非精确刻度）</text>
+    </svg>
+    <div class="cap">菊石类化石价格带大致分布</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台 -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在上游挖、谁在中游鉴定、小白该去哪里看真东西。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">博物馆</span>
+        <h3>自然博物馆 / 地方化石馆</h3>
+        <ul><li>最可靠的「免费教材」。台南左镇化石园区有系统的化石知识区，讲「什么是化石」「化石怎么形成」（来源：<a class="src" href="https://fossil.tnc.gov.tw/form/index-1.php?m2=30&id=45" target="_blank" rel="noopener noreferrer">台南左镇化石园区</a>）。新手先泡博物馆，建立「真化石长什么样」的眼感。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">产地市场</span>
+        <h3>摩洛哥 / 加拿大 / 中国产地商</h3>
+        <ul><li>全球化石流通的「批发源头」。摩洛哥是菊石和三叶虫的超级产地，量大、价低，但也是修复和造假重灾区。加拿大阿尔伯塔省产彩斑菊石，品质高、价格硬（来源：<a class="src" href="http://cm.chimeimuseum.org/wSite/ct?mp=chimei&xItem=18582&ctNode=302&idPath=20_244" target="_blank" rel="noopener noreferrer">奇美博物馆数位典藏</a>）。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">线上平台</span>
+        <h3>化石电商 / 拍卖 / 爱好者社群</h3>
+        <ul><li>国内外有专门的化石电商和拍卖行；闲鱼、eBay 等综合平台也有大量散户卖家。价格信息极不透明，同一件东西在不同平台价差可达 3-5 倍 [UNSOURCED]。先比价、再问产地、最后看细节图。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门入口</span>
+        <h3>本地矿物宝石展 / 博物馆文创店</h3>
+        <ul><li>新手最该先去实体展会和博物馆商店：能上手看、有标签、价格相对透明。国内各大城市的矿物宝石展通常有化石专区，商家愿意教你看纹理。</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就买「极品」。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">去自然博物馆或化石园区免费看真品。重点看菊石的螺旋结构、缝合线（壳内壁的复杂花纹）、以及原生壳和围岩的接触关系。花 1-2 小时，零成本。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">花 50-200 元买一件「入门级菊石切片」。优先选带清晰缝合线、有产地标签、商家愿意告诉你哪里挖的。别碰「颜色特别鲜艳」「完美得不像话」的便宜货。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">建立一个判断框架：问四个问题——<b>产地是否真实？保存完整度多少？有没有修复/拼接？价格是否偏离市场区间？</b> 这四个问题能过滤掉 80% 的坑。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">如果半年内你还能说出自己藏品的故事，再考虑升级到 1000 元以上的完整标本。记住：化石收藏的乐趣在「读懂地球历史」，不在「买得贵」。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方，看完能省不少钱。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>修复品当全品卖</h3><ul><li>很多化石在挖掘时就碎了，商家会用胶水、石膏甚至塑料补全。修复本身不一定是骗局，但「不告诉你修复过」就是骗局。买前一定要问：修复比例多少？有没有原始的照片？</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>「彩斑菊石」染色造假</h3><ul><li>加拿大彩斑菊石因稀有而贵，市面上有人把普通菊石切片染色或镀膜，做出类似的虹彩效果。真彩斑菊石的虹彩来自内部矿物结构，不是表面涂层。用放大镜看表面是否有涂层气泡，是最快的鉴别法 [UNSOURCED]。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>产地乱标</h3><ul><li>同一类化石，不同产地的价格可能差十倍。有些商家会把摩洛哥普通菊石标成「加拿大彩斑」或「英国约克郡」来卖高价。要求商家提供产地证明或至少说出具体地层，说不清楚的直接走。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li><b>不懂缝合线，别买贵菊石。</b>缝合线是菊石壳内壁的复杂花纹，是菊石分类和鉴定的关键。如果你看不出缝合线是天然还是画上去的，说明还没到花大钱的阶段。</li></ul></div>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="58" fill="#e05050" font-size="13" text-anchor="middle">误区</text>
+      <text x="180" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">「颜色越鲜艳、形状越完整 = 越值钱」</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar4)"/>
+      <rect x="400" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="58" fill="#50b070" font-size="13" text-anchor="middle">真相</text>
+      <text x="550" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">「保存完整度 + 产地真实 + 修复透明 = 值钱」</text>
+      <defs><marker id="ar4" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相：化石收藏不是买「好看」，是买「真实 + 完整 + 来源清晰」</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>缝合线</b></td><td>菊石壳内壁与隔壁连接处的复杂花纹，像精细的「指纹」。每种菊石的缝合线都不同，是鉴定的关键。</td></tr>
+        <tr><td><b>原生壳</b></td><td>化石还保留着生物原本的外壳物质，不是被矿物完全替换后的印模。带原生壳的菊石通常更珍贵。</td></tr>
+        <tr><td><b>围岩</b></td><td>化石周围包裹的岩石。围岩和化石的颜色、质地对比越明显，观赏性越强。</td></tr>
+        <tr><td><b>彩斑菊石</b></td><td>特指加拿大等地出产的、外壳发生矿物化后呈现虹彩的菊石化石。奇美博物馆藏有约 9900 万年前的标本（来源：<a class="src" href="http://cm.chimeimuseum.org/wSite/ct?mp=chimei&xItem=18582&ctNode=302&idPath=20_244" target="_blank" rel="noopener noreferrer">奇美博物馆数位典藏</a>）。</td></tr>
+        <tr><td><b>亚化石</b></td><td>年龄在一万年以内、尚未完全石化的古生物遗存，是「半化石」。台南左镇化石园区对此有明确定义（来源：<a class="src" href="https://fossil.tnc.gov.tw/form/index-1.php?m2=30&id=45" target="_blank" rel="noopener noreferrer">台南左镇化石园区</a>）。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">菊石的英文名「Ammonite」来自古埃及神祇「阿蒙」（Ammon）——因为菊石的螺旋壳酷似阿蒙神头上的公羊角。换句话说，古埃及人看到这些化石时，以为它们是神留下的角。几千年后，科学家才知道那是几亿年前的海里亲戚。据公开古生物学资料。</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">如果你喜欢「有故事的石头」、愿意花时间看细节、不追求短期转手，化石收藏很适合你。如果你想靠它快速赚钱，建议先去看看有多少人在闲鱼上挂着卖不掉的「绝美彩斑」。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">化石不是石头，是地球写下的日记——菊石是日记里最工整的那一页。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：奇美博物馆数位典藏系统（加拿大彩斑菊石标本）、台南左镇化石园区数位典藏化石知识区（化石定义与亚化石）。其余价格区间与市场现象为公开市场观察或标注 [UNSOURCED]。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
