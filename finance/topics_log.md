@@ -46,3 +46,4 @@
 | 2026-10-08 | 股份回购：公司自己买自己的股票，到底图什么？ | reports/2026-10-08-share-buyback-basics.html |
 | 2026-10-09 | 内幕交易：为什么「先知先觉」炒股会坐牢？——一份给外行的入门研究报告 | reports/2026-10-09-insider-trading.html |
 | 2026-10-12 | 暗池交易：大资金在“地下停车场”里悄悄换手，散户为何看不到？ | reports/2026-10-12-dark-pool-trading.html |
+| 2026-10-13 | 高频交易：机器在毫秒间抢跑的游戏，外行也能懂的入门报告 | reports/2026-10-13-high-frequency-trading.html |
