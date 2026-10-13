@@ -41,3 +41,4 @@
 | 2026-10-08 | 旧书与初版书：一本泛黄的书，凭什么比新书贵一百倍？ | reports/2026-10-08-old-books-first-editions.html |
 | 2026-10-09 | 漫画原稿与签名本：一张画在纸上的“底片”，凭什么比整套漫画还贵？ | reports/2026-10-09-manga-original-art-signed-books.html |
 | 2026-10-12 | 化石与菊石：一块石头凭什么记录几亿年的地球日记 | reports/2026-10-12-fossil-and-ammonite.html |
+| 2026-10-13 | 矿晶标本入门：一块石头的“内秀”，凭什么让人掏几万块？ | reports/2026-10-13-mineral-specimen.html |

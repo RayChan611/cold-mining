@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 矿晶标本入门</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+
+<style id=cold-mining-responsive-20260904>
+  /* 长 URL 兜底换行（防止撑破容器） */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb, .sec-note {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 矿晶标本</div>
+  <h1>矿晶标本入门：一块石头的“内秀”，凭什么让人掏几万块？</h1>
+  <div class="sub">不是普通石头，是地球的“自拍”——讲清楚矿晶为什么有人当宝、怎么入门不踩坑</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。收藏有风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：矿晶标本是干什么的、谁在玩、值不值得普通人关注。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：天然形成的、具有规则几何外形的矿物晶体，被人采集、清理、配上底座后当作“地球艺术品”收藏。</li>
+        <li><b>谁在玩</b>：地质爱好者、博物馆、私人藏家、室内设计师，以及越来越多把矿晶当“高级摆件”的普通消费者。</li>
+        <li><b>市场多大</b>：单品从几十元到数十万元不等，稀有共生组合矿晶在行家眼里有远超观赏价值的“稀有溢价”（<a class="src" href="https://hn.rednet.cn/content/2019/03/21/5245201.html" target="_blank" rel="noopener noreferrer">来源：红网</a>）。</li>
+        <li><b>小白能玩吗</b>：能。先从几十元的常见单晶入手，但别一上来就追“稀有”“绝矿”。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="80,18 118,58 118,110 80,150 42,110 42,58" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <polygon points="80,34 106,62 106,102 80,130 54,102 54,62" fill="#101010" stroke="#e8e8e8" stroke-width="1"/>
+        <line x1="80" y1="34" x2="80" y2="130" stroke="#c8a866" stroke-width="0.6" opacity="0.5"/>
+        <line x1="54" y1="62" x2="106" y2="62" stroke="#c8a866" stroke-width="0.6" opacity="0.5"/>
+        <line x1="54" y1="102" x2="106" y2="102" stroke="#c8a866" stroke-width="0.6" opacity="0.5"/>
+        <circle cx="80" cy="34" r="3" fill="#e05050"/>
+        <circle cx="118" cy="58" r="3" fill="#e05050"/>
+        <circle cx="118" cy="110" r="3" fill="#e05050"/>
+        <circle cx="80" cy="150" r="3" fill="#e05050"/>
+        <circle cx="42" cy="110" r="3" fill="#e05050"/>
+        <circle cx="42" cy="58" r="3" fill="#e05050"/>
+        <text x="80" y="158" fill="#8a8a8a" font-size="9" text-anchor="middle">示意：石英晶体柱</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">矿晶标本有点像“地球的乐高成品”——地下深处的热液、岩浆或蒸发环境里，原子按固定几何规律排列生长，最终长成一个个有棱有角、闪闪发光的晶体。普通石头是“毛坯房”，矿晶是“精装样板间”：同样的化学成分，长成规则晶体后，价格和观赏性完全不在一个量级。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;margin-top:8px;">注意区别：<b>矿晶不是宝石</b>。宝石是切割、打磨后用于首饰的矿物，而矿晶标本保留的是天然生长的“原生态”外形。一块能放进戒指的祖母绿可能值几十万，但一块带着围岩、晶体完整的祖母绿矿晶标本，在藏家眼里可能同样值几十万——甚至因为“原汁原味”更抢手。</p>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 120" width="720" height="120" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="40" width="160" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="90" y="67" fill="#e8e8e8" font-size="12" text-anchor="middle">地下热液 / 矿脉</text>
+      <path d="M175 62 H215" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="225" y="40" width="160" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="305" y="67" fill="#e8e8e8" font-size="12" text-anchor="middle">晶体自然生长</text>
+      <path d="M390 62 H430" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="440" y="40" width="160" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="520" y="67" fill="#e8e8e8" font-size="12" text-anchor="middle">采集 / 清理 / 配底座</text>
+      <path d="M605 62 H645" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="650" y="40" width="60" height="44" rx="8" fill="#1f1f1f" stroke="#e8e8e8" stroke-width="1.5"/>
+      <text x="680" y="67" fill="#c8a866" font-size="12" text-anchor="middle">收藏</text>
+      <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">矿晶从形成到收藏的路径：天然生长——人工采集清理——配上底座成为标本</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 价格带</h2>
+  <div class="sec-note">用真实数字说明蛋糕有多大、钱集中在哪。来源内联标注。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>档位</th><th>典型价格</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>入门档</td><td class="up">¥20 – 300</td><td>常见单晶或小型组合：白水晶柱、黄铁矿小立方体、萤石小颗粒。适合练手。</td></tr>
+        <tr><td>进阶档</td><td>¥1,000 – 30,000</td><td>晶体完整、颜色好、带围岩的中型标本；稀有共生组合如孔雀石+蓝铜矿在此区间开始出现（<a class="src" href="https://hn.rednet.cn/content/2019/03/21/5245201.html" target="_blank" rel="noopener noreferrer">来源：红网</a>）。</td></tr>
+        <tr><td>极品档</td><td class="down">¥50,000 – 500,000+</td><td>罕见晶形、绝矿产地、博物馆级共生组合；行家愿意为“稀有性本身”支付溢价（<a class="src" href="https://hn.rednet.cn/content/2019/03/21/5245201.html" target="_blank" rel="noopener noreferrer">来源：红网</a>）。[UNSOURCED：具体拍卖纪录需核实]</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 220" width="720" height="220" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <rect x="110" y="140" width="90" height="40" fill="#c8a866"/>
+      <rect x="280" y="90" width="90" height="90" fill="#c8a866"/>
+      <rect x="450" y="30" width="90" height="150" fill="#e05050"/>
+      <text x="155" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">入门 ¥20-300</text>
+      <text x="325" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">进阶 ¥1k-30k</text>
+      <text x="495" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">极品 ¥50k+</text>
+      <text x="380" y="215" fill="#8a8a8a" font-size="11" text-anchor="middle">价格带示意（基于红网报道的矿晶价值逻辑；绝对数值为区间估算）</text>
+    </svg>
+    <div class="cap">矿晶标本价格带示意：钱集中在“稀有性”上，而非单纯的“好看”</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台 -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在制定规则、谁在赚钱、小白该去哪个平台。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">ROOT</span>
+        <h3>产地矿商 / 矿主</h3>
+        <ul><li>最上游：控制矿晶的“第一手货源”。湖南郴州、广西桂林、云南、四川等地是国内重要矿晶产地。他们决定什么流入市场。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">平台</span>
+        <h3>矿晶展会 / 实体市场</h3>
+        <ul><li>郴州矿博会、桂林矿物宝石展等是国内重要交易节点。现场看实物、学门道，比线上盲买靠谱得多。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">HOT</span>
+        <h3>线上社群 / 短视频</h3>
+        <ul><li>抖音、闲鱼、小红书上的矿晶卖家与爱好者社群活跃，但鱼龙混杂。适合看热闹、学鉴别，下单前务必多方比价。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>地质博物馆 / 大学地学系</h3>
+        <ul><li>中国地质博物馆、各地自然博物馆的矿晶展区是免费或低价的“教科书”。先看真东西，再谈买。</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就梭哈。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步：先看后买</div><div class="tl-body">去最近的地质博物馆或矿晶展会逛一圈，找讲解员或老藏家问“这块为什么好”。预算 0 元，花 2-3 小时建立直观感受。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步：花小钱买“标本级”单晶</div><div class="tl-body">花 50-200 元买一块白水晶柱、黄铁矿立方体或萤石。重点不是“增值”，是练习观察：晶体棱角是否完整？光泽是玻璃光泽还是土状光泽？有没有明显磕碰？</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步：建立判断框架</div><div class="tl-body">记住四个维度：<b>晶体完整性</b>（有无断口、修复）、<b>颜色与光泽</b>（越纯正、越亮越好）、<b>稀有性</b>（产地是否绝矿、共生组合是否罕见）、<b>观赏性</b>（整体造型是否协调）。行家会为稀有性支付远超观赏价值的溢价（<a class="src" href="https://hn.rednet.cn/content/2019/03/21/5245201.html" target="_blank" rel="noopener noreferrer">来源：红网</a>）。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步：何时加注 / 退出</div><div class="tl-body">当你已经能一眼看出“修复痕迹”、能说出产地和晶形，再考虑进阶收藏。如果只是喜欢好看，停留在入门档完全没问题——矿晶的第一价值是“你喜欢”。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>人工染色 / 镀膜</h3><ul><li>有些商家把颜色暗淡的矿晶染色、镀钛，冒充天然色。鉴别：用棉签蘸酒精擦，掉色即假；镀膜在强光下有彩虹反光。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>修复品当“全品”卖</h3><ul><li>断裂后粘回去的晶体，行内叫“修复品”，价格可能只有全品的三分之一甚至更低。用紫外线灯照，胶水处会发荧光。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>“绝矿”“稀有”话术</h3><ul><li>卖家说“绝矿了”“以后没有了”时，先查该产地是否真的停产。很多所谓绝矿只是“这个矿口暂时没货”。稀有性确实影响价值（<a class="src" href="https://hn.rednet.cn/content/2019/03/21/5245201.html" target="_blank" rel="noopener noreferrer">来源：红网</a>），但要核实信息，别被话术带节奏。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li><b>买你真心喜欢的，不买“以后会涨的”。</b>矿晶不是股票，流动性差，变现周期长。你的核心回报是每天看到它时的那点开心。</li></ul></div>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="58" fill="#e05050" font-size="13" text-anchor="middle">误区</text>
+      <text x="180" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">“越稀有越值钱，闭眼买”</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="400" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="58" fill="#50b070" font-size="13" text-anchor="middle">真相</text>
+      <text x="550" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">稀有性只是四个维度之一，完整性才是底线</text>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相：稀有性不等于一切，晶体完整性和颜色光泽同样关键</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>晶形 / 晶习</b></td><td>晶体长成的天然几何外形，如立方体、六方柱、菱面体。同一种矿物可能有多种晶形。</td></tr>
+        <tr><td><b>围岩 / 母岩</b></td><td>晶体“长在上面”的那块岩石。有围岩的标本往往更自然、更值钱，因为证明了它是“原生的”。</td></tr>
+        <tr><td><b>共生组合</b></td><td>两种或多种不同矿物长在同一块标本上，如石英+萤石、孔雀石+蓝铜矿。稀有共生组合在行家眼里有特殊溢价（<a class="src" href="https://hn.rednet.cn/content/2019/03/21/5245201.html" target="_blank" rel="noopener noreferrer">来源：红网</a>）。</td></tr>
+        <tr><td><b>修复 / 粘合</b></td><td>断掉的晶体被胶水粘回去。修复品价值大打折扣，购买时必须问清。</td></tr>
+        <tr><td><b>光泽</b></td><td>晶体表面反光的方式：玻璃光泽、金属光泽、油脂光泽等。光泽度越高，通常美观度越好（<a class="src" href="https://hn.rednet.cn/content/2019/03/21/5245201.html" target="_blank" rel="noopener noreferrer">来源：红网</a>）。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">你知道吗？很多矿晶在紫外线下会“变色”——萤石在紫外灯下可能发出蓝色或紫色荧光，方解石可能发粉色。你白天看到的一块“普通白石头”，晚上关灯用紫外手电一照，可能秒变夜店风。这也是老藏家随身带紫外灯的原因之一：既看荧光，也查胶水。</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">适合喜欢自然、喜欢“有故事的摆件”的人；不适合想短期快速变现的人。矿晶的回报是日常审美和知识积累，不是K线图。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">每一块矿晶都是地球的“自拍”——它用几百万年摆好姿势，等人来按下快门。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：红网《“晶”彩世界科普①：矿晶那么美 你知道如何挑选吗？》（<a class="src" href="https://hn.rednet.cn/content/2019/03/21/5245201.html" target="_blank" rel="noopener noreferrer">https://hn.rednet.cn/content/2019/03/21/5245201.html</a>）。部分价格区间与鉴别方法为公开市场经验的定性总结 [UNSOURCED]。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
