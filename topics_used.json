@@ -110,6 +110,7 @@
   },
   "finance": {
     "keys": [
+      "algo-trading",
       "asset-allocation-and-rebalancing",
       "black-monday",
       "bond",
@@ -157,6 +158,7 @@
       "option-basics",
       "options-basics",
       "pe-pb-roe",
+      "programmatic-trading",
       "qe",
       "quantitative-easing-guide",
       "rebalance",
@@ -207,6 +209,7 @@
       "杠杆",
       "汇率",
       "熔断机制",
+      "程序化交易",
       "美联储",
       "股份回购",
       "融资融券",
