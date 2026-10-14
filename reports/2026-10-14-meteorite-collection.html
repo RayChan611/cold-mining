@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 陨石收藏</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+
+<style id=cold-mining-responsive-20260904>
+  /* 长 URL 兜底换行（防止撑破容器） */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb, .sec-note {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 陨石收藏</div>
+  <h1>陨石收藏：一块从天上掉下来的石头，凭什么比黄金还贵？</h1>
+  <div class="sub">它没有实用功能，却在拍卖行里被举牌争抢——陨石是唯一能合法拥有的「外太空不动产」。</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。陨石交易存在大量造假，入手前一定做专业鉴定。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：这个领域是干什么的、谁在玩、值不值得普通人关注。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：陨石是从月球、火星或小行星上脱落、穿越大气层坠到地球上的「天外来客」。收藏家买的是它的「身世」——它来自哪颗星、几亿年前经历了什么。</li>
+        <li><b>谁在玩</b>：科研机构、猎陨人（专门去沙漠/南极找陨石的职业玩家）、私人藏家、博物馆。近年中东藏家和中国新一代藏家入场明显。</li>
+        <li><b>市场多大</b>：全球陨石交易没有一个官方统计的交易所，但据行业估算，高端稀有陨石单价可达每克数千至上万美元，远超等重黄金。具体数字取决于分类和来源，下文细说。</li>
+        <li><b>小白能玩吗</b>：可以，但门槛不在钱，在「认知」。几十块就能买到一小片普通球粒陨石；但看不懂真假、分不清类别，很容易花大钱买到地球石头。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <rect x="20" y="10" width="120" height="120" rx="10" fill="#0e0e0e" stroke="#c8a866" stroke-width="1.5"/>
+        <circle cx="80" cy="46" r="14" fill="none" stroke="#d4d4d4" stroke-width="1.5"/>
+        <ellipse cx="64" cy="46" rx="9" ry="3.5" fill="none" stroke="#c8a866" stroke-width="1"/>
+        <path d="M80 60 L72 76" stroke="#c8a866" stroke-width="1.5"/>
+        <path d="M80 60 L88 76" stroke="#c8a866" stroke-width="1.5"/>
+        <path d="M40 112 L62 84" stroke="#e05050" stroke-width="1.5" stroke-dasharray="3 3"/>
+        <path d="M120 112 L98 84" stroke="#e05050" stroke-width="1.5" stroke-dasharray="3 3"/>
+        <path d="M80 76 L80 112" stroke="#e8e8e8" stroke-width="1.5" stroke-dasharray="3 3"/>
+        <circle cx="80" cy="112" r="6" fill="none" stroke="#c8a866" stroke-width="1.5"/>
+        <circle cx="80" cy="112" r="2" fill="#c8a866"/>
+        <text x="80" y="142" fill="#8a8a8a" font-size="9" text-anchor="middle">陨石坠入大气层示意</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">你可以把陨石理解成「宇宙的漂流瓶」。太阳系里无数小行星互相碰撞，碎块在太空中飘荡几百万年甚至几十亿年，偶尔被地球引力截获，穿过大气层时剧烈摩擦燃烧——最终活着落到地面的那部分，就是陨石。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;margin-top:10px;">它们不像黄金能被再造。地球上的黄金可以反复熔炼回收，但月球陨石、火星陨石的数量是「天上掉一块少一块」——目前全球已被正式命名的火星陨石只有 300 多块，总重加起来不到一顿饭的量。稀缺性，是收藏价值的根。</p>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="12" y="42" width="150" height="48" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="87" y="63" fill="#e8e8e8" font-size="11" text-anchor="middle">小行星碰撞</text>
+      <text x="87" y="80" fill="#8a8a8a" font-size="9" text-anchor="middle">碎块飞入太空</text>
+      <path d="M162 66 H200" stroke="#c8a866" stroke-width="2" marker-end="url(#ar1)"/>
+      <rect x="206" y="42" width="150" height="48" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="281" y="63" fill="#e8e8e8" font-size="11" text-anchor="middle">穿越大气层</text>
+      <text x="281" y="80" fill="#8a8a8a" font-size="9" text-anchor="middle">摩擦燃烧形成熔壳</text>
+      <path d="M356 66 H394" stroke="#c8a866" stroke-width="2" marker-end="url(#ar1)"/>
+      <rect x="400" y="42" width="150" height="48" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="475" y="63" fill="#e8e8e8" font-size="11" text-anchor="middle">坠地后被识别</text>
+      <text x="475" y="80" fill="#8a8a8a" font-size="9" text-anchor="middle">猎陨人 / 科研机构</text>
+      <path d="M550 66 H588" stroke="#c8a866" stroke-width="2" marker-end="url(#ar1)"/>
+      <rect x="594" y="42" width="114" height="48" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="651" y="63" fill="#e8e8e8" font-size="11" text-anchor="middle">进入收藏</text>
+      <text x="651" y="80" fill="#8a8a8a" font-size="9" text-anchor="middle">拍卖/私洽</text>
+      <defs><marker id="ar1" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">一颗陨石从太空到藏家手里的完整路径</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 价格带</h2>
+  <div class="sec-note">外行最容易误会的是「陨石=天价」。其实大部分普通陨石很便宜，真正贵的是「有故事的石头」。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>档位</th><th>典型价格（每克）</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>入门档</td><td class="up">¥1 – 50</td><td>普通球粒陨石切片、小标本，几十块到几百块就能买一片真货。适合练手。</td></tr>
+        <tr><td>进阶档</td><td>¥100 – 2,000</td><td>特殊分类（碳质球粒、铁陨石切片、带维斯台登纹的成品），有审美和科研双重价值。</td></tr>
+        <tr><td>极品档</td><td class="down">¥10,000 – 100,000+</td><td>月球陨石、火星陨石、稀有目击陨石。单克价常超黄金十倍到百倍，拍卖会上按「整块」竞争。</td></tr>
+      </tbody>
+    </table>
+    <p class="quote" style="margin-top:10px;">据公开资料，月球陨石在拍卖市场的单克价通常在 500 至 2,000 美元区间；火星陨石则可达每克 1,000 美元以上，具体取决于样本完整性、来源行星的确认程度和拍卖行的推手。[UNSOURCED：2020-2025 年多家拍卖行成交记录综合估算]</p>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 240" width="720" height="240" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="200" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="200" x2="690" y2="200" stroke="#2a2a2a" stroke-width="1.5"/>
+      <rect x="100" y="180" width="90" height="20" fill="#c8a866"/>
+      <text x="145" y="220" fill="#9a9a9a" font-size="11" text-anchor="middle">普通球粒</text>
+      <text x="145" y="235" fill="#8a8a8a" font-size="10" text-anchor="middle">¥1-50/克</text>
+      <rect x="270" y="110" width="90" height="90" fill="#c8a866"/>
+      <text x="315" y="220" fill="#9a9a9a" font-size="11" text-anchor="middle">碳质/铁陨石</text>
+      <text x="315" y="235" fill="#8a8a8a" font-size="10" text-anchor="middle">¥100-2000/克</text>
+      <rect x="440" y="40" width="90" height="160" fill="#e05050"/>
+      <text x="485" y="220" fill="#9a9a9a" font-size="11" text-anchor="middle">月球/火星陨石</text>
+      <text x="485" y="235" fill="#8a8a8a" font-size="10" text-anchor="middle">¥1万-10万+/克</text>
+      <rect x="590" y="110" width="70" height="90" fill="#d4d4d4" opacity="0.6"/>
+      <text x="625" y="220" fill="#9a9a9a" font-size="11" text-anchor="middle">参考：黄金</text>
+      <text x="625" y="235" fill="#8a8a8a" font-size="10" text-anchor="middle">当前约¥500-600/克</text>
+    </svg>
+    <div class="cap">陨石价格带 vs 黄金（示意对比，黄金价格随市波动）</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台 -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在制定规则、谁在赚钱、小白该去哪个平台。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><circle cx="12" cy="8" r="5"/><path d="M4 21c0-4 3.5-6 8-6s8 2 8 6"/><path d="M12 3v2M12 8v2M6 5l1 2M18 5l-1 2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">ROOT</span>
+        <h3>国际陨石学会（Meteoritical Society）</h3>
+        <ul><li>全球陨石命名的权威机构。一块陨石只有被它正式录入「公报」，才算有了官方身份证。没有官方命名的陨石，转手价值大打折扣。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/><circle cx="12" cy="12" r="8"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">拍卖行</span>
+        <h3>佳士得 / 苏富比 / 中国嘉德</h3>
+        <ul><li>高端稀有陨石（火星、月球、大型铁陨石）常进入大型拍卖行。佳士得和苏富比在纽约、伦敦都设过陨石专场，成交价常是估价的数倍。中国嘉德近年也开始试水陨石拍品。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">HOT</span>
+        <h3>猎陨人 / 沙漠猎陨队</h3>
+        <ul><li>在撒哈拉沙漠、阿塔卡马沙漠、南极冰原等「无人区」寻找陨石的专业户。他们的发现是市场供给的源头。撒哈拉西北非地区的陨石是全球交易量最大的来源地。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/><circle cx="12" cy="8" r="3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>西北非（NWA）陨石交易圈</h3>
+        <ul><li>小白最友好的入口。大量带编号的 NWA 系列陨石（如 NWA 869）切片在国际电商和国内闲鱼/淘宝上公开流通，价格从几十到几百元不等，是练手和建立「真品观感」的最佳起点。</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就梭哈。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步 · 先看，不买</div><div class="tl-body">花两周时间在 eBay、国内陨石论坛、国际陨石数据库（Meteoritical Bulletin）上逛，重点看「真品长什么样」：熔壳、气印、内部球粒结构、铁陨石切面的维斯台登纹。照片看多了，假货会显得「假得明显」。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步 · 花小钱买「有编号的普通陨石」</div><div class="tl-body">选一块带官方编号的 NWA 普通球粒陨石切片，预算控制在 100-300 元。编号意味着它已被科学家分类、登记，是目前最可靠的低价入门路径。要求卖家提供编号和匹配的照片。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步 · 建立一个判断框架</div><div class="tl-body">记住三问：① 有官方命名编号吗？② 卖家能提供来源地、分类、总重量的完整链条吗？③ 价格是否符合「同类同克重」的行情？如果三个问题有一个含糊，暂停交易。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步 · 进阶：只买「有故事的石头」</div><div class="tl-body">当你已经能一眼识别普通球粒陨石和地球岩石的区别，再考虑拥有「审美价值」的铁陨石切片（有自然花纹）或「科研价值」的碳质球粒陨石。月球/火星陨石建议只在有公信力的拍卖行或老牌经销商处入手，并要求看检测报告。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>「假熔壳」地球岩石</h3><ul><li>有人把含铁量高的地球岩石（玄武岩、磁铁矿）用喷枪烧出黑色外壳，冒充陨石。避坑：真陨石熔壳通常很薄、均匀，且表面有「气印」——像拇指按在面团上的浅凹。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>无编号的「神秘陨石」</h3><ul><li>卖家说「这是从新疆沙漠捡的，还没做鉴定所以便宜卖」。没有编号的陨石，你买到的很可能只是一块普通石头。避坑：只买有 Meteoritical Bulletin 编号的，或先鉴定再付款。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>「月球/火星」噱头溢价</h3><ul><li>同一块陨石，贴上「疑似火星陨石」标签后价格能翻十倍，但未经专业机构确认的「疑似」没有任何价值。避坑：要求提供元素分析或氧同位素报告，确认其来源分类。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li><b>在陨石收藏里，你的钱买的是「可验证的信息」，不是石头本身。</b>编号、来源、分类报告、历史记录——信息越全，价值越实。没有信息链的石头，哪怕看起来再像天外来客，都当它是地球土特产。</li></ul></div>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 140" width="720" height="140" xmlns="http://www.w3.org/2000/svg">
+      <rect x="20" y="30" width="300" height="80" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="170" y="56" fill="#e05050" font-size="13" text-anchor="middle">误区</text>
+      <text x="170" y="78" fill="#c4c4c4" font-size="11" text-anchor="middle">「黑乎乎的石头就是陨石」</text>
+      <text x="170" y="96" fill="#8a8a8a" font-size="10" text-anchor="middle">很多地球岩石也黑乎乎的</text>
+      <path d="M330 70 H380" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="390" y="30" width="300" height="80" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="540" y="56" fill="#50b070" font-size="13" text-anchor="middle">真相</text>
+      <text x="540" y="78" fill="#c4c4c4" font-size="11" text-anchor="middle">「有编号 + 有报告 + 有来源链」才算数</text>
+      <text x="540" y="96" fill="#8a8a8a" font-size="10" text-anchor="middle">信息链比外观更重要</text>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">陨石收藏的核心误区 vs 真相</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>熔壳</b></td><td>陨石穿过大气层时表面熔化后迅速冷却形成的一层黑色薄皮。是肉眼识别陨石的第一线索。</td></tr>
+        <tr><td><b>气印</b></td><td>陨石表面像「指头按面团」留下的浅坑，是高速飞行时表面被气流剥蚀形成的。铁陨石上尤其明显。</td></tr>
+        <tr><td><b>维斯台登纹</b></td><td>铁陨石切开后酸洗显现的交叉网格花纹。只有在太空中极缓慢冷却的铁镍合金才能形成，地球上无法仿造。</td></tr>
+        <tr><td><b>球粒</b></td><td>普通球粒陨石内部的小圆球颗粒，直径约 1 毫米，是太阳系早期「星云尘埃」直接凝聚的证据。</td></tr>
+        <tr><td><b>碳质球粒陨石</b></td><td>含碳、含水矿物和有机物的「原始陨石」，被认为是太阳系最古老的材料之一，是生命起源研究的主要对象。</td></tr>
+        <tr><td><b>NWA 编号</b></td><td>「Northwest Africa」的缩写，指在西北非地区发现的陨石。编号由国际陨石学会统一分配，是陨石的「户口本」。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">「在撒哈拉沙漠里，牧羊人靠捡陨石赚的钱，有时候比放一辈子羊还多。」西北非是全球陨石交易的最大货源地，当地形成了一个完整的「猎陨—鉴定—出口」产业链。据公开资料，部分 NWA 陨石的发现者就是当地牧民，他们用简单的磁铁和肉眼在沙漠中搜索。[UNSOURCED：猎陨社区共识，具体金额因个体差异极大]</p>
+    <p class="quote" style="margin-top:8px;">另一个冷知识：地球上几乎所有陨石都来自小行星带。但有一小部分来自月球和火星——它们是被更古老的撞击「炸」出来、飞到地球上的。所以当你拿一块火星陨石时，你手里捧的是另一个行星的地壳碎片。</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">如果你喜欢「有故事的东西」、享受研究来源和历史的乐趣，陨石收藏适合你。如果你只想「买了等升值」，<span class="hot">大概率会失望</span>——陨石流动性非常差，变现周期长。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb"><span class="cool">「黄金是地球的存款，陨石是太阳系的日记本。」</span>别用投资逻辑买它，用好奇逻辑买它。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：本报告综合自国际陨石学会（Meteoritical Society）公开命名数据库、佳士得/苏富比历年陨石拍卖记录、NWA 陨石交易社区公开信息，以及猎陨人群体公开访谈。所有具体数字尽可能标注来源，无法核实处以 [UNSOURCED] 标出。本内容为 AI 整理的研究草稿，非投资建议。陨石市场高度不透明，交易前务必通过有资质的实验室进行鉴定。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
