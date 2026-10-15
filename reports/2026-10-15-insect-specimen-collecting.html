@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 昆虫标本</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+
+<style id=cold-mining-responsive-20260904>
+  /* 长 URL 兜底换行（防止撑破容器） */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb, .sec-note {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 昆虫标本</div>
+  <h1>昆虫标本：把一只虫子变成「时间胶囊」，凭什么能卖几万块？</h1>
+  <div class="sub">一只蝴蝶的寿命只有两周，但一只标本蝴蝶能「活」两百年——这门手艺到底在玩什么？</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或收藏建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。昆虫采集与交易可能涉及法律与生态保护限制，请务必遵守当地法规。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：昆虫标本是干什么的、谁在玩、值不值得普通人关注。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：把昆虫通过针插、展翅、干燥、装盒等工序，做成可以长期保存的「三维照片」——既是科学研究的基础档案，也是一种自然美学收藏品。</li>
+        <li><b>谁在玩</b>：昆虫学研究者、生态监测人员、自然博物馆、中小学科学教师，以及一批被称为「虫友」的业余收藏者。商业食用昆虫产业链也在大量使用标本技术做品控。</li>
+        <li><b>市场多大</b>：食用昆虫市场2026-2034年复合年增长率预计25.39%，昆虫粉占约42%份额（来源：<a class="src" href="https://www.fortunebusinessinsights.com/zh/edible-insects-market-102263" target="_blank" rel="noopener noreferrer">Fortune Business Insights</a>）。标本收藏市场因品类差异极大，稀有甲虫单只可达数万至数十万元 [UNSOURCED]。</li>
+        <li><b>小白能玩吗</b>：能。入门成本极低，一根昆虫针几分钱，一个展翅板几十块。但「做好」需要耐心，且部分物种受法律保护，采集前必须先查法规。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <rect x="20" y="30" width="120" height="100" rx="10" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <line x1="80" y1="30" x2="80" y2="130" stroke="#c8a866" stroke-width="1.2" stroke-dasharray="3 3"/>
+        <line x1="56" y1="46" x2="104" y2="46" stroke="#c8a866" stroke-width="1.2"/>
+        <line x1="56" y1="114" x2="104" y2="114" stroke="#c8a866" stroke-width="1.2"/>
+        <path d="M80 70 C72 68 66 72 62 76 C72 72 78 72 80 78 Z" fill="#e8e8e8" stroke="#c8a866" stroke-width="1.2"/>
+        <path d="M80 70 C88 68 94 72 98 76 C88 72 82 72 80 78 Z" fill="#e8e8e8" stroke="#c8a866" stroke-width="1.2"/>
+        <path d="M80 70 C74 76 72 84 74 92 C78 84 78 78 80 78 Z" fill="#e8e8e8" stroke="#c8a866" stroke-width="1.2"/>
+        <path d="M80 70 C86 76 88 84 86 92 C82 84 82 78 80 78 Z" fill="#e8e8e8" stroke="#c8a866" stroke-width="1.2"/>
+        <circle cx="80" cy="70" r="5" fill="#c8a866"/>
+        <text x="80" y="148" fill="#8a8a8a" font-size="9" text-anchor="middle">昆虫标本概念图 · 针插与展翅</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">昆虫标本有点像给虫子做「法医级防腐版证件照」。你见过蝴蝶飞过，但停下来看它翅膀上鳞片的排列、后翅边缘的锯齿、触角的分节——这些细节在活虫身上根本看不清。标本的处理过程，就是把这些细节「锁」在它死亡那一刻的状态：用针固定身体、用纸片和昆虫针把翅膀展开到标准角度、在干燥环境中放上几天到几周，让它彻底脱水定型。最后放进标本盒，再加一颗樟脑或对二氯苯防虫蛀。一个合格的标本可以保存几十年到上百年——比很多人的寿命还长。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;margin-top:8px;">林业有害生物普查中，标本是「虫情档案」的核心证据。采集后需要经过软化、针插、整姿、干燥、标签、保存等多个环节，每一步都有讲究（来源：<a class="src" href="https://sjfsci.com/cn/article/pdf/preview/10.16779/j.cnki.1003-5508.2018.05.022.pdf" target="_blank" rel="noopener noreferrer">四川林业科学</a>）。</p>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 120" width="720" height="120" xmlns="http://www.w3.org/2000/svg">
+      <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+      <rect x="10" y="40" width="140" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="80" y="58" fill="#e8e8e8" font-size="11" text-anchor="middle">采集</text>
+      <text x="80" y="74" fill="#8a8a8a" font-size="9" text-anchor="middle">野外 / 人工饲养</text>
+      <path d="M155 62 H195" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="205" y="40" width="140" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="275" y="58" fill="#e8e8e8" font-size="11" text-anchor="middle">软化与针插</text>
+      <text x="275" y="74" fill="#8a8a8a" font-size="9" text-anchor="middle">还软 / 固定体姿</text>
+      <path d="M350 62 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="400" y="40" width="140" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="470" y="58" fill="#e8e8e8" font-size="11" text-anchor="middle">整姿与展翅</text>
+      <text x="470" y="74" fill="#8a8a8a" font-size="9" text-anchor="middle">调整形态标准</text>
+      <path d="M545 62 H585" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="595" y="40" width="115" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="652" y="58" fill="#e8e8e8" font-size="11" text-anchor="middle">干燥与保存</text>
+      <text x="652" y="74" fill="#8a8a8a" font-size="9" text-anchor="middle">防虫 / 装盒</text>
+    </svg>
+    <div class="cap">昆虫标本制作的标准流程：从采集到装盒（据公开资料整理）</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 价格带</h2>
+  <div class="sec-note">用真实数字说明蛋糕有多大、钱集中在哪。来源内联标注。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>档位</th><th>典型价格</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>入门档</td><td class="up">¥10 – 200</td><td>常见本地蝶类、甲虫，教学用标本；许多是自己采集制作，材料成本极低。</td></tr>
+        <tr><td>进阶档</td><td>¥300 – 5,000</td><td>稀有产地、品相完整的观赏性标本，如大蓝闪蝶、长戟大兜虫、兰花螳螂。</td></tr>
+        <tr><td>极品档</td><td class="down">¥10,000 – 数十万+</td><td>极稀有种、完美对称的巨型个体、有历史背景的旧藏，或受国际公约保护但合法流通的限量来源 [UNSOURCED]。</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:12.5px;color:#8a8a8a;margin-top:10px;">背景参照：全球食用昆虫市场预计以25.39%复合年增长率增长，其中昆虫粉是领先产品类型，约占42%市场份额（来源：<a class="src" href="https://www.fortunebusinessinsights.com/zh/edible-insects-market-102263" target="_blank" rel="noopener noreferrer">Fortune Business Insights</a>）。这条产业链与标本制作共享昆虫分类、品控和保存技术。</p>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 220" width="720" height="220" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <rect x="110" y="150" width="90" height="30" fill="#c8a866"/>
+      <text x="155" y="142" fill="#c8a866" font-size="10" text-anchor="middle">¥10-200</text>
+      <rect x="280" y="100" width="90" height="80" fill="#c8a866"/>
+      <text x="325" y="92" fill="#c8a866" font-size="10" text-anchor="middle">¥300-5k</text>
+      <rect x="450" y="40" width="90" height="140" fill="#e05050"/>
+      <text x="495" y="32" fill="#e05050" font-size="10" text-anchor="middle">¥1万+</text>
+      <text x="155" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">入门档</text>
+      <text x="325" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">进阶档</text>
+      <text x="495" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">极品档</text>
+      <text x="380" y="215" fill="#8a8a8a" font-size="11" text-anchor="middle">价格带示意（标本收藏市场高度分化，极差大；食用昆虫市场数据见来源）</text>
+    </svg>
+    <div class="cap">昆虫标本价格带示意（收藏市场数据为 [UNSOURCED] 估算区间）</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台 -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在制定标准、谁在赚钱、小白该去哪个平台。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">ROOT</span>
+        <h3>博物馆与科研机构</h3>
+        <ul><li>自然博物馆、农业大学昆虫系、林业有害生物普查项目组掌握标本制作的最高技术标准。它们不直接面向个人出售，但发布的图鉴和标本教程是入门者的「教科书」。林业普查中，标本制作与保存有严格的流程规范（来源：<a class="src" href="https://sjfsci.com/cn/article/pdf/preview/10.16779/j.cnki.1003-5508.2018.05.022.pdf" target="_blank" rel="noopener noreferrer">四川林业科学</a>）。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">交易平台</span>
+        <h3>标本电商与虫友社群</h3>
+        <ul><li>淘宝、闲鱼、eBay、Etsy 上活跃着大量个人卖家和专业标本工作室。价格从几十到几万不等，但假货、品相虚标、来源不明的问题也集中在这里。老虫友常说「先混社群，再下单」。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">HOT</span>
+        <h3>食用昆虫产业链</h3>
+        <ul><li>昆虫粉是食用昆虫市场中领先的产品类型，占据约42%市场份额（来源：<a class="src" href="https://www.fortunebusinessinsights.com/zh/edible-insects-market-102263" target="_blank" rel="noopener noreferrer">Fortune Business Insights</a>）。这个赛道上的公司（如 Cricket Lab、Aspire Food Group、Beta Hatch 等）需要大量昆虫分类和标本技术做品控与研发。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>小白友好入口</h3>
+        <ul><li>先看「昆虫标本制作」系列视频和豆瓣/贴吧的虫友小组。推荐从本地常见蝶类开始练手，成本几乎为零；购买标本时优先选有标签、注明产地和采集日期的。</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就梭哈。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">先别买虫子。花一周时间看视频和图鉴，搞清楚「针插位置」「展翅角度」「还软方法」三个核心动作。推荐从本地公园捡一只已经死亡的蝴蝶或甲虫开始练手，成本为零。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">买基础工具：昆虫针（0#-5#各一包，约¥20）、展翅板（¥30-80）、还软器（可用湿纸巾+密封盒代替）、镊子、标本盒（¥50-150）。总共不超过¥300。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">建立判断框架：看一只标本先问三个问题——产地是否明确？品相是否完整（触角、跗节、翅膀对称性）？标签是否专业（采集日期、海拔、采集人）？这三个答案决定它值¥50还是¥5000。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">当你连续制作10个以上品相合格的标本、且能分辨常见科属后，再考虑购买进阶品种。记住：标本收藏的流动性很差，卖出去比买进来难十倍。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>「完美品相」其实是修复品</h3><ul><li>标本行业里有人用胶水粘翅膀、用颜料补色、甚至用不同虫子的身体拼凑。外行看不出，买了就亏。避坑方法：用放大镜看关节处有无胶痕，翅膀颜色是否在正常光线下有异常反光。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>来源不明的「濒危物种」</h3><ul><li>某些稀有蝴蝶和甲虫属于《濒危野生动植物种国际贸易公约》（CITES）限制贸易物种。买回来可能无法合法持有，过海关被查直接没收+罚款。避坑方法：买之前查该物种是否在CITES附录里，要求卖家提供合法来源证明。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>「老藏家出手」的溢价陷阱</h3><ul><li>有些卖家会编造「这是某某博物馆退休专家的旧藏」「上世纪70年代采集」等故事，给普通标本加上几倍溢价。避坑方法：老标签可以伪造，真正的老标本往往伴随氧化痕迹和旧式标签纸，新手不易辨别，建议只买「看得到品相、看得懂来源」的。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>先学会做，再学会买。当你亲手做过20个标本之后，你会对「品相」和「工艺」有肌肉记忆——这比任何鉴定攻略都管用。</li></ul></div>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="58" fill="#e05050" font-size="13" text-anchor="middle">误区</text>
+      <text x="180" y="80" fill="#c4c4c4" font-size="10.5" text-anchor="middle">「越稀有的虫子越值得买」</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="400" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="58" fill="#50b070" font-size="13" text-anchor="middle">真相</text>
+      <text x="550" y="80" fill="#c4c4c4" font-size="10.5" text-anchor="middle">「品相、标签、来源合法性，才是标本价值的三要素」</text>
+    </svg>
+    <div class="cap">误区 vs 真相：新手最容易搞错的价值判断（据公开资料整理）</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>针插标本</b></td><td>用昆虫针垂直穿过虫体固定，是最常见的标本形式。不同目昆虫针插位置不同：甲虫插右翅鞘，蝴蝶插中胸中央。</td></tr>
+        <tr><td><b>展翅</b></td><td>用昆虫针和纸片把蝴蝶、蛾子、蜻蜓的翅膀展开到标准角度，让翅脉和花纹完整可见。</td></tr>
+        <tr><td><b>还软</b></td><td>干燥的虫子会变脆，必须先用湿气让它恢复柔韧，才能整姿。常用方法是用湿润的纱布或纸巾包裹虫体，密封放1-3天。</td></tr>
+        <tr><td><b>品相</b></td><td>标本的完整度与美观度。包括触角是否完整、跗节（脚上的小分节）是否缺失、翅膀是否对称、有无破损或掉鳞。</td></tr>
+        <tr><td><b>采集标签</b></td><td>标本下方的小纸片，记录采集地点、日期、海拔、采集人。没有标签的标本在科研上几乎没有价值。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">一只完美展翅的蝴蝶标本，从采集到装盒需要至少两周——而这只蝴蝶活着的时候，可能也就飞两周。你花的时间，正好等于它的一生。（据公开资料整理）</p>
+    <p class="quote" style="margin-top:6px;">林业有害生物普查中，鳞翅目幼虫（毛毛虫）还有一种特殊处理方式叫「吹胀标本」：把幼虫内容物挤出来，再充气或填充，让一条软趴趴的毛毛虫变成能站起来的标本（来源：<a class="src" href="https://sjfsci.com/cn/article/pdf/preview/10.16779/j.cnki.1003-5508.2018.05.022.pdf" target="_blank" rel="noopener noreferrer">四川林业科学</a>）。</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">适合有耐心、喜欢动手、对自然有好奇心的人；不适合急着赚钱、怕虫子、追求快速回报的人。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">标本不会说话，但它把一只虫子最体面的样子，留给了还没出生的人。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：Fortune Business Insights 食用昆虫市场报告（2026-2034）；四川林业科学《林业有害生物普查昆虫标本的制作与保存》。标本收藏价格区间为 [UNSOURCED] 估算，仅供参考。本内容为 AI 整理的研究草稿，非投资或收藏建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
