@@ -48,3 +48,4 @@
 | 2026-10-12 | 暗池交易：大资金在“地下停车场”里悄悄换手，散户为何看不到？ | reports/2026-10-12-dark-pool-trading.html |
 | 2026-10-13 | 高频交易：机器在毫秒间抢跑的游戏，外行也能懂的入门报告 | reports/2026-10-13-high-frequency-trading.html |
 | 2026-10-14 | 程序化交易：让电脑替你盯盘下单，是印钞机还是自毁按钮？ | reports/2026-10-14-programmatic-trading.html |
+| 2026-10-15 | 量化基金入门：当一群数学家和计算机开始炒股 | reports/2026-10-15-quant-fund.html |
