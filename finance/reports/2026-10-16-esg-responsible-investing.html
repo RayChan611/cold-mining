@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 责任投资 ESG</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+
+<style id=cold-mining-responsive-20260904>
+  /* 长 URL 兜底换行（防止撑破容器） */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb, .sec-note {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 责任投资</div>
+  <h1>责任投资 ESG：用股东的钱，逼企业做好人？</h1>
+  <div class="sub">把「环保、社会责任、公司治理」塞进投资决策里——这到底是道德洁癖，还是更聪明的赚钱方式？</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。投资/收藏有风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：这个领域是干什么的、谁在玩、值不值得普通人关注。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：一种投资方法——在挑股票/债券时，不只盯着利润，还要看这家公司环不环保、对员工好不好、管理层守不守规矩。</li>
+        <li><b>谁在玩</b>：全球大型养老金、主权基金、保险公司、公募基金，以及越来越多想「边赚钱边改变世界」的普通人。</li>
+        <li><b>市场多大</b>：ESG 概念由联合国 2004 年《Who Cares Wins》报告正式提出；中国 2016 年由央行等七部委联合发文推动绿色金融，此后 ESG 投资在国内持续扩张（来源：<a class="src" href="https://promote.caixin.com/upload/esg30whitepaper2025.pdf" target="_blank" rel="noopener noreferrer">2025 中国ESG发展白皮书</a>）。</li>
+        <li><b>小白能玩吗</b>：能。买 ESG 主题基金或指数基金是最低门槛入口，但别指望它短期暴富——它更偏「长期不踩雷」的逻辑。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="80" cy="80" r="58" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <path d="M80 40 L92 65 L118 68 L97 87 L103 112 L80 97 L57 112 L63 87 L42 68 L68 65 Z" fill="none" stroke="#c8a866" stroke-width="1.5"/>
+        <text x="80" y="55" fill="#e8e8e8" font-size="13" text-anchor="middle" font-weight="700">E</text>
+        <text x="50" y="78" fill="#e8e8e8" font-size="13" text-anchor="middle" font-weight="700">S</text>
+        <text x="110" y="78" fill="#e8e8e8" font-size="13" text-anchor="middle" font-weight="700">G</text>
+        <circle cx="80" cy="80" r="18" fill="#0a0a0a" stroke="#c8a866" stroke-width="1.5"/>
+        <text x="80" y="85" fill="#c8a866" font-size="13" text-anchor="middle" font-weight="700">¥</text>
+        <text x="80" y="155" fill="#8a8a8a" font-size="9" text-anchor="middle">ESG 三要素包裹着投资收益</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">
+      想象你要找室友合租。传统投资人只看「他付不付得起房租」（财务指标）。而 ESG 投资人会额外问三个问题：他会不会把公共区域搞得一团糟（<b>E，环境</b>）？他会不会欺负邻居、半夜吵人（<b>S，社会</b>）？他说话算不算数、会不会偷偷转租（<b>G，治理</b>）？<br><br>
+      责任投资（Responsible Investment）就是在传统财务分析之外，把这些「人品问题」也纳入决策的投资方式。Sedex 的定义很直白：责任投资是一种明确考虑企业内环境、社会和治理（ESG）等非财务领域的投资方法（来源：<a class="src" href="https://www.sedex.com/zh/blog/sedex-esg%E6%88%96%E8%B4%9F%E8%B4%A3%E4%BB%BB%E6%8A%95%E8%B5%84%E7%AE%80%E4%BB%8B" target="_blank" rel="noopener noreferrer">Sedex</a>）。<br><br>
+      它的底层假设是：一个在环保、员工权益、反腐败等方面做得烂的公司，短期可能赚钱，但长期一定会「暴雷」——被罚款、被抵制、被起诉，或者被监管盯上。所以 ESG 不是「做慈善」，而是「躲地雷」+「找长期优等生」。
+    </p>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 140" width="720" height="140" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="45" width="200" height="50" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="110" y="66" fill="#e8e8e8" font-size="12" text-anchor="middle">传统投资</text>
+      <text x="110" y="84" fill="#9a9a9a" font-size="10" text-anchor="middle">只看财务指标</text>
+      <path d="M215 70 H255" stroke="#c8a866" stroke-width="2" marker-end="url(#ar3)"/>
+      <rect x="265" y="45" width="200" height="50" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="365" y="66" fill="#e8e8e8" font-size="12" text-anchor="middle">ESG 投资</text>
+      <text x="365" y="84" fill="#9a9a9a" font-size="10" text-anchor="middle">财务 + 非财务</text>
+      <path d="M470 70 H510" stroke="#c8a866" stroke-width="2" marker-end="url(#ar3)"/>
+      <rect x="520" y="45" width="190" height="50" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="615" y="66" fill="#50b070" font-size="12" text-anchor="middle">更全面的体检</text>
+      <text x="615" y="84" fill="#9a9a9a" font-size="10" text-anchor="middle">降低长期风险</text>
+      <defs><marker id="ar3" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">ESG 投资 = 在传统财务分析上叠加三个非财务维度</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 资金流向</h2>
+  <div class="sec-note">用真实数字说明蛋糕有多大、钱流向哪。来源内联标注。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>维度</th><th>规模 / 趋势</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>全球 ESG 概念起点</td><td class="up">2004 年</td><td>联合国《Who Cares Wins》报告首次正式提出 ESG 概念，并指出系统整合 ESG 要素的企业通常具备更优秀的财务表现（来源：<a class="src" href="https://promote.caixin.com/upload/esg30whitepaper2025.pdf" target="_blank" rel="noopener noreferrer">2025 中国ESG发展白皮书</a>）</td></tr>
+        <tr><td>中国政策起点</td><td class="up">2016 年</td><td>人民银行、财政部、发改委、原环保部、原银监会、证监会、原保监会七部委联合发布《关于构建绿色金融体系的指导意见》（来源：<a class="src" href="https://www.icmagroup.org/assets/Whitepaper-on-ESG-practices-Chinese-version-January-2023.pdf" target="_blank" rel="noopener noreferrer">中国ESG实践白皮书</a>）</td></tr>
+        <tr><td>中国投资者态度</td><td class="up">持续升温</td><td>投资者越来越多要求被投公司披露 ESG 信息，以了解其潜在环境和社会影响（来源：<a class="src" href="https://www.sedex.com/zh/blog/sedex-esg%E6%88%96%E8%B4%9F%E8%B4%A3%E4%BB%BB%E6%8A%95%E8%B5%84%E7%AE%80%E4%BB%8B" target="_blank" rel="noopener noreferrer">Sedex</a>）</td></tr>
+        <tr><td>国内实践者</td><td class="up">头部机构先行</td><td>多家大型金融机构 CEO 共同研讨，倡议将 ESG 因素纳入投融资决策过程（来源：<a class="src" href="https://promote.caixin.com/upload/esg30whitepaper2025.pdf" target="_blank" rel="noopener noreferrer">2025 中国ESG发展白皮书</a>）</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 220" width="720" height="220" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <rect x="110" y="100" width="90" height="80" fill="#c8a866"/>
+      <rect x="280" y="60" width="90" height="120" fill="#c8a866"/>
+      <rect x="450" y="30" width="90" height="150" fill="#e05050"/>
+      <text x="155" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">2016 政策落地</text>
+      <text x="325" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">2020 前后基金爆发</text>
+      <text x="495" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">2024-2025 持续扩张</text>
+      <text x="380" y="215" fill="#8a8a8a" font-size="11" text-anchor="middle">示意：中国 ESG 投资关注度逐年上升（趋势定性，非精确规模）</text>
+    </svg>
+    <div class="cap">中国 ESG 投资发展节奏示意——从政策倡导到市场自发扩张（据公开资料综合）</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台 -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在制定规则、谁在推动、小白该关注谁。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/><circle cx="12" cy="9" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">规则制定者</span>
+        <h3>联合国 PRI（负责任投资原则）</h3>
+        <ul><li>2006 年发起，全球最大责任投资者网络。签署机构承诺在投资决策中纳入 ESG 因素。中国已有机构加入，央行也在推动相关实践（来源：<a class="src" href="https://public.unpri.org/download?ac=9664" target="_blank" rel="noopener noreferrer">中国的ESG整合：实践指导和案例研究</a>）。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">监管推动者</span>
+        <h3>中国人民银行 & 监管机构</h3>
+        <ul><li>2016 年牵头七部委发文，之后持续在 G20、NGFS 等框架下推广绿色金融与 ESG 理念，并推动央行自身投资组合纳入 ESG 考量（来源：<a class="src" href="https://public.unpri.org/download?ac=9664" target="_blank" rel="noopener noreferrer">UN PRI 中国报告</a>）。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/><path d="M3 21h18"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">市场实践者</span>
+        <h3>中信证券等头部机构</h3>
+        <ul><li>国内头部券商已建立责任投资策略体系，包括「正面筛选」和「负面审慎」：正面筛选侧重 ESG 高评分行业与公司，负面审慎剔除有重大污染、人员事故等严重负面事件的标的（来源：<a class="src" href="https://www.cs.ecitic.com/newsite/csr/development/202210/t20221026_1171963.html" target="_blank" rel="noopener noreferrer">中信证券</a>）。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/><path d="M6 8h5M6 12h5M6 16h5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">小白友好入口</span>
+        <h3>ESG 主题基金 / 指数基金</h3>
+        <ul><li>普通人的最低门槛入口：买一只 ESG 主题公募基金或跟踪 ESG 指数的 ETF，相当于把钱交给基金经理，让他替你筛选「人品好」的公司。国内多家基金公司已布局此类产品。</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就梭哈。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步 · 别急着买，先搞懂你信不信这一套</div><div class="tl-body">ESG 的底层逻辑是「好公司长期跑赢」。如果你认为环保、员工权益和公司治理跟长期赚钱没关系，那先别投。花 30 分钟读一份 ESG 白皮书或入门文章，建立基本认知。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步 · 用「负面清单」代替「正面幻想」</div><div class="tl-body">别幻想找到一家「完美公司」。更实际的做法是：先排除你最不能接受的——比如重大污染企业、频繁出安全事故的公司、治理混乱的家族企业。中信证券的实践就是「负面审慎 + 正面筛选」双管齐下（来源：<a class="src" href="https://www.cs.ecitic.com/newsite/csr/development/202210/t20221026_1171963.html" target="_blank" rel="noopener noreferrer">中信证券</a>）。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步 · 用基金代替个股</div><div class="tl-body">普通人没有精力去调研每家公司的碳排放和董事会结构。买 ESG 主题基金或指数基金，让专业机构替你筛选。关注基金持仓里有没有你熟悉的「坏公司」——如果有，说明它的 ESG 标准可能不够严。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步 · 拉长持有期，别当短期交易做</div><div class="tl-body">ESG 的超额收益（如果有）通常来自「避雷」和「长期复利」，不是短期暴涨。用 3-5 年的心态持有，而不是每天看净值。如果发现自己忍不住频繁操作，说明你可能更适合传统指数定投。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>「漂绿」陷阱（Greenwashing）</h3><ul><li>有些公司或基金只是「嘴上环保」：发几篇 ESG 报告、贴几个绿色标签，实际业务照旧污染。怎么避：看具体数据（碳排放量、事故率、董事会独立性），而不是看广告词。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>把 ESG 当「稳赚不赔」的护身符</h3><ul><li>ESG 高分公司也会跌、也会暴雷。它只是概率上的「长期更稳」，不是保证。怎么避：仍然要分散配置，不要因为某只基金贴了 ESG 标签就重仓。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>评级打架，不知道信谁</h3><ul><li>不同 ESG 评级机构的评分标准差异很大，同一家公司可能在 A 机构拿高分、在 B 机构垫底。怎么避：不迷信单一评级，多关注底层数据（污染排放、员工流失率、高管薪酬结构）。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>ESG 是「排雷工具」，不是「暴富工具」。它的核心价值是帮你避开那些迟早会出事的企业——而不是帮你找到下一个十倍股。</li></ul></div>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="20" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="170" y="58" fill="#e05050" font-size="13" text-anchor="middle">误区</text>
+      <text x="170" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">「ESG = 不赚钱的道德投资」</text>
+      <path d="M330 65 H380" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="390" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="540" y="58" fill="#50b070" font-size="13" text-anchor="middle">真相</text>
+      <text x="540" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">整合 ESG 的企业通常财务表现更优</text>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相（来源：<a class="src" href="https://promote.caixin.com/upload/esg30whitepaper2025.pdf" target="_blank" rel="noopener noreferrer">2025 中国ESG发展白皮书</a>）</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>ESG</b></td><td>Environment（环境）、Social（社会）、Governance（治理）三个词的缩写，用来衡量一家公司「人品」的三个维度。</td></tr>
+        <tr><td><b>负责任投资</b></td><td>在投资决策中明确考虑 ESG 等非财务因素的投资方法，不是单纯的「道德投资」，而是认为这些因素会影响长期回报。</td></tr>
+        <tr><td><b>正面筛选</b></td><td>主动选那些 ESG 评分高、跟绿色行业契合的公司。相当于「只招三好学生」。</td></tr>
+        <tr><td><b>负面审慎 / 剔除</b></td><td>把有重大污染、安全事故、治理丑闻的公司排除在投资清单外。相当于「有前科的不录用」。</td></tr>
+        <tr><td><b>漂绿（Greenwashing）</b></td><td>企业或基金表面上宣传环保/ESG，实际行为却不符合。相当于「嘴上全是主义，心里全是生意」。</td></tr>
+        <tr><td><b>PRI</b></td><td>联合国负责任投资原则（Principles for Responsible Investment），全球机构投资者的「ESG 承诺书」。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">「ESG」这个词正式诞生于 2004 年联合国的一份报告，标题叫《Who Cares Wins》——直译过来就是「谁在乎谁赢」。意思很直白：愿意在乎环境、社会、治理的投资者，长期来看才是赢家（来源：<a class="src" href="https://promote.caixin.com/upload/esg30whitepaper2025.pdf" target="_blank" rel="noopener noreferrer">2025 中国ESG发展白皮书</a>）。更妙的是，这份报告不是环保组织写的，而是一群金融机构 CEO 一起搞出来的——说明这从一开始就是「钱」的逻辑，不是「情怀」的逻辑。</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">适合：相信「好公司长期跑赢」、有 3 年以上耐心、不想碰有道德瑕疵的行业的人。<span class="cool">不适合：追求短期暴富、对 ESG 逻辑不认同、或需要高流动性短线操作的人。</span></div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">传统投资问「赚不赚钱」，ESG 投资问「<span class="hot">赚的是不是干净钱</span>」——而干净钱，可能恰恰是能赚更久的钱。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：Sedex 官方介绍、2025 中国ESG发展白皮书（财新智库）、UN PRI 中国 ESG 整合报告、中信证券责任投资策略页、ICMA 中国ESG实践白皮书。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
