@@ -45,3 +45,4 @@
 | 2026-10-14 | 陨石收藏：一块从天上掉下来的石头，凭什么比黄金还贵？ | reports/2026-10-14-meteorite-collection.html |
 | 2026-10-15 | 昆虫标本：把一只虫子变成「时间胶囊」，凭什么能卖几万块？ | reports/2026-10-15-insect-specimen-collecting.html |
 | 2026-10-16 | 锦鲤：一条游动的“活宝石”，凭什么能卖几十万？ | reports/2026-10-16-koi-fish.html |
+| 2026-10-19 | 信鸽：一只鸽子凭什么值一辆车？天空中的「长距离运动员」入门报告 | reports/2026-10-19-racing-pigeon.html |
