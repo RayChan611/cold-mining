@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>主权财富基金：国家队的「钱袋子」是怎么在全球买买买的？</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+
+<style id=cold-mining-responsive-20260904>
+  /* 长 URL 兜底换行（防止撑破容器） */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb, .sec-note {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 主权财富基金</div>
+  <h1>主权财富基金：国家队的「钱袋子」是怎么在全球买买买的？</h1>
+  <div class="sub">用大白话讲清楚：国家手里的闲钱，为什么不能只存银行，而要拿去全球投资。</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。投资/收藏有风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：主权财富基金是干什么的、谁在玩、规模有多大。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：国家用「闲钱」（石油收入、贸易顺差、财政盈余）成立的投资机构，替全国老百姓去全球资本市场赚钱。</li>
+        <li><b>谁在玩</b>：不是散户，也不是普通基金公司，而是<strong>国家财政部、央行、专门设立的国有投资局</strong>在操盘。</li>
+        <li><b>市场多大</b>：2026 年全球主权财富基金总规模已突破 <b>15 万亿美元</b>，美国、中国、阿联酋位居前三（来源：<a class="src" href="https://www.cls.cn/detail/2246162" target="_blank" rel="noopener noreferrer">财联社</a>）。</li>
+        <li><b>小白能玩吗</b>：不能直接买它的份额，但它的持仓和动向会<strong>间接影响你买的股票、基金、甚至房价</strong>，所以值得看懂。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <rect x="30" y="18" width="100" height="60" rx="8" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <text x="80" y="44" fill="#c8a866" font-size="11" text-anchor="middle" font-family="monospace">国库 / 石油</text>
+        <text x="80" y="60" fill="#8a8a8a" font-size="9" text-anchor="middle" font-family="monospace">收入来源</text>
+        <path d="M80 78 L80 92" stroke="#c8a866" stroke-width="2"/>
+        <rect x="30" y="92" width="100" height="36" rx="8" fill="#1f1f1f" stroke="#50b070" stroke-width="1.5"/>
+        <text x="80" y="114" fill="#50b070" font-size="11" text-anchor="middle" font-family="monospace">主权财富基金</text>
+        <path d="M80 128 L80 136" stroke="#c8a866" stroke-width="2"/>
+        <rect x="14" y="136" width="44" height="16" rx="4" fill="#141414" stroke="#d4d4d4" stroke-width="1"/>
+        <text x="36" y="147" fill="#d4d4d4" font-size="8" text-anchor="middle">股票</text>
+        <rect x="58" y="136" width="44" height="16" rx="4" fill="#141414" stroke="#d4d4d4" stroke-width="1"/>
+        <text x="80" y="147" fill="#d4d4d4" font-size="8" text-anchor="middle">地产</text>
+        <rect x="102" y="136" width="44" height="16" rx="4" fill="#141414" stroke="#d4d4d4" stroke-width="1"/>
+        <text x="124" y="147" fill="#d4d4d4" font-size="8" text-anchor="middle">科技</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">用一个生活类比，把「国家投资公司」讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">想象一户人家突然中了一笔横财——比如继承了一笔巨额遗产，或者每年靠出租矿场赚到远超日常开销的钱。普通人的第一反应可能是存银行吃利息，但国家的「钱」如果只放在账上，长期来看会被通胀吃掉。于是，国家就会成立一个专门的「家庭投资账户」——这就是<b>主权财富基金（Sovereign Wealth Fund，SWF）</b>。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;margin-top:10px;">根据国际货币基金组织（IMF）的定义，主权财富基金是<b>由政府创立或拥有、为了长期目的而持有外国资产的特殊投资基金</b>（来源：<a class="src" href="https://kjpj.bit.edu.cn/docs/2014-09/20140910211834783977.pdf" target="_blank" rel="noopener noreferrer">北京理工大学期刊</a>）。最早的主权财富基金是 1953 年成立的<b>科威特投资局</b>，资金来自石油出口收入（来源：<a class="src" href="http://www.iwep.org.cn/xscg/xscg_sp/202607/t20260715_6059388.shtml" target="_blank" rel="noopener noreferrer">中国社科院世界经济与政治研究所</a>）。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;margin-top:10px;">它跟央行外汇储备的最大区别在于：<b>外汇储备追求安全流动，主权财富基金追求长期增值</b>。一个像家里的「应急存款」，一个像家里的「投资账户」，风险偏好完全不同。</p>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 120" width="720" height="120" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="40" width="160" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="90" y="60" fill="#e8e8e8" font-size="11" text-anchor="middle">石油/贸易顺差</text>
+      <text x="90" y="75" fill="#8a8a8a" font-size="9" text-anchor="middle">资金来源</text>
+      <path d="M175 62 H215" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="225" y="40" width="180" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="315" y="60" fill="#e8e8e8" font-size="11" text-anchor="middle">主权财富基金</text>
+      <text x="315" y="75" fill="#8a8a8a" font-size="9" text-anchor="middle">专业投资团队</text>
+      <path d="M410 62 H450" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="460" y="40" width="240" height="44" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="580" y="60" fill="#50b070" font-size="11" text-anchor="middle">全球资产：股票/地产/科技</text>
+      <text x="580" y="75" fill="#8a8a8a" font-size="9" text-anchor="middle">长期增值目标</text>
+      <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">主权财富基金的资金流转路径：国家「闲钱」→ 专业投资机构 → 全球资产配置</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 规模带</h2>
+  <div class="sec-note">用真实数字说明这个「国家队钱袋子」的蛋糕有多大。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>档位 / 地区</th><th>管理规模</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>美国主权投资机构</td><td class="up">13.2 万亿美元</td><td>全球第一，含养老金与主权投资平台（来源：<a class="src" href="https://www.cls.cn/detail/2246162" target="_blank" rel="noopener noreferrer">财联社</a>）</td></tr>
+        <tr><td>中国主权投资机构</td><td>8.2 万亿美元</td><td>全球第二，含中投、外管局相关主体等</td></tr>
+        <tr><td>阿联酋主权投资机构</td><td>2.9 万亿美元</td><td>全球第三，中东石油美元代表</td></tr>
+        <tr><td>海湾地区七大基金</td><td class="down">占全球投资总额 43%</td><td>2025 年投资金额达 1260 亿美元，创历史新高（来源：<a class="src" href="https://www.cls.cn/detail/2246162" target="_blank" rel="noopener noreferrer">财联社</a>）</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 220" width="720" height="220" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <rect x="110" y="58" width="90" height="122" fill="#d4d4d4"/>
+      <text x="155" y="50" fill="#d4d4d4" font-size="11" text-anchor="middle">13.2</text>
+      <rect x="280" y="92" width="90" height="88" fill="#c8a866"/>
+      <text x="325" y="84" fill="#c8a866" font-size="11" text-anchor="middle">8.2</text>
+      <rect x="450" y="138" width="90" height="42" fill="#50b070"/>
+      <text x="495" y="130" fill="#50b070" font-size="11" text-anchor="middle">2.9</text>
+      <text x="155" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">美国</text>
+      <text x="325" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">中国</text>
+      <text x="495" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">阿联酋</text>
+      <text x="380" y="215" fill="#8a8a8a" font-size="11" text-anchor="middle">单位：万亿美元（来源：财联社 2026）</text>
+    </svg>
+    <div class="cap">全球主权财富基金管理规模TOP3（单位：万亿美元，数据来源：<a class="src" href="https://www.cls.cn/detail/2246162" target="_blank" rel="noopener noreferrer">财联社</a>）</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台 -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">这些「国家队」在买什么，往往就是全球资金的风向标。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">最大玩家</span>
+        <h3>挪威政府全球养老基金（GPFG）</h3>
+        <ul><li>全球最大单一主权财富基金，资金来源是挪威北海石油收入，持仓以全球股票、债券为主，风格透明、纪律性强。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">最激进玩家</span>
+        <h3>沙特公共投资基金（PIF）</h3>
+        <ul><li>2025 年最大交易促成者，承诺投入 362 亿美元，曾参与收购游戏发行商艺电（EA）的大部分交易（来源：<a class="src" href="https://www.cls.cn/detail/2246162" target="_blank" rel="noopener noreferrer">财联社</a>）。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">最活跃玩家</span>
+        <h3>阿布扎比穆巴达拉投资公司</h3>
+        <ul><li>剔除 PIF 收购 EA 那笔交易后，穆巴达拉是 2025 年最活跃的主权财富基金，科技赛道布局尤为突出（来源：<a class="src" href="https://www.cls.cn/detail/2246162" target="_blank" rel="noopener noreferrer">财联社</a>）。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">中国代表</span>
+        <h3>中投公司（CIC）与华安投资等</h3>
+        <ul><li>中国主权投资平台合计管理规模约 8.2 万亿美元，资金主要来自外汇储备和贸易顺差，侧重长期资产配置（来源：<a class="src" href="https://www.cls.cn/detail/2246162" target="_blank" rel="noopener noreferrer">财联社</a>）。</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">普通人不能直接买主权财富基金的份额，但可以「跟着国家队看风向」。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步 · 看懂钱的来源</div><div class="tl-body">分清你关注的主权基金是「石油型」还是「贸易顺差型」。石油型（如挪威、中东）受油价影响大；贸易顺差型（如中国、新加坡）受出口和外汇储备影响大。这决定了它什么时候会加仓、什么时候会收缩。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步 · 跟踪大玩家的动向</div><div class="tl-body">每季度关注挪威 GPFG、中投、PIF、穆巴达拉等基金的持仓披露或重大交易新闻。它们大举买入的行业——比如近年科技、基础设施、游戏——往往反映长期趋势。注意：它们买的是「长期逻辑」，不是短期股价信号。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步 · 建立自己的判断框架</div><div class="tl-body">主权基金偏好「规模大、期限长、战略性强」的资产。如果你在看的基金或股票符合这几个特征，可以把它当作一个佐证，但绝不能当成唯一买入理由。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步 · 用指数工具间接参与</div><div class="tl-body">普通人无法直接申购挪威 GPFG 或中投的份额，但可以关注它们重仓的行业 ETF 或全球股票指数基金。比如海湾基金大举买入科技股时，全球科技指数往往也受益——但时机和仓位仍要自己把握。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易把主权基金当「神」，其实它也会踩坑。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>盲目跟风「国家队买入」</h3><ul><li>主权基金披露持仓有滞后，且它买入是长期布局，短期可能继续跌。看到新闻再跟进去，往往已经「接盘」在后面。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>以为主权基金不会亏钱</h3><ul><li>主权基金也会踩雷：地缘冲突、油价暴跌、股市崩盘都会让它亏损。挪威基金在 2008 年金融危机曾巨亏，说明「国家队」也不是稳赚不赔 [UNSOURCED]。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>把主权基金当「救市资金」</h3><ul><li>有人以为主权基金会像「国家队」一样托底股市。实际上很多主权基金投资以海外为主，目标不是救本国股市，而是全球配置、分散风险。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>主权财富基金的动作是<strong>「慢变量」</strong>——看它的方向，别抄它的作业；学它的纪律，别赌它的时机。</li></ul></div>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="58" fill="#e05050" font-size="13" text-anchor="middle">误区</text>
+      <text x="180" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">「主权基金买入 = 马上会涨，快跟！」</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="400" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="58" fill="#50b070" font-size="13" text-anchor="middle">真相</text>
+      <text x="550" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">「它买的是 5-10 年逻辑，不是明天股价」</text>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相：主权基金买入 ≠ 短期股价信号</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>主权财富基金（SWF）</b></td><td>国家用「闲钱」成立的投资公司，替全国老百姓去全球市场赚长期收益。</td></tr>
+        <tr><td><b>资源型商品基金</b></td><td>靠卖石油、天然气等不可再生资源赚钱的基金，比如挪威、中东的基金。</td></tr>
+        <tr><td><b>非资源型商品基金</b></td><td>靠贸易顺差、财政盈余赚钱的基金，比如中国、新加坡的基金（来源：<a class="src" href="http://www.iwep.org.cn/xscg/xscg_sp/202607/t20260715_6059388.shtml" target="_blank" rel="noopener noreferrer">中国社科院</a>）。</td></tr>
+        <tr><td><b>战略投资</b></td><td>不只是为了赚钱，还为了国家长远利益（如技术、粮食安全、基础设施）的投资。</td></tr>
+        <tr><td><b>石油美元</b></td><td>产油国通过卖石油赚到的美元，是全球主权财富基金最重要的资金来源之一。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">海湾地区七大主权财富基金 2025 年的投资总额中，沙特 PIF 一家就承诺了 362 亿美元，其中收购游戏公司艺电（EA）占了大头——也就是说，你玩《FIFA》《战地》这些游戏背后的公司，可能有一部分「老板」是沙特主权基金（来源：<a class="src" href="https://www.cls.cn/detail/2246162" target="_blank" rel="noopener noreferrer">财联社</a>）。</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">如果你喜欢研究宏观趋势、能忍住不追短期热点，主权基金的动向是很好的「长期风向标」；如果你只想找明天涨停的代码，它帮不了你。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">主权财富基金教给普通人的不是「买什么」，而是<strong class="cool">「别把鸡蛋放一个篮子，也别急着明天就吃」</strong>。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：中国社科院世界经济与政治研究所、财联社、北京理工大学期刊、Matchpoint Partners、亿康先达（Egon Zehnder）等公开资料。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html

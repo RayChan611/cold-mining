@@ -50,3 +50,4 @@
 | 2026-10-14 | 程序化交易：让电脑替你盯盘下单，是印钞机还是自毁按钮？ | reports/2026-10-14-programmatic-trading.html |
 | 2026-10-15 | 量化基金入门：当一群数学家和计算机开始炒股 | reports/2026-10-15-quant-fund.html |
 | 2026-10-16 | 责任投资 ESG：用股东的钱，逼企业做好人？ | reports/2026-10-16-esg-responsible-investing.html |
+| 2026-10-19 | 主权财富基金：国家队的「钱袋子」是怎么在全球买买买的？ | reports/2026-10-19-sovereign-wealth-fund.html |

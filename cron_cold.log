@@ -442,3 +442,11 @@
 [cold_mining] git push ok=True info=To github.com:RayChan611/cold-mining.git
    76f0518..5541db5  main -> main
 [cold_mining] feishu code=0 link=https://raychan611.github.io/cold-mining/reports/2026-10-16-koi-fish.html
+[cold_mining] line=cold topic=信鸽 key=racing-pigeon
+[cold_mining] tavily hits=2281
+[cold_mining] attempt=0 html_len=16494 svg=8
+[cold_mining] wrote /home/ubuntu/cold-mining/reports/2026-10-19-racing-pigeon.html
+[cold_mining] index+log+used 已更新（key=racing-pigeon）
+[cold_mining] git push ok=True info=To github.com:RayChan611/cold-mining.git
+   4197946..495473f  main -> main
+[cold_mining] feishu code=0 link=https://raychan611.github.io/cold-mining/reports/2026-10-19-racing-pigeon.html
