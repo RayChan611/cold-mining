@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 兰花栽培</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+
+<style id=cold-mining-responsive-20260904>
+  /* 长 URL 兜底换行（防止撑破容器） */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb, .sec-note {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 园艺 / 消费植物</div>
+  <h1>兰花栽培：一盆“娇气草”凭什么让人上瘾几百年</h1>
+  <div class="sub">从年宵花市到跨境电商，把一棵草养开花，为什么能成为一门跨越审美、物流与生物安全的生意</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。栽培有风险，买花需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：兰花栽培是干什么的、谁在玩、值不值得普通人关注。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：把兰科植物从苗养到开花，既是一种园艺爱好，也是一条覆盖种苗、成品花、物流、出口的农业产业链。</li>
+        <li><b>谁在玩</b>：家庭阳台党、专业兰园、花卉电商、地方政府主导的兰花产业园、跨境电商卖家。</li>
+        <li><b>市场多大</b>：兰花是全球花卉市场的重要品类，中国兰花消费已形成“年宵花+平时花”的周年格局，年宵花占比约 66%，平时花占比约 34%（来源：<a class="src" href="https://www.chinahhxh.com/hhxh/magazineNewsDetail.html?id=73&subCategoryId=15&contentId=1257" target="_blank" rel="noopener noreferrer">中国花卉协会</a>）。</li>
+        <li><b>小白能玩吗</b>：能，建议从 20–50 元的蝴蝶兰或国兰入手，先学会浇水与通风，别一上来就追高价稀有品种。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <path d="M80 150 C78 128 82 118 80 100 C78 86 74 78 66 70 C82 66 94 72 94 88 C94 98 88 106 80 112 C86 106 88 100 87 92 C86 82 80 78 72 78 C76 84 79 92 80 100 C81 110 80 130 80 150 Z" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <path d="M32 92 C36 84 46 80 54 82 C48 86 44 92 45 100" fill="none" stroke="#c8a866" stroke-width="1.6"/>
+        <path d="M128 88 C126 78 118 72 108 74 C114 80 116 88 112 96" fill="none" stroke="#c8a866" stroke-width="1.6"/>
+        <path d="M60 40 C58 32 62 26 68 28 C64 34 64 40 66 46" fill="none" stroke="#e8e8e8" stroke-width="1.4"/>
+        <path d="M98 36 C100 28 96 22 90 24 C94 30 94 36 92 42" fill="none" stroke="#e8e8e8" stroke-width="1.4"/>
+        <rect x="46" y="146" width="68" height="10" rx="4" fill="#141414" stroke="#2a2a2a"/>
+        <text x="80" y="126" fill="#8a8a8a" font-size="9" text-anchor="middle">蝴蝶兰线稿</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">兰花栽培有点像养宠物：你不能天天“喂”它太多水，也不能把它扔在角落不管。区别在于，猫狗会叫，兰花不会——它只会用黄叶、烂根、消苞来“抗议”。养兰的成就感，来自把一株看似普通的苗子，养到抽出花箭、开出第一朵花的那个瞬间。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;margin-top:8px;">从产业角度看，兰花又是一种典型的“看天吃饭”的软商品。花卉市场的供应链通过大型零售商和园艺中心将产品从种植者运到消费者手中，生产商的核心任务是用温控运输管理易腐烂的库存（来源：<a class="src" href="https://www.researchnester.com/cn/reports/floriculture-market/1083" target="_blank" rel="noopener noreferrer">Research Nester</a>）。也就是说，你手里那盆花，背后是一场与时间和温度赛跑的物流战役。</p>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="42" width="150" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="85" y="60" fill="#e8e8e8" font-size="11" text-anchor="middle">种植者 / 兰园</text>
+      <text x="85" y="76" fill="#8a8a8a" font-size="9" text-anchor="middle">育苗 · 催花</text>
+      <path d="M160 64 H192" stroke="#c8a866" stroke-width="2" marker-end="url(#arA)"/>
+      <rect x="200" y="42" width="150" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="275" y="60" fill="#e8e8e8" font-size="11" text-anchor="middle">批发 / 物流</text>
+      <text x="275" y="76" fill="#8a8a8a" font-size="9" text-anchor="middle">温控运输</text>
+      <path d="M350 64 H382" stroke="#c8a866" stroke-width="2" marker-end="url(#arA)"/>
+      <rect x="390" y="42" width="150" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="465" y="60" fill="#e8e8e8" font-size="11" text-anchor="middle">零售商 / 园艺中心</text>
+      <text x="465" y="76" fill="#8a8a8a" font-size="9" text-anchor="middle">花市 · 电商</text>
+      <path d="M540 64 H572" stroke="#c8a866" stroke-width="2" marker-end="url(#arA)"/>
+      <rect x="580" y="42" width="130" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="645" y="60" fill="#e8e8e8" font-size="11" text-anchor="middle">消费者</text>
+      <text x="645" y="76" fill="#8a8a8a" font-size="9" text-anchor="middle">阳台 · 客厅</text>
+      <defs><marker id="arA" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">兰花供应链简图：从种植者到消费者，温控物流是命门（来源：Research Nester）</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 价格带</h2>
+  <div class="sec-note">用真实数字说明蛋糕有多大、钱集中在哪。来源内联标注。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>档位</th><th>典型价格</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>入门档</td><td class="up">¥20 – 80</td><td>蝴蝶兰开花株、普通国兰（春兰/建兰），花市与电商常见，适合新手练手。</td></tr>
+        <tr><td>进阶档</td><td>¥100 – 2,000</td><td>多梗蝴蝶兰、大花蕙兰组盆、品种较好的国兰（如宋梅、大富贵），适合节日送礼或进阶玩家。</td></tr>
+        <tr><td>极品档</td><td class="down">¥5,000 – 数十万+</td><td>稀有原生种、获奖铭品、变异叶艺兰等，价格由稀缺性与审美共识决定 [UNSOURCED]。</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 220" width="720" height="220" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <rect x="110" y="130" width="90" height="50" fill="#c8a866"/>
+      <rect x="280" y="90" width="90" height="90" fill="#c8a866"/>
+      <rect x="450" y="30" width="90" height="150" fill="#e05050"/>
+      <text x="155" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">入门 ¥20–80</text>
+      <text x="325" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">进阶 ¥100–2k</text>
+      <text x="495" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">极品 ¥5k+</text>
+      <text x="380" y="215" fill="#8a8a8a" font-size="11" text-anchor="middle">兰花价格带示意（据公开市场行情整理，极品档 [UNSOURCED]）</text>
+    </svg>
+    <div class="cap">兰花价格带示意：入门花是走量生意，极品花是审美与稀缺性的游戏</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台 -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在制定规则、谁在赚钱、小白该去哪个平台。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">ROOT</span>
+        <h3>专业兰园 / 种植基地</h3>
+        <ul><li><b>角色</b>：产业链最上游，负责育苗、催花、标准化种植分区。广东翁源等地已形成产业集群，种植端通过“点单式”培训补齐跨境电商与直播运营能力（来源：<a class="src" href="https://epaper.nfnews.com/nfdaily/html/202604/02/content_10166981.html" target="_blank" rel="noopener noreferrer">南方日报</a>）。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">平台</span>
+        <h3>花卉电商 / 直播带货</h3>
+        <ul><li><b>角色</b>：把“花卉商品”转变为“文化礼品”的关键渠道。韶关把兰花展搬进广州南站、白云机场等交通枢纽，打造“出门见兰、旅途赏兰、扫码购兰”的闭环（来源：<a class="src" href="https://epaper.nfnews.com/nfdaily/html/202604/02/content_10166981.html" target="_blank" rel="noopener noreferrer">南方日报</a>）。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">HOT</span>
+        <h3>出口 / 海关检疫</h3>
+        <ul><li><b>角色</b>：兰花种苗出口需要植物检疫与生产企业注册登记。花都海关曾主动“送政策上门”，指导企业完善标准化种植分区、农化品管理、种植档案等，帮助企业快速完成出口备案（来源：<a class="src" href="https://www.huadu.gov.cn/hdzx/hdxw/content/mpost_11008964.html" target="_blank" rel="noopener noreferrer">花都区政府</a>）。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>小白友好入口</h3>
+        <ul><li><b>去哪</b>：本地花鸟市场（可看实物）、靠谱电商直播间（看根系与叶片状态）、兰友社群（贴吧/微信群）。先买开花株，别买裸根苗。</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就梭哈。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步 · 先选对品种</div><div class="tl-body">从蝴蝶兰或建兰入手，预算 30–60 元。蝴蝶兰花期长、耐看；建兰皮实、复花容易。避开“稀有原生种”“下山兰”“变异艺草”这些新手黑洞。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步 · 学会浇水与通风</div><div class="tl-body">兰花死法第一名是浇水太多烂根。记住口诀：基质干到七成才浇，浇则浇透。把花放在有散射光、空气流通的地方，别暴晒也别闷在室内角落。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步 · 建立观察记录</div><div class="tl-body">每周拍一张照片，记录叶片颜色、新根、新芽状态。兰花生长慢，但一旦出问题（黄叶、黑斑、消苞），早发现能救命。一个月后你会比 90% 的“买花即扔”党更懂行。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步 · 再考虑进阶</div><div class="tl-body">当你把第一盆兰花养复花（第二年再次开花），再考虑入手 100–500 元的品种或尝试分株繁殖。此时你已经有判断力，知道哪些“高价兰”是在收智商税。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>“下山兰”神话</h3><ul><li>商家常吹“下山兰”是野生珍稀品种，其实很多是普通兰草甚至假兰。野生兰花受保护，买卖下山兰还有法律风险。避坑：只买有明确品种名、带花苞的植株。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>浇水焦虑症</h3><ul><li>新手总觉得“该浇水了”，结果兰根被泡烂。避坑：用手指插入基质 3–5 厘米，干了再浇。宁可偏干，不可积水。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>“组盆就是高级”</h3><ul><li>年宵花市上大花组盆看着气派，但往往用激素催花，开完就弱。行业数据显示年宵花仍以大花、组盆销售为主，大红花占数量优势，但小花因不易组盆搭配而销量受限（来源：<a class="src" href="https://www.chinahhxh.com/hhxh/magazineNewsDetail.html?id=73&subCategoryId=15&contentId=1257" target="_blank" rel="noopener noreferrer">中国花卉协会</a>）。避坑：自养选单株壮苗，组盆适合送礼别指望它长命。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>先养“活”，再养“好”，最后才谈“贵”。兰花是慢性子的植物，急着上难度、追高价，往往会用钱换回一盆尸体。</li></ul></div>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="56" fill="#e05050" font-size="13" text-anchor="middle">误区：兰花越贵越好养</text>
+      <text x="180" y="82" fill="#c4c4c4" font-size="11" text-anchor="middle">实际上高价兰往往更娇气，对温湿度极敏感</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="400" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="56" fill="#50b070" font-size="13" text-anchor="middle">真相：皮实品种才适合新手</text>
+      <text x="550" y="82" fill="#c4c4c4" font-size="11" text-anchor="middle">蝴蝶兰、建兰才是新手的最佳起点</text>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相：贵不代表好养，便宜不代表没乐趣</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>基质</b></td><td>兰花“土”，通常不是真土，而是树皮、水苔、陶粒等混合物，目的是透气沥水。</td></tr>
+        <tr><td><b>消苞</b></td><td>花苞还没开就干枯掉落，常见原因是环境突变（搬动、温差大）或湿度不足。</td></tr>
+        <tr><td><b>复花</b></td><td>同一株兰花在第二年或下一季再次开花，是判断养功的重要标准。</td></tr>
+        <tr><td><b>叶艺</b></td><td>叶片上出现金边、银线、斑纹等变异，是国兰审美体系里的重要价值指标。</td></tr>
+        <tr><td><b>年宵花</b></td><td>春节前后集中上市销售的花卉，兰花年宵花占比约 66%，是全年最大的消费旺季（来源：<a class="src" href="https://www.chinahhxh.com/hhxh/magazineNewsDetail.html?id=73&subCategoryId=15&contentId=1257" target="_blank" rel="noopener noreferrer">中国花卉协会</a>）。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">兰花不是“一种花”，而是一个拥有约 28,000 个原生种的超级大家族，约占全球开花植物的十分之一 [UNSOURCED]。你吃的香草荚（香草兰）和煲汤用的石斛，其实都是兰花家族的远房亲戚。换句话说，你可能早就“吃过兰花”了。</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">适合有耐心、喜欢慢节奏观察的人；不适合追求“一周开花、一月爆盆”的快节奏玩家。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">兰花不急着开花，你也不该急着买贵的。先把它养活，比什么都强。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：中国花卉协会（年宵花与平时花消费结构）、南方日报（翁源兰花产业与交通枢纽展销）、花都区政府（海关出口种苗检疫）、Research Nester（花卉市场供应链结构）。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
