@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>养老基金与养老金 · 冷门信息挖掘机</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+
+<style id=cold-mining-responsive-20260904>
+  /* 长 URL 兜底换行（防止撑破容器） */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb, .sec-note {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 养老金融</div>
+  <h1>养老基金与养老金：你未来 30 年的「第二份工资」是怎么攒出来的</h1>
+  <div class="sub">用大白话讲清楚：三根柱子撑起你的晚年，为什么越早懂越不慌</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或养老规划建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。养老规划因人而异，决策前请咨询持牌专业人士。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：养老金是怎么运作的、谁在管你的钱、普通人该怎么参与。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：一个「年轻时的你」定期存钱，给「老了的你」发工资的跨期支付系统。养老基金就是管理这笔巨款的投资机构。</li>
+        <li><b>谁在玩</b>：政府（第一支柱）、企业雇主（第二支柱）、个人（第三支柱），以及帮这三方管钱的基金公司、银行、保险公司。</li>
+        <li><b>市场多大</b>：截至 2025 年 8 月，仅个人养老金理财产品已有 6 家理财公司发行 37 只，21 家商业银行参与代销（来源：<a class="src" href="https://ceibs.libguides.com/c.php?g=963677&p=6999972" target="_blank" rel="noopener noreferrer">CEIBS 养老金融数据库</a>）；个人养老金基金数量达 321 只，销售机构 52 家（来源：<a class="src" href="https://ceibs.libguides.com/c.php?g=963677&p=6999972" target="_blank" rel="noopener noreferrer">证监会名录</a>）。</li>
+        <li><b>小白能玩吗</b>：能。第三支柱个人养老金账户每年有缴存上限，适合有稳定收入、想节税且愿意长期锁定资金的人。但别指望它暴富——它是「保底工资」，不是彩票。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <rect x="14" y="14" width="132" height="132" rx="12" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <circle cx="80" cy="66" r="22" fill="none" stroke="#e05050" stroke-width="1.5"/>
+        <circle cx="80" cy="66" r="12" fill="none" stroke="#c8a866" stroke-width="1.5"/>
+        <circle cx="80" cy="66" r="4" fill="#50b070"/>
+        <path d="M80 88 L80 112 M68 120 H92" stroke="#d4d4d4" stroke-width="1.5" fill="none"/>
+        <text x="80" y="144" fill="#8a8a8a" font-size="9" text-anchor="middle">养老金三支柱</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">养老金制度有点像一栋三层楼的房子。一楼是政府盖的「公共食堂」——所有人必须交饭费，老了来吃基础餐（第一支柱：基本养老保险）。二楼是公司帮你盖的「员工餐厅」——好公司额外给你存一笔，离职或退休时带走（第二支柱：企业年金/职业年金）。三楼是你自己搭的「私人小厨房」——自己存、自己选菜、自己负责火候（第三支柱：个人养老金）。养老基金就是这栋楼里负责买菜、炒菜、控制火候的「总厨团队」。他们把你的钱投到债券、股票、存款里，让钱在几十年里慢慢长大，等你退休后按月端上桌。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;margin-top:8px;">中国的三层楼目前有个尴尬：一楼人满为患，但菜色一般；二楼只有少数「好单位」有；三楼刚开张不久，很多人还没进去过。布鲁金斯学会的研究指出，中国养老金制度面临「三面埋伏」：社会统筹支付水平缺乏标准（政府承诺风险）、个人账户基金投资无路（养老金贬值风险）等结构性问题（来源：<a class="src" href="https://www.brookings.edu/zh/articles/%E5%BB%BA%E7%AB%8B%E7%8E%B0%E4%BB%A3%E7%A4%BE%E4%BC%9A%E7%9A%84%E5%85%BB%E8%80%81%E9%87%91%E5%88%B6%E5%BA%A6" target="_blank" rel="noopener noreferrer">Brookings 布鲁金斯学会</a>）。</p>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 150" width="720" height="150" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="200" height="90" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="130" y="58" fill="#e05050" font-size="13" text-anchor="middle">第一支柱</text>
+      <text x="130" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">基本养老保险</text>
+      <text x="130" y="98" fill="#8a8a8a" font-size="10" text-anchor="middle">政府兜底 · 广覆盖</text>
+      <path d="M235 75 H265" stroke="#c8a866" stroke-width="2" marker-end="url(#ar3)"/>
+      <rect x="270" y="30" width="200" height="90" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="370" y="58" fill="#c8a866" font-size="13" text-anchor="middle">第二支柱</text>
+      <text x="370" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">企业年金 / 职业年金</text>
+      <text x="370" y="98" fill="#8a8a8a" font-size="10" text-anchor="middle">雇主发起 · 部分覆盖</text>
+      <path d="M475 75 H505" stroke="#c8a866" stroke-width="2" marker-end="url(#ar3)"/>
+      <rect x="510" y="30" width="200" height="90" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="610" y="58" fill="#50b070" font-size="13" text-anchor="middle">第三支柱</text>
+      <text x="610" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">个人养老金</text>
+      <text x="610" y="98" fill="#8a8a8a" font-size="10" text-anchor="middle">自愿参加 · 自担风险</text>
+      <defs><marker id="ar3" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">中国养老金体系三支柱结构示意（据公开资料整理）</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 参与规模 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 参与规模</h2>
+  <div class="sec-note">用真实数字说明蛋糕有多大、钱和产品集中在哪。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>层级 / 产品类型</th><th>规模/数量</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>个人养老金基金</td><td class="up">321 只</td><td>证监会 2026 年 7 月公布的名录；销售机构 52 家（商业银行 19 家、证券公司 24 家、独立基金销售机构 9 家）（来源：<a class="src" href="https://ceibs.libguides.com/c.php?g=963677&p=6999972" target="_blank" rel="noopener noreferrer">CEIBS 数据库</a>）</td></tr>
+        <tr><td>个人养老金理财产品</td><td>37 只</td><td>6 家理财公司发行，21 家商业银行代销（截至 2025 年 8 月）（来源：<a class="src" href="https://ceibs.libguides.com/c.php?g=963677&p=6999972" target="_blank" rel="noopener noreferrer">CEIBS 数据库</a>）</td></tr>
+        <tr><td>指数基金纳入个人养老金</td><td class="up">首批 85 只</td><td>指数基金被纳入个人养老金投资范围，进一步丰富可选标的（来源：<a class="src" href="https://cn.investing.com/news/stock-market-news/article-2600224" target="_blank" rel="noopener noreferrer">英为财情</a>）</td></tr>
+        <tr><td>个人账户历史损失</td><td class="down">年损失超 1000 亿元</td><td>1998 年制度设计下，个人账户养老基金因投资渠道受限等原因，每年投资收益损失超过 1000 亿元（来源：<a class="src" href="https://www.brookings.edu/zh/articles/%E5%BB%BA%E7%AB%8B%E7%8E%B0%E4%BB%A3%E7%A4%BE%E4%BC%9A%E7%9A%84%E5%85%BB%E8%80%81%E9%87%91%E5%88%B6%E5%BA%A6" target="_blank" rel="noopener noreferrer">Brookings</a>）</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 230" width="720" height="230" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="190" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="190" x2="690" y2="190" stroke="#2a2a2a" stroke-width="1.5"/>
+      <rect x="100" y="100" width="110" height="90" fill="#c8a866"/>
+      <rect x="260" y="60" width="110" height="130" fill="#c8a866"/>
+      <rect x="420" y="30" width="110" height="160" fill="#e05050"/>
+      <rect x="580" y="140" width="80" height="50" fill="#50b070"/>
+      <text x="155" y="208" fill="#9a9a9a" font-size="11" text-anchor="middle">个人养老金<br/>理财产品 37只</text>
+      <text x="315" y="208" fill="#9a9a9a" font-size="11" text-anchor="middle">个人养老金<br/>基金 321只</text>
+      <text x="475" y="208" fill="#9a9a9a" font-size="11" text-anchor="middle">指数基金<br/>首批 85只</text>
+      <text x="620" y="208" fill="#9a9a9a" font-size="11" text-anchor="middle">销售机构<br/>52家</text>
+      <text x="380" y="225" fill="#8a8a8a" font-size="11" text-anchor="middle">个人养老金产品数量对比（据公开资料，2025-2026）</text>
+    </svg>
+    <div class="cap">个人养老金第三支柱产品图谱：基金产品数量显著领先（来源见上表）</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台 -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在制定规则、谁在管你的养老钱、小白该从哪开始。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M3 21h18M5 21V7l7-4 7 4v14"/><path d="M9 21v-4h6v4"/><path d="M12 7v2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">国家制度</span>
+        <h3>人力资源和社会保障部 + 财政部</h3>
+        <ul><li>制定基本养老保险规则，管理第一支柱的「大盘子」。个人养老金的税收优惠、缴存上限、产品准入都由它们定调。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M7 7V5h10v2"/><circle cx="12" cy="13" r="3"/><path d="M12 11v1.5M12 14.5v.5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">监管者</span>
+        <h3>证监会 + 金融监管总局</h3>
+        <ul><li>证监会负责个人养老金基金名录和销售机构审批；金融监管总局管银行理财、保险产品。所有「入池」产品都要过它们这一关。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 21h18M5 21V10l7-5 7 5v11"/><path d="M9 21v-5h6v5"/><path d="M9 13h6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">产品供应方</span>
+        <h3>银行、基金公司、理财公司、保险公司</h3>
+        <ul><li>建设银行、建信基金、建信信托、建信人寿、建信养老金、建信理财、贝莱德建信理财等机构已形成「集团合力」，是第三支柱产品的主要供给方（来源：<a class="src" href="https://www.blackrockccbwealth.com/uploads/files/31b73e026d8a758d2044c848bb1044b9.pdf" target="_blank" rel="noopener noreferrer">2025 中国养老金金融白皮书</a>）。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M4 20V8l8-4 8 4v12"/><path d="M8 20v-5h8v5"/><path d="M12 8v3"/><path d="M10 14h4"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">小白入口</span>
+        <h3>个人养老金账户 + 银行 App</h3>
+        <ul><li>最直观的起点：在商业银行开立个人养老金账户，每年最多缴存一定额度（现行上限以官方最新公布为准），然后从国家批准的产品池里自己选。不需要懂投资也能从「默认选项」开始。</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就梭哈。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步 · 先搞清楚自己已经有什么</div><div class="tl-body">查一下自己的社保缴纳记录（第一支柱），以及单位有没有给你交企业年金/职业年金（第二支柱）。很多人连自己有没有第二支柱都不知道。基本盘先稳住，再谈第三支柱。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步 · 开一个个人养老金账户</div><div class="tl-body">去你常用的银行 App 找到「个人养老金」入口，按流程开户。这个账户实行封闭运行，钱进去后原则上退休才能取——所以只放你确定几十年不用的闲钱。开户本身不花钱。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步 · 从「默认选项」或低波动产品开始</div><div class="tl-body">个人养老金产品池里有存款、理财、基金、保险四大类。如果你完全不懂，优先看银行的养老储蓄存款（保本）或稳健型养老理财（低波动）。别一上来就买高仓位股票型养老基金——那是给有风险承受能力的人准备的。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步 · 每年坚持，别频繁操作</div><div class="tl-body">个人养老金是「定投式」的长期工程。每年在额度内持续缴存，比一次性重仓更合理。它的核心优势是税收递延（缴费时可抵扣个税，领取时再补税），不是短期收益。把省下的税当作「确定性回报」来理解，心态会好很多。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方，以及一条保命原则。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>把「个人账户」当成随时能取的储蓄罐</h3><ul><li>个人养老金账户是封闭运行的，退休前原则上不能随意支取（特殊情况除外）。如果你把应急钱放进去，遇到急事会很被动。先留够 6 个月生活费，再考虑锁进养老账户。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>只看「高收益」养老基金，忽略波动</h3><ul><li>养老基金中权益类占比高的产品，可能在市场不好时亏掉本金。1998 年制度设计时期，个人账户养老基金因投资无路每年损失超 1000 亿元，说明「放着不动贬值」和「乱投亏掉」都是风险（来源：<a class="src" href="https://www.brookings.edu/zh/articles/%E5%BB%BA%E7%AB%8B%E7%8E%B0%E4%BB%A3%E7%A4%BE%E4%BC%9A%E7%9A%84%E5%85%BB%E8%80%81%E9%87%91%E5%88%B6%E5%BA%A6" target="_blank" rel="noopener noreferrer">Brookings</a>）。匹配自己的风险承受力比追收益重要。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>以为「有社保就够了」</h3><ul><li>基本养老保险的第一支柱目标是「保基本」，替代率（退休金相对退休前工资的比例）有限。如果想过体面的晚年，只靠第一支柱大概率不够。越早开始第三支柱的积累，复利的时间越长。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>养老金是「用时间换空间」的游戏，不是「用判断换暴富」的赌局。先保证持续缴存，再谈选什么产品。你坚持存 20 年的普通产品，往往比你在最好产品上只存 2 年强得多。</li></ul></div>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="55" fill="#e05050" font-size="13" text-anchor="middle">误区：养老金=退休才开始想的事</text>
+      <text x="180" y="78" fill="#c4c4c4" font-size="11" text-anchor="middle">「等 50 岁再说吧」</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar4)"/>
+      <rect x="400" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="55" fill="#50b070" font-size="13" text-anchor="middle">真相：越早开始，复利越狠</text>
+      <text x="550" y="78" fill="#c4c4c4" font-size="11" text-anchor="middle">25 岁每月存 1000 元 &gt; 45 岁每月存 3000 元</text>
+      <defs><marker id="ar4" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">常见认知误区 vs 真相（示意）</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>三支柱</b></td><td>养老金体系的三个层次：政府基本养老（一）、雇主年金（二）、个人自愿储备（三）。</td></tr>
+        <tr><td><b>替代率</b></td><td>退休后每月领的钱 ÷ 退休前每月工资。70% 以上算体面，50% 以下会明显降级。</td></tr>
+        <tr><td><b>统账结合</b></td><td>中国基本养老保险的模式：一部分进社会统筹（大家一起用），一部分进个人账户（名义上是你自己的）。</td></tr>
+        <tr><td><b>税收递延</b></td><td>现在缴存个人养老金时可以抵扣个税，等退休领取时再缴税。相当于把税「推迟」到收入更低的老年阶段。</td></tr>
+        <tr><td><b>封闭运行</b></td><td>个人养老金账户里的钱，在退休前原则上不能随意取出。强制你把钱「锁」到老年。</td></tr>
+        <tr><td><b>默认选项</b></td><td>如果你开户后不主动选产品，系统自动帮你配置的低波动组合。适合「懒得研究」的人。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">1998 年中国建立城镇企业职工养老保险制度时，一批国企职工平均 47 岁就「提前退休」了——他们领的养老金，实际上是从后来加入的年轻人的个人账户里挪出来的。这就是「统账混淆」的历史包袱：今天的年轻人交的钱，有一部分在给 20 多年前的提前退休买单（来源：<a class="src" href="https://www.brookings.edu/zh/articles/%E5%BB%BA%E7%AB%8B%E7%8E%B0%E4%BB%A3%E7%A4%BE%E4%BC%9A%E7%9A%84%E5%85%BB%E8%80%81%E9%87%91%E5%88%B6%E5%BA%A6" target="_blank" rel="noopener noreferrer">Brookings 布鲁金斯学会</a>）。</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">适合有稳定收入、想合法节税、且能接受资金长期锁定的人。不适合收入不稳定、应急储备不足、或 3-5 年内可能要用大钱的人。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">养老金不是「老了才想的事」，而是「年轻时给未来的自己发工资」的长期工程——你今天的每一次缴存，都是在给 30 年后的自己写一张支票。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：<a class="src" href="https://www.brookings.edu/zh/articles/%E5%BB%BA%E7%AB%8B%E7%8E%B0%E4%BB%A3%E7%A4%BE%E4%BC%9A%E7%9A%84%E5%85%BB%E8%80%81%E9%87%91%E5%88%B6%E5%BA%A6" target="_blank" rel="noopener noreferrer">Brookings 建立现代社会的养老金制度</a>；<a class="src" href="https://www.soa.org/globalassets/assets/Files/Research/Projects/2017-future-retirement-china-complete-chinese.pdf" target="_blank" rel="noopener noreferrer">SOA 中国退休市场的未来</a>；<a class="src" href="https://www.blackrockccbwealth.com/uploads/files/31b73e026d8a758d2044c848bb1044b9.pdf" target="_blank" rel="noopener noreferrer">2025 中国养老金金融白皮书</a>；<a class="src" href="https://ceibs.libguides.com/c.php?g=963677&p=6999972" target="_blank" rel="noopener noreferrer">CEIBS 养老金融 LibGuides</a>；<a class="src" href="https://cn.investing.com/news/stock-market-news/article-2600224" target="_blank" rel="noopener noreferrer">英为财情 首批 85 只指数基金纳入个人养老金</a>。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
