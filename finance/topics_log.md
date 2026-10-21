@@ -52,3 +52,4 @@
 | 2026-10-16 | 责任投资 ESG：用股东的钱，逼企业做好人？ | reports/2026-10-16-esg-responsible-investing.html |
 | 2026-10-19 | 主权财富基金：国家队的「钱袋子」是怎么在全球买买买的？ | reports/2026-10-19-sovereign-wealth-fund.html |
 | 2026-10-20 | 养老基金与养老金：你未来 30 年的「第二份工资」是怎么攒出来的 | reports/2026-10-20-pension-funds-and-retirement-income.html |
+| 2026-10-21 | 保险入门：用一纸契约，把“万一”变成“一万个安心”——给外行的入门研究报告 | reports/2026-10-21-insurance-101.html |

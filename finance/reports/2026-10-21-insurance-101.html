@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 保险入门</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+
+<style id=cold-mining-responsive-20260904>
+  /* 长 URL 兜底换行（防止撑破容器） */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb, .sec-note {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 保险入门</div>
+  <h1>保险入门：用一纸契约，把“万一”变成“一万个安心”</h1>
+  <div class="sub">为什么说保险是“风险的外包公司”？读懂保费、保额、赔付，你就能一眼看穿绝大多数保险产品。</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。保险产品复杂，购买前请仔细阅读条款，必要时咨询持牌专业人士。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：这个领域是干什么的、谁在玩、值不值得普通人关注。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：一群人各自交一笔小钱（保费），凑成一个“大池子”，谁真出了事就从池子里拿一笔大钱（赔付）——本质是<b>风险共担</b>。</li>
+        <li><b>谁在玩</b>：保险公司（收钱、算账、投资）、投保人（你我他）、监管机构（保监局/金监局）、再保险公司（给保险公司“上保险”）。</li>
+        <li><b>市场多大</b>：全球保险业规模以“万亿美元”计；仅全球自然灾害中由保险覆盖的损失，在 1994-2023 年间以 <b>4.1%-7.1%</b> 的年复合增速攀升 <a class="src" href="https://www.ey.com/content/dam/ey-unified-site/ey-com/en-cn/insights/insurance/documents/ey-gl-global-insurance-outlook-01-2025-zh.pdf" target="_blank" rel="noopener noreferrer">(来源：2025年全球保险业展望)</a>。</li>
+        <li><b>小白能玩吗</b>：能，但别指望“赚钱”。保险的核心是<b>防风险</b>，不是投资。先保命、保健康、保房子，再谈理财型。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <rect x="20" y="30" width="120" height="70" rx="10" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <circle cx="80" cy="60" r="18" fill="#1f1f1f" stroke="#e05050" stroke-width="2"/>
+        <text x="80" y="65" fill="#e8e8e8" font-size="12" text-anchor="middle" font-family="monospace">?</text>
+        <path d="M40 30 L40 20 M80 30 L80 20 M120 30 L120 20" stroke="#c8a866" stroke-width="2"/>
+        <path d="M30 100 H130" stroke="#2a2a2a" stroke-width="2"/>
+        <text x="80" y="125" fill="#50b070" font-size="11" text-anchor="middle">众筹出「安心」</text>
+        <text x="80" y="140" fill="#8a8a8a" font-size="9" text-anchor="middle">保险 = 风险共担</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">想象你住的小区有 100 户人家，每家每年交 200 块钱进一个“公共维修基金”。一年里，可能只有 2-3 户家里水管爆了、玻璃碎了，维修要花大几千。如果大家都自己扛，摊上事的那家就很惨；但有了这个“池子”，出事的人家可以从里面拿钱修，没出事的家庭等于花钱买了个“安心”。<b>保险就是这个逻辑的规模化、精算化版本</b>。区别在于：保险公司会请精算师算出“大概有多少人会出事、平均要赔多少”，然后定一个让池子不亏本的“票价”——这就是保费。</p>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 150" width="720" height="150" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="45" width="170" height="50" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="95" y="67" fill="#e8e8e8" font-size="12" text-anchor="middle">投保人交保费</text>
+      <text x="95" y="84" fill="#9a9a9a" font-size="10" text-anchor="middle">小钱</text>
+      <path d="M185 70 H235" stroke="#c8a866" stroke-width="2" marker-end="url(#arA)"/>
+      <rect x="245" y="45" width="170" height="50" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="330" y="67" fill="#e8e8e8" font-size="12" text-anchor="middle">保险公司资金池</text>
+      <text x="330" y="84" fill="#9a9a9a" font-size="10" text-anchor="middle">精算 + 投资</text>
+      <path d="M420 70 H470" stroke="#c8a866" stroke-width="2" marker-end="url(#arA)"/>
+      <rect x="480" y="45" width="170" height="50" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="565" y="67" fill="#e8e8e8" font-size="12" text-anchor="middle">出险者获理赔</text>
+      <text x="565" y="84" fill="#50b070" font-size="10" text-anchor="middle">大钱</text>
+      <defs><marker id="arA" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">保险的基本流转路径：分散的小额保费 → 集中的大额赔付</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 保费与保额</h2>
+  <div class="sec-note">用真实数字说明蛋糕有多大、钱花在哪。来源内联标注。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>险种</th><th>典型年保费</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>意外险</td><td class="up">¥100 – 300</td><td>保额 50-100 万，杠杆最高的“入门款”</td></tr>
+        <tr><td>百万医疗险</td><td class="up">¥200 – 600</td><td>报销住院/大病费用，保额数百万，有免赔额</td></tr>
+        <tr><td>重疾险</td><td>¥3,000 – 15,000+</td><td>确诊即赔一笔现金，年龄越大越贵</td></tr>
+        <tr><td>定期寿险</td><td>¥500 – 3,000</td><td>家庭支柱“身故/全残”赔付，保额 100 万常见</td></tr>
+        <tr><td>储蓄型/分红险</td><td class="down">¥10,000 – 100,000+</td><td>“理财 + 保障”混合，收益不确定，退保损失大</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 220" width="720" height="220" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <rect x="90" y="150" width="80" height="30" fill="#c8a866"/>
+      <rect x="200" y="145" width="80" height="35" fill="#c8a866"/>
+      <rect x="310" y="100" width="80" height="80" fill="#c8a866"/>
+      <rect x="420" y="120" width="80" height="60" fill="#e05050"/>
+      <rect x="530" y="40" width="80" height="140" fill="#e05050"/>
+      <text x="130" y="198" fill="#9a9a9a" font-size="10" text-anchor="middle">意外险</text>
+      <text x="240" y="198" fill="#9a9a9a" font-size="10" text-anchor="middle">百万医疗</text>
+      <text x="350" y="198" fill="#9a9a9a" font-size="10" text-anchor="middle">定期寿险</text>
+      <text x="460" y="198" fill="#9a9a9a" font-size="10" text-anchor="middle">重疾险</text>
+      <text x="570" y="198" fill="#9a9a9a" font-size="10" text-anchor="middle">储蓄型</text>
+      <text x="380" y="215" fill="#8a8a8a" font-size="11" text-anchor="middle">典型年保费区间示意（据公开市场产品定价，具体以条款为准）</text>
+    </svg>
+    <div class="cap">不同险种的典型年保费量级差异巨大，保障型与储蓄型定位完全不同</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台 -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在制定规则、谁在赚钱、小白该去哪个平台。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">ROOT</span>
+        <h3>传统保险公司</h3>
+        <ul><li>中国人寿、平安、人保、太平洋等；产品线全，线下网点多，但销售层级复杂、定价较贵。平安、人保等头部公司正通过 AI 和平台化降低成本 <a class="src" href="https://www.ibm.com/cn-zh/services/insights/industry-insurance" target="_blank" rel="noopener noreferrer">(来源：IBM 保险业洞察)</a>。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">互联网平台</span>
+        <h3>互联网保险 / 惠民保</h3>
+        <ul><li>蚂蚁保、微保、水滴等；投保便捷、价格较低。惠民保通过微信公众号和流量平台快速覆盖当地居民，投保、查询、理赔均可在线上完成 <a class="src" href="https://www.pbcsf.tsinghua.edu.cn/__local/1/D4/62/CD205CF90292FEC5C7C5105550C_A05F444E_38FDC8.pdf" target="_blank" rel="noopener noreferrer">(来源：中国互联网保险发展报告 2024)</a>。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">HOT</span>
+        <h3>监管机构</h3>
+        <ul><li>国家金融监督管理总局（原银保监会）；负责审批产品、监督偿付能力、保护消费者。中国险企在 AI 应用上集中于客服（约 48%）、理赔/核保（38%）及销售（33%） <a class="src" href="https://www.soa.org/globalassets/assets/files/resources/research-report/2025/2025-07-ai-impact-ins-industries-greater-china-cn.pdf" target="_blank" rel="noopener noreferrer">(来源：SOA 亚太 AI 对保险业影响报告)</a>。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>小白友好入口</h3>
+        <ul><li>先看<b>社保</b>（医保/养老）——这是国家兜底的基础层；再考虑商业保险中的<b>意外险 + 百万医疗</b>作为补充。可以去支付宝的蚂蚁保、微信的微保看产品，但务必自己读条款。</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就买“理财险”。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步：先搞清楚自己怕什么</div><div class="tl-body">是怕生大病没钱治？怕意外伤残拖累家人？还是怕人没了房贷没人还？把风险按“发生概率 × 损失大小”排个序。大概率小损失自己扛（如感冒发烧），小概率大损失必须转移（如重疾、身故、房子被烧）。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步：优先买“消费型”而非“返还型”</div><div class="tl-body">消费型就像车票：钱花了，没出事也不退，但保费便宜得多。返还型听着“没出事返本”，实则保险公司拿你的钱去投资，收益极低且退保损失大 [UNSOURCED]。先买意外险、百万医疗、定期寿险，再考虑重疾。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步：学会看三个数字</div><div class="tl-body"><b>保费</b>（你每年交多少）、<b>保额</b>（出事最多赔多少）、<b>免赔额/等待期</b>（多少不赔、多久内不赔）。看不懂就问 AI 或找经纪人，但最终以合同条款为准。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步：动态调整，别指望一劳永逸</div><div class="tl-body">单身时优先医疗+意外；结婚有娃后加定期寿险；买房后考虑家财险。每年续保时重新审视家庭负债和收入变化。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不花冤枉钱</h2>
+  <div class="sec-note">外行最容易交学费的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>把保险当理财买</h3><ul><li>分红险、万能险、投连险的“演示收益”≠实际收益。退保前几年现金价值极低，急用钱时可能亏一半本金。先配齐保障，再考虑理财。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>健康告知随便填</h3><ul><li>买重疾险、医疗险时，如果有甲状腺结节、高血压等没如实告知，理赔时可能被拒赔且不退还保费。宁可加费承保，不要隐瞒。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>“全家桶”一张保单保所有</h3><ul><li>把寿险、重疾、意外、医疗打包成一份“计划书”，往往每一项保额都低、总保费却高。拆开买、选各家优势产品，性价比更高。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li><b>保险不是让你“赚了”，而是让你“亏得起”。</b>它保护的是你现有的生活不被一次意外击穿。永远先问“出了事这笔钱够不够用”，而不是“这钱放里面几年能翻倍”。</li></ul></div>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="58" fill="#e05050" font-size="13" text-anchor="middle">误区</text>
+      <text x="180" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">「没生病保费就白交了」</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#arB)"/>
+      <rect x="400" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="58" fill="#50b070" font-size="13" text-anchor="middle">真相</text>
+      <text x="550" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">没出事是最大的幸运，保费买了「确定性」</text>
+      <defs><marker id="arB" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">买保险最大的误区：把「没出事」当成「亏了」</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>保费</b></td><td>你定期交给保险公司的钱，相当于“票价”。</td></tr>
+        <tr><td><b>保额</b></td><td>出事后保险公司最多赔给你的钱，相当于“票面价值”。</td></tr>
+        <tr><td><b>免赔额</b></td><td>低于这个数不赔，比如百万医疗通常有 1 万免赔额，超过 1 万的部分才报。</td></tr>
+        <tr><td><b>等待期</b></td><td>买完保险后一段时间内（如重疾 90-180 天）出事不赔，防止带病投保。</td></tr>
+        <tr><td><b>现金价值</b></td><td>你退保时能拿回的钱，前几年往往远低于已交保费。</td></tr>
+        <tr><td><b>再保险</b></td><td>保险公司把自己承担的风险再分一部分给“保险公司的保险公司”。</td></tr>
+        <tr><td><b>偿付能力</b></td><td>保险公司有没有足够钱赔的指标，监管红线必须守住。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">世界上最贵的“保险单”之一来自劳合社：歌手麦当娜曾为自己的“微笑”投保数百万美元，而一位品酒师曾为自己的鼻子投保 [UNSOURCED]。不过对普通人来说，最有性价比的保险其实是——<b>好好活着，别作死</b>。</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">适合<b>有家庭责任、收入依赖劳动能力</b>的人；不适合想靠保险“发财”的人。预算有限时先买意外+医疗，总保费控制在年收入 5%-10% 以内。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">保险不是让你“赚了”，而是让你<b>“亏得起”</b>——它是生活的安全气囊，不是彩票。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：IBM 保险业洞察、2025年全球保险业展望（EY）、中国互联网保险发展报告 2024（清华五道口）、SOA 亚太 AI 对保险业影响报告 2025，以及公开市场产品信息。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
