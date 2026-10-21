@@ -452,3 +452,11 @@
 [cold_mining] git push ok=True info=To github.com:RayChan611/cold-mining.git
    495473f..5a0a00c  main -> main
 [cold_mining] feishu code=0 link=https://raychan611.github.io/cold-mining/finance/reports/2026-10-19-sovereign-wealth-fund.html
+[cold_mining] line=finance topic=养老基金与养老金 key=pension-fund
+[cold_mining] tavily hits=2422
+[cold_mining] attempt=0 html_len=20309 svg=8
+[cold_mining] wrote /home/ubuntu/cold-mining/finance/reports/2026-10-20-pension-funds-and-retirement-income.html
+[cold_mining] index+log+used 已更新（key=pension-fund）
+[cold_mining] git push ok=True info=To github.com:RayChan611/cold-mining.git
+   e71495a..b4bfd61  main -> main
+[cold_mining] feishu code=0 link=https://raychan611.github.io/cold-mining/finance/reports/2026-10-20-pension-funds-and-retirement-income.html
