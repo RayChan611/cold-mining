@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 捐赠基金</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+
+<style id=cold-mining-responsive-20260904>
+  /* 长 URL 兜底换行（防止撑破容器） */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb, .sec-note {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 捐赠基金</div>
+  <h1>捐赠基金：一笔“永远花不完”的钱，是怎么炼成的？</h1>
+  <div class="sub">大学、教堂、博物馆靠什么活几百年？答案藏在一个叫 endowment 的账户里。</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或捐赠建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。投资有风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：捐赠基金是干什么的、谁在玩、值不值得普通人关注。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：一笔「本金基本不动、只花投资收益」的长期资金池，专门用来养活某个非营利机构。</li>
+        <li><b>谁在玩</b>：大学、私立学校、医院、博物馆、教堂、基金会，以及帮富人管慈善账户的金融机构。</li>
+        <li><b>市场多大</b>：美国大学捐赠基金总规模在 2023 年超过 <b>8,000 亿美元</b> [UNSOURCED]，哈佛一家就超过 500 亿美元。</li>
+        <li><b>小白能玩吗</b>：普通人很难直接“买”捐赠基金，但可以通过「捐赠者建议基金（DAF）」体验类似玩法。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <rect x="14" y="34" width="132" height="78" rx="10" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <circle cx="30" cy="50" r="4" fill="#e05050"/><circle cx="44" cy="50" r="4" fill="#c8a866"/><circle cx="58" cy="50" r="4" fill="#50b070"/>
+        <rect x="28" y="66" width="104" height="14" rx="4" fill="#1f1f1f" stroke="#2a2a2a"/>
+        <text x="34" y="77" fill="#c8a866" font-size="11" font-family="monospace">endowment.fund</text>
+        <path d="M14 112 H146" stroke="#2a2a2a" stroke-width="2"/>
+        <text x="80" y="132" fill="#8a8a8a" font-size="10" text-anchor="middle">本金不动 · 只花收益 · 永续运转</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">想象你有一只会下金蛋的鹅。你给自己定了一条铁律：<b>永远不杀鹅，只吃它下的金蛋</b>。捐赠基金就是这么个逻辑——慈善家或机构把一笔巨款放进一个专门账户，委托专业团队拿去投资（股票、债券、房地产、私募股权等），每年只从投资收益里抽出一小部分（通常是 4%–5%）来花，剩下的收益继续滚进本金里，让“鹅”越长越肥。这样，一所大学或一家博物馆就能靠这笔钱活上几百年，而不用每年跪求捐款。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;margin-top:10px;">和「专项基金」最大的区别在于：专项基金通常由一家社会组织完全控制，资金只能用于该机构；而捐赠基金——尤其是「捐赠者建议基金（DAF）」——允许捐赠者在不同时期选择支持不同的慈善项目，资产还可以交给第三方投资专业人士打理（<a class="src" href="https://avpn.asia/wp-content/uploads/dlm_uploads/2019/04/%E4%B8%AD%E5%9B%BD%E6%85%88%E5%96%84%E8%A1%8C%E4%B8%9A%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A%E7%AC%AC16-402.pdf" target="_blank" rel="noopener noreferrer">查看来源</a>）。</p>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 120" width="720" height="120" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="40" width="180" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="100" y="67" fill="#e8e8e8" font-size="12" text-anchor="middle">捐赠本金</text>
+      <path d="M195 62 H235" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="245" y="40" width="180" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="335" y="67" fill="#e8e8e8" font-size="12" text-anchor="middle">专业投资运作</text>
+      <path d="M430 62 H470" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="480" y="40" width="180" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="570" y="67" fill="#e8e8e8" font-size="12" text-anchor="middle">每年提取 4-5%</text>
+      <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">捐赠基金的核心流转路径：本金→投资→只花收益→本金继续滚大</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 规模与回报</h2>
+  <div class="sec-note">用真实数字说明蛋糕有多大、钱集中在哪。来源内联标注。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>档位</th><th>典型规模</th><th>代表机构 / 说明</th></tr></thead>
+      <tbody>
+        <tr><td>巨无霸档</td><td class="up">500 亿美元+</td><td>哈佛大学捐赠基金，2023 财年约 507 亿美元 [UNSOURCED]</td></tr>
+        <tr><td>大型档</td><td>100–500 亿美元</td><td>耶鲁、斯坦福、普林斯顿等顶尖大学 [UNSOURCED]</td></tr>
+        <tr><td>中型档</td><td>10–100 亿美元</td><td>知名文理学院、大型博物馆、顶级私立医院 [UNSOURCED]</td></tr>
+        <tr><td>小型档</td><td class="down">1 亿美元以下</td><td>地方性大学、社区基金会、中小型非营利机构 [UNSOURCED]</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 220" width="720" height="220" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <rect x="110" y="140" width="90" height="40" fill="#c8a866"/>
+      <rect x="280" y="110" width="90" height="70" fill="#c8a866"/>
+      <rect x="450" y="70" width="90" height="110" fill="#c8a866"/>
+      <rect x="580" y="40" width="90" height="140" fill="#e05050"/>
+      <text x="155" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">小型</text>
+      <text x="325" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">中型</text>
+      <text x="495" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">大型</text>
+      <text x="625" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">巨无霸</text>
+      <text x="380" y="215" fill="#8a8a8a" font-size="11" text-anchor="middle">美国大学捐赠基金规模分层示意（单位：亿美元）</text>
+    </svg>
+    <div class="cap">捐赠基金规模分层示意（数据为大致区间，来源见正文标注）</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在制定规则、谁在赚钱、小白该去哪个平台。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">大学</span>
+        <h3>哈佛 / 耶鲁模式</h3>
+        <ul><li>耶鲁大学捐赠基金是大卫·斯文森开创的「耶鲁模式」发源地，以重仓私募股权、对冲基金等另类资产著称，长期回报远超传统股债组合 [UNSOURCED]。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">DAF 平台</span>
+        <h3>捐赠者建议基金</h3>
+        <ul><li>DAF 是一个慈善投资账户：你把钱放进去立刻获得税收减免，钱在账户里可以投资增值，之后再决定捐给哪家慈善机构（<a class="src" href="https://www.earthshare.org/zh/introduction-donor-advised-funds-daf" target="_blank" rel="noopener noreferrer">查看来源</a>）。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">投资团队</span>
+        <h3>机构级资管公司</h3>
+        <ul><li>捐赠基金通常外包给专业资产管理公司或内部首席投资官（CIO）团队打理，配置横跨公开市场、私募股权、房地产、自然资源等 [UNSOURCED]。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">小白入口</span>
+        <h3>社区基金会 DAF</h3>
+        <ul><li>普通人最可能接触的入口：很多社区基金会提供低门槛 DAF 账户，起始金额可低至数千美元，让你体验「先投后捐」的玩法 [UNSOURCED]。</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就想复制耶鲁。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">搞清楚你接触的是哪一类：大学捐赠基金（你只能受益，不能参与）、DAF（你可以开账户）、还是社区基金会（本地门槛最低）。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">如果对 DAF 感兴趣，先找一家有公信力的社区基金会或大型金融机构的慈善部门，了解最低起投额、管理费用和投资选项。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">学习「永续提取」的核心逻辑：每年只花 4%–5%，长期通胀调整后仍能保持购买力。这是捐赠基金最值得普通人借鉴的理财思维。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">如果你只是好奇投资策略，可以研究「耶鲁模式」和「挪威主权基金模式」，但别试图用自己的小资金复制——它们能投的私募股权和对冲基金，散户根本进不去。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>把「本金不动」理解成绝对不亏</h3><ul><li>捐赠基金的本金也会随市场波动缩水。2008–2009 年哈佛捐赠基金一度亏掉近 30% [UNSOURCED]。永续不等于不亏，只是长期纪律更严格。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>以为 DAF 里的钱可以随时取回</h3><ul><li>钱一旦进入 DAF 就不能提取，唯一出路是捐给合格的非营利机构（<a class="src" href="https://www.earthshare.org/zh/introduction-donor-advised-funds-daf" target="_blank" rel="noopener noreferrer">查看来源</a>）。别把 DAF 当活期存款。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>盲目崇拜「耶鲁模式」</h3><ul><li>耶鲁的成功建立在顶级人脉、超长锁定期和极低的流动性需求上。普通人照搬的结果往往是：钱锁死了，收益没跟上，还要付高额管理费。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>捐赠基金最值得学的不是「怎么投」，而是「怎么花」——每年只花一小部分收益，让本金为你打一辈子工。</li></ul></div>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="58" fill="#e05050" font-size="13" text-anchor="middle">误区</text>
+      <text x="180" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">「DAF 是我的钱，想取就取」</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="400" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="58" fill="#50b070" font-size="13" text-anchor="middle">真相</text>
+      <text x="550" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">只能捐给合格慈善机构，不可提取</text>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相：DAF 账户的钱不能随意提取</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>Endowment</b></td><td>捐赠基金本身，一笔本金长期不动、只花收益的钱。</td></tr>
+        <tr><td><b>Spending Rule</b></td><td>每年从基金里提取多少比例来花的规则，通常 4%–5%。</td></tr>
+        <tr><td><b>DAF（捐赠者建议基金）</b></td><td>一个慈善投资账户：先存钱拿减税，再慢慢决定捐给谁，期间可以投资增值。</td></tr>
+        <tr><td><b>耶鲁模式</b></td><td>大卫·斯文森开创的捐赠基金投资法，重仓私募股权、对冲基金等非公开市场资产。</td></tr>
+        <tr><td><b>永续购买力</b></td><td>基金既要养活当下，又要保证未来几十年甚至几百年后，每年能花的实际金额不缩水。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">哈佛大学 2023 财年的捐赠基金规模约 507 亿美元，光是每年按 5% 提取，就能花掉 25 亿美元——相当于每天烧掉近 700 万美元，而这笔钱理论上可以永远花下去 [UNSOURCED]。</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">如果你是高净值人群且有长期慈善规划，DAF 值得关注；普通工薪族更适合先学会「只花收益不动本金」的永续理财思维。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">捐赠基金的秘密不是「会投资」，而是「有纪律地花」——让钱替你工作，而不是你替钱工作。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：EarthShare 捐赠者建议基金简介、AVPN 中国慈善行业调研报告、哈佛大学公开财务报告、耶鲁大学投资办公室公开资料。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
