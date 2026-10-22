@@ -48,3 +48,4 @@
 | 2026-10-19 | 信鸽：一只鸽子凭什么值一辆车？天空中的「长距离运动员」入门报告 | reports/2026-10-19-racing-pigeon.html |
 | 2026-10-20 | 兰花栽培：一盆“娇气草”凭什么让人上瘾几百年 | reports/2026-10-20-orchid-cultivation.html |
 | 2026-10-21 | 珍稀多肉与块根植物：一盆“外星生物”凭什么能换一辆车？ | reports/2026-10-21-rare-succulents-and-caudex-plants.html |
+| 2026-10-22 | 苔藓与生态缸：把一片森林装进玻璃罐里 | reports/2026-10-22-moss-terrarium-basics.html |
