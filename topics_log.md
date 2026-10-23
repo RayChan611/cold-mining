@@ -49,3 +49,4 @@
 | 2026-10-20 | 兰花栽培：一盆“娇气草”凭什么让人上瘾几百年 | reports/2026-10-20-orchid-cultivation.html |
 | 2026-10-21 | 珍稀多肉与块根植物：一盆“外星生物”凭什么能换一辆车？ | reports/2026-10-21-rare-succulents-and-caudex-plants.html |
 | 2026-10-22 | 苔藓与生态缸：把一片森林装进玻璃罐里 | reports/2026-10-22-moss-terrarium-basics.html |
+| 2026-10-23 | 海水珊瑚缸：把一片珊瑚礁搬进客厅，凭什么是个「烧钱无底洞」？ | reports/2026-10-23-saltwater-reef-aquarium.html |

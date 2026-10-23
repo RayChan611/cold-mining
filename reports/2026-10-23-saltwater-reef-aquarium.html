@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 海水珊瑚缸</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+
+<style id=cold-mining-responsive-20260904>
+  /* 长 URL 兜底换行（防止撑破容器） */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb, .sec-note {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 水族消费</div>
+  <h1>海水珊瑚缸：把一片珊瑚礁搬进客厅，凭什么是个「烧钱无底洞」？</h1>
+  <div class="sub">从「一缸咸水加几条小丑鱼」到「背着媳妇偷偷买设备」，这可能是最接近养电子宠物的实体爱好。</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。养海缸有生物损耗风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：海水珊瑚缸是干什么的、谁在玩、为什么被叫「蓝色海洛因」。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：在玻璃缸里人工模拟一片迷你珊瑚礁生态系统——有珊瑚、有海水鱼、有「活石」和看不见的微生物群，相当于在客厅养了一个微缩版的热带海洋。</li>
+        <li><b>谁在玩</b>：从一次花几百块试水的小白，到一缸投入几万甚至十几万的资深玩家；国内水族大店、区域代理、以及大量线上「海缸博主」共同撑起这个圈子。</li>
+        <li><b>市场多大</b>：水族行业被视为「小众但蕴含千亿规模的市场」，海缸是其中客单价最高、复购最猛的分支之一 <a class="src" href="https://zhuanlan.zhihu.com/p/520856098" target="_blank" rel="noopener noreferrer">查看来源</a>。</li>
+        <li><b>小白能玩吗</b>：能，但别直接上大缸。一套正经的 60cm 海缸设备加生物，几千块只是起步，后续维护和生物损耗是沉默成本。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <rect x="14" y="30" width="132" height="100" rx="8" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <path d="M18 38 H142" stroke="#c8a866" stroke-width="1" opacity="0.5"/>
+        <path d="M20 120 Q40 96 52 112 Q64 128 76 104 Q88 80 100 108 Q112 128 124 108 Q136 88 142 100" fill="none" stroke="#50b070" stroke-width="1.5"/>
+        <circle cx="42" cy="78" r="7" fill="none" stroke="#c8a866" stroke-width="1.5"/>
+        <path d="M42 71 Q46 74 48 78 Q46 82 42 85 Q38 82 36 78 Q38 74 42 71Z" fill="#c8a866" opacity="0.4"/>
+        <circle cx="98" cy="88" r="5" fill="none" stroke="#d4d4d4" stroke-width="1"/>
+        <path d="M98 83 Q101 86 102 88 Q101 90 98 93 Q95 90 94 88 Q95 86 98 83Z" fill="#e05050" opacity="0.5"/>
+        <path d="M38 96 Q46 92 52 96" stroke="#c8a866" stroke-width="1" fill="none"/>
+        <rect x="24" y="44" width="8" height="8" rx="1" fill="#1f1f1f" stroke="#2a2a2a"/>
+        <text x="80" y="144" fill="#8a8a8a" font-size="9" text-anchor="middle">海水珊瑚缸 · 迷你礁岩生态</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">海水珊瑚缸，有点像<b>「在客厅里养一个需要天天伺候的微型海洋星球」</b>。淡水鱼缸好比养一盆绿萝——水龙头接水、丢几粒饲料，基本能活；海缸则更像养一只「对水质敏感到爆的热带雨林蛙」：水温差半度、盐度抖一下、某一种元素掉到警戒线以下，珊瑚可能当场「自闭」甚至化掉。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;margin-top:10px;">核心难点在于：珊瑚不是植物，也不是单纯的动物，而是<b>动物 + 共生藻 + 微生物群落</b>的复合体。它既需要光照让体内共生藻进行光合作用，又需要水流带来浮游生物和氧气，还需要水里钙、镁、碱度等指标稳定。说白了，你养的不是一块「彩色石头」，而是一整套<b>需要化学、物理、生物三重平衡的活系统</b>。</p>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 140" width="720" height="140" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="45" width="160" height="50" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="90" y="66" fill="#e8e8e8" font-size="12" text-anchor="middle">物理：光照 + 水流</text>
+      <text x="90" y="82" fill="#8a8a8a" font-size="10" text-anchor="middle">模拟海浪与阳光</text>
+      <path d="M175 70 H215" stroke="#c8a866" stroke-width="2" marker-end="url(#arR)"/>
+      <rect x="225" y="45" width="160" height="50" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="305" y="66" fill="#e8e8e8" font-size="12" text-anchor="middle">化学：盐度 + 元素</text>
+      <text x="305" y="82" fill="#8a8a8a" font-size="10" text-anchor="middle">钙镁碱度 pH 全要稳</text>
+      <path d="M390 70 H430" stroke="#c8a866" stroke-width="2" marker-end="url(#arR)"/>
+      <rect x="440" y="45" width="160" height="50" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="520" y="66" fill="#e8e8e8" font-size="12" text-anchor="middle">生物：菌群 + 活石</text>
+      <text x="520" y="82" fill="#8a8a8a" font-size="10" text-anchor="middle">看不见的硝化系统</text>
+      <path d="M605 70 H645" stroke="#c8a866" stroke-width="2" marker-end="url(#arR)"/>
+      <rect x="655" y="45" width="55" height="50" rx="8" fill="#1f1f1f" stroke="#50b070" stroke-width="1.5"/>
+      <text x="682" y="66" fill="#50b070" font-size="12" text-anchor="middle">缸</text>
+      <text x="682" y="82" fill="#50b070" font-size="10" text-anchor="middle">平衡</text>
+      <defs><marker id="arR" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">海缸的「三体问题」：物理、化学、生物三重要素同时在线，珊瑚才不闹脾气</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 价格带</h2>
+  <div class="sec-note">水族整体市场被描述为「小众但蕴含千亿规模」，海缸是其中客单价最高的塔尖。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>档位</th><th>典型投入</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>微型试水缸（30L 以下）</td><td class="up">¥800 – 2,000</td><td>只养耐活的软珊瑚和 1-2 条小鱼，设备简化，适合体验「海水是什么感觉」[UNSOURCED]</td></tr>
+        <tr><td>正经入门缸（60cm 主缸）</td><td>¥5,000 – 15,000</td><td>含蛋分、造浪、主泵、灯具、活石、基础 LPS 珊瑚，是多数玩家的第一套「正式装备」；有内陆玩家反馈「没个大几千可不够」<a class="src" href="https://zhuanlan.zhihu.com/p/520856098" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
+        <tr><td>发烧 / 硬骨缸（SPS）</td><td class="down">¥30,000 – 150,000+</td><td>超大缸体、专业灯具（如主灯 + 补光）、钙反或滴定系统、冷水机、智能控制，甚至单独空调房；生物本身可能是持续消耗品</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 230" width="720" height="230" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="190" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="190" x2="690" y2="190" stroke="#2a2a2a" stroke-width="1.5"/>
+      <rect x="110" y="155" width="90" height="35" fill="#c8a866"/>
+      <rect x="280" y="100" width="90" height="90" fill="#c8a866"/>
+      <rect x="450" y="30" width="90" height="160" fill="#e05050"/>
+      <text x="155" y="210" fill="#9a9a9a" font-size="11" text-anchor="middle">微型缸</text>
+      <text x="325" y="210" fill="#9a9a9a" font-size="11" text-anchor="middle">60cm 入门</text>
+      <text x="495" y="210" fill="#9a9a9a" font-size="11" text-anchor="middle">硬骨发烧</text>
+      <text x="155" y="178" fill="#0a0a0a" font-size="10" text-anchor="middle">¥0.8-2k</text>
+      <text x="325" y="123" fill="#0a0a0a" font-size="10" text-anchor="middle">¥5k-15k</text>
+      <text x="495" y="53" fill="#e8e8e8" font-size="10" text-anchor="middle">¥30k-150k+</text>
+      <text x="380" y="225" fill="#8a8a8a" font-size="11" text-anchor="middle">海缸常见一次性投入区间（不含持续维护与生物损耗）[UNSOURCED]</text>
+    </svg>
+    <div class="cap">价格带示意：海缸的「起步价」往往只是冰山一角，持续投入才是大头</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台 -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在制定规则、谁在赚钱、小白该去哪个平台。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">ROOT</span>
+        <h3>本地水族店 / 海缸工作室</h3>
+        <ul><li>海缸圈的「4S 店」：卖设备、卖生物、提供开缸和维护服务，很多新手的第一批活石和珊瑚都来自这里；但同城靠谱店家分布极不均衡，内陆城市可能一家像样的都没有 <a class="src" href="https://zhuanlan.zhihu.com/p/520856098" target="_blank" rel="noopener noreferrer">查看来源</a>。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">线上</span>
+        <h3>电商 / 直播卖珊瑚</h3>
+        <ul><li>淘宝、闲鱼、抖音直播是当前最活跃的「生物交易场」，能全国顺丰发货，但活体运输损耗、货不对版、以次充好是长期痛点；内陆玩家尤其依赖这条链路，风险也更高 <a class="src" href="https://zhuanlan.zhihu.com/p/520856098" target="_blank" rel="noopener noreferrer">查看来源</a>。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">HOT</span>
+        <h3>海缸博主 / 论坛老炮</h3>
+        <ul><li>B 站、抖音、小红书上的「开缸记录」「珊瑚发色对比」是新人最重要的免费教材；但要注意，博主展示的往往是「幸存者缸」，翻车现场很少有人拍给你看。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>小白友好入口</h3>
+        <ul><li>先别急着买缸。去本地海缸店「只逛不买」三次，再上 B 站搜「新手开缸 30 天记录」看完整周期；能坚持看完 3 个翻车视频还想入坑，再考虑预算。</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就梭哈——海缸圈有句黑话叫「下海容易上岸难」。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步：先「云养缸」两周</div><div class="tl-body">不花一分钱，去 B 站 / 抖音看至少 5 个完整的「新手开缸 + 翻车记录」视频。重点看：爆藻期怎么熬、珊瑚化掉是什么样、维护频率到底多高。这一步能劝退 80% 的冲动型选手。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步：预算翻倍再入坑</div><div class="tl-body">以 60cm 缸为例，设备加基础生物按 ¥5,000-15,000 准备，但实际花费往往比预算高 30-50%，因为「灯不够要换」「蛋分噪音大要换」「珊瑚死了要补」<a class="src" href="https://zhuanlan.zhihu.com/p/520856098" target="_blank" rel="noopener noreferrer">查看来源</a>。建议先按上限留预算。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步：从「软珊瑚 + 皮实鱼」开始</div><div class="tl-body">首选纽扣、菇类、草皮等 LPS 软珊瑚，以及小丑鱼、蓝魔等耐受度高的鱼。硬骨珊瑚（SPS）对水质和灯光的要求是指数级上升，不是新手该碰的。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步：建立「不折腾」的维护节奏</div><div class="tl-body">每周固定换水 10%-20%、测盐度 / 温度 / 碱度，把数据记在本子上。海缸最大的杀手不是「不会养」，而是「今天加这个、明天调那个」的过度操作。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方，每一条都有人真金白银验证过。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>「一步到位」的妄想</h3><ul><li>新手总想直接上 1.2 米大缸，觉得「缸越大越稳定」。但大缸意味着所有设备都要同步升级：更大蛋分、更多造浪、更强灯光、冷水机……总成本不是线性增长，而是跳级。先跑通小缸，再谈升级。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>活体网购的「开盲盒」</h3><ul><li>内陆玩家依赖线上买珊瑚和鱼，但活体运输两天以上损耗率显著上升，且很多「特价珊瑚」是状态不好的脱藻个体。收到货先隔离观察，别直接丢进主缸 <a class="src" href="https://zhuanlan.zhihu.com/p/520856098" target="_blank" rel="noopener noreferrer">查看来源</a>。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>「水质好了就不用管」</h3><ul><li>海缸是动态平衡系统，珊瑚长大、鱼吃多拉多、活石菌群变化，任何一项都会悄悄打破平衡。很多「养了半年突然团灭」的案例，根源都是长期不测水、不换水的「我觉得还行」。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li><b>海缸的第一年，你养的不是珊瑚，是水。</b>把水质稳定和观察记录当主业，把买买买当奖励。水好了，珊瑚自己会告诉你。</li></ul></div>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 140" width="720" height="140" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="35" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="62" fill="#e05050" font-size="13" text-anchor="middle">误区：海缸就是「咸水鱼缸」</text>
+      <text x="180" y="84" fill="#c4c4c4" font-size="11" text-anchor="middle">以为加海盐 + 过滤器就能养珊瑚</text>
+      <path d="M340 70 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#arM)"/>
+      <rect x="400" y="35" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="62" fill="#50b070" font-size="13" text-anchor="middle">真相：一套需要持续监测的生态系统</text>
+      <text x="550" y="84" fill="#c4c4c4" font-size="11" text-anchor="middle">光照、水流、元素、菌群，缺一不可</text>
+      <defs><marker id="arM" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相：海缸和淡水缸的差别，比猫和狗的差别还大</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>LPS / SPS</b></td><td>大花水螅体珊瑚 / 小花水螅体珊瑚。LPS 像「多肉」，耐活、好养；SPS 像「兰花」，美但娇贵，是硬骨玩家的终极追求。</td></tr>
+        <tr><td><b>蛋分</b></td><td>蛋白质分离器，海缸的「肾脏」。靠气泡把水里的有机物垃圾带出来，是海缸和淡水缸最核心的设备差异。</td></tr>
+        <tr><td><b>活石</b></td><td>从海里捞来的带菌群和微小生物的石头，是海缸的「益生菌胶囊」，负责分解废物、维持氮循环。</td></tr>
+        <tr><td><b>爆藻期</b></td><td>新缸必经的「青春期」：活石里的有机物释放导致藻类爆发，通常持续 2-6 周，熬过去系统才稳定。</td></tr>
+        <tr><td><b>滴定 / 钙反</b></td><td>两种补充钙、镁、碱度的方式。滴定像「每天吃药」，钙反像「挂点滴」，都是 SPS 缸标配。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">很多珊瑚在白天看着像「彩色石头」，到了晚上关灯后会伸出细小的触手捕食，像换了一个生物。如果你半夜打手电筒偷看，会发现整缸都是「异形现场」——所以海缸玩家普遍有「半夜看缸」的怪癖 [UNSOURCED]。</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">适合：有耐心、喜欢观察系统变化、能接受「生物会死」这件事的人。<span class="hot">不适合：追求速成、讨厌定期维护、出差频繁的人。</span></div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">淡水缸是养鱼，海缸是<span class="cool">养一片会呼吸的海洋</span>——前者是宠物，后者是修行。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：知乎专栏《水族行业分析 | 一个小众但蕴含千亿规模的市场正在重塑并迅猛发展》（zhuanlan.zhihu.com/p/520856098）；其余经验性内容为 [UNSOURCED] 或据公开资料综合。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
