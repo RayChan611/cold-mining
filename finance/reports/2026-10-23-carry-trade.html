@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 套息交易</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(200,168,102,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+
+<style id=cold-mining-responsive-20260904>
+  /* 长 URL 兜底换行（防止撑破容器） */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb, .sec-note {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 外汇与宏观交易</div>
+  <h1>套息交易：借“便宜钱”去赚“贵利息”，一场全球资本的大挪移</h1>
+  <div class="sub">用大白话讲清楚：为什么有人专挑“低息货币”借钱，再换成“高息资产”躺赚利差</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。外汇与杠杆交易风险极高，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：这玩意儿是干什么的、谁在玩、值不值得普通人关注。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：借入低利率货币（比如日元），换成高利率货币或高回报资产（比如美元存款、美债、甚至股票），赚取中间的利差。</li>
+        <li><b>谁在玩</b>：全球宏观对冲基金、跨国银行自营盘、主权基金，以及部分有外汇账户的散户。</li>
+        <li><b>市场多大</b>：日元套息交易规模估计在数千亿美元级别，精确数字难以统计 [UNSOURCED]。2022-2023 年美日利差走阔期间，日元套息交易“风靡一时”（来源：<a class="src" href="https://pdf.dfcfw.com/pdf/H3_AP202410251640515627_1.pdf" target="_blank" rel="noopener noreferrer">查看来源</a>）。</li>
+        <li><b>小白能玩吗</b>：能理解，但别轻易上手。核心风险是汇率反转——利差可能被汇差一口吃掉。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <rect x="20" y="16" width="56" height="36" rx="8" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <text x="48" y="38" fill="#e8e8e8" font-size="11" text-anchor="middle" font-family="monospace">低息</text>
+        <text x="48" y="50" fill="#9a9a9a" font-size="9" text-anchor="middle" font-family="monospace">日元</text>
+        <path d="M76 34 H100" stroke="#c8a866" stroke-width="2" marker-end="url(#arHero)"/>
+        <rect x="104" y="16" width="56" height="36" rx="8" fill="#141414" stroke="#50b070" stroke-width="2"/>
+        <text x="132" y="38" fill="#e8e8e8" font-size="11" text-anchor="middle" font-family="monospace">高息</text>
+        <text x="132" y="50" fill="#9a9a9a" font-size="9" text-anchor="middle" font-family="monospace">美元</text>
+        <path d="M132 52 L132 76 L48 76 L48 52" stroke="#2a2a2a" stroke-width="1.5" fill="none" stroke-dasharray="4 3"/>
+        <rect x="26" y="86" width="108" height="48" rx="8" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <text x="80" y="106" fill="#c8a866" font-size="10" text-anchor="middle" font-family="monospace">利差 + 汇差</text>
+        <text x="80" y="120" fill="#9a9a9a" font-size="9" text-anchor="middle" font-family="monospace">= 套息收益</text>
+        <defs><marker id="arHero" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">套息交易有点像：你发现 A 银行借钱年利率只要 0.1%，B 银行的存款年利率是 5%。于是你从 A 借了 100 万，存到 B 银行，一年后还掉 A 的本息 100.1 万，B 给你 105 万，净赚 4.9 万。这就是“借便宜钱、赚贵利息”的底层逻辑。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;margin-top:8px;">但外汇世界的套息交易多了一层汇率风险：A 银行是“日元”，B 银行是“美元”。你借的是日元，换美元存起来。如果一年后日元对美元大幅升值，你还日元时要花更多美元去买日元——汇差可能把利差吃光甚至倒亏。</p>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 120" width="720" height="120" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="40" width="180" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="100" y="62" fill="#e8e8e8" font-size="12" text-anchor="middle">借入低息货币</text>
+      <text x="100" y="78" fill="#9a9a9a" font-size="10" text-anchor="middle">如日元（利率≈0）</text>
+      <path d="M195 62 H235" stroke="#c8a866" stroke-width="2" marker-end="url(#ar1)"/>
+      <rect x="245" y="40" width="180" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="335" y="62" fill="#e8e8e8" font-size="12" text-anchor="middle">兑换并投资高息资产</text>
+      <text x="335" y="78" fill="#9a9a9a" font-size="10" text-anchor="middle">美元存款 / 美债 / 股票</text>
+      <path d="M430 62 H470" stroke="#c8a866" stroke-width="2" marker-end="url(#ar1)"/>
+      <rect x="480" y="40" width="180" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="570" y="62" fill="#e8e8e8" font-size="12" text-anchor="middle">到期换回还款</text>
+      <text x="570" y="78" fill="#9a9a9a" font-size="10" text-anchor="middle">利差 + 汇率变动 = 最终盈亏</text>
+      <defs><marker id="ar1" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">套息交易的三步流程：借低息货币 → 换高息资产 → 到期换回（来源：<a class="src" href="http://shop.chinaforex.com.cn/pages/dgarticle.vc?article=53289" target="_blank" rel="noopener noreferrer">中国外汇</a>）</div>
+  </div>
+  <div class="card" style="margin-top:12px;">
+    <p style="color:#c4c4c4;font-size:13.5px;">理论上，套息交易与教科书里的“无抛补利率平价（UIP）”相悖——UIP 说高息货币未来应该贬值，把利差抵掉，套利无利可图。但现实中，套息交易在全球金融市场中“无处不在”，尤其在利差大、波动低的时期，交易者会像候鸟一样扎堆进入（来源：<a class="src" href="https://pdf.dfcfw.com/pdf/H3_AP202410251640515627_1.pdf" target="_blank" rel="noopener noreferrer">查看来源</a>）。</p>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 经典案例</h2>
+  <div class="sec-note">用真实数字说明这盘棋有多大、钱往哪流。来源内联标注。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>时期 / 事件</th><th>典型利差</th><th>市场表现</th></tr></thead>
+      <tbody>
+        <tr><td>2022-2023 美日套息</td><td class="up">美日 1 年期国债利差大幅走阔</td><td>日元大幅贬值，套息交易“风靡一时”（来源：<a class="src" href="https://pdf.dfcfw.com/pdf/H3_AP202410251640515627_1.pdf" target="_blank" rel="noopener noreferrer">查看来源</a>）</td></tr>
+        <tr><td>2023 年无抛补套息（借日元买美元资产）</td><td class="up">基于美日 1 年期国债收益率估算，利差可观</td><td>交易者借入低息日元，换汇后直接投资美元资产（来源：<a class="src" href="https://pdf.dfcfw.com/pdf/H3_AP202410251640515627_1.pdf" target="_blank" rel="noopener noreferrer">查看来源</a>）</td></tr>
+        <tr><td>2016 年后资本流动</td><td>—</td><td>全球资本流动受政治和地缘因素影响，套息角色发生变化（来源：<a class="src" href="https://wallstreetcn.com/articles/3722155" target="_blank" rel="noopener noreferrer">查看来源</a>）</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 220" width="720" height="220" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <rect x="110" y="30" width="120" height="150" fill="#c8a866"/>
+      <text x="170" y="22" fill="#c8a866" font-size="11" text-anchor="middle">美元利率</text>
+      <rect x="310" y="155" width="120" height="25" fill="#e05050"/>
+      <text x="370" y="148" fill="#e05050" font-size="11" text-anchor="middle">日元利率</text>
+      <rect x="490" y="100" width="120" height="80" fill="#d4d4d4"/>
+      <text x="550" y="92" fill="#d4d4d4" font-size="11" text-anchor="middle">利差空间</text>
+      <text x="170" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">美联储加息</text>
+      <text x="370" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">日央行按兵不动</text>
+      <text x="550" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">套息吸引力上升</text>
+      <text x="380" y="218" fill="#8a8a8a" font-size="11" text-anchor="middle">2022-2023 年美日利差走阔示意（非精确数值）</text>
+    </svg>
+    <div class="cap">利差越大，套息交易的“蛋糕”越诱人（概念示意，非精确数值）</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台 -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在玩这场“借钱生钱”的游戏、小白通常从哪接触。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">ROOT</span>
+        <h3>全球宏观对冲基金</h3>
+        <ul><li>最核心的套息玩家，借日元 / 瑞郎等低息货币，买美债、新兴市场高息债或股票，常加杠杆放大收益（据公开资料）。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">平台</span>
+        <h3>外汇零售平台（如 FXTM 等）</h3>
+        <ul><li>散户可通过外汇保证金账户参与“迷你版”套息：持有高息货币对、低息货币对的头寸，隔夜持仓会涉及隔夜利息结算（来源：<a class="src" href="https://www.forextime.com/zh/education/finance-knowledge/carry-trade" target="_blank" rel="noopener noreferrer">查看来源</a>）。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">HOT</span>
+        <h3>跨国银行自营与主权基金</h3>
+        <ul><li>大银行用低息货币作为负债端，配置高回报资产；主权基金在全球“买买买”时也会考虑融资货币成本（据公开资料）。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>先了解“隔夜利息”规则</h3>
+        <ul><li>外汇平台每天固定时间结算隔夜利息（多数在美国东部时间下午 5 点），持仓过夜可能收息也可能付息，小白务必先查清（来源：<a class="src" href="https://www.forextime.com/zh/education/finance-knowledge/carry-trade" target="_blank" rel="noopener noreferrer">查看来源</a>）。</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就梭哈。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">先搞懂“融资货币”和“投资货币”的利差。比如看美日 1 年期国债收益率差，利差越大，套息空间理论越大（来源：<a class="src" href="https://pdf.dfcfw.com/pdf/H3_AP202410251640515627_1.pdf" target="_blank" rel="noopener noreferrer">查看来源</a>）。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">用模拟账户或极小资金，在合规外汇平台持有一组“高息 / 低息”货币对，观察隔夜利息是收还是付（来源：<a class="src" href="https://www.forextime.com/zh/education/finance-knowledge/carry-trade" target="_blank" rel="noopener noreferrer">查看来源</a>）。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">建立判断框架：关注两国央行利率路径、汇率波动率、地缘政治摩擦。付鹏指出，低波动率是套息交易稳定的关键条件之一（来源：<a class="src" href="https://wallstreetcn.com/articles/3722155" target="_blank" rel="noopener noreferrer">查看来源</a>）。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">只有当你能承受“汇率反转吃掉全部利差”的亏损时，才考虑是否加仓。大多数小白更适合围观学习，而非真金白银进场。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>只盯利差，忽略汇差</h3><ul><li>利差可能只有 3%-5%，但汇率一天能波动 1%-2%。一次日元急升值就能把一年利差全部抹平，甚至倒亏。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>杠杆放大后爆仓</h3><ul><li>套息交易常被叠加杠杆，波动率一旦上升，连锁平仓会引发踩踏。付鹏称之为“缩圈游戏和破圈的连锁反应”（来源：<a class="src" href="https://wallstreetcn.com/articles/3722155" target="_blank" rel="noopener noreferrer">查看来源</a>）。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>误解“躺赚”</h3><ul><li>“躺赚利差”听起来很美，但隔夜利息水平并非恒定：信贷风险上升或银行间市场紧张时，隔夜息可能每日明显波动（来源：<a class="src" href="https://www.forextime.com/zh/education/finance-knowledge/carry-trade" target="_blank" rel="noopener noreferrer">查看来源</a>）。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>套息交易赚的是“低波动率环境下的利差”，一旦波动率飙升，先活下来，再谈收益。</li></ul></div>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="58" fill="#e05050" font-size="13" text-anchor="middle">误区</text>
+      <text x="180" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">“借低息买高息，稳赚利差”</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="400" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="58" fill="#50b070" font-size="13" text-anchor="middle">真相</text>
+      <text x="550" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">“利差是租金，汇率是房价本身”</text>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相：套息交易赚的是“租金”，但本金可能因“房价”（汇率）波动而大幅缩水</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>融资货币</b></td><td>你借的那种“便宜钱”，通常利率极低，如日元、瑞郎。</td></tr>
+        <tr><td><b>投资货币 / 高息货币</b></td><td>你把借来的钱换成的那种“能生更多利息”的货币或资产。</td></tr>
+        <tr><td><b>无抛补利率平价（UIP）</b></td><td>教科书说高息货币会贬值到把利差抵掉；但现实经常“打脸”这个理论。</td></tr>
+        <tr><td><b>隔夜利息</b></td><td>外汇持仓过夜时，平台按货币对利差结算给你或向你收取的利息。</td></tr>
+        <tr><td><b>波动率</b></td><td>价格上蹿下跳的剧烈程度。波动率低时套息安稳，波动率飙升时套息交易容易集体翻车。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">日元套息交易有个外号叫“日元潮汐”——当全球风平浪静时，日元像退潮一样流向全世界；一旦风险事件爆发，日元又像涨潮一样迅速回流，把套息交易者的利润冲得七零八落（来源：<a class="src" href="https://pdf.dfcfw.com/pdf/H3_AP202410251640515627_1.pdf" target="_blank" rel="noopener noreferrer">查看来源</a>）。</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">能看懂央行利率和汇率波动的宏观爱好者可以小仓位试水；只想“躺赚”的小白建议远离杠杆外汇。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">套息交易的本质不是“稳赚”，而是用<span class="cool">低波动期的耐心</span>换取<span class="hot">高波动期的生存</span>。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：中国外汇《全球套息交易的机制》、东方财富研报《日元潮汐：套息交易机理、规模与风险》、FXTM 套利交易教学、华尔街见闻付鹏《全球套息交易的缩圈游戏和破圈的连锁反应》。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
