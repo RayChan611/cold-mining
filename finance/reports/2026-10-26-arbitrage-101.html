@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 套利入门</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+
+<style id=cold-mining-responsive-20260904>
+  /* 长 URL 兜底换行（防止撑破容器） */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb, .sec-note {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 套利专题</div>
+  <h1>套利：同一件东西，在两个地方卖两个价</h1>
+  <div class="sub">用大白话讲清楚：为什么有人能靠「价差」赚钱，以及为什么你大概率抢不到。</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。投资/收藏有风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：套利是干什么的、谁在玩、值不值得普通人关注。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：同一件资产在两个市场同时出现不同价格，低买高卖，把差价锁进兜里。</li>
+        <li><b>谁在玩</b>：对冲基金、做市商、量化团队、极少数手速极快的散户。</li>
+        <li><b>市场多大</b>：没有统一公开数字，但套利是几乎所有成熟金融市场的基础活动，从外汇、期货到加密预测市场无处不在。</li>
+        <li><b>小白能玩吗</b>：理论上能，现实中大多数「无风险价差」在几毫秒内就被机器吃掉了。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <rect x="14" y="30" width="58" height="58" rx="8" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <text x="43" y="52" fill="#e8e8e8" font-size="13" text-anchor="middle" font-family="monospace">A市</text>
+        <text x="43" y="76" fill="#e05050" font-size="15" text-anchor="middle" font-family="monospace">¥8</text>
+        <rect x="88" y="30" width="58" height="58" rx="8" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <text x="117" y="52" fill="#e8e8e8" font-size="13" text-anchor="middle" font-family="monospace">B市</text>
+        <text x="117" y="76" fill="#50b070" font-size="15" text-anchor="middle" font-family="monospace">¥12</text>
+        <path d="M72 59 L88 59" stroke="#c8a866" stroke-width="2" marker-end="url(#arHero)"/>
+        <text x="80" y="50" fill="#c8a866" font-size="10" text-anchor="middle">搬</text>
+        <path d="M14 108 H146" stroke="#2a2a2a" stroke-width="2"/>
+        <text x="80" y="130" fill="#8a8a8a" font-size="10" text-anchor="middle">同一件东西 · 两个价格 · 赚差价</text>
+        <defs><marker id="arHero" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">套利（Arbitrage）说白了就是<b>「倒买倒卖」的金融版</b>：同一件商品在两家店铺售价不同，你在低价店铺买入，随即在高价店铺卖出，赚中间的差价。只不过金融里的「商品」可以是股票、债券、期货、加密货币，甚至是预测市场的「事件合约」。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;margin-top:8px;">关键区别在于：<b>套利追求的是「几乎无风险」的利润</b>，而不是靠预测涨跌。最理想的「纯套利」中，两笔交易完全对冲，收益提前锁定，不存在不确定性（<a class="src" href="https://www.bit.com/zh/knowledge-hub/arbitrage" target="_blank" rel="noopener noreferrer">来源</a>）。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;margin-top:8px;">举个课本上的经典例子：某股票同时在伦敦和纽约上市，同股同权，但在纽约卖 10 美元，在伦敦却卖 12 美元。投资者就可以在纽约买进，到伦敦卖出，赚取 2 美元差价（<a class="src" href="https://www.ciccwm.com/space1/qhtl/qxtljyjs2.jsp" target="_blank" rel="noopener noreferrer">来源</a>）。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;margin-top:8px;">需要注意的是，真实市场里「纯套利」极少。绝大多数套利行为仍存在残余风险，来源包括交易时机、对手方信用、手续费以及市场结构（<a class="src" href="https://www.bit.com/zh/knowledge-hub/arbitrage" target="_blank" rel="noopener noreferrer">来源</a>）。</p>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="40" width="160" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="90" y="58" fill="#e8e8e8" font-size="11" text-anchor="middle">发现价差</text>
+      <text x="90" y="74" fill="#8a8a8a" font-size="10" text-anchor="middle">A 便宜 / B 贵</text>
+      <path d="M175 62 H225" stroke="#c8a866" stroke-width="2" marker-end="url(#ar1)"/>
+      <rect x="235" y="40" width="160" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="315" y="58" fill="#e8e8e8" font-size="11" text-anchor="middle">同时买卖</text>
+      <text x="315" y="74" fill="#8a8a8a" font-size="10" text-anchor="middle">低价买 + 高价卖</text>
+      <path d="M400 62 H450" stroke="#c8a866" stroke-width="2" marker-end="url(#ar1)"/>
+      <rect x="460" y="40" width="160" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="540" y="58" fill="#e8e8e8" font-size="11" text-anchor="middle">锁定价差</text>
+      <text x="540" y="74" fill="#8a8a8a" font-size="10" text-anchor="middle">扣掉手续费 = 利润</text>
+      <defs><marker id="ar1" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">套利的基本流程：发现价差 → 同时买卖 → 锁定利润（前提是手续费没吃掉利润）</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 价差从哪来</h2>
+  <div class="sec-note">套利没有统一的「市场规模」，因为它不是一个独立市场，而是所有市场中的一种活动。我们更该关心的是：价差有多大、谁在抢。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>场景</th><th>典型价差 / 利润空间</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>外汇市场</td><td class="up">利差 + 汇率差</td><td>借低息货币（如日元）买高息货币，赚利差，是最经典的「套息交易」。</td></tr>
+        <tr><td>期货市场</td><td>合约间价差</td><td>跨期、跨市、跨商品三种模式，价差回归正常时平仓获利。</td></tr>
+        <tr><td>预测市场</td><td class="up">3% – 10%</td><td>如 Polymarket 上同一事件两边报价合计 0.97，买入后持有至结算必得 1.00，差价为利润。</td></tr>
+        <tr><td>股票跨市场</td><td>通常极小</td><td>成熟市场价差往往只有几个基点，且瞬间消失。</td></tr>
+      </tbody>
+    </table>
+    <p style="color:#8a8a8a;font-size:12px;margin-top:8px;">注：预测市场价差数据来自 Polymarket 套利案例（<a class="src" href="https://www.cnblogs.com/dhcn/p/19710469" target="_blank" rel="noopener noreferrer">来源</a>）；其余为定性描述 [UNSOURCED]。</p>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 220" width="720" height="220" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <rect x="110" y="140" width="90" height="40" fill="#c8a866"/>
+      <rect x="280" y="100" width="90" height="80" fill="#c8a866"/>
+      <rect x="450" y="60" width="90" height="120" fill="#e05050"/>
+      <text x="155" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">股票跨市场</text>
+      <text x="325" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">期货套利</text>
+      <text x="495" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">预测市场</text>
+      <text x="380" y="215" fill="#8a8a8a" font-size="11" text-anchor="middle">价差空间示意：越成熟的市场，价差越小、消失越快</text>
+    </svg>
+    <div class="cap">不同市场套利空间对比（定性示意，非精确比例）</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台 -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在制定规则、谁在赚钱、小白该去哪个平台。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">ROOT</span>
+        <h3>做市商 / 高频交易团队</h3>
+        <ul><li>套利游戏的主力。用算法在毫秒内扫描全球市场，价差一出现就被吃掉。散户根本抢不过。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">平台</span>
+        <h3>Polymarket / Kalshi 等预测市场</h3>
+        <ul><li>近年套利热门地。同一事件在不同平台报价不同，跨平台买低卖高可锁价差。但高频机器人已极度内卷（<a class="src" href="https://www.cnblogs.com/dhcn/p/19710469" target="_blank" rel="noopener noreferrer">来源</a>）。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">HOT</span>
+        <h3>加密交易所套利</h3>
+        <ul><li>同一币种在不同交易所价格不同，搬砖赚差价。早期利润高，现在竞争激烈，且涉及提币时间差和手续费。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>外汇远期 / 利率平价</h3>
+        <ul><li>适合想理解套利逻辑的学院派。不指望赚钱，但能搞懂「为什么套利机会存在」。教科书级起点。</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就梭哈。套利入门的关键是「先看懂，再动手」。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">先搞清楚一个简单例子：同一只股票在两个市场不同价的场景。理解「同时买和卖」为什么能锁住利润。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">在预测市场（如 Polymarket）开个模拟账户或小额试水。找「两边报价合计小于 1」的事件，算清楚手续费后是否还有利润。⚠️ 提示：目前极度内卷，已被高频机器人垄断，散户难有机会（<a class="src" href="https://www.cnblogs.com/dhcn/p/19710469" target="_blank" rel="noopener noreferrer">来源</a>）。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">建立判断框架：价差是否大于交易成本？两边市场规则是否一致？对手方会不会违约？这三个问题答不上来，先别下单。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">如果连续多次模拟都赚不到钱，说明市场已经足够有效——这本身就是最值钱的认知。考虑退出，别硬刚。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>手续费吃掉利润</h3><ul><li>价差 1%，手续费 1.2%，套利变套牢。动手前先算总成本：交易费、提币费、滑点、资金占用时间。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>「无风险」变成「有风险」</h3><ul><li>真实市场里大多数套利存在残余风险：对手方可能违约、市场可能暂停交易、规则可能变化（<a class="src" href="https://www.bit.com/zh/knowledge-hub/arbitrage" target="_blank" rel="noopener noreferrer">来源</a>）。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>以为自己是唯一发现机会的人</h3><ul><li>你看到的价差，大概率是别人算完觉得不赚钱才剩下的。信息差套利时代早就过去了。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li><b>如果一笔套利看起来好得不真实，那它肯定不是套利，是陷阱。</b></li></ul></div>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="58" fill="#e05050" font-size="13" text-anchor="middle">误区：套利 = 稳赚不赔</text>
+      <text x="180" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">「书里说无风险，所以闭眼冲」</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="400" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="58" fill="#50b070" font-size="13" text-anchor="middle">真相：纯套利极少见</text>
+      <text x="550" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">真实世界永远有手续费、时差、对手方风险</text>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相：套利不是稳赚不赔，而是「把风险压到极低，但永远压不到零」</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>价差（Spread）</b></td><td>同一个东西在两个地方的价格差。套利赚的就是它。</td></tr>
+        <tr><td><b>对冲（Hedge）</b></td><td>同时做两笔相反方向的交易，让涨跌互相抵消，只留下你要的利润。</td></tr>
+        <tr><td><b>跨期套利</b></td><td>同一商品不同交割月份的合约价差。比如 9 月大豆和 12 月大豆价格不一样。</td></tr>
+        <tr><td><b>跨市套利</b></td><td>同一商品在不同市场的价差。比如纽约原油和伦敦原油。</td></tr>
+        <tr><td><b>抵补套利</b></td><td>外汇套利时用远期合约锁住汇率风险，让利润「提前确定」。</td></tr>
+        <tr><td><b>预言机（Oracle）</b></td><td>预测市场中用来判定事件结果的机制。不同平台的预言机规则不同，是跨平台套利的关键风险点。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">套利者其实是市场的「清道夫」：他们不断抹平各地价差，推动全市场报价趋于一致。如果价差长期存在且幅度较大，往往意味着市场存在流通阻碍，比如监管限制、流动性缺口、交易成本过高，导致资金无法自由流转（<a class="src" href="https://www.bit.com/zh/knowledge-hub/arbitrage" target="_blank" rel="noopener noreferrer">来源</a>）。换句话说，套利者在赚钱的同时，也在帮市场变得更「公平」。</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">适合喜欢动脑、算成本、能接受「忙活半天只赚几块钱」的人；不适合想一夜暴富、无法接受「机会稍纵即逝」的人。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">套利不是「找到宝藏」，而是<b>「在所有人都看得见的地方，比谁的手更快、成本更低」</b>。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：Bit.com 套利知识库、中金财富「期限套利交易介绍」、博客园「拆解 Polymarket 五大套利流派」、百度百科「套利」词条、维基百科「套利」词条。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
