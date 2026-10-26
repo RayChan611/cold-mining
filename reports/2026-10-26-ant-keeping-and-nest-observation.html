@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 养蚁与蚁巢观察</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+
+<style id=cold-mining-responsive-20260904>
+  /* 长 URL 兜底换行（防止撑破容器） */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb, .sec-note {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 自然观察</div>
+  <h1>养蚁与蚁巢观察：把一窝「微型文明」搬进客厅，凭什么让人上头？</h1>
+  <div class="sub">不用遛、不用铲屎，一群小东西自己搞基建、搞分工、搞社会——你只是个「房东」兼「纪录片导演」。</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。宠物饲养有风险，外来物种切勿放生，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：这个领域是干什么的、谁在玩、值不值得普通人关注。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：在人工蚁巢里饲养一个完整的蚂蚁群落，观察它们挖隧道、分食物、带娃、打仗的「微型社会纪录片」。</li>
+        <li><b>谁在玩</b>：自然爱好者、桌面生态缸玩家、被短视频里「蚂蚁搬家」治愈的都市青年、以及一小撮硬核「蚁学家」。</li>
+        <li><b>市场多大</b>：全球蚂蚁饲养市场仍属小众，但在电商平台上入门蚁巢套装（蚁巢+工具+活体蚁后）普遍在 ¥50–500 区间，高端定制亚克力蚁巢可上千 [UNSOURCED]。</li>
+        <li><b>小白能玩吗</b>：能。一窝本地普通蚂蚁的试错成本极低，真正的门槛是「别折腾它们」——很多人死于手太勤快。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <!-- 首屏概念图：蚁巢剖面，一只蚁后居中 -->
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <rect x="20" y="20" width="120" height="120" rx="12" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <!-- 蚁后身体 -->
+        <ellipse cx="80" cy="78" rx="12" ry="16" fill="#1f1f1f" stroke="#e8e8e8" stroke-width="1.5"/>
+        <circle cx="80" cy="56" r="6" fill="#1f1f1f" stroke="#e8e8e8" stroke-width="1.5"/>
+        <path d="M74 58 L68 48 M86 58 L92 48" stroke="#e8e8e8" stroke-width="1.2"/>
+        <path d="M74 52 L68 46 M86 52 L92 46" stroke="#e8e8e8" stroke-width="1.2"/>
+        <!-- 工蚁一只 -->
+        <ellipse cx="40" cy="110" rx="6" ry="8" fill="#1f1f1f" stroke="#c8a866" stroke-width="1.2"/>
+        <circle cx="40" cy="98" r="3.5" fill="#1f1f1f" stroke="#c8a866" stroke-width="1.2"/>
+        <!-- 蚁道 -->
+        <path d="M20 130 Q40 110 60 125 T100 120 T120 135" fill="none" stroke="#2a2a2a" stroke-width="3"/>
+        <path d="M60 125 Q80 140 100 120" fill="none" stroke="#2a2a2a" stroke-width="2"/>
+        <!-- 卵 -->
+        <ellipse cx="95" cy="88" rx="4" ry="3" fill="#c8a866"/>
+        <ellipse cx="105" cy="90" rx="3.5" ry="2.8" fill="#c8a866"/>
+        <text x="80" y="148" fill="#8a8a8a" font-size="9" text-anchor="middle">蚁巢剖面概念图</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">养蚁有点像<b>租房子给一个「全女班建筑公司」</b>：你提供一个蚁巢（房子）、水和食物（物业），然后坐在旁边看它们自己开会、自己盖房、自己带孩子。区别在于——<b>你永远当不了老板</b>。蚁后负责生孩子，工蚁负责干活，兵蚁负责打架，它们之间的分工是刻在基因里的，你插不上手，只能当个优秀的人类「房东」。<br><br>如果非要打个比方：养鱼是看一幅会动的画，养猫是伺候一个室友，而养蚁是<b>订阅了一部永不重播的「街道办日常」</b>——每天都有新的隧道、新的尸体搬运、新的食物谈判。有游戏制作人甚至把「圆蛛入侵蚁巢」的戏码放进游戏里，用兵蚁、哨兵蚁的不同功能来教玩家理解蚂蚁的「社会分工」，因为这套逻辑在现实里本身就足够戏剧化（来源：<a class="src" href="https://m.36kr.com/p/1402722127664768" target="_blank" rel="noopener noreferrer">36氪</a>）。</p>
+  </div>
+  <div class="illus">
+    <!-- 价值链：野外采集 → 人工蚁巢 → 观察互动 -->
+    <svg viewBox="0 0 720 120" width="720" height="120" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="38" width="180" height="48" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="100" y="60" fill="#e8e8e8" font-size="12" text-anchor="middle">野外采集/购买</text>
+      <text x="100" y="78" fill="#8a8a8a" font-size="10" text-anchor="middle">蚁后 + 工蚁 + 卵</text>
+      <path d="M195 62 H235" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="245" y="38" width="180" height="48" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="335" y="60" fill="#e8e8e8" font-size="12" text-anchor="middle">人工蚁巢</text>
+      <text x="335" y="78" fill="#8a8a8a" font-size="10" text-anchor="middle">亚克力/石膏/沙土</text>
+      <path d="M430 62 H470" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="480" y="38" width="180" height="48" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="570" y="60" fill="#e8e8e8" font-size="12" text-anchor="middle">观察 &amp; 记录</text>
+      <text x="570" y="78" fill="#8a8a8a" font-size="10" text-anchor="middle">喂食/拍照/分享</text>
+      <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">典型的养蚁流程：先有「一后多工」的群落基础，再入住人工蚁巢，最后进入日常观察</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 价格带</h2>
+  <div class="sec-note">用真实数字说明蛋糕有多大、钱集中在哪。来源内联标注。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>档位</th><th>典型价格</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>入门档</td><td class="up">¥30 – 150</td><td>本地普通蚂蚁（如铺道蚁、弓背蚁）蚁后+工蚁，配基础亚克力巢，适合第一次练手。</td></tr>
+        <tr><td>进阶档</td><td>¥200 – 800</td><td>大群落、稀有本地种、可扩展组合巢、恒温/保湿配件，适合已经养过一两窝的人。</td></tr>
+        <tr><td>发烧档</td><td class="down">¥1,000 – 5,000+</td><td>定制大型蚁巢、蚂蚁主题生态缸、进口物种（注意法规）、专业摄影/延时记录设备。</td></tr>
+      </tbody>
+    </table>
+    <p style="color:#777;font-size:11.5px;margin-top:8px;">注：以上价格区间基于电商平台公开标价的常见范围归纳，未覆盖极端定制情况 [UNSOURCED]。不同物种、群落规模差异极大，请以实际渠道为准。</p>
+  </div>
+  <div class="illus">
+    <!-- 价格带柱状图 -->
+    <svg viewBox="0 0 720 220" width="720" height="220" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <rect x="110" y="120" width="90" height="60" fill="#c8a866"/>
+      <text x="155" y="110" fill="#c8a866" font-size="11" text-anchor="middle">¥30–150</text>
+      <rect x="280" y="80" width="90" height="100" fill="#c8a866"/>
+      <text x="325" y="70" fill="#c8a866" font-size="11" text-anchor="middle">¥200–800</text>
+      <rect x="450" y="40" width="90" height="140" fill="#e05050"/>
+      <text x="495" y="30" fill="#e05050" font-size="11" text-anchor="middle">¥1,000+</text>
+      <text x="155" y="198" fill="#9a9a9a" font-size="11" text-anchor="middle">入门</text>
+      <text x="325" y="198" fill="#9a9a9a" font-size="11" text-anchor="middle">进阶</text>
+      <text x="495" y="198" fill="#9a9a9a" font-size="11" text-anchor="middle">发烧</text>
+      <text x="375" y="215" fill="#8a8a8a" font-size="11" text-anchor="middle">价格带高度仅为相对示意，非精确比例</text>
+    </svg>
+    <div class="cap">养蚁入门到发烧的价格跨度，比很多「收藏型爱好」亲民得多</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台 -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在制定规则、谁在赚钱、小白该去哪个平台。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">ROOT</span>
+        <h3>蚁巢制造商</h3>
+        <ul><li>亚克力/石膏/3D 打印蚁巢的源头玩家，决定「你家的蚂蚁住什么户型」。</li><li>头部品牌集中在淘宝/闲鱼，定制周期数天到数周，材质直接影响观察体验与蚂蚁健康。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">活体源头</span>
+        <h3>蚁商 / 蚁后卖家</h3>
+        <ul><li>出售「新后」（刚交配完的蚁后）和「小群落」，是入坑的第一道门。</li><li>价格差异极大，本地普通种几十元，稀有/进口种可能上百甚至更贵，务必确认来源合法性。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">HOT</span>
+        <h3>短视频 / 社区博主</h3>
+        <ul><li>B 站、抖音、小红书上的「蚂蚁纪录片导演」，靠延时摄影和剧情化剪辑把养蚁变成下饭内容。</li><li>很多人先刷到「蚂蚁搬家」视频，再入坑买第一窝——内容平台是这个圈子最大的流量入口。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>小白友好入口</h3>
+        <ul><li>推荐从「本地常见种 + 成品亚克力蚁巢套装」开始，商家一般会附喂养说明。</li><li>先加一个蚂蚁饲养社群（贴吧/QQ群/微信群），看别人怎么处理「爆巢」「不产卵」再下单。</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就梭哈。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步：选一种「难死」的本地蚂蚁</div><div class="tl-body">推荐铺道蚁、日本弓背蚁、黑褐蚁等适应力强的本地种。不要一上来就买进口稀有蚁，它们往往对温湿度要求苛刻，新手容易「一窝端」。花费通常在 ¥50 以内，先练手再进阶。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步：布置一个「低维护」蚁巢</div><div class="tl-body">选择亚克力或石膏材质、带保湿功能的成品蚁巢，配一个「活动区」（外接盒）用来喂食和丢垃圾。蚁巢不要放在阳光直射、震动频繁的地方——蚂蚁对振动极其敏感，手机震动都能吓到它们。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步：建立「只看不动手」的观察节奏</div><div class="tl-body">每周固定喂食 1–3 次（糖水、昆虫碎、水果），保持蚁巢湿润但别积水。关键原则：<b>不要每天把蚁巢翻来覆去</b>，蚁后受惊会停止产卵，整个群落可能因此崩掉。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步：等群落稳定后再升级</div><div class="tl-body">当工蚁数量稳定增长、蚁后持续产卵、食物消耗变快时，再考虑扩大蚁巢或换更大空间。升级时注意「越住越小」原则：空间太大，蚂蚁会把垃圾堆在不该堆的地方，反而容易发霉。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>「手太勤快」</h3><ul><li>每天开盖看、频繁移动蚁巢、用强光照射——蚁后一旦持续受惊就会停止产卵，群落断崖式衰退。</li><li><b>避坑：</b>把观察频率控制在每周 1–2 次，用红光手电或手机屏幕亮度调低来看。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>「一上来就买大巢」</h3><ul><li>新手常犯的错误：给一窝 20 只工蚁的群落配一个能住 2,000 只的大蚁巢。结果蚂蚁把垃圾堆在空房间里，发霉、爆发螨虫。</li><li><b>避坑：</b>蚁巢空间按「当前工蚁数 × 3–5 倍」来选，住得紧凑反而干净。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>「乱喂人类食物」</h3><ul><li>面包屑、饼干、调味过的肉——这些对蚂蚁来说不是零食，是「化学武器」。高盐高糖人工食品会打乱它们的信息素系统，甚至招来霉菌。</li><li><b>避坑：</b>主食用糖水+去头昆虫（面包虫、蟋蟀），干净卫生，蚂蚁也吃得欢。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li><b>「你只是房东，不是上帝。」</b>蚂蚁社会有自己的运行逻辑，你管得越多，死得越快。把「不打扰」当默认状态，反而能看到最真实的社会行为。</li></ul></div>
+  </div>
+  <div class="illus">
+    <!-- 误区 vs 真相 -->
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="20" y="28" width="310" height="74" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="175" y="56" fill="#e05050" font-size="13" text-anchor="middle">误区：每天开盖看蚂蚁</text>
+      <text x="175" y="79" fill="#c4c4c4" font-size="11" text-anchor="middle">「我多关心它们，它们会更好」</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="400" y="28" width="310" height="74" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="555" y="56" fill="#50b070" font-size="13" text-anchor="middle">真相：少打扰，养得更好</text>
+      <text x="555" y="79" fill="#c4c4c4" font-size="11" text-anchor="middle">蚂蚁社会靠信息素运转，安静才能发展</text>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">养蚁第一课：你不是在「养宠物」，你是在「维护一个安静的微缩社会」</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>新后</b></td><td>刚交配完、还没生第一批工蚁的年轻蚁后。买「新后」便宜但风险高，可能不产卵。</td></tr>
+        <tr><td><b>群落 / 群</b></td><td>一只蚁后带领的完整家庭单位。养蚁的「群大小」一般按工蚁数量算。</td></tr>
+        <tr><td><b>活动区</b></td><td>蚁巢外面接的开放式盒子，用来放食物和水，蚂蚁会自己出来「上桌」。</td></tr>
+        <tr><td><b>爆巢</b></td><td>工蚁数量增长过快，蚁巢住不下了。表现是蚂蚁挤在巢口、频繁搬卵、甚至试图逃跑。</td></tr>
+        <tr><td><b>信息素</b></td><td>蚂蚁之间交流的「化学语言」，用于标记食物路径、辨认同伴、拉响警报。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">蚂蚁能把同伴的尸体搬到固定的「墓地」区域，有些物种还会在尸体上覆盖泥土和碎叶——这可能是你第一次在昆虫身上看到「殡葬行为」。而在游戏《小小蚁国》中，「圆蛛入侵蚁巢」的设定之所以不突兀，正是因为自然界里这种「弱肉强食」的入侵与防御每天都在真实上演（来源：<a class="src" href="https://m.36kr.com/p/1402722127664768" target="_blank" rel="noopener noreferrer">36氪</a>）。</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">适合喜欢「安静观察」、能忍住不折腾的人；不适合追求互动感、总想上手摸的玩家——蚂蚁不是猫狗，它们是「只能看不能撸」的桌面纪录片。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">养蚁的本质，是<b>把「社会」装进一个透明盒子，然后学会尊重它的沉默和秩序</b>。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：36氪（<a class="src" href="https://m.36kr.com/p/1402722127664768" target="_blank" rel="noopener noreferrer">查看来源</a>）、《小游戏：生态成长仍在趋势之中》研报（<a class="src" href="https://pdf.dfcfw.com/pdf/H3_AP202512191803976690_1.pdf" target="_blank" rel="noopener noreferrer">查看来源</a>）；价格带与物种建议基于电商平台公开信息归纳 [UNSOURCED]。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
