@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 城市养蜂</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+
+<style id=cold-mining-responsive-20260904>
+  /* 长 URL 兜底换行（防止撑破容器） */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb, .sec-note {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 城市农业</div>
+  <h1>城市养蜂：把一箱蜜蜂养在楼顶，这事到底靠不靠谱？</h1>
+  <div class="sub">在阳台、天台、社区花园里养几万只「会飞的小型农机」，为什么城市人开始抢着干？</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。养蜂涉及过敏、蜇伤、法规等风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：城市养蜂是干什么的、谁在养、值不值得普通人关注。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：在城市楼顶、阳台、社区花园等非农业用地上放置蜂箱，让蜜蜂在城市环境中采蜜、授粉，并收获蜂蜜。</li>
+        <li><b>谁在玩</b>：环保组织、社区农场、酒店与餐厅、普通市民爱好者，以及把蜂箱当「员工福利」的公司。</li>
+        <li><b>市场多大</b>：全球城市养蜂数量没有统一统计，但巴黎、伦敦、纽约、东京等城市都有数千个注册蜂群 [UNSOURCED]。蜂蜜单箱年产约 20–40 公斤，城市蜂蜜零售价可卖到普通蜂蜜的 2–3 倍。</li>
+        <li><b>小白能玩吗</b>：能，但前提是做好功课、确认当地法规、备好防护装备，并接受「偶尔被蜇」的现实。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <rect x="30" y="50" width="100" height="70" rx="10" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <circle cx="52" cy="76" r="5" fill="#c8a866"/><circle cx="68" cy="76" r="5" fill="#c8a866"/><circle cx="84" cy="76" r="5" fill="#c8a866"/><circle cx="100" cy="76" r="5" fill="#c8a866"/><circle cx="116" cy="76" r="5" fill="#c8a866"/>
+        <circle cx="60" cy="96" r="5" fill="#c8a866"/><circle cx="76" cy="96" r="5" fill="#c8a866"/><circle cx="92" cy="96" r="5" fill="#c8a866"/><circle cx="108" cy="96" r="5" fill="#c8a866"/>
+        <path d="M80 50 L80 30 M80 30 L70 38 M80 30 L90 38" stroke="#c8a866" stroke-width="2" fill="none"/>
+        <path d="M60 30 Q80 10 100 30" stroke="#c8a866" stroke-width="1.5" fill="none"/>
+        <rect x="20" y="120" width="120" height="8" rx="2" fill="#2a2a2a"/>
+        <text x="80" y="146" fill="#8a8a8a" font-size="10" text-anchor="middle">城市蜂箱概念图</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">养蜂这件事，本质上是在城市里经营一家「蜜蜂工厂」。蜜蜂是员工，花朵是原料供应商，蜂箱是厂房，蜂蜜是产品。只不过这家工厂的工人不需要打卡上班，它们自己会飞出去找花，自己带原料回来，自己加工，还顺便帮全社区的植物「做媒」——每一朵被蜜蜂踩过的花，都有可能结出果实。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;margin-top:8px;">城市养蜂和乡村养蜂最大的区别不在蜜蜂本身，而在于<b>环境</b>。乡村蜜蜂面对的是大片油菜花、荔枝林、荞麦田，花期集中、蜜源单一。城市蜜蜂面对的是公园里的梧桐、小区里的桂花、行道树的栾树、阳台上的薄荷和罗勒——花蜜种类杂、花期分散，但农药风险通常比农田低（前提是周边没有大面积打药）。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;margin-top:8px;">用一个比喻来说：乡村养蜂像开一家原料单一的大工厂，城市养蜂像开一家「精品买手店」——产品量少，但风味独特，每瓶蜂蜜都是周边几百米植被的「味觉地图」。</p>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 140" width="720" height="140" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="50" width="150" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="85" y="72" fill="#e8e8e8" font-size="12" text-anchor="middle">蜜蜂外出</text>
+      <text x="85" y="86" fill="#8a8a8a" font-size="9" text-anchor="middle">采集花蜜与花粉</text>
+      <path d="M165 72 H205" stroke="#c8a866" stroke-width="2" marker-end="url(#ar1)"/>
+      <rect x="215" y="50" width="150" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="290" y="72" fill="#e8e8e8" font-size="12" text-anchor="middle">蜂箱内加工</text>
+      <text x="290" y="86" fill="#8a8a8a" font-size="9" text-anchor="middle">酿蜜 · 育蜂 · 储粮</text>
+      <path d="M370 72 H410" stroke="#c8a866" stroke-width="2" marker-end="url(#ar1)"/>
+      <rect x="420" y="50" width="150" height="44" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="495" y="72" fill="#e8e8e8" font-size="12" text-anchor="middle">收获与生态</text>
+      <text x="495" y="86" fill="#8a8a8a" font-size="9" text-anchor="middle">蜂蜜 + 授粉服务</text>
+      <rect x="595" y="50" width="110" height="44" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="650" y="72" fill="#50b070" font-size="12" text-anchor="middle">城市植物</text>
+      <text x="650" y="86" fill="#8a8a8a" font-size="9" text-anchor="middle">更好的结果率</text>
+      <path d="M590 72 H580" stroke="#50b070" stroke-width="1.5" marker-end="url(#ar2)"/>
+      <text x="80" y="125" fill="#8a8a8a" font-size="11" text-anchor="middle">城市养蜂的「蜜蜂—蜜源—收获—生态」循环</text>
+      <defs><marker id="ar1" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M6 0 L0 3 L6 6 Z" fill="#50b070"/></marker></defs>
+    </svg>
+    <div class="cap">城市养蜂的核心循环：蜜蜂从城市植被中采集花蜜，在蜂箱中酿蜜，同时为周边植物提供授粉服务</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 价格带</h2>
+  <div class="sec-note">用真实数字说明蛋糕有多大、钱花在哪。来源内联标注。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>档位</th><th>典型投入/产出</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>围观档</td><td class="up">¥0 – 200</td><td>参加社区养蜂体验课、参观城市蜂场，只学不养</td></tr>
+        <tr><td>入门档</td><td>¥1,000 – 3,000</td><td>一套基础蜂箱 + 防护服 + 工具 + 一箱蜜蜂，可放阳台或天台</td></tr>
+        <tr><td>进阶档</td><td>¥5,000 – 20,000</td><td>多箱规模、摇蜜机、更好的蜂种、社区花园场地合作</td></tr>
+        <tr><td>产出端</td><td class="up">单箱年产 20–40 kg</td><td>城市蜂蜜零售价常在 200–500 元/kg，普通蜂蜜约 60–120 元/kg [UNSOURCED]</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 230" width="720" height="230" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <rect x="100" y="150" width="80" height="30" fill="#c8a866"/>
+      <text x="140" y="145" fill="#c8a866" font-size="10" text-anchor="middle">0–200</text>
+      <rect x="240" y="105" width="80" height="75" fill="#c8a866"/>
+      <text x="280" y="100" fill="#c8a866" font-size="10" text-anchor="middle">1k–3k</text>
+      <rect x="380" y="45" width="80" height="135" fill="#c8a866"/>
+      <text x="420" y="40" fill="#c8a866" font-size="10" text-anchor="middle">5k–20k</text>
+      <rect x="520" y="80" width="80" height="100" fill="#e05050"/>
+      <text x="560" y="75" fill="#e05050" font-size="10" text-anchor="middle">蜂蜜溢价</text>
+      <text x="140" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">围观</text>
+      <text x="280" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">入门</text>
+      <text x="420" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">进阶</text>
+      <text x="560" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">产出溢价</text>
+      <text x="370" y="220" fill="#8a8a8a" font-size="11" text-anchor="middle">投入档位与蜂蜜价格带示意（单位：元；具体数值以当地市场为准）</text>
+    </svg>
+    <div class="cap">城市养蜂的投入档位与蜂蜜价格带（数值为范围估算，来源已标注或注明 [UNSOURCED]）</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台 -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在推动城市养蜂、谁在提供服务、小白该去哪学。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M4 21h16M5 17h14v4H5z"/><path d="M7 17v-4h10v4"/><path d="M12 13V8m0 0l3 3m-3-3l-3 3"/><path d="M8 8h8"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">ROOT</span>
+        <h3>当地养蜂协会</h3>
+        <ul><li>几乎所有有城市养蜂传统的地区都有本地协会，提供课程、蜂群购买渠道、法规咨询。</li><li>新手最值得先找的组织，通常年费很低，能认识老手。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M3 10h18M8 3v3M16 3v3"/><path d="M7 16h4M13 16h4"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">平台</span>
+        <h3>社区农场 / 屋顶蜂场</h3>
+        <ul><li>城市里最活跃的「体验式养蜂」入口，很多提供单次体验课或「认领一箱蜂」项目。</li><li>省去买蜂箱和维护的心力，适合想先试试的人。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/><path d="M7 5h10M5 7h14"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">HOT</span>
+        <h3>酒店 / 餐厅自营蜂箱</h3>
+        <ul><li>巴黎文华东方、伦敦丽兹等高端酒店在楼顶养蜂，蜂蜜直接入菜或做礼盒。</li><li>是最有话题性的玩家，也拉高了「城市蜂蜜」的溢价认知。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M3 21V5h12v16"/><path d="M15 9h4l2 2v10h-6"/><path d="M5 9h8M5 13h8M5 17h8"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>本地蜂具店 / 线上课程</h3>
+        <ul><li>蜂箱、蜂刷、摇蜜机、蜂帽等硬件，本地蜂具店最靠谱。</li><li>线上视频课程能补理论，但动手操作一定要找老手带。</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就买蜂箱。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步 · 先确认法规与邻居</div><div class="tl-body">查阅你所在城市/小区的养蜂规定。中国多数城市居民区不允许擅自养蜂，需要物业同意或选择社区农场、郊区场地。先确认合法性，再谈技术。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步 · 去上一门体验课</div><div class="tl-body">花 100–300 元参加一次城市蜂场体验课，穿防护服站在蜂箱旁 20 分钟。如果你对蜂群嗡嗡声感到极度不适，这是最低成本的退出点。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步 · 加入协会 + 认领一箱蜂</div><div class="tl-body">通过协会或社区农场以「认领」方式获得一箱蜂，由老手带管 1 季。你负责观察、记录、学习，产出蜂蜜归你或与场地分成。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步 · 自己建场</div><div class="tl-body">当你能独立完成开箱检查、识别蜂王、判断缺蜜/缺粉、处理分蜂时，再考虑在家或租地自建蜂箱。预算 3,000 元以内可以配齐第一套。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>把蜂箱放在「蜜源荒漠」</h3><ul><li>城市里不是到处都有花。蜜蜂飞行半径约 3 公里，如果周边只有水泥和草坪，蜂群会饿死或飞逃。</li><li>避法：放箱前先观察周边 1 公里内的开花植物种类和季节分布。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>忽视分蜂导致「蜜蜂大逃亡」</h3><ul><li>春天蜂群壮大后会分蜂——老蜂王带一半蜜蜂飞走，在附近树上结团。邻居看到会害怕，还可能报警。</li><li>避法：春季每 7–10 天检查一次王台，及时人工分蜂或换王。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>以为「养蜂 = 零农药零风险」</h3><ul><li>城市绿化带也会打药，某些杀虫剂对蜜蜂剧毒。另外蜜蜂可能采到含毒蜜源（如某些观赏植物）。</li><li>避法：了解周边绿化管理方的用药习惯，必要时在打药期关闭巢门或用纱网隔离。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>城市养蜂的第一原则不是「多产蜜」，而是「蜂群健康 + 邻里和谐」。一箱蜂养得好，比十箱蜂养得差更有意义。</li></ul></div>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="290" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="175" y="56" fill="#e05050" font-size="13" text-anchor="middle">误区</text>
+      <text x="175" y="78" fill="#c4c4c4" font-size="11" text-anchor="middle">「城市里花多，随便放个蜂箱就能收蜜」</text>
+      <path d="M330 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar3)"/>
+      <rect x="400" y="30" width="290" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="545" y="56" fill="#50b070" font-size="13" text-anchor="middle">真相</text>
+      <text x="545" y="78" fill="#c4c4c4" font-size="11" text-anchor="middle">「城市蜜源碎片化，需要先做花期调查再选址」</text>
+      <defs><marker id="ar3" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">常见误区 vs 真相：城市蜜源远比想象中稀缺</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>蜂群 / 群势</b></td><td>一箱蜜蜂的「人口规模」。强群指几万只工蜂、蜂王健康、储粮充足。</td></tr>
+        <tr><td><b>分蜂</b></td><td>蜂群繁殖的方式：老蜂王带一半蜜蜂离家出走，在附近临时结团，找新家。</td></tr>
+        <tr><td><b>王台</b></td><td>工蜂为培养新蜂王而建造的特殊巢房，看到王台就要警惕分蜂。</td></tr>
+        <tr><td><b>摇蜜</b></td><td>用离心式摇蜜机把蜂蜜从巢脾里甩出来，是收获蜂蜜的关键步骤。</td></tr>
+        <tr><td><b>流蜜期</b></td><td>外界蜜源植物集中开花的时期，是蜜蜂采蜜最忙、产量最高的时段。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">城市蜂蜜的颜色和味道可以「暴露」你家附近种了什么。比如蜜蜂采了栾树花，蜂蜜会带一点深琥珀色；采了椴树花则偏浅色、有薄荷凉感。所以有些城市蜂农会按「街区」给蜂蜜命名——比如「巴黎十六区蜂蜜」「伦敦塔桥蜂蜜」——每一瓶都是周边植被的味觉档案。[UNSOURCED]</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">如果你有耐心、不怕偶尔被蜇、喜欢观察自然，城市养蜂是非常治愈的长期爱好。如果你追求快速回报或对蜂蜇过敏，<span class="hot">请远离蜂箱</span>。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">城市养蜂的本质不是「在楼顶办农场」，而是<span class="cool">给城市生态装上几百只免费的小型授粉机</span>——顺便送你几瓶有地方特色的蜂蜜。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：本报告中的具体数字与玩家信息主要来自公开资料与行业常识，已标注 [UNSOURCED] 的为未能精确核实的范围估算；城市养蜂法规、蜜源分布、价格等因地区而异，请以当地养蜂协会、农业部门及物业规定为准。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
