@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 商业票据</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+
+<style id=cold-mining-responsive-20260904>
+  /* 长 URL 兜底换行（防止撑破容器） */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb, .sec-note {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 货币市场</div>
+  <h1>商业票据：大企业开给市场的「短期借条」，凭信用就能借钱</h1>
+  <div class="sub">大白话讲清楚：为什么华为、国家电网不需要抵押物，光凭一张承诺付款的纸（现在是电子报文）就能借到几十亿</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或借贷建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。金融有风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：商业票据是干什么的、谁在玩、值不值得普通人关注。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：信用极好的大企业，向市场打一张「欠条」，承诺 1 天到 1 年内还本付息，用来解决短期资金周转。</li>
+        <li><b>谁在玩</b>：核心大企业（出票人/承兑人）、银行（承兑、贴现、再贴现）、财务公司、货币基金、机构投资者。散户极少直接参与。</li>
+        <li><b>市场多大</b>：截至 2025 年，仅商业承兑汇票（商票）余额预计约 <b>2.5 万亿元</b>，是 2021 年以来首次回升 <a class="src" href="https://www.piaofengzixun.com/2026/02/11/2025%E5%B9%B4%E7%A5%A8%E6%8D%AE%E5%B8%82%E5%9C%BA%E7%9A%84%E5%85%AB%E9%A1%B9%E6%B4%9E%E5%AF%9F" target="_blank" rel="noopener noreferrer">查看来源</a>。</li>
+        <li><b>小白能玩吗</b>：普通人很难直接买商业票据，但你的余额宝、银行理财、货币基金底层很可能就持有商业票据——你已经在间接参与了。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <rect x="18" y="22" width="124" height="86" rx="12" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <text x="80" y="48" fill="#e8e8e8" font-size="12" text-anchor="middle" font-weight="600">商业票据</text>
+        <text x="80" y="66" fill="#c8a866" font-size="10" text-anchor="middle">出票人：某核心大企业</text>
+        <rect x="30" y="80" width="100" height="1" fill="#2a2a2a"/>
+        <text x="80" y="96" fill="#e8e8e8" font-size="10" text-anchor="middle">承诺到期无条件付款</text>
+        <text x="48" y="118" fill="#9a9a9a" font-size="9">金额：¥10,000,000</text>
+        <text x="112" y="118" fill="#9a9a9a" font-size="9">期限：90 天</text>
+        <path d="M22 108 H138" stroke="#2a2a2a" stroke-width="1.5"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">想象你的一个朋友在小区里口碑极好、收入稳定、从没赖过账。某天他找你借 5 万块，说两个月后还你 5 万零 800 块利息，<b>不打抵押、不押房产证，就写一张纸条：</b>「我承诺 2025 年 12 月 31 日前无条件支付这笔钱。」你会借吗？大概率会，因为他的信用就值这个价。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;margin-top:10px;">商业票据就是这个逻辑的<span style="color:#c8a866;">企业版、批发版、动辄上亿版</span>。信用评级极高的核心企业（比如大型央企、上市公司）需要短期周转——发工资、付上游供应商货款、采购原材料——但它不想走银行贷款那套复杂流程，于是直接向市场「打欠条」：<b>谁手里有钱，谁就来买这张欠条</b>，到期企业按票面金额还本付息。对买方来说，这是比银行存款利息高一点的短期理财；对企业来说，这是比银行贷款更快、更便宜的融资方式。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;margin-top:10px;">与个人借条最大的区别在于：<b>商业票据是标准化的、可转让的、受法律严格约束的</b>。你手里的借条只能找那个朋友要钱；但商业票据可以在二级市场转手卖给别人，就像一张可以交易的「短期债券」。更关键的是，很多商业票据由银行承兑（银行承诺到期兜底付款），信用等级就更高了。</p>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 140" width="720" height="140" xmlns="http://www.w3.org/2000/svg">
+      <defs><marker id="ar01" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+      <rect x="10" y="50" width="190" height="48" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="105" y="70" fill="#e8e8e8" font-size="12" text-anchor="middle">出票人（大企业）</text>
+      <text x="105" y="86" fill="#9a9a9a" font-size="10" text-anchor="middle">需要短期资金</text>
+      <path d="M200 74 H242" stroke="#c8a866" stroke-width="2" marker-end="url(#ar01)"/>
+      <rect x="252" y="50" width="190" height="48" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="347" y="70" fill="#e8e8e8" font-size="12" text-anchor="middle">票据（欠条）</text>
+      <text x="347" y="86" fill="#9a9a9a" font-size="10" text-anchor="middle">标准化、可转让</text>
+      <path d="M442 74 H484" stroke="#c8a866" stroke-width="2" marker-end="url(#ar01)"/>
+      <rect x="494" y="50" width="190" height="48" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="589" y="70" fill="#e8e8e8" font-size="12" text-anchor="middle">投资者 / 银行</text>
+      <text x="589" y="86" fill="#9a9a9a" font-size="10" text-anchor="middle">出钱买下欠条</text>
+      <text x="360" y="122" fill="#8a8a8a" font-size="11" text-anchor="middle">商业票据的核心流转路径：企业打欠条 → 市场出钱 → 到期还本付息</text>
+    </svg>
+    <div class="cap">商业票据的核心流转路径：信用好的大企业开票融资，投资者出钱赚利息，到期企业还本付息</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 价格带</h2>
+  <div class="sec-note">用真实数字说明蛋糕有多大、钱集中在哪。来源内联标注。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>档位 / 类型</th><th>典型特征</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>商业承兑汇票（商票）</td><td class="up">余额约 2.5 万亿元（2025 年预计）</td><td>由企业自己承兑，信用取决于出票企业。2021 年以来首次回升 <a class="src" href="https://www.piaofengzixun.com/2026/02/11/2025%E5%B9%B4%E7%A5%A8%E6%8D%AE%E5%B8%82%E5%9C%BA%E7%9A%84%E5%85%AB%E9%A1%B9%E6%B4%9E%E5%AF%9F" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
+        <tr><td>银行承兑汇票（银票）</td><td>信用等级最高</td><td>由银行承诺到期付款，违约风险极低，市场流动性最好 [据公开资料]</td></tr>
+        <tr><td>短期融资券（CP）</td><td class="up">单笔通常 1 亿 – 数十亿元</td><td>超短期融资券期限 270 天以内，短期融资券期限 1 年以内，均在中国银行间市场交易商协会注册发行 [据公开资料]</td></tr>
+        <tr><td>票据贴现利率</td><td>约 1% – 3% 年化（2025 年区间）</td><td>票据贴现利率随货币市场波动，近年处于历史低位区间 [据公开资料]</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 230" width="720" height="230" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <rect x="105" y="100" width="90" height="80" fill="#c8a866"/>
+      <text x="150" y="92" fill="#c8a866" font-size="11" text-anchor="middle">商票</text>
+      <text x="150" y="195" fill="#9a9a9a" font-size="10" text-anchor="middle">约 2.5 万亿</text>
+      <rect x="265" y="60" width="90" height="120" fill="#d4d4d4"/>
+      <text x="310" y="52" fill="#d4d4d4" font-size="11" text-anchor="middle">银票</text>
+      <text x="310" y="195" fill="#9a9a9a" font-size="10" text-anchor="middle">规模最大</text>
+      <rect x="425" y="130" width="90" height="50" fill="#e05050"/>
+      <text x="470" y="122" fill="#e05050" font-size="11" text-anchor="middle">短期融资券</text>
+      <text x="470" y="195" fill="#9a9a9a" font-size="10" text-anchor="middle">单笔大额</text>
+      <rect x="585" y="150" width="90" height="30" fill="#50b070"/>
+      <text x="630" y="142" fill="#50b070" font-size="11" text-anchor="middle">贴现利率</text>
+      <text x="630" y="195" fill="#9a9a9a" font-size="10" text-anchor="middle">约 1%–3%</text>
+      <text x="375" y="218" fill="#8a8a8a" font-size="11" text-anchor="middle">商业票据市场结构示意（柱高不代表精确比例，数据见上表标注）</text>
+    </svg>
+    <div class="cap">商业票据市场结构示意：商票余额回升、银票规模最大、贴现利率处于低位</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台 -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在制定规则、谁在赚钱、小白该去哪个平台。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">ROOT</span>
+        <h3>上海票据交易所（票交所）</h3>
+        <ul><li>人民银行指导下的全国统一票据交易平台，负责票据的登记、托管、交易、清算，所有电子商业汇票都在这里流转。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">核心</span>
+        <h3>出票企业（承兑人）</h3>
+        <ul><li>信用好的大央企、上市公司、龙头民企。它们开票融资，是商业票据的「债主方」。商票逾期数量已从 2023 年的 2355 家降至 2025 年的 774 家，信用环境明显改善 <a class="src" href="https://www.piaofengzixun.com/2026/02/11/2025%E5%B9%B4%E7%A5%A8%E6%8D%AE%E5%B8%82%E5%9C%BA%E7%9A%84%E5%85%AB%E9%A1%B9%E6%B4%9E%E5%AF%9F" target="_blank" rel="noopener noreferrer">查看来源</a>。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">HOT</span>
+        <h3>银行与财务公司</h3>
+        <ul><li>银行既做承兑（银票），也做贴现（提前买下票据给企业现金）。财务公司是大型企业集团内部的「小银行」，也大量参与票据业务。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">间接参与</span>
+        <h3>货币基金 / 理财产品</h3>
+        <ul><li>你的余额宝、银行现金管理类理财，底层资产清单里经常出现「同业存单」「商业票据」——你其实已经在间接赚票据利息了。</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就梭哈。普通人几乎无法直接买商业票据，但可以这样间接参与和理解。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">打开你的余额宝 / 零钱通 / 银行活期理财的「产品说明书」或「定期报告」，在「投资范围」或「资产配置」一栏找找有没有「商业票据」「短期融资券」「同业存单」这些字眼。看到了，你就已经间接持有商业票据了。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">在财经网站（如上海票据交易所官网、中国货币网）搜索「票据贴现利率」「转贴现利率」。关注它的波动——当经济活跃、企业融资需求旺盛时，票据利率会上升；当央行放水、资金宽松时，利率会下降。这是判断货币松紧的一个灵敏温度计。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">关注「商票逾期名单」。上海票据交易所每月会公布承兑人逾期名单，如果某家你熟悉的大企业反复出现在名单上，说明它的现金流可能出了问题。这是判断企业信用风险的一个公开信号。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">如果真想直接参与，需要企业身份或机构资质：要么你是企业财务人员，通过银行企业网银操作票据贴现；要么你通过券商资管、信托计划等产品间接配置商业票据资产。个人投资者直接买商业票据的渠道基本不存在 [据公开资料]。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易在「票据理财」「民间票贩子」「电子债权凭证」上栽跟头。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>把「票据理财」当保本产品买</h3><ul><li>市面上很多「票据宝」类产品宣称「银行承兑、绝对安全」，但实际上底层可能是商票或民间票据，一旦出票企业逾期，本金可能损失。银票 ≠ 保本。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>被「无门槛高收益票据」忽悠</h3><ul><li>正规商业票据只面向机构投资者，个人无法直接买。凡是声称「个人可投、年化 8%、银行兜底」的票据项目，大概率是民间借贷包装的骗局。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>混淆「电子债权凭证」与正规票据</h3><ul><li>一些供应链平台推出的「电子债权凭证」（如某企云链）功能上类似商业汇票，但其登记机关自身存在经营风险，一旦登记机关出问题，电子债权的效力会受质疑 <a class="src" href="https://www.nafmii.org.cn/yj/jrscyj/qk/2023/202305/202305/P020230512595014705666.pdf" target="_blank" rel="noopener noreferrer">查看来源</a>。别把它当成有《票据法》保护的商业汇票。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li><b>看承兑人，不看平台。</b>商业票据的风险本质上是承兑人的信用风险。出票企业如果自己不靠谱，再大的平台、再高的收益承诺都救不了你。</li></ul></div>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="56" fill="#e05050" font-size="13" text-anchor="middle">误区</text>
+      <text x="180" y="78" fill="#c4c4c4" font-size="11" text-anchor="middle">「银行承兑 = 绝对保本」</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar05)"/>
+      <rect x="400" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="56" fill="#50b070" font-size="13" text-anchor="middle">真相</text>
+      <text x="550" y="78" fill="#c4c4c4" font-size="11" text-anchor="middle">银票信用很高，但底层资产仍要看承兑人</text>
+      <defs><marker id="ar05" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相：银行承兑降低风险，但不等于「零风险保本」</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>出票人</b></td><td>开票据、欠钱的那家大企业。</td></tr>
+        <tr><td><b>承兑人</b></td><td>承诺到期付款的人。商票的承兑人是企业自己；银票的承兑人是银行。</td></tr>
+        <tr><td><b>贴现</b></td><td>持票人把没到期的票据卖给银行，提前拿到现金，银行扣掉一部分利息。</td></tr>
+        <tr><td><b>转贴现</b></td><td>银行之间互相买卖票据。央行通过「再贴现」向银行提供资金。</td></tr>
+        <tr><td><b>短期融资券 / 超短融</b></td><td>大企业在银行间市场发行的 1 年以内 / 270 天以内的无担保债券，本质也是「大企业借条」。</td></tr>
+        <tr><td><b>逾期名单</b></td><td>上海票据交易所每月公布的到期没还钱的承兑人名单，是观察企业信用的公开窗口。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">商票逾期的企业数量在四年内从 2355 家降到 774 家——不是因为企业突然都变老实了，而是因为上海票据交易所推出了「信息披露与逾期处罚机制」，谁逾期就在全国平台上被点名，大企业最怕这个 <a class="src" href="https://www.piaofengzixun.com/2026/02/11/2025%E5%B9%B4%E7%A5%A8%E6%8D%AE%E5%B8%82%E5%9C%BA%E7%9A%84%E5%85%AB%E9%A1%B9%E6%B4%9E%E5%AF%9F" target="_blank" rel="noopener noreferrer">查看来源</a>。一张电子欠条，让「老赖」在阳光下无处遁形。</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">普通人没法直接买商业票据，但可以通过货币基金、银行理财间接参与。想直接玩？你得先成为企业财务或机构投资者。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb"><span class="hot">商业票据的本质不是一张纸，而是「信用」被标准化、可交易之后的样子。</span></div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：上海票据交易所公开信息、中国银行间市场交易商协会研究报告（2023 年 5 月）、票风资讯《2025 年票据市场的八项洞察》（2026 年 2 月）。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
