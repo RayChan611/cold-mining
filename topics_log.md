@@ -52,3 +52,4 @@
 | 2026-10-23 | 海水珊瑚缸：把一片珊瑚礁搬进客厅，凭什么是个「烧钱无底洞」？ | reports/2026-10-23-saltwater-reef-aquarium.html |
 | 2026-10-26 | 养蚁与蚁巢观察：把一窝「微型文明」搬进客厅，凭什么让人上头？ | reports/2026-10-26-ant-keeping-and-nest-observation.html |
 | 2026-10-27 | 城市养蜂：把一箱蜜蜂养在楼顶，这事到底靠不靠谱？ | reports/2026-10-27-urban-beekeeping.html |
+| 2026-10-28 | 精酿自酿入门：把厨房变成酿酒车间，一杯啤酒凭什么叫「手作」？ | reports/2026-10-28-craftbeer-homebrew-guide.html |
