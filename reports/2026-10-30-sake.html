@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 清酒</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  /* 图文并茂：插图与线稿图标 */
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+
+  /* 汇总入口：左上角悬浮返回总库 */
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+
+<style id=cold-mining-responsive-20260904>
+  /* 长 URL 兜底换行（防止撑破容器） */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb, .sec-note {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 发酵饮品</div>
+  <h1>清酒入门：一粒米被磨掉一半，凭什么卖得更贵？</h1>
+  <div class="sub">不是“日本米酒”四个字就完了：看懂精米、吟酿与温度，你就能开始认真喝。</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。未成年人请勿饮酒；饮酒不开车，清酒也不适合作为理财产品。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：清酒是什么、谁在做、该花多少钱入门。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：以米、米曲和水发酵酿成的日本酒；不是蒸馏白酒，也不是把米酒加点香精。</li>
+        <li><b>谁在玩</b>：酒藏负责酿造，杜氏管工艺，侍酒师与餐厅负责把它讲成人话，普通饮者负责别被术语吓跑。</li>
+        <li><b>市场多大</b>：这是成熟但持续分化的饮品市场；本篇不引用缺乏可靠出处的全球规模数字，重点看你能买到的价格带。</li>
+        <li><b>小白能玩吗</b>：能。先用一两瓶正规渠道的普通纯米酒或吟酿酒训练味觉，不必第一瓶就追“獭祭二割三分”。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="清酒瓶、酒杯与米粒线稿">
+        <path d="M58 20h28v22c0 8 14 13 14 27v55c0 8-6 12-14 12H58c-8 0-14-4-14-12V69c0-14 14-19 14-27z" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <path d="M58 31h28M49 79h46M49 112h46" fill="none" stroke="#e8e8e8" stroke-width="1.4"/>
+        <rect x="54" y="84" width="36" height="22" rx="3" fill="none" stroke="#c8a866" stroke-width="1.5"/>
+        <text x="72" y="99" fill="#e8e8e8" font-size="11" text-anchor="middle">酒</text>
+        <path d="M111 91h35c-1 20-7 29-18 29s-16-9-17-29z" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <path d="M115 99h27" stroke="#e8e8e8" stroke-width="1.4"/>
+        <ellipse cx="25" cy="57" rx="5" ry="10" transform="rotate(-28 25 57)" fill="none" stroke="#e8e8e8" stroke-width="1.5"/>
+        <ellipse cx="25" cy="82" rx="5" ry="10" transform="rotate(25 25 82)" fill="none" stroke="#c8a866" stroke-width="1.5"/>
+        <path d="M19 137h126" stroke="#2a2a2a" stroke-width="1.5"/>
+        <text x="80" y="151" fill="#8a8a8a" font-size="9" text-anchor="middle">米 · 曲 · 水 · 时间</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">清酒最妙的地方，是同一口缸里同时进行两场加工。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">把米饭想成一座“淀粉仓库”：酵母不会拿钥匙直接开门，它更擅长吃糖。于是先请<b style="color:#e8e8e8;">米曲</b>把淀粉分解成糖，再让<b style="color:#e8e8e8;">酵母</b>把糖变成酒精和香气。清酒采用“并行复发酵”，两边在同一酒醪里接力干活；这正是它区别于许多先糖化、再分开发酵饮品的关键。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;margin-top:10px;"><b style="color:#e8e8e8;">精米步合</b>则是另一只旋钮：指磨米后剩下的重量比例。60% 就是磨掉约四成、留下六成；数字越小，通常磨得越多，但不自动等于更好喝。外层被去掉，可以减少部分蛋白质和脂肪带来的杂味，也让成本与工时上升。等级、风味和喜好是三件相关但不完全重合的事。</p>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 170" width="720" height="170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="清酒从米到装瓶的酿造价值链">
+      <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+      <rect x="12" y="42" width="112" height="66" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <ellipse cx="48" cy="67" rx="6" ry="12" transform="rotate(-25 48 67)" fill="none" stroke="#e8e8e8"/>
+      <text x="78" y="70" fill="#e8e8e8" font-size="12" text-anchor="middle">选米</text><text x="68" y="91" fill="#9a9a9a" font-size="10" text-anchor="middle">精米</text>
+      <path d="M130 75 H153" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="162" y="42" width="112" height="66" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <path d="M180 58h30v25h-30zM185 63h20M185 69h20M185 75h20" fill="none" stroke="#e8e8e8"/>
+      <text x="239" y="70" fill="#e8e8e8" font-size="12" text-anchor="middle">蒸米</text><text x="218" y="94" fill="#9a9a9a" font-size="10" text-anchor="middle">制曲</text>
+      <path d="M280 75 H303" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="312" y="42" width="112" height="66" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <path d="M330 59h28v30h-28zM334 66c5-5 8 5 13 0s8 5 9 0" fill="none" stroke="#e8e8e8"/>
+      <text x="389" y="70" fill="#e8e8e8" font-size="12" text-anchor="middle">酒醪</text><text x="368" y="94" fill="#9a9a9a" font-size="10" text-anchor="middle">糖化＋发酵</text>
+      <path d="M430 75 H453" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="462" y="42" width="112" height="66" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <path d="M480 57h30l-5 34h-20zM486 66h18" fill="none" stroke="#e8e8e8"/>
+      <text x="539" y="70" fill="#e8e8e8" font-size="12" text-anchor="middle">压榨</text><text x="518" y="94" fill="#9a9a9a" font-size="10" text-anchor="middle">过滤 · 调整</text>
+      <path d="M580 75 H603" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="612" y="42" width="96" height="66" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <path d="M632 55h12v9l6 7v20h-24V71l6-7z" fill="none" stroke="#e8e8e8"/>
+      <text x="676" y="70" fill="#e8e8e8" font-size="12" text-anchor="middle">装瓶</text><text x="660" y="94" fill="#9a9a9a" font-size="10" text-anchor="middle">冷藏到餐桌</text>
+      <text x="360" y="140" fill="#c8a866" font-size="11" text-anchor="middle">真正的价值链：原料与工艺 → 风味 → 品牌与渠道 → 你的杯子</text>
+    </svg>
+    <div class="cap">结构图：一瓶清酒的大致旅程；不同酒藏会有各自工序与取舍。</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 价格带</h2>
+  <div class="sec-note">先看零售预算，不拿未经核实的“行业总规模”撑场面。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>档位</th><th>典型价格</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>入门档</td><td class="up">约 ¥80–200 / 720ml</td><td>普通纯米酒、本酿造或基础款；先确认自己喜欢辛口、醇厚还是清爽。</td></tr>
+        <tr><td>进阶档</td><td>约 ¥200–500 / 720ml</td><td>纯米吟酿、吟酿及部分产地特色款；适合横向比较，不必只追低精米数字。</td></tr>
+        <tr><td>高阶档</td><td class="down">约 ¥500–1,500+ / 720ml</td><td>纯米大吟酿、限定款与知名品牌高端线；包装、稀缺性和渠道也会抬价。</td></tr>
+      </tbody>
+    </table>
+    <p style="color:#8a8a8a;font-size:12px;margin-top:10px;">价格为跨境零售中常见的粗略预算带，不是统一指导价；容量、税费、进口渠道与地区都会造成明显差异 [UNSOURCED]。同一款酒在餐厅按杯或按瓶出售，也不能直接和零售价比。</p>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 250" width="720" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="清酒三档预算柱状对比图">
+      <line x1="70" y1="25" x2="70" y2="185" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="70" y1="185" x2="680" y2="185" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="70" y1="145" x2="680" y2="145" stroke="#242424"/><line x1="70" y1="105" x2="680" y2="105" stroke="#242424"/><line x1="70" y1="65" x2="680" y2="65" stroke="#242424"/>
+      <text x="57" y="188" fill="#777" font-size="10" text-anchor="end">0</text><text x="57" y="148" fill="#777" font-size="10" text-anchor="end">500</text><text x="57" y="108" fill="#777" font-size="10" text-anchor="end">1000</text><text x="57" y="68" fill="#777" font-size="10" text-anchor="end">1500</text>
+      <rect x="125" y="153" width="100" height="32" rx="3" fill="#c8a866"/>
+      <rect x="310" y="145" width="100" height="40" rx="3" fill="#c8a866"/>
+      <rect x="495" y="65" width="100" height="120" rx="3" fill="#e05050"/>
+      <text x="175" y="143" fill="#e8e8e8" font-size="12" text-anchor="middle">约 ¥200</text>
+      <text x="360" y="135" fill="#e8e8e8" font-size="12" text-anchor="middle">约 ¥500</text>
+      <text x="545" y="55" fill="#e8e8e8" font-size="12" text-anchor="middle">¥1,500+</text>
+      <text x="175" y="207" fill="#9a9a9a" font-size="12" text-anchor="middle">入门档上沿</text>
+      <text x="360" y="207" fill="#9a9a9a" font-size="12" text-anchor="middle">进阶档上沿</text>
+      <text x="545" y="207" fill="#9a9a9a" font-size="12" text-anchor="middle">高阶档起点以上</text>
+      <text x="375" y="235" fill="#8a8a8a" font-size="10" text-anchor="middle">柱高表示预算上沿／开放区间，不代表销量或品质（人民币，720ml）</text>
+    </svg>
+    <div class="cap">数据图：用来安排第一笔预算，不是“越贵越值”排行榜；价格带为粗略经验值 [UNSOURCED]。</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台（玩家卡片用线稿 SVG 小图标，不用 emoji） -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">别只记品牌：先分清谁酿酒、谁定标准、谁负责把酒安全送到你手里。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">ROOT</span>
+        <h3>酒藏与杜氏</h3>
+        <ul><li>酒藏是酿造者，杜氏是带队掌握酿造的人；水、米、曲、酵母与卫生管理共同决定风格。对小白而言，<b>同一品牌不同系列也可能完全不是一个性格</b>。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">规则</span>
+        <h3>日本国税厅与行业标识</h3>
+        <ul><li>“吟酿”“纯米”等不是随便写在海报上的形容词，而受相应酒类规则约束。买酒时看完整酒标与配料信息，比只看瓶身一个“大”字靠谱。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">HOT</span>
+        <h3>知名品牌：獭祭、久保田、十四代</h3>
+        <ul><li>它们常出现在讨论和礼赠场景，但知名度不等于你的口味答案。尤其稀缺款可能溢价明显，也存在假货与不当保存风险，别把“难买”误当“必喝”。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>专业零售店与靠谱日料店</h3>
+        <ul><li>优先选能说明<b>到货、保存与开瓶时间</b>的商家。先买小瓶或按杯试饮，请对方推荐一款纯米酒和一款吟酿酒做对照，比闷头刷网红清单有效。</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">目标不是背完所有等级，而是找到你愿意再喝第二杯的风格。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步 · 控制变量</div><div class="tl-body">预算约 ¥200–400，选正规渠道的一瓶纯米酒和一瓶吟酿或纯米吟酿，容量可优先 300ml 或 720ml。不要同时换产地、杯子和配餐，否则喝完只剩一句“都挺像酒”。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步 · 做一张笨笔记</div><div class="tl-body">每款只记五项：闻到的香气、入口甜或干、酸味是否清爽、收口长短、想配什么菜。先冷藏后回温一点再喝，并尝试略高的饮用温度，观察变化。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步 · 建立判断框架</div><div class="tl-body">把“精米步合多少”降级成参考项，把“是否新鲜、是否平衡、我是否喜欢”升级成主问题。再尝试薰酒、爽酒、醇酒、熟酒这些风格语言，但不必硬背。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步 · 再决定加预算</div><div class="tl-body">只有当你能说出贵价酒具体多了什么——更细腻的香气、更长的余味或更好的配餐表现——才值得升级。若只是请客撑场面，也请承认那是在买品牌与包装。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑（可加一张「误区 vs 真相」插图） -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">清酒最常见的学费，不是买便宜，而是为错误指标付高价。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>把精米步合当考试分数</h3><ul><li>23% 不必然比 60% 更适合你。低数字往往意味着更多研磨和成本，却不能保证香气、酸度与酒体恰好合你的口味；先喝风格，再看参数。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>所有清酒都烫到冒烟</h3><ul><li>高温可能压掉细腻果香，也会让酒精感更冲。芳香型吟酿酒通常宜从较低温度试起；部分醇厚酒款温饮很有意思，但“温”不等于滚烫。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>当葡萄酒一样长期囤</h3><ul><li>多数清酒更适合在良好保存下尽早喝，尤其强调新鲜香气的类型。避光、低温、减少震动，开瓶后冷藏并尽快饮用；专门熟成酒另当别论。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li><b>好喝、保存可靠、渠道可信，排在稀有和昂贵前面。</b>清酒是易受损的饮品，不是放柜子里自动升值的迷你金条。</li></ul></div>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 150" width="720" height="150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="清酒误区与真相对比">
+      <rect x="25" y="25" width="300" height="92" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="175" y="51" fill="#e05050" font-size="13" text-anchor="middle">误区：数字越小越高级</text>
+      <text x="175" y="76" fill="#c4c4c4" font-size="11" text-anchor="middle">只盯精米步合，越贵越买</text>
+      <text x="175" y="98" fill="#8a8a8a" font-size="10" text-anchor="middle">结果：可能买到昂贵但不合口味</text>
+      <path d="M338 71 H386" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="398" y="25" width="300" height="92" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="548" y="51" fill="#50b070" font-size="13" text-anchor="middle">真相：参数只是线索</text>
+      <text x="548" y="76" fill="#c4c4c4" font-size="11" text-anchor="middle">先比风味、温度与保存状态</text>
+      <text x="548" y="98" fill="#8a8a8a" font-size="10" text-anchor="middle">结果：为喜欢付钱，不为数字付钱</text>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相：精米步合描述“剩多少米”，不是给你的味觉打分。</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">看懂酒标上的高频词，已经足够开始点酒。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>精米步合</b></td><td>磨米后剩下的重量百分比；60% 就是留下六成，不是“酒精度 60%”。</td></tr>
+        <tr><td><b>纯米</b></td><td>核心原料走米、米曲与水的路线，不以“添加酿造酒精”来塑造该类别；仍要具体看酒标。</td></tr>
+        <tr><td><b>吟酿 / 大吟酿</b></td><td>与特定精米及酿造要求相关的等级名称，常让人联想到细致香气，但每瓶表现仍不同。</td></tr>
+        <tr><td><b>纯米大吟酿</b></td><td>“纯米路线”与“大吟酿等级”的组合，不是单纯表示更甜或更烈。</td></tr>
+        <tr><td><b>辛口 / 甘口</b></td><td>大致指口感偏干或偏甜，不等于完全不甜或一定辣；实际感受还受酸度等影响。</td></tr>
+        <tr><td><b>生酒</b></td><td>通常指未经常规加热杀菌处理的酒，更依赖冷链与妥善保存，购买时尤其要问清。</td></tr>
+        <tr><td><b>原酒</b></td><td>通常指压榨后未加水调整酒精度的酒，往往更浓，但不代表一定更高级。</td></tr>
+        <tr><td><b>杜氏</b></td><td>酒藏里的酿造负责人，类似带队掌控整个发酵现场的总工程师。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">下次有人只问“这是不是二割三分”，你可以把话题救回来。</div>
+  <div class="card">
+    <p class="quote">清酒酿酒师有时会把米磨得很小，却不是为了让你嚼到“更细的米”——米早就蒸过、发酵过，最后留在杯子里的是风味。换句话说，你付钱买的不是米粉，而是被去掉一部分原料之后，工艺想要保留或放大的那种表达。</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">适合喜欢低门槛做风味实验、愿意认真配餐的人；不适合想靠囤酒升值，或把贵价标签当味觉答案的人。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">清酒的门道不在“米磨得有多狠”，而在米、曲、水与时间最后有没有在你的杯子里讲通一个道理。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：本次联网检索结果未提供与清酒直接相关的可靠资料，故未采用无关网页；酿造概念与术语依据公开行业常识整理，零售价格带及保存建议为概括性入门参考并标 [UNSOURCED]。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html

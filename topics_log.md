@@ -53,3 +53,4 @@
 | 2026-10-26 | 养蚁与蚁巢观察：把一窝「微型文明」搬进客厅，凭什么让人上头？ | reports/2026-10-26-ant-keeping-and-nest-observation.html |
 | 2026-10-27 | 城市养蜂：把一箱蜜蜂养在楼顶，这事到底靠不靠谱？ | reports/2026-10-27-urban-beekeeping.html |
 | 2026-10-28 | 精酿自酿入门：把厨房变成酿酒车间，一杯啤酒凭什么叫「手作」？ | reports/2026-10-28-craftbeer-homebrew-guide.html |
+| 2026-10-30 | 清酒入门：一粒米被磨掉一半，凭什么卖得更贵？ | reports/2026-10-30-sake.html |
