@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 信用违约互换</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  /* 图文并茂：插图与线稿图标 */
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+
+  /* 汇总入口：左上角悬浮返回总库 */
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+
+<style id=cold-mining-responsive-20260904>
+  /* 长 URL 兜底换行（防止撑破容器） */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb, .sec-note {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../index.html">← 返回汇总</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 金融衍生品</div>
+  <h1>信用违约互换：给债券买「保险」，怎么就成了华尔街的赌桌？</h1>
+  <div class="sub">一句话副标题：一张「别人欠债不还，我赔你」的合同，如何同时成为风控神器和危机放大器</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。投资/收藏有风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：这个领域是干什么的、谁在玩、值不值得普通人关注。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：信用违约互换（Credit Default Swap，简称 CDS）是一份合同——你定期付一笔「保费」，对方承诺：如果某家公司或国家欠债不还（违约），他赔你损失。它最早于 20 世纪 90 年代初产生于美国 <a class="src" href="https://qks.sufe.edu.cn/mv_html/j00003/201703/6c5d5648-a01d-406f-80c8-47dd1d7feb3a_WEB.htm" target="_blank" rel="noopener noreferrer">查看来源</a>。</li>
+        <li><b>谁在玩</b>：几乎全是机构——银行、对冲基金、保险公司、资管巨头。散户基本摸不到，也不需要摸。</li>
+        <li><b>市场多大</b>：巅峰时期（2007–2008 年前后）全球 CDS 名义本金高达数十万亿美元；2008 年金融危机后持续缩水、并大量转入中央清算，如今规模约为巅峰时的一小部分（据公开资料，定性描述）。</li>
+        <li><b>小白能玩吗</b>：不能直接玩，但值得懂——CDS 的报价是观察「市场觉得谁要出事」的窗口，2008 年金融危机和欧债危机里它都是主角 <a class="src" href="https://qks.sufe.edu.cn/mv_html/j00003/201703/6c5d5648-a01d-406f-80c8-47dd1d7feb3a_WEB.htm" target="_blank" rel="noopener noreferrer">查看来源</a>。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <!-- 首屏概念图：一把伞护住一张借条，雨滴是「违约风险」 -->
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <!-- 雨滴：风险 -->
+        <path d="M30 14 l-4 10 M58 8 l-4 10 M86 12 l-4 10 M114 8 l-4 10 M138 16 l-4 10" stroke="#c8a866" stroke-width="2" stroke-linecap="round"/>
+        <!-- 伞 -->
+        <path d="M20 62 Q80 6 140 62 Z" fill="none" stroke="#c8a866" stroke-width="2"/>
+        <path d="M20 62 Q35 52 50 62 Q65 52 80 62 Q95 52 110 62 Q125 52 140 62" fill="none" stroke="#c8a866" stroke-width="1.5"/>
+        <line x1="80" y1="34" x2="80" y2="108" stroke="#c8a866" stroke-width="2"/>
+        <path d="M80 108 q0 12 -12 10" fill="none" stroke="#c8a866" stroke-width="2"/>
+        <!-- 借条 -->
+        <rect x="48" y="76" width="64" height="58" rx="5" fill="#141414" stroke="#e8e8e8" stroke-width="1.6"/>
+        <line x1="58" y1="92" x2="102" y2="92" stroke="#e8e8e8" stroke-width="1.4"/>
+        <line x1="58" y1="104" x2="102" y2="104" stroke="#e8e8e8" stroke-width="1.4"/>
+        <line x1="58" y1="116" x2="86" y2="116" stroke="#e8e8e8" stroke-width="1.4"/>
+        <text x="80" y="152" fill="#8a8a8a" font-size="10" text-anchor="middle">CDS：给「欠条」撑把伞</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">它有点像<b style="color:#e8e8e8;">给借条买保险</b>。假设你借给邻居老王 100 万，怕他跑路，于是找到镇上的「担保老王协会」：你每年付 1 万，约定五年内老王若真赖账，协会把 100 万赔给你。这就是 CDS 的骨架——学术一点的表述是：寻求保护的买方定期支付固定费用给保护提供方，保护提供方承诺当特定「信用事件」发生时支付约定金额；而「什么情况算违约」恰恰是 CDS 应用中最难的部分 <a class="src" href="https://qks.sufe.edu.cn/mv_html/j00003/201703/6c5d5648-a01d-406f-80c8-47dd1d7feb3a_WEB.htm" target="_blank" rel="noopener noreferrer">查看来源</a>。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;margin-top:10px;">但它和真正的保险有<b style="color:#e8e8e8;">两个要命的区别</b>：第一，买普通保险你得拥有那栋房子、那辆车；买 CDS 你<b style="color:#e8e8e8;">不必真的持有老王的借条</b>——你可以纯粹赌「老王会赖账」，这叫「裸 CDS」。第二，保险公司收了保费要留足赔款准备金，而当年的 CDS 卖方很多时候并没有（据公开资料）。于是同一张借条可以被无数人参保、无数人参赌，老王还没跑路，镇上的赌局已经比老王的债务大好多倍。</p>
+  </div>
+  <div class="illus">
+    <!-- 结构 / 价值链图：保护买方 ↔ 保护卖方，挂钩参考实体 -->
+    <svg viewBox="0 0 720 190" width="720" height="190" xmlns="http://www.w3.org/2000/svg">
+      <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+      <rect x="20" y="52" width="200" height="66" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="120" y="80" fill="#e8e8e8" font-size="13" text-anchor="middle">保护买方（如银行）</text>
+      <text x="120" y="100" fill="#9a9a9a" font-size="11" text-anchor="middle">手里有借条，怕赖账</text>
+      <rect x="500" y="52" width="200" height="66" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="600" y="80" fill="#e8e8e8" font-size="13" text-anchor="middle">保护卖方（如保险机构）</text>
+      <text x="600" y="100" fill="#9a9a9a" font-size="11" text-anchor="middle">收保费，赌「不会出事」</text>
+      <path d="M225 66 H492" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <text x="358" y="56" fill="#c8a866" font-size="12" text-anchor="middle">定期付「保费」（利差，按基点计）</text>
+      <path d="M495 104 H228" stroke="#e8e8e8" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#ar)"/>
+      <text x="360" y="126" fill="#e8e8e8" font-size="12" text-anchor="middle">若发生信用事件：赔付违约损失</text>
+      <rect x="255" y="142" width="210" height="38" rx="8" fill="#141414" stroke="#e8e8e8" stroke-width="1.2"/>
+      <text x="360" y="166" fill="#e8e8e8" font-size="12" text-anchor="middle">参考实体：欠债的公司 / 国家</text>
+      <path d="M120 122 V150 H250" fill="none" stroke="#2a2a2a" stroke-width="1.5"/>
+      <path d="M600 122 V150 H470" fill="none" stroke="#2a2a2a" stroke-width="1.5"/>
+    </svg>
+    <div class="cap">结构示意：一张 CDS 合同的三方关系——买卖双方对赌，赌的是第三方（参考实体）会不会违约</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 价格带</h2>
+  <div class="sec-note">CDS 没有「零售价」，它的价格是「保费率」；市场规模则像过山车。来源内联标注。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>观察维度</th><th>大致水平 / 区间</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>「保费」怎么报价</td><td class="up">基点（bp）/ 年</td><td>100bp = 每年付名义本金的 1%。保 1 亿元、报价 100bp，一年保费约 100 万元（据公开资料）</td></tr>
+        <tr><td>安全 vs 危险</td><td>几十 bp ↔ 数千 bp</td><td>信用越好越便宜；报价飙到几百上千 bp，说明市场已在为它「办后事」做准备（定性描述）</td></tr>
+        <tr><td>市场规模</td><td class="down">巅峰后大幅缩水</td><td>2008 年前后名义本金达数十万亿美元，危机后持续压缩并转向中央清算（据公开资料，定性）</td></tr>
+        <tr><td>中国版 CDS</td><td>2016 年推出</td><td>2016 年银行间市场推出中国版 CDS 相关业务，学界随即讨论其关键制度问题 <a class="src" href="https://qks.sufe.edu.cn/mv_html/j00003/201703/6c5d5648-a01d-406f-80c8-47dd1d7feb3a_WEB.htm" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="illus">
+    <!-- 数据对比图：同一张借条，不同「保费」对应的年成本 -->
+    <svg viewBox="0 0 720 240" width="720" height="240" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="20" x2="60" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="180" x2="690" y2="180" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="60" y1="140" x2="690" y2="140" stroke="#1f1f1f" stroke-width="1"/>
+      <line x1="60" y1="100" x2="690" y2="100" stroke="#1f1f1f" stroke-width="1"/>
+      <line x1="60" y1="60" x2="690" y2="60" stroke="#1f1f1f" stroke-width="1"/>
+      <rect x="110" y="164" width="90" height="16" fill="#c8a866"/>
+      <rect x="280" y="100" width="90" height="80" fill="#c8a866"/>
+      <rect x="450" y="20" width="90" height="160" fill="#e05050"/>
+      <text x="155" y="156" fill="#c8a866" font-size="12" text-anchor="middle">10 万</text>
+      <text x="325" y="92" fill="#c8a866" font-size="12" text-anchor="middle">50 万</text>
+      <text x="495" y="14" fill="#e05050" font-size="12" text-anchor="middle">100 万</text>
+      <text x="155" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">50bp · 信用良好</text>
+      <text x="325" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">250bp · 开始担心</text>
+      <text x="495" y="200" fill="#9a9a9a" font-size="11" text-anchor="middle">500bp · 高度紧张</text>
+      <text x="380" y="224" fill="#8a8a8a" font-size="11" text-anchor="middle">示例测算：为 1 亿元债务买保护，不同报价下的年保费（示意，非实时行情）</text>
+    </svg>
+    <div class="cap">CDS 报价就是「风险体温」：保费率越贵，市场越觉得借款人可能还不上钱（示意测算）</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台（玩家卡片用线稿 SVG 小图标，不用 emoji） -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在制定规则、谁在赚钱、小白该去哪里看热闹。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">ROOT</span>
+        <h3>ISDA：写「游戏规则」的行业协会</h3>
+        <ul><li>国际掉期与衍生工具协会，制定 CDS 标准合同与「信用事件」定义框架；其决议委员会负责裁定「这到底算不算违约」——CDS 应用中最难的问题（据公开资料）。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">对手方</span>
+        <h3>银行与做市商：撮合与对赌的一线</h3>
+        <ul><li>大型投行 / 商业银行是 CDS 交易的核心撮合者与报价方；银行自己也买保护来降低贷款和债券的信用风险。门槛是机构级的资金、授信与合规，散户无入场通道（据公开资料）。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">HOT</span>
+        <h3>对冲基金与保险公司：最有名的两类玩家</h3>
+        <ul><li>对冲基金用 CDS 表达「我赌它会出事」的观点（2008 年前做空次贷者即此类）；保险公司则常站在卖方收保费——美国 AIG 因巨额 CDS 卖方敞口在 2008 年危机中被救助，成为教科书案例（据公开资料）。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>小白友好入口：看数据，不下场</h3>
+        <ul><li>普通人最该做的不是交易，而是「读」：财经媒体报道某国 / 某公司 CDS 利差飙升时，把它当作风险预警信号；想深挖可看 ISDA 与央行、交易所的公开科普与统计（据公开资料）。</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就梭哈——这个市场本来也不收散户。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步</div><div class="tl-body">先把「债券 + 违约」这对概念搞懂：CDS 是挂在债券 / 贷款上的衍生品，不知道借条是什么，就看不懂给借条买的保险。零成本，读入门科普即可。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步</div><div class="tl-body">学会读一个数：CDS 利差（多少 bp）。下次看到「某国五年期 CDS 飙升」的新闻，翻译成「给这个国家欠债不还买保险，变贵了」——你已经在用机构视角看风险。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步</div><div class="tl-body">建立一个判断框架：CDS 有双重身份——手里真有债券的人用它对冲（保险），没有债券的人用它投机（对赌）。听到任何 CDS 相关争论，先问「说话的人是哪一种」。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步</div><div class="tl-body">到此为止就好。CDS 属于机构间衍生品市场，需要授信、保证金与专业法律文件；普通人若真想管理信用风险，更现实的做法是分散持仓、控制单一债券 / 单一平台的敞口，而不是想办法去碰 CDS。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑（可加一张「误区 vs 真相」插图） -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行（以及当年的内行）最容易交学费的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>「有 CDS 兜底 = 绝对安全」</h3><ul><li>保护再好，也得卖方赔得起。2008 年 AIG 的案例说明：当满市场都是卖方、又同时出事时，「保险」本身会变成风险源（据公开资料）。避法：看对手方是谁，而不只看合同写了什么。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>「什么情况算违约」没看懂</h3><ul><li>破产、拒付、债务重组算不算触发赔付？特定信用事件的确定正是 CDS 应用的难点 <a class="src" href="https://qks.sufe.edu.cn/mv_html/j00003/201703/6c5d5648-a01d-406f-80c8-47dd1d7feb3a_WEB.htm" target="_blank" rel="noopener noreferrer">查看来源</a>。避法：别凭直觉认定「出事了就一定赔」。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>把 CDS 当成稳赚的「做空神器」</h3><ul><li>裸 CDS 看对了方向也可能输：保费要一直付，市场可以比你想象得更久不违约；且利差还受流动性与情绪影响，并非纯粹的违约概率（据公开资料）。避法：别把电影里的暴富故事当操作手册。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>衍生品不消灭风险，只搬运风险——搬到最后，一定有人抱着它。看不懂风险被搬去了哪儿，就别上桌。</li></ul></div>
+  </div>
+  <div class="illus">
+    <!-- 误区 vs 真相 对比图 -->
+    <svg viewBox="0 0 720 130" width="720" height="130" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="180" y="58" fill="#e05050" font-size="13" text-anchor="middle">误区</text>
+      <text x="180" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">「买了 CDS，违约就跟我没关系了」</text>
+      <path d="M340 65 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="400" y="30" width="300" height="70" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="550" y="58" fill="#50b070" font-size="13" text-anchor="middle">真相</text>
+      <text x="550" y="80" fill="#c4c4c4" font-size="11" text-anchor="middle">风险只是转给卖方；卖方倒了，风险回来找你</text>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相：CDS 转移的是「谁先承担损失」，不是让损失凭空消失</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>参考实体</b></td><td>被「赌会不会赖账」的那家公司或国家——合同围着它转，但它本人不参与合同。</td></tr>
+        <tr><td><b>信用事件</b></td><td>合同约定的「出事了」清单，如破产、拒不还钱、债务重组；触发了才谈赔付，而界定它正是 CDS 的难点 <a class="src" href="https://qks.sufe.edu.cn/mv_html/j00003/201703/6c5d5648-a01d-406f-80c8-47dd1d7feb3a_WEB.htm" target="_blank" rel="noopener noreferrer">查看来源</a>。</td></tr>
+        <tr><td><b>名义本金</b></td><td>用来算保费和赔款的「账面基数」，不是真有一笔这么多钱在流转——所以市场规模数字看着吓人。</td></tr>
+        <tr><td><b>裸 CDS</b></td><td>自己没持有债券也买保护，纯属押注对方会违约；像给别人的房子买火险，房子烧了你赚钱。</td></tr>
+        <tr><td><b>基点（bp）</b></td><td>万分之一。CDS 报价 200bp，就是每年交名义本金 2% 的「保费」。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">CDS 不只赌公司，还能赌国家：欧债危机期间，「主权 CDS」成了市场给希腊等国开出的「病危通知书」，学界也专门研究过它对欧元区主权债务危机的影响——一份保险合同，就这样站到了国家命运的牌桌旁 <a class="src" href="https://qks.sufe.edu.cn/mv_html/j00003/201703/6c5d5648-a01d-406f-80c8-47dd1d7feb3a_WEB.htm" target="_blank" rel="noopener noreferrer">查看来源</a>。</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">适合想读懂金融危机、会看宏观新闻的好奇心选手；<span class="hot">不适合</span>想亲自下场交易的散户——门没有，也不必硬翻窗。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">CDS 是把「他不还钱」这件心事做成合同卖掉的生意：<span class="cool">用对了是保险，用滥了是赌场</span>。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：《论我国信用违约互换（CDS）风险的法律防范——基于信息披露规则完善的视角》（上海财经大学学术期刊平台，2017），及其引用的张博、周文渊《中国版 CDS 的关键问题》（《中国金融》2016 年第 16 期）、巴曙松等《主权 CDS 对欧元区主权债务危机的影响》（《国际金融研究》2012 年第 7 期）；其余机制性描述据公开资料整理，未核实精确数字处已作定性处理。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
