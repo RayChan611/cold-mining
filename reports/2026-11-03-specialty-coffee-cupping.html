@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>精品咖啡与杯测：一杯咖啡凭什么卖你40块？</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+
+<style id=cold-mining-responsive-20260904>
+  /* 长 URL 兜底换行（防止撑破容器） */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb, .sec-note {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 风味经济学</div>
+  <h1>精品咖啡与杯测：一杯咖啡凭什么卖你40块？</h1>
+  <div class="sub">从一颗生豆到一张打分表，看懂「好喝」是怎么被定价的</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。投资/收藏有风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：这个领域是干什么的、谁在玩、值不值得普通人关注。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：精品咖啡 ≈ 咖啡界的「高分选手」——业内常用门槛是杯测 80 分以上，并对产地、处理、烘焙、冲煮全链路提要求；杯测就是用统一方法给咖啡「闻香、喝汤、打分」的质检仪式 <a class="src" href="https://www.cbndata.com/information/190680" target="_blank" rel="noopener noreferrer">查看来源</a></li>
+        <li><b>谁在玩</b>：庄园与处理站、生豆商、烘焙师、Q Grader（咖啡品鉴师）、独立咖啡馆，以及越来越多想喝明白的普通爱好者</li>
+        <li><b>市场多大</b>：2025 年中国咖啡门店约 21.5 万家、净增 4 万多家，连锁化率由 46% 升至 53%；咖啡豆总消耗量近 40 万吨 <a class="src" href="https://m.bjnews.com.cn/detail/1768309547168863.html" target="_blank" rel="noopener noreferrer">查看来源</a></li>
+        <li><b>小白能玩吗</b>：能，而且比很多爱好省钱——先花几十元参加一次公开杯测，比先买几千元设备更能练出判断力</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <path d="M35 62 H112 V102 C112 121 96 132 74 132 C52 132 35 121 35 102 Z" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <path d="M112 72 H124 C140 72 140 98 124 98 H112" fill="none" stroke="#c8a866" stroke-width="2"/>
+        <ellipse cx="74" cy="62" rx="39" ry="9" fill="#101010" stroke="#e8e8e8" stroke-width="1.5"/>
+        <path d="M54 48 C45 37 63 33 54 20 M78 48 C69 37 87 33 78 20 M100 48 C91 37 109 33 100 20" fill="none" stroke="#c8a866" stroke-width="1.5"/>
+        <path d="M20 140 H137" stroke="#2a2a2a" stroke-width="2"/>
+        <path d="M121 116 L145 128" stroke="#e8e8e8" stroke-width="3" stroke-linecap="round"/>
+        <ellipse cx="116" cy="113" rx="10" ry="6" transform="rotate(28 116 113)" fill="#141414" stroke="#e8e8e8" stroke-width="1.5"/>
+        <text x="80" y="153" fill="#8a8a8a" font-size="9" text-anchor="middle">杯测碗 · 破渣 · 啜吸</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">把精品咖啡想成「咖啡界的高分农产品」：不是看包装多高级，而是看这颗豆子能不能把产地、品种和处理方式的风味讲清楚。美国精品咖啡协会相关定义还强调谨慎水洗与日晒、精选无瑕疵生豆、运输零失误，再由烘焙与萃取把「地域之味」带出来；业内也常用杯测 80 分以上作为精品门槛 <a class="src" href="https://www.cbndata.com/information/190680" target="_blank" rel="noopener noreferrer">查看来源</a>。</p>
+    <p style="color:#c4c4c4;font-size:13.5px;margin-top:10px;">杯测则像「统一考场」：同样的粉量、水温、研磨和时间，几碗咖啡排开，先闻干香湿香，再破渣、捞渣，最后用勺子大力啜吸，让咖啡雾状铺开。评分会看香气、风味、余韵、酸质等维度 <a class="src" href="https://www.cbndata.com/information/190680" target="_blank" rel="noopener noreferrer">查看来源</a>。它不是玄学，而是尽量把变量按住，让豆子自己开口。</p>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 170" width="720" height="170" xmlns="http://www.w3.org/2000/svg">
+      <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+      <rect x="10" y="45" width="150" height="62" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <path d="M55 82 C45 64 72 59 82 75 C91 91 66 101 55 82 Z" fill="none" stroke="#e8e8e8"/>
+      <text x="85" y="126" fill="#e8e8e8" font-size="12" text-anchor="middle">产地 / 品种</text>
+      <path d="M165 76 H190" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="200" y="45" width="150" height="62" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <path d="M255 60 H295 V90 H255 Z M262 60 V90 M288 60 V90" fill="none" stroke="#e8e8e8"/>
+      <text x="275" y="126" fill="#e8e8e8" font-size="12" text-anchor="middle">处理 / 生豆</text>
+      <path d="M355 76 H380" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="390" y="45" width="150" height="62" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <circle cx="465" cy="76" r="22" fill="none" stroke="#e8e8e8"/>
+      <path d="M443 76 H487 M465 54 V98" stroke="#e8e8e8"/>
+      <text x="465" y="126" fill="#e8e8e8" font-size="12" text-anchor="middle">烘焙 / 杯测</text>
+      <path d="M545 76 H570" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="580" y="45" width="130" height="62" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <path d="M620 61 H670 V88 C670 101 620 101 620 88 Z" fill="none" stroke="#e8e8e8"/>
+      <text x="645" y="126" fill="#e8e8e8" font-size="12" text-anchor="middle">冲煮 / 你</text>
+      <text x="360" y="22" fill="#c8a866" font-size="12" text-anchor="middle">风味不是某一个人变出来的，是一整条链共同保住的</text>
+      <text x="360" y="154" fill="#8a8a8a" font-size="11" text-anchor="middle">任何一环掉链子，最后的杯子都会替你「记住」</text>
+    </svg>
+    <div class="cap">价值链示意：从产地到杯中，杯测是中间的「质检与翻译」环节</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 价格带</h2>
+  <div class="sec-note">用真实数字说明蛋糕有多大、钱集中在哪。来源内联标注。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>档位</th><th>典型价格</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>日常连锁</td><td class="up">约 ¥25–27 / 单</td><td>2025 年连锁咖啡客单价区间；2023 年曾为 32–42 元，补贴与价格战把心理价位压低 <a class="src" href="https://m.bjnews.com.cn/detail/1768309547168863.html" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
+        <tr><td>主流可接受</td><td>¥21–30 / 杯</td><td>2025 年中国消费者中该区间占比 46.44%；11–20 元占 30.34%，31–40 元占 17.24% <a class="src" href="https://www.21jingji.com/article/20260306/herald/49f50485ad1d75809f6c6e397bdf9864.html" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
+        <tr><td>精品手冲</td><td class="down">常见 ¥30–80+ / 杯</td><td>城市、豆种与门店差异很大，此为据公开门店菜单的定性范围 [UNSOURCED]；40 元以上需要更清楚的风味与体验理由 <a class="src" href="https://www.cbndata.com/information/190680" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 250" width="720" height="250" xmlns="http://www.w3.org/2000/svg">
+      <line x1="70" y1="25" x2="70" y2="185" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="70" y1="185" x2="680" y2="185" stroke="#2a2a2a" stroke-width="1.5"/>
+      <text x="45" y="185" fill="#777" font-size="10" text-anchor="end">0%</text>
+      <text x="45" y="105" fill="#777" font-size="10" text-anchor="end">25%</text>
+      <text x="45" y="30" fill="#777" font-size="10" text-anchor="end">50%</text>
+      <line x1="70" y1="105" x2="680" y2="105" stroke="#1f1f1f"/>
+      <rect x="125" y="36.4" width="105" height="148.6" fill="#c8a866"/>
+      <rect x="310" y="88.5" width="105" height="96.5" fill="#e8e8e8"/>
+      <rect x="495" y="129.8" width="105" height="55.2" fill="#c8a866" opacity="0.65"/>
+      <text x="177" y="27" fill="#c8a866" font-size="13" text-anchor="middle">46.44%</text>
+      <text x="362" y="79" fill="#e8e8e8" font-size="13" text-anchor="middle">30.34%</text>
+      <text x="547" y="120" fill="#c8a866" font-size="13" text-anchor="middle">17.24%</text>
+      <text x="177" y="207" fill="#9a9a9a" font-size="12" text-anchor="middle">11–20 元</text>
+      <text x="362" y="207" fill="#9a9a9a" font-size="12" text-anchor="middle">21–30 元</text>
+      <text x="547" y="207" fill="#9a9a9a" font-size="12" text-anchor="middle">31–40 元</text>
+      <text x="375" y="235" fill="#8a8a8a" font-size="11" text-anchor="middle">2025 年中国消费者可接受单杯咖啡价格（占比）</text>
+    </svg>
+    <div class="cap">主流心智仍在 30 元以内；精品咖啡要卖贵，得让风味差异真的被喝到。来源：艾媒咨询，经 21 经济网报道 <a class="src" href="https://www.21jingji.com/article/20260306/herald/49f50485ad1d75809f6c6e397bdf9864.html" target="_blank" rel="noopener noreferrer">查看来源</a></div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台 -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在制定规则、谁在赚钱、小白该去哪个平台。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">ROOT</span>
+        <h3>SCA 与 Q Grader 体系</h3>
+        <ul><li>SCA（精品咖啡协会）提供行业话语与培训框架；Q Grader 是常见品鉴资质。对小白而言，重点不是背标准，而是找到按统一流程做杯测的店或课程 [UNSOURCED]</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">效率派</span>
+        <h3>Grid Coffee 等精品连锁</h3>
+        <ul><li>Grid Coffee 的思路是用技术释放风味，而非只靠手冲肌肉记忆，切入通勤美式等更高频场景；这说明「精品」也在从仪式感走向稳定复制 <a class="src" href="https://www.21jingji.com/article/20260306/herald/49f50485ad1d75809f6c6e397bdf9864.html" target="_blank" rel="noopener noreferrer">查看来源</a></li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">HOT</span>
+        <h3>瑞幸、库迪与跨界玩家</h3>
+        <ul><li>价格战改变了心理预期，16–25 元价格带被挤压；快餐、茶饮、便利店也在抢咖啡场景。它们未必都讲杯测，却决定了你买精品咖啡时的「参照价」 <a class="src" href="https://xinwen.bjd.com.cn/content/s695f0198e4b0687a288f6eb3.html" target="_blank" rel="noopener noreferrer">查看来源</a></li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>本地烘焙店与公开杯测</h3>
+        <ul><li>优先找能一次喝到 3–6 款豆子的公开杯测或烘焙工作室；问清是否收费、是否适合零基础。别先追名庄，先练「两杯放一起，我能不能说出不同」</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就梭哈。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步 · 先喝对比</div><div class="tl-body">花约 0–100 元参加本地公开杯测，或在同一家店点两款不同产地的黑咖啡。只回答三个问题：哪个更酸？哪个更甜？哪个喝完香味留得久？价格因城市与门店而异 [UNSOURCED]</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步 · 建一张味觉小抄</div><div class="tl-body">每次只记「香气 / 酸 / 甜 / 苦 / 口感 / 余韵」六项，再写一个生活类比，例如「像柚子皮」比「高级明亮」更有用。先别追求和标准答案一致</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步 · 在家做一次迷你杯测</div><div class="tl-body">买两款各 100g 左右的豆子，用相同杯子、粉量、研磨与热水，同时冲泡；先闻再喝，从热喝到温。温度下降后，酸、甜和瑕疵往往更明显。器具可先用家里现有杯子，不必立刻买齐专业碗勺</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步 · 再决定钱花在哪</div><div class="tl-body">若你已能稳定喝出差异，再考虑磨豆机、课程或更贵的豆子；若只觉得「都很苦」，也完全正常，先把精品咖啡当偶尔的餐饮体验，不必把爱好升级成装备竞赛</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑 -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>把「酸」一律当坏掉</h3><ul><li>精品咖啡常讲酸质，但好酸应像水果般有甜感支撑，不是尖锐醋味。避法：从热喝到温，并问「它像哪种水果」，别急着用「酸=差」一票否决</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>把产区故事当分数</h3><ul><li>瑰夏、名庄园、竞赛名次都可能抬价，但不保证你这杯一定好喝。精品概念正在泛化，真正顶级豆仍低产量 <a class="src" href="https://www.cbndata.com/information/190680" target="_blank" rel="noopener noreferrer">查看来源</a>；避法：先买小包装，先喝再买</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>设备先毕业，舌头还没开学</h3><ul><li>昂贵壶、秤、磨不会自动让咖啡变好喝；冲煮不稳时，变量越多越难复盘。避法：固定一个简单方法，一次只改一个变量，并记录结果</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li>为你真实喝到的差异付费，不为听不懂的形容词付费。40 元一杯值不值，不由杯测表单独决定，也由你的味觉、场景和预算决定</li></ul></div>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 720 150" width="720" height="150" xmlns="http://www.w3.org/2000/svg">
+      <rect x="25" y="30" width="300" height="88" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="175" y="57" fill="#e05050" font-size="13" text-anchor="middle">误区：分数高 = 我一定爱喝</text>
+      <text x="175" y="82" fill="#c4c4c4" font-size="11" text-anchor="middle">把质量评价当成个人口味保证</text>
+      <text x="175" y="102" fill="#777" font-size="10" text-anchor="middle">于是越买越贵，越喝越困惑</text>
+      <path d="M340 74 H390" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="400" y="30" width="295" height="88" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="547" y="57" fill="#50b070" font-size="13" text-anchor="middle">真相：分数是地图，不是命令</text>
+      <text x="547" y="82" fill="#c4c4c4" font-size="11" text-anchor="middle">它帮助比较质量与风味，不替你决定喜好</text>
+      <text x="547" y="102" fill="#777" font-size="10" text-anchor="middle">先找自己喜欢，再看愿不愿意加钱</text>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相：杯测是共同语言，不是味觉裁判</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>杯测（Cupping）</b></td><td>用统一条件泡几碗咖啡，再闻香、啜吸、记录与评分；像给豆子开同一场标准化面试</td></tr>
+        <tr><td><b>80+ 分</b></td><td>业内常用的精品咖啡门槛；分数综合看香气、风味、余韵、酸质等，不等于「人人最爱」 <a class="src" href="https://www.cbndata.com/information/190680" target="_blank" rel="noopener noreferrer">查看来源</a></td></tr>
+        <tr><td><b>破渣 / 捞渣</b></td><td>浸泡后用勺背弄破表面粉层，闻冲出来的香气，再把浮沫渣捞走</td></tr>
+        <tr><td><b>啜吸</b></td><td>连空气一起大声吸入口，让咖啡散开；声音像嗦面，不优雅，但很好用</td></tr>
+        <tr><td><b>处理法</b></td><td>咖啡果变成生豆前怎么处理；水洗、日晒等会带来不同风味走向，但不能脱离具体豆子简单判高低</td></tr>
+        <tr><td><b>地域之味</b></td><td>产地、品种、处理等共同留下的可辨识风味；不是喝一口就能准确定位 GPS</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">杯测现场最不像「精品」的地方，就是大家会毫不客气地大声啜吸：那不是在表演陶醉，而是在让咖啡和空气一起雾化，铺满口腔。你可以把它理解成——越专业的品鉴，越可能发出不太适合第一次约会的声音。[UNSOURCED]</p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">适合愿意慢慢对比、对食物风味好奇的人；不适合把咖啡只当续命功能饮料、且完全不想多花五分钟的人——后者也没错，省钱也是美德。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">精品咖啡的门槛不该是器材和术语，而是你能否喝出差异，并诚实决定那差异值多少钱。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：CBNData《泛滥的精品咖啡，如何讲出新故事？》；21 经济网《假手冲，拆掉精品咖啡的围墙》；新京报《咖啡产业报告：消费量预估突破40万吨，市场规模2181亿元》；北京日报客户端《新兴玩家不断涌入，中国咖啡市场“变阵”拉开序幕》；黑峪投资《中国咖啡产业报告-2025》。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html

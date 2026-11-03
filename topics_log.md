@@ -55,3 +55,4 @@
 | 2026-10-28 | 精酿自酿入门：把厨房变成酿酒车间，一杯啤酒凭什么叫「手作」？ | reports/2026-10-28-craftbeer-homebrew-guide.html |
 | 2026-10-30 | 清酒入门：一粒米被磨掉一半，凭什么卖得更贵？ | reports/2026-10-30-sake.html |
 | 2026-11-02 | 手工奶酪入门：一块“会呼吸的牛奶”，凭什么让人越吃越讲究？ | reports/2026-11-02-artisan-cheese.html |
+| 2026-11-03 | 精品咖啡与杯测：一杯咖啡凭什么卖你40块？ | reports/2026-11-03-specialty-coffee-cupping.html |
