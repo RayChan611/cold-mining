@@ -233,6 +233,7 @@
       "stock-split-basics",
       "tong-huo-peng-zhang",
       "tulip-mania",
+      "volatility",
       "yield-curve"
     ],
     "labels": [
@@ -273,6 +274,7 @@
       "期货升贴水与展期",
       "杠杆",
       "汇率",
+      "波动率",
       "熔断机制",
       "程序化交易",
       "美联储",
