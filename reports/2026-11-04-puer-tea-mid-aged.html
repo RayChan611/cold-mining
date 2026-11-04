@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · 普洱茶与中期茶</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  /* 图文并茂：插图与线稿图标 */
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+
+  /* 汇总入口：左上角悬浮返回总库 */
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+
+<style id=cold-mining-responsive-20260904>
+  /* 长 URL 兜底换行（防止撑破容器） */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb, .sec-note {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../index.html">← 全部报告</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 饮品收藏</div>
+  <h1>普洱茶与中期茶：一片叶子，凭什么越放越贵？</h1>
+  <div class="sub">一句话副标题：用大白话讲清楚它为什么有人玩、怎么入门</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资或消费建议。文中数字均标注来源，无法核实的标 [UNSOURCED]。投资/收藏有风险，决策需谨慎。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：这个领域是干什么的、谁在玩、值不值得普通人关注。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：云南大叶种晒青毛茶压成的饼/砖/沱，能在合适仓储里继续转化；「中期茶」多指已陈放约 10–20 年、苦涩明显退去但还没到老茶价位的普洱。</li>
+        <li><b>谁在玩</b>：日常喝茶的人、追山头与品牌的茶客、做仓储的茶商，以及把整件茶当资产配置的收藏者。</li>
+        <li><b>市场多大</b>：普洱茶产量从 2014 年 11.4 万吨增至 2018 年 17.2 万吨，占云南茶叶产量比重由 34.0% 升至 40.6% <a class="src" href="https://www.abeedata.com/home/article/detail/id/8642" target="_blank" rel="noopener noreferrer">查看来源</a>。</li>
+        <li><b>小白能玩吗</b>：能，但先把它当「会变化的饮料」而非稳赚理财；最大门槛不是钱，是仓储、真假和口感判断。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <!-- 首屏概念：茶饼、时间与茶杯 -->
+      <svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="62" cy="70" r="45" fill="#141414" stroke="#c8a866" stroke-width="2"/>
+        <circle cx="62" cy="70" r="35" fill="none" stroke="#c8a866" stroke-width="1" stroke-dasharray="3 4"/>
+        <path d="M42 48c18 8 26 24 40 42M35 67c20-2 37 5 54 16M50 36c2 22 4 45 1 67" fill="none" stroke="#e8e8e8" stroke-width="1.2" opacity=".75"/>
+        <circle cx="62" cy="70" r="13" fill="#101010" stroke="#c8a866"/>
+        <text x="62" y="74" fill="#c8a866" font-size="10" text-anchor="middle">10–20年</text>
+        <path d="M104 103h38l-4 25c-1 7-7 11-15 11s-14-4-15-11z" fill="#141414" stroke="#e8e8e8" stroke-width="1.6"/>
+        <path d="M142 108h7c9 0 9 15 0 15h-9M111 96c-5-7 5-8 0-15M124 96c-5-7 5-8 0-15M137 96c-5-7 5-8 0-15" fill="none" stroke="#c8a866" stroke-width="1.5"/>
+        <path d="M20 137c25-8 49-7 73 0" fill="none" stroke="#2a2a2a"/>
+        <text x="80" y="153" fill="#8a8a8a" font-size="10" text-anchor="middle">时间不是魔法，仓储才是导演</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">把一个外行完全不懂的东西，用生活类比讲明白。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">把生普想成一箱有点青涩的水果：新茶香气高、刺激也强，放得好，苦涩会慢慢收敛，汤感变厚，出现更沉稳的陈香。熟普则像提前做过「加速熟成」的版本，靠渥堆发酵获得醇滑口感，不必等十几年才顺口。<br><br><b>中期茶的妙处是「时间已付一半，价格未必封顶」。</b>它不像新茶那样要靠想象赌未来，也不像号级、印级老茶那样让普通人先看价格就告辞。艾媒咨询数据显示，10–14 年茶最受欢迎，占 44.8%；15–19 年占 34.0%，两者合计近八成，呈现「中间大、两头小」 <a class="src" href="https://www.iimedia.cn/c400/106034.html" target="_blank" rel="noopener noreferrer">查看来源</a>。不过，年份只是年龄，不是成绩单：一饼存坏的 15 年茶，可能还不如一饼干净的新茶。</p>
+  </div>
+  <div class="illus">
+    <!-- 结构 / 价值链 -->
+    <svg viewBox="0 0 720 180" width="720" height="180" xmlns="http://www.w3.org/2000/svg">
+      <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+      <rect x="10" y="38" width="150" height="68" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <path d="M42 78c18-30 42-28 55-10-17 2-35 8-55 10zM52 77l31-17" fill="none" stroke="#e8e8e8"/>
+      <text x="85" y="123" fill="#e8e8e8" font-size="12" text-anchor="middle">云南茶园与初制</text>
+      <path d="M165 72H190" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="200" y="38" width="150" height="68" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <circle cx="275" cy="66" r="19" fill="none" stroke="#e8e8e8"/><circle cx="275" cy="66" r="10" fill="none" stroke="#c8a866"/>
+      <text x="275" y="123" fill="#e8e8e8" font-size="12" text-anchor="middle">蒸压成饼 / 砖 / 沱</text>
+      <path d="M355 72H380" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="390" y="38" width="150" height="68" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <path d="M420 88V56h45v32M416 88h53M430 56V46h25v10M430 68h25M430 78h25" fill="none" stroke="#e8e8e8"/>
+      <path d="M485 53a18 18 0 1 1-4 30M485 53v10h-10" fill="none" stroke="#c8a866" stroke-width="1.5"/>
+      <text x="465" y="123" fill="#e8e8e8" font-size="12" text-anchor="middle">仓储转化：中期茶诞生</text>
+      <path d="M545 72H570" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="580" y="38" width="130" height="68" rx="8" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <path d="M615 57h48l-5 25c-1 5-6 8-12 8h-14c-6 0-11-3-12-8zM663 62h8c10 0 9 14 0 14h-10" fill="none" stroke="#e8e8e8"/>
+      <text x="645" y="123" fill="#e8e8e8" font-size="12" text-anchor="middle">品饮 / 流通 / 再收藏</text>
+      <text x="360" y="158" fill="#8a8a8a" font-size="11" text-anchor="middle">价值不只在「放了多久」，还在原料、工艺、仓储与可验证的来路</text>
+    </svg>
+    <div class="cap">一片叶子的中期茶之路：时间是工序之一，不是唯一工序。</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>市场多大 · 价格带</h2>
+  <div class="sec-note">用真实数字说明蛋糕有多大、钱集中在哪。来源内联标注。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>档位</th><th>典型价格</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>日常新茶</td><td class="up">约 ¥50–300 / 饼</td><td>大厂常规生茶、熟茶，先练口感；价格为常见零售区间 [UNSOURCED]</td></tr>
+        <tr><td>主流中期茶</td><td>约 ¥300–3,000 / 饼</td><td>约 10–20 年，品牌、批次、仓储差异很大；热门茶可远超此区间 [UNSOURCED]</td></tr>
+        <tr><td>名山 / 稀缺老茶</td><td class="down">数千至数万元以上 / 饼</td><td>古树山头、明星批次、早期老茶等；真伪与出处比故事更重要 [UNSOURCED]</td></tr>
+      </tbody>
+    </table>
+    <p style="color:#8a8a8a;font-size:12px;margin-top:10px;">别把这些区间当报价单：同样写着「2008 年」，不同品牌、仓储和品相可以差出好几倍。产业端也不是小众作坊游戏：普洱茶种植涉及云南 11 个地州、75 个县、639 个乡镇，主要产区包括普洱、西双版纳、临沧、保山 <a class="src" href="https://www.abeedata.com/home/article/detail/id/8642" target="_blank" rel="noopener noreferrer">查看来源</a>。</p>
+  </div>
+  <div class="illus">
+    <!-- 真实数据柱状图 -->
+    <svg viewBox="0 0 720 260" width="720" height="260" xmlns="http://www.w3.org/2000/svg">
+      <line x1="70" y1="24" x2="70" y2="190" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="70" y1="190" x2="680" y2="190" stroke="#2a2a2a" stroke-width="1.5"/>
+      <text x="48" y="192" fill="#777" font-size="10" text-anchor="end">0</text>
+      <text x="48" y="112" fill="#777" font-size="10" text-anchor="end">50%</text>
+      <line x1="70" y1="108" x2="680" y2="108" stroke="#242424" stroke-dasharray="4 5"/>
+      <rect x="140" y="68.2" width="120" height="121.8" rx="3" fill="#c8a866"/>
+      <rect x="420" y="80.2" width="120" height="109.8" rx="3" fill="#e8e8e8" opacity=".82"/>
+      <text x="200" y="56" fill="#c8a866" font-size="20" font-weight="700" text-anchor="middle">44.8%</text>
+      <text x="480" y="68" fill="#e8e8e8" font-size="20" font-weight="700" text-anchor="middle">34.0%</text>
+      <text x="200" y="214" fill="#d4d4d4" font-size="13" text-anchor="middle">储存 10–14 年</text>
+      <text x="480" y="214" fill="#d4d4d4" font-size="13" text-anchor="middle">储存 15–19 年</text>
+      <text x="360" y="243" fill="#8a8a8a" font-size="11" text-anchor="middle">消费者偏好占比：两档合计约 78.8%，中期陈茶是主流需求</text>
+    </svg>
+    <div class="cap">数据来源：艾媒咨询《2025 年中国年份普洱茶行业现状及消费趋势洞察报告》 <a class="src" href="https://www.iimedia.cn/c400/106034.html" target="_blank" rel="noopener noreferrer">查看来源</a></div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台（玩家卡片用线稿 SVG 小图标，不用 emoji） -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁在制定规则、谁在赚钱、小白该去哪个平台。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">ROOT</span>
+        <h3>传统品牌与茶厂</h3>
+        <ul><li>大益、下关沱茶、中茶等提供较清晰的批次体系和流通认知；适合先建立「标准口感」，但品牌不等于每款都值得囤 [UNSOURCED]。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><path d="M4 20V5h16v15zM4 9h16M8 5v4M16 5v4"/><path d="M8 14h8M8 17h5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">仓储</span>
+        <h3>年份茶品牌与专业仓</h3>
+        <ul><li>例如双陈普洱等把「仓储与年份」做成卖点；行业报道也将年份普洱视为品牌破圈方向 <a class="src" href="https://mtz.china.com/touzi/2025/0422/162701.html" target="_blank" rel="noopener noreferrer">查看来源</a>。宣传稿可参考，不能代替开汤。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">HOT</span>
+        <h3>茶城、经销商与二手圈层</h3>
+        <ul><li>整件、整提与散片各有行情，流通靠圈子与信誉；报价热闹不代表随时能按该价卖出，流动性常被新玩家高估 [UNSOURCED]。</li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M5 8h11l-1 9c-.2 2-2 3-4.5 3S6.2 19 6 17z"/><path d="M16 10h2c4 0 4 5 0 5h-2.5M8 5c-1-2 1-2 0-4M12 5c-1-2 1-2 0-4"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">入门</span>
+        <h3>能试喝的靠谱茶店</h3>
+        <ul><li>优先选能说明年份、批次、仓储，并允许先买茶样或小饼的店；电商旗舰店适合买新茶，线下开汤更适合学中期茶。</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">按步骤走，别一上来就梭哈。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步 · 先喝，不囤</div><div class="tl-body">用几百元买 3–5 份茶样：新生日普、熟普、10 年左右中期茶各一。固定盖碗、投茶量和水温，记录香气、苦涩、回甘与汤感。</div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步 · 同年份横向比</div><div class="tl-body">找两款相近年份、不同仓储或品牌的茶盲喝。别先背「班章、易武」等山头故事，先学会分辨干净、闷杂、霉味和空洞。</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步 · 建立四问框架</div><div class="tl-body">买前问：原料与工艺有无依据？年份和批次能否核验？仓储在哪里、是否干净？我喜欢喝还是只听别人说会涨？四问答不齐，就不为故事加钱。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步 · 按一年饮用量买</div><div class="tl-body">确定真心喜欢后，再买 1–2 饼慢慢喝。家庭存茶要避光、防异味、防霉，别频繁开箱「关心」它；若为了升值，先确认真实回收渠道，再谈加仓。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑（可加一张「误区 vs 真相」插图） -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">外行最容易交学费的地方。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>把年份当保质增值证</h3><ul><li>包装日期可以印，棉纸可以做旧，茶汤却不会配合演戏。避法：核验批次与来源，开汤看是否干净、有活力，不为「老」一个字买单。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>把仓味、霉味当陈香</h3><ul><li>陈香应让人舒服，不是地下室、旧纸箱或刺鼻霉味。避法：闻干茶、温润后的叶底和冷杯；刺喉、锁喉或异味明显就停。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>看报价，不问谁来接</h3><ul><li>茶商群里的高价、拍卖纪录和你的卖出价是三件事。避法：把茶当消费品，买入前问清是否回收、什么品相回收、手续费多少。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>一条保命原则</h3><ul><li><b>只买「就算一毛钱不涨，也愿意喝完」的茶。</b>收藏收益是彩蛋，不是茶饼里 guaranteed 的内置芯片。</li></ul></div>
+  </div>
+  <div class="illus">
+    <!-- 误区 vs 真相 -->
+    <svg viewBox="0 0 720 160" width="720" height="160" xmlns="http://www.w3.org/2000/svg">
+      <rect x="25" y="25" width="300" height="105" rx="8" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <text x="175" y="52" fill="#e05050" font-size="14" text-anchor="middle">误区：越老越值钱</text>
+      <path d="M100 104V72M100 72l-9 12M100 72l9 12" stroke="#e05050" stroke-width="2" fill="none"/>
+      <text x="190" y="82" fill="#c4c4c4" font-size="12" text-anchor="middle">只看棉纸年份与涨价故事</text>
+      <text x="190" y="104" fill="#8a8a8a" font-size="11" text-anchor="middle">仓储坏了，年龄再大也救不了</text>
+      <path d="M340 78H385" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="400" y="25" width="295" height="105" rx="8" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <text x="548" y="52" fill="#50b070" font-size="14" text-anchor="middle">真相：好喝且可信</text>
+      <circle cx="450" cy="88" r="18" fill="none" stroke="#c8a866"/>
+      <path d="M441 88l6 6 12-14" fill="none" stroke="#c8a866" stroke-width="2"/>
+      <text x="565" y="84" fill="#c4c4c4" font-size="12" text-anchor="middle">原料 × 工艺 × 仓储 × 来路</text>
+      <text x="565" y="106" fill="#8a8a8a" font-size="11" text-anchor="middle">最后还要经过你的舌头投票</text>
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+    </svg>
+    <div class="cap">误区 vs 真相：年龄只是简历，开汤才是面试。</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">聊天时用得上、显得你懂行的词。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>生普 / 熟普</b></td><td>生普靠时间自然转化；熟普经渥堆发酵，较早就有醇滑口感。</td></tr>
+        <tr><td><b>中期茶</b></td><td>行话里多指约 10–20 年的陈茶，并非全国统一年龄线；重点是从青涩走向醇和。</td></tr>
+        <tr><td><b>干仓 / 湿仓</b></td><td>偏干燥、洁净环境存放与偏湿热环境存放的俗称；不是越湿越高级，霉味更不等于陈香。</td></tr>
+        <tr><td><b>7542、7572</b></td><td>常见唛号，用来识别配方与产品体系，不是密码，也不自动代表品质或价格。</td></tr>
+        <tr><td><b>一饼 / 一提 / 一件</b></td><td>常见规格是一饼约 357 克、七饼一提，若干提成一件；具体以品牌包装为准 [UNSOURCED]。</td></tr>
+        <tr><td><b>开汤</b></td><td>真泡来喝，用茶汤、香气和叶底验货；比围着包装开研讨会靠谱。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">聊天永远有料的包袱。</div>
+  <div class="card">
+    <p class="quote">「普洱茶」这个名字也不是自古就挂在每片茶叶上的：明末谢肇淛《滇略》在约 1620 年出现「普茶」记载，而《物理小识》中才出现「普洱茶」称谓。换句话说，茶山比名字老得多，包装上的故事则可能比茶还老。 <a class="src" href="https://zhuanlan.zhihu.com/p/2019098837357195402" target="_blank" rel="noopener noreferrer">查看来源</a></p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb"><span class="cool">适合</span>愿意慢慢喝、做笔记、享受口感变化的人；<span class="hot">不适合</span>怕麻烦、家里潮湿，或指望下个月高价转手的人。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">中期茶买的不是「过去多少年」，而是这些年有没有被好好存放，以及你今天是否真爱喝。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：艾媒咨询《2025 年中国年份普洱茶行业现状及消费趋势洞察报告》；农小蜂《我国普洱茶市场与产业调查分析报告》；中华网转引的年份普洱茶行业报道；知乎专栏相关普洱茶历史与消费讨论。价格区间及部分行话为公开常识性补充，未核实精确值处已标 [UNSOURCED]。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
