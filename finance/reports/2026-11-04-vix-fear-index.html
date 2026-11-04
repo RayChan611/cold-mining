@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冷门信息挖掘机 · VIX 恐慌指数</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0a0a0a; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    line-height: 1.7; padding: 0 0 80px;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+  header { border-bottom: 1px solid #2a2a2a; padding: 42px 0 26px; margin-bottom: 8px; }
+  .kicker { color: #c8a866; font-size: 13px; letter-spacing: 3px; font-weight: 500; }
+  h1 { font-size: 30px; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.5px; }
+  .sub { color: #9a9a9a; font-size: 14px; }
+  .disclaimer { margin-top: 16px; font-size: 12px; color: #777; border-left: 2px solid #c8a866; padding: 8px 12px; background: #141414; }
+  section { margin-top: 38px; }
+  h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { color: #0a0a0a; background: #d4d4d4; font-size: 13px; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+  .sec-note { color: #8a8a8a; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #141414; border: 1px solid #242424; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 680px){ .grid2 { grid-template-columns: 1fr; } }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; margin-bottom: 8px; }
+  .tag-direct { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-root { background: rgba(200,168,102,0.14); color: #c8a866; border: 1px solid rgba(200,168,102,0.4); }
+  .tag-hot { background: rgba(212,212,212,0.14); color: #d4d4d4; border: 1px solid rgba(212,212,212,0.4); }
+  .tag-warn { background: rgba(224,80,80,0.14); color: #e05050; border: 1px solid rgba(224,80,80,0.4); }
+  .tag-step { background: rgba(80,176,112,0.14); color: #50b070; border: 1px solid rgba(80,176,112,0.4); }
+  .card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #f0f0f0; }
+  .card ul { padding-left: 18px; color: #c4c4c4; font-size: 13.5px; }
+  .card ul li { margin-bottom: 6px; }
+  .card ul li b { color: #e8e8e8; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #242424; }
+  th { color: #9a9a9a; font-weight: 600; background: #101010; }
+  td .down { color: #e05050; font-weight: 600; }
+  td .up { color: #50b070; font-weight: 600; }
+  .tl { border-left: 2px solid #2a2a2a; padding-left: 18px; margin-left: 6px; }
+  .tl-item { position: relative; margin-bottom: 18px; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: #c8a866; }
+  .tl-time { font-size: 12px; color: #c8a866; font-weight: 600; }
+  .tl-body { font-size: 13.5px; color: #cfcfcf; margin-top: 2px; }
+  .verdict { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+  @media (max-width: 680px){ .verdict { grid-template-columns: 1fr; } }
+  .vcell { background: #141414; border: 1px solid #242424; border-radius: 8px; padding: 14px 16px; }
+  .vcell .vt { font-size: 13px; color: #d4d4d4; font-weight: 600; margin-bottom: 4px; }
+  .vcell .vb { font-size: 13px; color: #a8a8a8; }
+  .vcell .vb .hot { color: #e05050; font-weight: 600; }
+  .vcell .vb .cool { color: #50b070; font-weight: 600; }
+  footer { margin-top: 46px; padding-top: 20px; border-top: 1px solid #242424; color: #777; font-size: 12px; }
+  .quote { color: #6a6a6a; font-style: italic; font-size: 12.5px; margin-top: 8px; }
+  /* 图文并茂：插图与线稿图标 */
+  .hero { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hero .hero-txt { flex: 1 1 320px; }
+  .hero .hero-art { flex: 0 0 200px; text-align: center; }
+  .illus { background: #101010; border: 1px solid #242424; border-radius: 10px; padding: 16px; margin: 6px 0 14px; text-align: center; }
+  .illus svg { max-width: 100%; height: auto; }
+  .illus .cap { color: #8a8a8a; font-size: 12px; margin-top: 10px; }
+  .src { color: #6a6a6a; font-size: 11.5px; }
+  .pcard { display: flex; gap: 12px; align-items: flex-start; }
+  .pcard .pic { flex: 0 0 36px; text-align: center; padding-top: 2px; }
+  .pcard .pic svg { width: 30px; height: 30px; }
+  .pcard .ptxt { flex: 1; }
+
+  /* 汇总入口：左上角悬浮返回总库 */
+  .to-index {
+    position: fixed; top: 14px; left: 14px; z-index: 999;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(20,20,20,0.82); border: 1px solid #c8a866;
+    color: #c8a866; font-size: 12px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 13px; border-radius: 8px;
+    text-decoration: none; backdrop-filter: blur(4px);
+    transition: background .15s, color .15s;
+  }
+  .to-index:hover { background: #c8a866; color: #0a0a0a; }
+</style>
+
+<style id=cold-mining-responsive-20260904>
+  /* 长 URL 兜底换行（防止撑破容器） */
+  .card ul li, .card p, .tl-body, .ptxt, .vcell .vb, .sec-note {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .src { color: #8a8a8a; font-size: 11.5px; text-decoration: none; margin-left: 4px; }
+  .src:hover { color: #c8a866; text-decoration: underline; }
+</style>
+</head>
+<body>
+<a class="to-index" href="../index.html">← 返回汇总</a>
+<div class="wrap">
+<header>
+  <div class="kicker">冷门信息挖掘机 · 市场情绪指标</div>
+  <h1>VIX 恐慌指数：华尔街的「天气预报」</h1>
+  <div class="sub">为什么股市还没跌，它就可能先发烧？一篇看懂这个数字在量什么、又不能预告什么。</div>
+  <div class="disclaimer">⚠️ 本内容由 AI 基于公开信息整理，仅供参考，不构成任何投资建议。VIX 相关衍生品结构复杂、可能快速亏损；文中区间是经验读法而非买卖信号，无法核实的具体数字标 [UNSOURCED]。</div>
+</header>
+
+<!-- 00 核心速览 -->
+<section>
+  <h2><span class="num">00</span>核心速览</h2>
+  <div class="sec-note">30 秒看懂：它量的是什么、谁在看、普通人该怎么用。</div>
+  <div class="card hero">
+    <div class="hero-txt">
+      <ul>
+        <li><b>它是什么</b>：VIX 用标普 500 指数期权的价格，估算市场对未来约 30 天波动程度的预期；不是「股市还要跌多少」的计数器。<a class="src" href="https://www.futuhk.com/hans/blog/detail-vix-87-250475005" target="_blank" rel="noopener noreferrer">查看来源</a></li>
+        <li><b>谁在看</b>：机构用它观察避险需求和管理风险，交易者研究相关期货与期权，普通投资者更适合把它当作情绪仪表盘。</li>
+        <li><b>怎么看数</b>：常见经验把 15–20 看作相对正常、20–30 看作焦虑升温、30 以上看作压力显著；区间并非官方定律。<a class="src" href="https://research.titanfx.com/cn/indices-trading/VIX" target="_blank" rel="noopener noreferrer">查看来源</a></li>
+        <li><b>小白能玩吗</b>：能学会看，不等于该下场交易。它更像车上的颠簸预警器，不是自动驾驶，更不是「恐慌时买入就稳赚」的按钮。</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 180 180" width="180" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="VIX 市场情绪仪表盘概念图">
+        <path d="M28 112 A62 62 0 0 1 152 112" fill="none" stroke="#c8a866" stroke-width="3"/>
+        <path d="M39 91l9 5M55 65l7 9M82 52l2 11M111 57l-5 10M135 77l-10 6" fill="none" stroke="#e8e8e8" stroke-width="2" stroke-linecap="round"/>
+        <path d="M90 112L126 72" fill="none" stroke="#c8a866" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="90" cy="112" r="7" fill="#141414" stroke="#e8e8e8" stroke-width="2"/>
+        <path d="M25 143l15-12 13 5 18-22 15 9 17-31 16 13 18-25 18 8" fill="none" stroke="#e8e8e8" stroke-width="1.6" stroke-linejoin="round"/>
+        <text x="90" y="165" fill="#c8a866" font-size="12" text-anchor="middle" font-family="sans-serif">预期波动，不是预言跌幅</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 01 这是什么 -->
+<section>
+  <h2><span class="num">01</span>这是什么 · 白话拆解</h2>
+  <div class="sec-note">从一份「股价保险」的报价，推导出整个市场的紧张程度。</div>
+  <div class="card">
+    <p style="color:#c4c4c4;font-size:13.5px;">想象你住在海边，未来一个月可能刮台风。你没法直接采访「天气情绪」，但可以看看大家愿意花多少钱买防台风保险：报价突然变贵，通常说明大家认为风雨更可能、更猛烈。VIX 的思路类似——它观察一篮子标普 500 看涨、看跌期权的价格，反推出期权市场隐含的未来约 30 天波动预期。CMC Markets 也将其概括为对各种标普 500 看涨和看跌期权加权价格所反映的隐含波动率的衡量。<a class="src" href="https://www.cmcmarkets.com/zh/indices/vix-volatility-index" target="_blank" rel="noopener noreferrer">查看来源</a></p>
+    <p style="color:#c4c4c4;font-size:13.5px;margin-top:10px;">这里有三个关键词：<b style="color:#e8e8e8;">未来</b>，所以它不是单纯复述昨天；<b style="color:#e8e8e8;">波动</b>，所以大涨大跌都可能让保险需求变化；<b style="color:#e8e8e8;">预期</b>，所以它是市场定价出来的集体判断，不是水晶球。VIX 常被简化为「恐慌指数」，但更准确的外号应是「未来颠簸程度的报价单」。</p>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 760 180" width="760" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="从标普500期权价格到VIX读数的结构图">
+      <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+      <rect x="18" y="42" width="190" height="82" rx="9" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <path d="M42 100V65M42 100h45M49 91l10-12 9 5 13-20" fill="none" stroke="#e8e8e8" stroke-width="1.5"/>
+      <text x="137" y="70" fill="#e8e8e8" font-size="13" text-anchor="middle">标普 500 指数</text>
+      <text x="137" y="94" fill="#9a9a9a" font-size="11" text-anchor="middle">观察对象，不是 VIX 本身</text>
+      <path d="M214 83H267" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="277" y="42" width="205" height="82" rx="9" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <path d="M298 99V60h34v39zM307 60v-9h16v9" fill="none" stroke="#e8e8e8" stroke-width="1.5"/>
+      <text x="399" y="70" fill="#e8e8e8" font-size="13" text-anchor="middle">一篮子指数期权</text>
+      <text x="399" y="94" fill="#9a9a9a" font-size="11" text-anchor="middle">看涨与看跌报价 → 隐含波动</text>
+      <path d="M488 83H541" stroke="#c8a866" stroke-width="2" marker-end="url(#ar)"/>
+      <rect x="551" y="42" width="190" height="82" rx="9" fill="#141414" stroke="#c8a866" stroke-width="1.5"/>
+      <path d="M574 100a25 25 0 0 1 50 0M599 100l14-20" fill="none" stroke="#e8e8e8" stroke-width="1.7"/>
+      <circle cx="599" cy="100" r="3" fill="#c8a866"/>
+      <text x="672" y="70" fill="#e8e8e8" font-size="13" text-anchor="middle">VIX 读数</text>
+      <text x="672" y="94" fill="#9a9a9a" font-size="11" text-anchor="middle">未来约 30 天的预期波动</text>
+      <text x="380" y="155" fill="#c8a866" font-size="12" text-anchor="middle">保险报价越紧张，通常读数越高；但它不保证台风一定登陆</text>
+    </svg>
+    <div class="cap">结构图：VIX 从期权价格中「倒推」预期，而不是统计投资者问卷，也不是直接计算恐慌人数。</div>
+  </div>
+</section>
+
+<!-- 02 市场多大 / 价格带 -->
+<section>
+  <h2><span class="num">02</span>读数多大 · 情绪刻度</h2>
+  <div class="sec-note">VIX 不是股票价格，没有「市值多大」这一说；更实用的问题是这个数字落在哪一档。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>VIX 区间</th><th>常见情绪读法</th><th>典型场景与提醒</th></tr></thead>
+      <tbody>
+        <tr><td>10–15</td><td class="up">极度平稳</td><td>常见于乐观、低波动阶段；低读数不等于没有风险。</td></tr>
+        <tr><td>15–20</td><td class="up">正常水准</td><td>市场相对稳定，买卖双方力量较均衡。</td></tr>
+        <tr><td>20–30</td><td>焦虑升温</td><td>不确定性上升，投资者可能增加避险部位。</td></tr>
+        <tr><td>30–40</td><td class="down">恐慌蔓延</td><td>可能出现显著抛售，保护性期权需求增加。</td></tr>
+        <tr><td>40 以上</td><td class="down">极度恐慌</td><td>剧烈波动阶段，流动性也可能承压。</td></tr>
+      </tbody>
+    </table>
+    <p style="color:#8a8a8a;font-size:12px;margin-top:10px;">以上五档及场景采用 Titan FX 的经验分类；它们是帮助阅读的「体温计刻度」，不是精确交易规则。<a class="src" href="https://research.titanfx.com/cn/indices-trading/VIX" target="_blank" rel="noopener noreferrer">查看来源</a></p>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 760 260" width="760" height="260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="VIX不同情绪区间上限的对比柱状图">
+      <line x1="70" y1="25" x2="70" y2="205" stroke="#2a2a2a" stroke-width="1.5"/>
+      <line x1="70" y1="205" x2="720" y2="205" stroke="#2a2a2a" stroke-width="1.5"/>
+      <g fill="#8a8a8a" font-size="10" text-anchor="end">
+        <text x="60" y="209">0</text><text x="60" y="164">10</text><text x="60" y="119">20</text><text x="60" y="74">30</text><text x="60" y="29">40</text>
+      </g>
+      <g stroke="#242424" stroke-width="1"><line x1="70" y1="160" x2="720" y2="160"/><line x1="70" y1="115" x2="720" y2="115"/><line x1="70" y1="70" x2="720" y2="70"/><line x1="70" y1="25" x2="720" y2="25"/></g>
+      <rect x="105" y="137.5" width="90" height="67.5" fill="#c8a866" opacity="0.65"/>
+      <rect x="240" y="115" width="90" height="90" fill="#c8a866" opacity="0.8"/>
+      <rect x="375" y="70" width="90" height="135" fill="#c8a866"/>
+      <rect x="510" y="25" width="90" height="180" fill="#e8e8e8"/>
+      <g fill="#e8e8e8" font-size="12" text-anchor="middle"><text x="150" y="128">15</text><text x="285" y="106">20</text><text x="420" y="61">30</text><text x="555" y="16">40</text></g>
+      <g fill="#9a9a9a" font-size="11" text-anchor="middle"><text x="150" y="225">10–15 平稳</text><text x="285" y="225">15–20 正常</text><text x="420" y="225">20–30 焦虑</text><text x="555" y="225">30–40 恐慌</text></g>
+      <path d="M640 25h55M640 205h55" stroke="#c8a866" stroke-width="2" stroke-dasharray="5 5"/>
+      <text x="668" y="225" fill="#c8a866" font-size="11" text-anchor="middle">40+ 极度恐慌</text>
+      <text x="395" y="250" fill="#8a8a8a" font-size="11" text-anchor="middle">柱高表示各区间上限，仅用于比较刻度，不是历史走势或发生概率</text>
+    </svg>
+    <div class="cap">数据图：情绪区间的直观比较。区间来源同表；40 以上是开放区间，因此用虚线表示，不能据此推断峰值。</div>
+  </div>
+</section>
+
+<!-- 03 关键玩家 / 平台（玩家卡片用线稿 SVG 小图标，不用 emoji） -->
+<section>
+  <h2><span class="num">03</span>关键玩家 / 平台</h2>
+  <div class="sec-note">谁生产这个指标、谁提供原料、谁把它当风险工具，小白又在哪里看。</div>
+  <div class="grid2">
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.6"><path d="M4 21V8l8-4 8 4v13"/><path d="M4 21h16M9 21v-6h6v6"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-root">规则源头</span>
+        <h3>CBOE：指数与相关合约生态</h3>
+        <ul><li>VIX 常被称为 CBOE 波动率指数；它把标普 500 期权报价转成可观察的指标。</li><li>对小白最重要的不是背公式，而是分清「指数读数」与「可交易衍生品」不是同一件东西。<a class="src" href="https://www.cmcmarkets.com/zh/indices/vix-volatility-index" target="_blank" rel="noopener noreferrer">查看来源</a></li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#e05050" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 4v4M12 16v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-direct">定价原料</span>
+        <h3>期权交易者与机构</h3>
+        <ul><li>投资者买卖保护性期权、表达市场观点，报价共同影响隐含波动率。</li><li>显著抛售阶段，机构可能大量买入保护性期权；因此 VIX 也是观察避险需求的窗口。<a class="src" href="https://research.titanfx.com/cn/indices-trading/VIX" target="_blank" rel="noopener noreferrer">查看来源</a></li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#d4d4d4" stroke-width="1.6"><path d="M3 17l5-5 4 3 6-8"/><path d="M21 7v5h-5"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-hot">风险应用</span>
+        <h3>资管与风险管理部门</h3>
+        <ul><li>机构可把波动率指标纳入风险管理工具箱，用来识别压力、讨论保护方案。</li><li>这不代表「VIX 高就必然抄底」；财联社转载的投教文章也将主题放在极端市场风险与风险管理应用上。<a class="src" href="https://www.cls.cn/detail/2103382" target="_blank" rel="noopener noreferrer">查看来源</a></li></ul>
+      </div>
+    </div>
+    <div class="card pcard">
+      <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="#50b070" stroke-width="1.6"><path d="M6 21V3h10v18"/><path d="M16 12h3M16 12l3-3M16 12l3 3"/></svg></div>
+      <div class="ptxt">
+        <span class="tag tag-step">小白入口</span>
+        <h3>行情页 + 投资者教育资料</h3>
+        <ul><li>先在英为财情等行情页观察读数和走势，再对照标普 500 与新闻背景；不要只看一个数字就下单。<a class="src" href="https://cn.investing.com/indices/volatility-s-p-500" target="_blank" rel="noopener noreferrer">查看来源</a></li><li>富途、CMC Markets 等解释页适合补概念；券商页面同时可能带交易导向，阅读时把「知识」和「产品推介」分开。</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 小白如何起步 -->
+<section>
+  <h2><span class="num">04</span>小白如何起步</h2>
+  <div class="sec-note">先练读表，再谈策略；不需要为了学一个指标先交衍生品学费。</div>
+  <div class="tl">
+    <div class="tl-item"><div class="tl-time">第 1 步 · 建立正确坐标</div><div class="tl-body">记住一句话：VIX 反映的是未来约 30 天的预期波动。找一张 VIX 与标普 500 的同时间段走势图，只观察两者方向，不急着找买卖点。<a class="src" href="https://www.futuhk.com/hans/blog/detail-vix-87-250475005" target="_blank" rel="noopener noreferrer">查看来源</a></div></div>
+    <div class="tl-item"><div class="tl-time">第 2 步 · 做一本「情绪日记」</div><div class="tl-body">每周记录一次 VIX 所处区间、标普 500 当周表现、主要新闻背景，并写下「我当时以为接下来会怎样」。一个月后复盘：哪些判断只是被新闻情绪带着跑？</div></div>
+    <div class="tl-item"><div class="tl-time">第 3 步 · 学会三个反问</div><div class="tl-body">看到高 VIX，先问：市场是在担心下跌，还是单纯预期大波动？恐慌已经持续多久？我的投资期限和现金需求是否允许我等待？它能提示环境，却不能替你回答资产配置问题。</div></div>
+    <div class="tl-item"><div class="tl-time">第 4 步 · 把交易与研究分开</div><div class="tl-body">若只是想判断市场风险偏好，观察指标已经足够。不要因为「看懂了 VIX」就顺手买入名字里带 VIX 的产品；先弄清它跟踪的是指数、期货还是其他结构，以及费用、杠杆和展期影响。</div></div>
+  </div>
+</section>
+
+<!-- 05 常见坑（可加一张「误区 vs 真相」插图） -->
+<section>
+  <h2><span class="num">05</span>常见坑 · 如何不亏钱</h2>
+  <div class="sec-note">最大的坑，往往不是看不懂数字，而是给数字安排了它做不到的工作。</div>
+  <div class="grid2">
+    <div class="card"><span class="tag tag-warn">坑 1</span><h3>VIX 上升 = 股市一定大跌</h3><ul><li>它衡量的是不确定性和预期波动，不是单方向跌幅。VIX 与股市通常负相关，但「通常」不等于每次，更不等于精确预告。<a class="src" href="https://research.titanfx.com/cn/indices-trading/VIX" target="_blank" rel="noopener noreferrer">查看来源</a></li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 2</span><h3>VIX 很高 = 自动抄底信号</h3><ul><li>极度恐慌可以对应剧烈波动和流动性压力，不代表第二天就反弹。把情绪指标当反转计时器，容易接到还在下落的刀。</li></ul></div>
+    <div class="card"><span class="tag tag-warn">坑 3</span><h3>买 VIX 产品 = 买到指数本身</h3><ul><li>指数是一套计算结果，相关期货、期权、ETF/ETN 各有结构与风险。尤其不要把长期持有体验简单想象成「VIX 涨多少，我就赚多少」；具体收益还受合约路径等因素影响。</li></ul></div>
+    <div class="card"><span class="tag tag-step">心法</span><h3>把它当体温计，不当医生</h3><ul><li>体温 39℃ 告诉你身体有状况，却不会单独给出诊断和药方。VIX 也类似：适合提醒检查风险敞口，不适合单独决定买卖。</li></ul></div>
+  </div>
+  <div class="illus">
+    <svg viewBox="0 0 760 190" width="760" height="190" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="VIX误区与真相的对比图">
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#c8a866"/></marker></defs>
+      <rect x="25" y="30" width="300" height="120" rx="9" fill="#141414" stroke="#e05050" stroke-width="1.5"/>
+      <path d="M50 56l18 18M68 56L50 74" stroke="#e05050" stroke-width="2" stroke-linecap="round"/>
+      <text x="185" y="65" fill="#e05050" font-size="14" text-anchor="middle">误区：数字一跳，未来已定</text>
+      <text x="175" y="96" fill="#c4c4c4" font-size="12" text-anchor="middle">「VIX 40，所以明天必跌」</text>
+      <text x="175" y="122" fill="#9a9a9a" font-size="11" text-anchor="middle">把预期当预言，把相关当因果</text>
+      <path d="M340 90H410" stroke="#c8a866" stroke-width="2" marker-end="url(#ar2)"/>
+      <rect x="425" y="30" width="310" height="120" rx="9" fill="#141414" stroke="#50b070" stroke-width="1.5"/>
+      <path d="M450 65l8 8 16-20" fill="none" stroke="#50b070" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="595" y="65" fill="#50b070" font-size="14" text-anchor="middle">真相：它是风险环境线索</text>
+      <text x="580" y="96" fill="#c4c4c4" font-size="12" text-anchor="middle">结合指数走势、期限与自身仓位</text>
+      <text x="580" y="122" fill="#9a9a9a" font-size="11" text-anchor="middle">用于检查风险，不用于保证择时</text>
+      <text x="380" y="177" fill="#8a8a8a" font-size="11" text-anchor="middle">从「预言机」切换成「仪表盘」，你已经避开了最常见的理解错误</text>
+    </svg>
+    <div class="cap">误区 vs 真相：VIX 能描述市场正在为多大的颠簸付保险费，却不能保证颠簸的方向与到达时间。</div>
+  </div>
+</section>
+
+<!-- 06 术语小词典 -->
+<section>
+  <h2><span class="num">06</span>术语小词典</h2>
+  <div class="sec-note">下次看到财经新闻，不必被一串缩写吓得比 VIX 还波动。</div>
+  <div class="card">
+    <table>
+      <thead><tr><th>术语</th><th>大白话解释</th></tr></thead>
+      <tbody>
+        <tr><td><b>VIX</b></td><td>由标普 500 指数期权价格推导出的、未来约 30 天预期波动指标；俗称「恐慌指数」。</td></tr>
+        <tr><td><b>隐含波动率</b></td><td>从期权市场价格倒推出来的「大家觉得未来会有多颠簸」，不是事后统计出来的实际波动。</td></tr>
+        <tr><td><b>看跌期权</b></td><td>一种按约定条件卖出的权利，常被用来给持仓买保护；避险需求上升时，其报价可能变贵。</td></tr>
+        <tr><td><b>看涨期权</b></td><td>一种按约定条件买入的权利；VIX 的计算并不只看跌期权，也使用看涨期权报价。</td></tr>
+        <tr><td><b>负相关</b></td><td>两件事常常朝相反方向走，例如股市下跌时 VIX 往往上升；不是永远绑定，也不是固定比例。</td></tr>
+        <tr><td><b>VIX 期货</b></td><td>围绕未来 VIX 水平定价的合约，不等于今天的 VIX 读数；相关产品的表现可能受合约结构影响。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 07 趣味小知识 -->
+<section>
+  <h2><span class="num">07</span>趣味小知识</h2>
+  <div class="sec-note">一个反常识的收尾：最「恐慌」的名字，量的却不只是恐慌。</div>
+  <div class="card">
+    <p class="quote">「恐慌指数」这个外号很抓人，却也容易误导：VIX 本质上衡量不确定性，甚至可以为波动交易本身提供观察窗口。换句话说，它不是华尔街的哭脸计数器，更像全市场围在一起讨论「下个月路会有多颠」时，那张不断变价的保险报价单。<a class="src" href="https://www.cmcmarkets.com/zh/indices/vix-volatility-index" target="_blank" rel="noopener noreferrer">查看来源</a></p>
+  </div>
+  <div class="verdict">
+    <div class="vcell"><div class="vt">适不适合你</div><div class="vb">适合想读懂市场情绪、检查自身风险的人；不适合想找「一个数字包管抄底逃顶」的人，更不宜在不了解结构时贸然交易相关衍生品。</div></div>
+    <div class="vcell"><div class="vt">今日一句话</div><div class="vb">VIX 不是告诉你雨一定会下多大，而是告诉你：市场此刻愿意为雨伞付多少钱。</div></div>
+  </div>
+</section>
+
+<footer>
+  数据来源：富途资讯 VIX 入门文章、Titan FX VIX 解读、CMC Markets VIX 说明、财联社投教文章、Phillip Nova VIX 市场情绪资料、英为财情 VIX 行情页；正文已附对应链接。本内容为 AI 整理的研究草稿，非投资建议。<br>
+  模板：冷门信息挖掘机 · 暗金风格（图文并茂版）· 自包含离线 HTML。
+</footer>
+</div>
+</body>
+</html
